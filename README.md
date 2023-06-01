@@ -397,83 +397,6 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Quick Start - Documentación oficial (en inglés)](https://reactrouter.com/en/main/start/tutorial)
 </p></details>
 
-### Vue
-
-- [ ] **Instancia de Vue.js**
-
-  <details><summary>Links</summary><p>
-
-  * [La instancia Vue - Documentación oficial](https://es.vuejs.org/v2/guide/instance.html)
-</p></details>
-
-- [ ] **Datos y métodos**
-
-  <details><summary>Links</summary><p>
-
-  * [Datos y Métodos - Documentación oficial](https://es.vuejs.org/v2/guide/instance.html#Datos-y-Metodos)
-</p></details>
-
-- [ ] **Uso y creación de componentes**
-
-  <details><summary>Links</summary><p>
-
-  * [Conceptos Básicos de Componentes - Documentación oficial](https://es.vuejs.org/v2/guide/components.html)
-</p></details>
-
-- [ ] **Props**
-
-  <details><summary>Links</summary><p>
-
-  * [Pasando datos a componentes secundarios con Props - Documentación oficial](https://es.vuejs.org/v2/guide/components.html#Pasando-datos-a-componentes-secundarios-con-Props)
-</p></details>
-
-- [ ] **Directivas (v-bind | v-model)**
-
-  <details><summary>Links</summary><p>
-
-  * [v-bind - Documentación oficial](https://es.vuejs.org/v2/api/#v-bind)
-  * [Binding en Formularios - Documentación oficial](https://es.vuejs.org/v2/guide/forms.html)
-</p></details>
-
-- [ ] **Iteración (v-for)**
-
-  <details><summary>Links</summary><p>
-
-  * [Mapeando una matriz a elementos con v-for - Documentación oficial](https://es.vuejs.org/v2/guide/list.html#Mapeando-una-matriz-a-elementos-con-v-for)
-</p></details>
-
-- [ ] **Eventos (v-on)**
-
-  <details><summary>Links</summary><p>
-
-  * [Manejo de eventos - Documentación oficial](https://es.vuejs.org/v2/guide/events.html)
-</p></details>
-
-- [ ] **Propiedades Computadas y Observadores**
-
-  <details><summary>Links</summary><p>
-
-  * [Propiedades Computadas y Observadores](https://es.vuejs.org/v2/guide/computed.html)
-</p></details>
-
-- [ ] **Routing**
-
-  <details><summary>Links</summary><p>
-
-  * [Getting Started - Documentación oficial de Vue Router](https://router.vuejs.org/guide/#html)
-</p></details>
-
-- [ ] **Clases y Estilos**
-
-  <details><summary>Links</summary><p>
-
-  * [Enlace Clases y Estilos - Documentación oficial](https://es.vuejs.org/v2/guide/class-and-style.html)
-</p></details>
-
-### Bases de datos
-
-- [ ] **Modelado de datos**
-
 ### Centrado en el usuario
 
 - [ ] **Diseñar y desarrollar un producto o servicio poniendo a las usuarias en el centro**
@@ -496,10 +419,17 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ## 4. Consideraciones
 
-Este proyecto se debe "resolver" en duplas y esta es una propuesta para que trabajes
-con el backend consumiendo esta
-[API](https://app.swaggerhub.com/apis-docs/ssinuco/BurgerQueenAPI/2.0.0)
+Este proyecto se debe "resolver" en duplas y puedes elegir entre
+estas tres opciones la manera en que trabajarás con el backend.
+
+1. Consumiendo una API que desarrollarán tus compañeras.
+2. Consumiendo esta
+[API](https://github.com/Laboratoria/burger-queen-api-mock)
 que desarrollamos para ti.
+3. Mockeando la API, puedes utilizar herramientas como
+[nock](https://github.com/nock/nock),
+[json-server](https://www.npmjs.com/package/json-server)
+o [mockoon](https://mockoon.com).
 
 El rango de tiempo estimado para completar el proyecto es de 3 a 5 Sprints.
 
