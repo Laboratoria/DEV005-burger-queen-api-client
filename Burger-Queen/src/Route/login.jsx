@@ -1,8 +1,6 @@
-import './App.css'
+import '../App.css'
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
     <><h1>Burger Queen</h1><section className="form">
       <h2>Inicio de Sesión</h2>
