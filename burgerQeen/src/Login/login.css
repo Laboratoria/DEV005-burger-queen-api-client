@@ -4,14 +4,19 @@
   flex-direction: column;
   border-radius: 30px;
   padding: 5%;
-  background-color: #dce3e8;
+  background-color: #E1DDDD;
   margin: 30px;
-
+  width: 33%;
+  height: 18%;
+  margin-top: -550px;
+  margin-left: 500px;
+  font-size: 30px;
 }
-.logo{
-  width: 30%;
-  height: 30%;
-padding: 5%;
+.logo{ 
+  width: 40%;
+  height: 75%;
+  padding: 5%;
+  
 }
     
   
