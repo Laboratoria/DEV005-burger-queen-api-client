@@ -6,12 +6,17 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import  Login  from "./Login/login.jsx";
+import Tables from "./waiter/tables.jsx";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Login />,
+  },
+  {
+    path:'/Tables',
+    element:<Tables />,
   },
 ]);
 
