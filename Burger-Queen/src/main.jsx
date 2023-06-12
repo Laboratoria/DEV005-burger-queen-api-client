@@ -1,14 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './Route/login.jsx'
+// import login from './Route/Login.jsx'
 import './index.css'
 import Waiter from './Route/waiter.jsx'
 import {createHashRouter, RouterProvider} from 'react-router-dom'
+import Login from './Route/Login.jsx'
 
 const router = createHashRouter([
   {
     path:'/',
-    element:<App />
+    element:<Login />
   },
   {
     path:'/waiter',

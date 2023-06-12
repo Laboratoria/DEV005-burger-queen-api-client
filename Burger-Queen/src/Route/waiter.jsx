@@ -2,6 +2,7 @@
     return <h2 style={{color:'white'}}> mesero nouyfgtyfct8rdc8ctrcf8rcifc8tcfi</h2>;
 } */
 import {Link} from "react-router-dom"
+// import { Button } from '../components/Button'
 
 export default function Route() {
     return <>
@@ -9,5 +10,7 @@ export default function Route() {
     <Link to='/'>
         salir
     </Link>
+  
     </>
+    
 }
