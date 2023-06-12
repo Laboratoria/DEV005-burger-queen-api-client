@@ -1,9 +1,18 @@
 
-.inputs-form {
-  background-color: #b7b4b493;
-  border-radius: 200px;
-}
+.inputs {
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  padding: 5%;
+  background-color: #dce3e8;
+  margin: 30px;
 
+}
+.logo{
+  width: 30%;
+  height: 30%;
+padding: 5%;
+}
     
   
   
