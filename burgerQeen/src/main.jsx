@@ -6,7 +6,9 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import  Login  from "./Login/login.jsx";
-import Tables from "./waiter/tables.jsx";
+import Client from "./waiter/client.jsx";
+import Menu from "./waiter/menu";
+
 
 
 const router = createBrowserRouter([
@@ -15,9 +17,13 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path:'/Tables',
-    element:<Tables />,
+    path:'/Client',
+    element:<Client />,
   },
+  {
+    path: '/Menu',
+    element:<Menu />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
