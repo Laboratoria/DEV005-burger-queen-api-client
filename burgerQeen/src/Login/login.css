@@ -1,10 +1,15 @@
-
+.logo{ 
+    width: 40%;
+    height: 75%;
+    padding: 5%; 
+  }
 .inputs {
   display: flex;
   flex-direction: column;
-  border-radius: 30px;
+  border-radius: 20px;
   padding: 5%;
   background-color: #E1DDDD;
+  opacity: 0.9;
   margin: 30px;
   width: 33%;
   height: 18%;
@@ -12,13 +17,48 @@
   margin-left: 500px;
   font-size: 30px;
 }
-.logo{ 
- 
-  width: 40%;
-  height: 75%;
-  padding: 5%;
-  
+.us{
+    display: flex;
+    background: white;
+    width: 94%;
+    max-width: 321px;
+    height: 45px;
+    border: none;
+    border-radius: 12px;
+    font-size: 21px;
+    padding-left: 5%;
+    justify-content: flex-start;
 }
-    
+.pas{
+    display: flex;
+    background: white;
+    width: 94%;
+    max-width: 321px;
+    height: 45px;
+    border: none;
+    border-radius: 12px;
+    font-size: 21px;
+    padding-left: 5%;
+    justify-content: flex-start;
+}
+
+.button-form {
+    padding: 5px;
+    color: #ffffff;
+    background-color: #133C8B;
+    transition: border-color 0.25s;
+    margin-top: 35px;
+    display: flex;
+    width: 100%;
+    max-width: 343px;
+    height: 45px;
+    border-radius: 12px;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 22px;
+    border: none;
+    align-items: center;
+    margin-bottom: 15px;
+  }
   
   

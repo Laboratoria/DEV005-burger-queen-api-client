@@ -4,12 +4,7 @@
   padding: 2rem;
   text-align: center;
 }
-button {
-  border-radius: 30px;
-  color: white;
-  cursor: pointer;
-  background-color:#133C8B;
-   }
+
 button:hover {
   border-color: #646cff;
 }
