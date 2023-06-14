@@ -1,0 +1,54 @@
+.vista2{
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 5%;
+    background-color: #E1DDDD;
+    opacity: 0.9;
+    margin: 30px;
+    width: 43%;
+    height: 382px;
+    margin-top: 104px;
+    margin-left: 190px;
+    font-size: 30px;
+}
+.goOut{
+    display: flex;
+    margin-top: -59%;
+    margin-left: 97%;
+}
+/* .client{
+    position: relative;
+    width: 95%;
+    height: 105px;
+
+} */
+
+.name{
+    display: flex;
+    background: white;
+    width: 79%;
+    height: 45px;
+    border: none;
+    border-radius: 12px;
+    font-size: 21px;
+    padding-left: 5%;
+    justify-content: flex-start;
+    margin-left: 9%;
+    margin-top: 6%;
+
+}
+.buttonNext{
+    display: flex;
+    margin-top: 61%;
+    margin-left: 82%;
+    color: #ffffff;
+    background-color: #133C8B;
+    border-radius: 12px;
+    font-size: 22px;
+    width: 15%;
+    height: 45px;
+    justify-content: center;
+    font-weight: bold;
+    align-items: center;
+}

@@ -4,14 +4,13 @@
     grid-template-columns: 200px 150px 200px; /* Define el número y el tamaño de las columnas */
     grid-template-rows: 100px 70px  100px 100px ; /* Define el número y el tamaño de las filas */
     grid-gap: 10px; /* Define el espacio entre las celdas */
+    
 }
-h1{
-    font-size: 100px;
-    grid-row: 1; /* Mueve el elemento a la fila */
-  grid-column: 4; /* Mueve el elemento  columna */
+.h1 {
+  font-size: 49px;
   position: relative;
-  top: -50px;
-  left: -150px;
+  top: 17px;
+  left: 39px;
 }
 
   h2{
@@ -72,11 +71,10 @@ h1{
     grid-column: 4; 
     width: 350px;
     height: 400px;
-    background-color: #b8c0cf;
+    background-color: #E1DDDD;
+    opacity: 0.9;
     opacity: .5;
     border-radius: 15px;
-   padding: 30px;
-
   }
 .coffee{ 
     grid-row: 3; 
@@ -130,11 +128,11 @@ h1{
     height: 100px;
     font-size: 10px;
     display: flex;
-    align-self: flex-end
+    align-self: flex-end;
     flex-direction: column;
     justify-content: flex-end;
-
 }
+
 
 
 
