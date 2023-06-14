@@ -1,0 +1,140 @@
+.grid-container {
+    padding: 3px;
+    display: grid;
+    grid-template-columns: 200px 150px 200px; /* Define el número y el tamaño de las columnas */
+    grid-template-rows: 100px 70px  100px 100px ; /* Define el número y el tamaño de las filas */
+    grid-gap: 10px; /* Define el espacio entre las celdas */
+}
+h1{
+    font-size: 100px;
+    grid-row: 1; /* Mueve el elemento a la fila */
+  grid-column: 4; /* Mueve el elemento  columna */
+  position: relative;
+  top: -50px;
+  left: -150px;
+}
+
+  h2{
+    grid-row: 2; 
+    grid-column: 1; 
+    font-size: 25PX;
+    color: rgb(252, 252, 252);
+    background-color: #133C8B;
+    width: 200px;
+    height: 45px;
+    border-radius: 20PX;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column-reverse;
+    
+
+  }
+  h3{
+    grid-row: 2; 
+    grid-column: 2; 
+    font-size: 25PX;
+    color: rgb(252, 252, 252);
+    background-color: #133C8B;
+    width: 200px;
+    height: 45px;
+    border-radius: 20PX;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column-reverse;
+    
+  }
+  .botton-cook{
+    grid-row: 5; 
+    grid-column: 5; 
+    width: 150px;
+    height: 50px;
+    position: relative;
+    top: 250px;
+    left: -200px;
+  }
+  .botton-back{
+    grid-row: 3; 
+    grid-column: 3; 
+    
+  }
+  p{
+    grid-row: 2; 
+    grid-column: 4; 
+    font-size: 24px;
+    position: relative;
+    left: 100px;
+    
+  }
+  .order{
+    grid-row: 3; 
+    grid-column: 4; 
+    width: 350px;
+    height: 400px;
+    background-color: #b8c0cf;
+    opacity: .5;
+    border-radius: 15px;
+   padding: 30px;
+
+  }
+.coffee{ 
+    grid-row: 3; 
+    grid-column: 1;
+    background-color: #b8c0cf;
+    opacity: .5;
+    color: #133C8B;
+    width: 100px;
+    height: 100px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    
+}
+
+.Caffe-milk{
+    grid-row: 3; 
+    grid-column: 1; 
+    background-color: #b8c0cf;
+    opacity: .5;
+    color: #133C8B;
+    width: 100px;
+    height: 100px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    
+}
+.Sandwich{
+    grid-row: 4; 
+    grid-column: 1; 
+    background-color: #b8c0cf;
+    opacity: .5;
+    color: #133C8B; width: 150px;
+    width: 100px;
+    height: 100px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.juice{
+    grid-row: 4; 
+    grid-column: 1; 
+    background-color: #b8c0cf;
+    opacity: .5;
+    color: #133C8B;
+    width: 100px;
+    height: 100px;
+    font-size: 10px;
+    display: flex;
+    align-self: flex-end
+    flex-direction: column;
+    justify-content: flex-end;
+
+}
+
+
+
