@@ -4,6 +4,18 @@
   padding: 2rem;
   text-align: center;
 }
+.h1 {
+  font-size: 49px;
+  position: relative;
+  top: 17px;
+  left: 39px;
+}
+button {
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  background-color:#133C8B;
+   }
 
 button:hover {
   border-color: #646cff;
