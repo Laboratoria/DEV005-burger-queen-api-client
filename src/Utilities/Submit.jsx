@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const chayanne = (goToAdmin, goToWaiter) => {
+export const handleSubmittion = (goToAdmin, goToWaiter) => {
   const handleSubmit = async (values, { resetForm }) => {
       const { email, password } = values;
       try {

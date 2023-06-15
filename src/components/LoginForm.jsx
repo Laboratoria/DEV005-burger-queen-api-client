@@ -4,7 +4,7 @@ import LabelText from "./Label";
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
 
-export const Forma = ({ validationSchema, luismi }) => {
+export const LoginForm = ({ validationSchema, submit }) => {
     return (
       <>
         <h1>Burger Queen</h1>
@@ -13,7 +13,7 @@ export const Forma = ({ validationSchema, luismi }) => {
           <Formik
             initialValues={{ email: "", password: "" }}
             validationSchema={validationSchema}
-            onSubmit={luismi}
+            onSubmit={submit}
           >
             <Form>
               <LabelText text="Correo Electrónico" />
@@ -21,9 +21,8 @@ export const Forma = ({ validationSchema, luismi }) => {
               <LabelText text="Contraseña" />
               <Input type="password" name="password" />
               <Button  text="Ingresar" />
-              <Link to="/admin"></Link>
-  
-              <Link to="/waiter"></Link>
+             {/*  <Link to="/admin"></Link>
+              <Link to="/waiter"></Link> */}
             </Form>
           </Formik>
         </section>

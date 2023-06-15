@@ -5,18 +5,17 @@ import "../App.css";
 // import { Input } from "../components/Input";
 // import LabelText from "../components/Label";
 // import { Button } from "../components/Button";
-import { validationSchema } from "../components/Validation";
+import { validationSchema } from "../Utilities/Validation";
 // import { Formik, Form } from "formik";
-import { useNavigation } from "../components/Direction";
-import { chayanne } from "../components/Submit";
-import { Forma } from "../components/Formation";
+import { useNavigation } from "../Utilities/Direction";
+import { handleSubmittion } from "../Utilities/Submit";
+import { LoginForm } from "../components/LoginForm";
 // import * as Yup from "yup";
 // import { useHistory } from "react-router-dom";
 
 function Login() {
-  // me lo
   const { goToAdmin, goToWaiter } = useNavigation();
-  const luismi = chayanne(goToAdmin, goToWaiter)
+  const submit = handleSubmittion(goToAdmin, goToWaiter)
   // const history = useHistory();
   /* const handleSubmit = async (values, { resetForm }) => {
     const { email, password } = values;
@@ -58,7 +57,7 @@ function Login() {
   }); */
 
      return (
-      <Forma validationSchema={validationSchema} luismi={luismi}></Forma>
+      <LoginForm validationSchema={validationSchema} submit={submit}></LoginForm>
      )
 
 /*   return (
