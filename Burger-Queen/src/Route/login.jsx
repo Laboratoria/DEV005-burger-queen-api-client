@@ -1,18 +1,24 @@
 import "../App.css";
 // import { Link } from "react-router-dom";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { Input } from "../components/Input";
-import LabelText from "../components/Label";
-import { Button } from "../components/Button";
-import { Formik, Form } from "formik";
-import * as Yup from "yup";
+// import { Link } from "react-router-dom";
+// import axios from "axios";
+// import { Input } from "../components/Input";
+// import LabelText from "../components/Label";
+// import { Button } from "../components/Button";
+import { validationSchema } from "../components/Validation";
+// import { Formik, Form } from "formik";
+import { useNavigation } from "../components/Direction";
+import { chayanne } from "../components/Submit";
+import { Forma } from "../components/Formation";
+// import * as Yup from "yup";
 // import { useHistory } from "react-router-dom";
 
 function Login() {
-  const navigate = useNavigate();
+  // me lo
+  const { goToAdmin, goToWaiter } = useNavigation();
+  const luismi = chayanne(goToAdmin, goToWaiter)
   // const history = useHistory();
-  const handleSubmit = async (values, { resetForm }) => {
+  /* const handleSubmit = async (values, { resetForm }) => {
     const { email, password } = values;
     try {
       const response = await axios.post("http://localhost:8080/login", {
@@ -25,9 +31,9 @@ function Login() {
       console.log('chayanne', accessToken);
       
       if (response.data.user.role === "admin") {
-        navigate("/admin");
+        goToAdmin();
       } else if (response.data.user.role === "waiter") {
-        navigate("/waiter");
+        goToWaiter();
       }
       resetForm();
     } catch (error) {
@@ -41,18 +47,21 @@ function Login() {
         console.error("Error: No se pudo conectar al servidor");
       }
     }
-  };
+  }; */
 
-  const validationSchema = Yup.object().shape({
+  // me lo llevo a Validation
+/*   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .email("Correo electrónico inválido")
       .required("Campo requerido"),
     password: Yup.string().required("Campo requerido"),
-  });
-  /* if (redirectTo) {
-    return <Redirect to={redirectTo} />;
-  } */
-  return (
+  }); */
+
+     return (
+      <Forma validationSchema={validationSchema} luismi={luismi}></Forma>
+     )
+
+/*   return (
     <>
       <h1>Burger Queen</h1>
       <section className="form">
@@ -60,7 +69,7 @@ function Login() {
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={validationSchema}
-          onSubmit={handleSubmit}
+          onSubmit={luismi}
         >
           <Form>
             <LabelText text="Correo Electrónico" />
@@ -75,7 +84,7 @@ function Login() {
         </Formik>
       </section>
     </>
-  );
+  ); */
 }
 export default Login;
 
