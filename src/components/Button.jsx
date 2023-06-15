@@ -1,5 +1,3 @@
-
-
   // eslint-disable-next-line react/prop-types
   export const Button = ({ onClick, text }) => {
     return (

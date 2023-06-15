@@ -2,7 +2,6 @@ import { Formik, Form } from "formik";
 import { Input } from "./Input";
 import LabelText from "./Label";
 import { Button } from "./Button";
-import { Link } from "react-router-dom";
 
 export const LoginForm = ({ validationSchema, submit }) => {
     return (
@@ -21,15 +20,10 @@ export const LoginForm = ({ validationSchema, submit }) => {
               <LabelText text="Contraseña" />
               <Input type="password" name="password" />
               <Button  text="Ingresar" />
-             {/*  <Link to="/admin"></Link>
-              <Link to="/waiter"></Link> */}
+         
             </Form>
           </Formik>
         </section>
       </>
     );
   };
-
-/*   return (
-    <button onClick={onClick}>{text}</button>
-  ); */
