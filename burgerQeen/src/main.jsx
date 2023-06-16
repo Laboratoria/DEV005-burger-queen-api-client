@@ -5,10 +5,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import  Login  from "./Login/login.jsx";
-import Client from "./waiter/client.jsx";
+import  Login from "./Login/login.jsx";
+import Admin from "./admi/admi";
 import Menu from "./waiter/menu";
-
+import { useNavigate } from "react-router-dom";
 
 
 const router = createBrowserRouter([
@@ -17,13 +17,13 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path:'/Client',
-    element:<Client />,
-  },
-  {
     path: '/Menu',
     element:<Menu />
-  }
+  },
+  {
+    path: '/Admin',
+    element:<Admin/>
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -31,3 +31,18 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
+
+export const useNavigation = () => {
+  const navigateOn = useNavigate();
+
+  const goToWaiter = () => {
+    navigateOn("/waiter");
+  };
+
+
+const goToAdmin = () => {
+    navigateOn("/admin");
+  };
+
+  return { goToWaiter, goToAdmin, };
+};
