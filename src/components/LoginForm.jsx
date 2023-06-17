@@ -3,7 +3,7 @@ import { handleSubmittion } from "../Utilities/Submit";
 import { useNavigation } from "../Utilities/Direction";
 import { Input } from "./Input";
 import LabelText from "./Label";
-import Button from "./Button";
+import Button  from "./Button";
 import { validationSchema } from "../Utilities/Validation";
 
 const LoginForm = () => {

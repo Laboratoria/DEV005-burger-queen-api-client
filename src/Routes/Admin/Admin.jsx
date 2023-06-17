@@ -1,14 +1,14 @@
 import "../../Style/admin.css";
-import {Link} from "react-router-dom"
-import  Button  from "../../components/Button"
+import Button from "../../components/Button";
+import Header from "../../components/Header";
+
 
 export default function Admin() {
-    return <>
-    <h2>Admin</h2>
-    <Link to='/'>
-    <Button onClick={onclick} text='Chayanne, Admin de mi <3'></Button>
-    </Link>
-  
-    </>
+    return <div className="buttonAdmin">
+    <Header prot="Grace" />
+    <Button className= "buttons" id="employees" text="Colaboradores" />
+    <Button className= "buttons" id="products" text="Productos" />
+  </div>
     
 }
+
