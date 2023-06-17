@@ -5,7 +5,7 @@
     );
   }; */
  
-const Button = ({ className= "buttons", onClick, type = "button", id = "", text = "Button" }) => (
+const Button = ({ className= "", onClick, type = "button", id = "", text = "Button" }) => (
   <button className={className} onClick={onClick} type={type} id={id}>
     {text}
   </button>
