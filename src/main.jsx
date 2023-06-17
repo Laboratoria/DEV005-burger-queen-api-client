@@ -1,11 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import login from './Route/Login.jsx'
 import "./index.css";
-import Waiter from "./Route/waiter.jsx";
-import Admin from "./Route/Admin";
+import Waiter from "./Routes/Waiter/waiter";
+import Admin from "./Routes/Admin/Admin";
 import { createHashRouter, RouterProvider } from "react-router-dom";
-import Login from "./Route/Login.jsx";
+import Login from "./Routes/login";
 
 const router = createHashRouter([
   {

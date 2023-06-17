@@ -1,9 +1,15 @@
 import { Formik, Form } from "formik";
+import { handleSubmittion } from "../Utilities/Submit";
+import { useNavigation } from "../Utilities/Direction";
 import { Input } from "./Input";
 import LabelText from "./Label";
-import { Button } from "./Button";
+import Button  from "./Button";
+import { validationSchema } from "../Utilities/Validation";
 
-export const LoginForm = ({ validationSchema, submit }) => {
+export const LoginForm = () => {
+  const { goToAdmin, goToWaiter } = useNavigation();
+  const submit = handleSubmittion(goToAdmin, goToWaiter);
+  
     return (
       <>
         <h1>Burger Queen</h1>
