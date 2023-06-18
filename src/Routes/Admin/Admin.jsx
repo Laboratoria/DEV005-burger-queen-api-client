@@ -4,11 +4,13 @@ import Header from "../../components/Header";
 
 
 export default function Admin() {
-    return <div className="buttonAdmin">
-    <Header prot="Grace" />
+    return <>
+    <Header prop="Grace" />
+    <div className="buttonAdmin">
     <Button className= "buttons" id="employees" text="Colaboradores" />
     <Button className= "buttons" id="products" text="Productos" />
   </div>
+  </>
     
 }
 

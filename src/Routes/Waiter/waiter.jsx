@@ -6,7 +6,7 @@ import Header from "../../components/Header";
 export default function Waiter() {
   return (
     <div className="buttonWaiter">
-      <Header prot="Juanita" />
+      <Header prop="Juanita" />
       <Button className= "buttons" id="break" text="Desayuno" />
       <Button className= "buttons" id="lunch" text="Almuerzo" />
       <Button className= "buttons" id="order" text="Pedidos" />

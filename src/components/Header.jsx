@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "./Button";
 
-const Header = ({ prot }) => {
+const Header = ({ prop }) => {
   return (
     <>
       <header className="header">
@@ -9,7 +9,7 @@ const Header = ({ prot }) => {
           <h1>Burger Queen</h1>
         </div>
         <div className="rigth">
-          {prot && <p>{prot}</p>}
+          {prop && <p>{prop}</p>}
           <Link to="/">
             <Button className="out" text="Salir" />
           </Link>

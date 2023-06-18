@@ -1,0 +1,22 @@
+.topBar {
+    display: flex;
+    justify-content: center;
+    margin-top: 6em;
+    align-items: center; 
+  }
+  
+  .topBar > * {
+    margin-left: 5em;
+  }
+  
+  .break {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    font-size: 1em;
+    background: #FBC54F;
+    width: 9em;
+    height: 3em;
+    border-radius: 20em;
+  }
+  

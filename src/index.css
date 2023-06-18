@@ -2,6 +2,7 @@ body {
   background: #1e1e1e;
   margin: 0;
   display: flex;
+  font-size: 1.3rem;
 }
 .header {
   background: black;
