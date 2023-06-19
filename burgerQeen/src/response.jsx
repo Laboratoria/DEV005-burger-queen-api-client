@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const handleSubmittion = (goToWaiter, goToCook, goToAdmin) => {
+export const handleSubmittion = (goToWaiter, goToAdmin) => {
      const handleSubmit = async (values, { resetForm }) => {
       const { email, password } = values;
       try {

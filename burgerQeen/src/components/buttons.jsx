@@ -1,5 +1,7 @@
-export const Button = ({ onClick, text }) => {
+// eslint-disable-next-line react/prop-types
+export default function  Button({ className, onClick, type, id, text }) {
     return (
-      <button onClick={onClick}>{text}</button>
+      <button className={className} onClick={onClick} type={type} id={id} >{text}</button>
     );
-  };
+  }
+ 
