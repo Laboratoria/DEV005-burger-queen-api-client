@@ -1,21 +1,16 @@
    import './login.css'
-   import { Link } from 'react-router-dom';
-   
+   import { useNavigation } from '../main'; 
+   import { validationSchema } from '../components/validation';
+   import { handleSubmittion } from "../response";
+   import { LoginDom } from '../dom/logindom';
+
+
    export default function Login() {
-    
-    return (
-     <> 
-       <img className="logo" src="/src/assets/Veggie.png"/>
- 
-     <div className="inputs">
-     <h1>Bienvenidos</h1> 
-     Usuario:<input className="us" type="email" placeholder="ejemplo@gmail.com" required/>
-     Contraseña: <input className="pas" type="password" placeholder='*********' required/>  
-     <Link to= '/Client'>    
-     <button className="button-form">Ingresar</button>
-     </Link>
-     </div>
-     </>
-     
-   );
-}
+
+    const {goToWaiter, goToAdmin} = useNavigation();
+    const submit = handleSubmittion(goToWaiter,  goToAdmin)
+    return(
+     <LoginDom validationSchema={validationSchema} submit={submit}></LoginDom>
+    )
+    }
+  
