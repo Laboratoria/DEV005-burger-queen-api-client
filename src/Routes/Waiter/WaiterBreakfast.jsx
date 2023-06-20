@@ -1,18 +1,22 @@
 import "../../Style/breakfast.css";
-import Button  from '../../components/Button'
+//import Button from "../../components/Button";
+import TopBar from "../../components/topBar";
 import Header from "../../components/Header";
-import {CounterMenu} from '../../components/CounterMenu'
+// import CounterMenu  from "../../components/CounterMenu";
+import Menu from "../../components/Menu";
+import UserOrder  from "../../components/userOrder";
+import Api  from "../../Utilities/Api";
 
 export default function Breakfast() {
-    return <>
-    <Header prop="Marta"/>
-  <div className="topBar">
-    <Button className="break" onClick={onclick} text='Desayuno'></Button>
-    <Button className="break"  onClick={onclick} text='Almuerzo'></Button>
-    <Button className="break"  onClick={onclick} text='Pedidos'></Button>
-    </div>
-
-    <CounterMenu/>
+  console.log(Api())
+  return (
+    <>
+      <><Header prop="Marta" /><TopBar /><div className="menuTable">
+      <Menu />
+    </div><div className="userOrder">
+        <UserOrder />
+      </div></>
     </>
-    
+
+  );
 }
