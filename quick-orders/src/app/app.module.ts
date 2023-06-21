@@ -1,16 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { login } from './components/login/login.component';
+import { LoginComponent } from './components/login/login.component';
+import { WaiterComponent } from './components/waiter/waiter.component';
+import { KitchenComponent } from './components/kitchen/kitchen.component';
+import { AdminComponent } from './components/admin/admin.component';
 
+// Crear constante de componentes 
 @NgModule({
   declarations: [
     AppComponent,
-    login
+    LoginComponent,
+    WaiterComponent,
+    KitchenComponent,
+    AdminComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

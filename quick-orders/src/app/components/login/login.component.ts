@@ -1,10 +1,10 @@
 import { Component } from "@angular/core";
 @Component ({
-    selector: 'loginBurger',
+    selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
 })
-export class login {
+export class LoginComponent {
     constructor(){
         console.log("Componente cargado");
     }
