@@ -12,9 +12,9 @@
                     </div>
                     <div class="loginGrid">
                         <img class="userLogin" src="./assets/Ellipse5.png" alt="user logo">
-                        <input class="userImput" type="email" placeholder="Correo">
-                        <input class="comentImput" type="text" placeholder="Contraseña">
-                        <button name="buttonInicio" class="button-info">Iniciar Sesión</button>
+                        <input class="userImput" type="email" placeholder="Correo" required="required">
+                        <input class="comentImput" type="password" placeholder="Contraseña" required="required">
+                        <button name="buttonInicio" class="button-info" (click)="login()">Iniciar Sesión</button>
                     </div>
                 </div>
             </div>
