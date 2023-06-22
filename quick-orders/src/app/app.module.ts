@@ -15,12 +15,12 @@ import { AdminComponent } from './components/admin/admin.component';
     LoginComponent,
     WaiterComponent,
     KitchenComponent,
-    AdminComponent
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
