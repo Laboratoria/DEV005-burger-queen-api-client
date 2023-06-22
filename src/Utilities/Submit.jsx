@@ -9,7 +9,7 @@ export const handleSubmittion = (goToAdmin, goToWaiter) => {
           password,
         });
         // <Link to="/admin"></Link>;
-  
+        localStorage.setItem('token', response.data.accessToken)
         const accessToken = response.data.accessToken;
         console.log('chayanne', accessToken);
         

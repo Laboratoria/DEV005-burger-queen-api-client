@@ -5,7 +5,7 @@ import Waiter from "./Routes/Waiter/waiter";
 import Admin from "./Routes/Admin/Admin";
 import Breakfast from "./Routes/Waiter/WaiterBreakfast";
 // import Order from "./Routes/Waiter/WaiterOrder";
-import { createHashRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, Navigate, RouterProvider } from "react-router-dom";
 import Login from "./Routes/login";
 import Order from "./Routes/Waiter/WaiterOrder";
 
@@ -30,7 +30,11 @@ const router = createHashRouter([
   {
     path: "/order",
     element: <Order />,
-  }
+  },
+  {
+    path: "/*",
+    element: <Navigate to="/" />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

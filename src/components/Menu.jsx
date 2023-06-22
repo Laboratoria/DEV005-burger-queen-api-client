@@ -1,45 +1,46 @@
-import CounterMenu from "./CounterMenu";
+/* import CounterMenu from "./CounterMenu";
+// import Api from "../Utilities/Api";
+// import { useState, useEffect } from "react";
 
 const Menu = () => {
-  const products = {
-    id: 1214,
-    name: "Sandwich de jamón y queso",
-    price: 1000,
-    type: "Desayuno",
-  };
-
   return (
-    <table>
-      <tr>
-        <th>{products.type}</th>
-        <th>Valor</th>
-        <th>Cantidad</th>
-      </tr>
-      <tr>
-        <td>{products.name}</td>
-        <td>${products.price}</td>
-        <CounterMenu />
-      </tr>
-    </table>
+    <>
+      <table>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>LuisMI</td>
+            <td>$10000</td>
+            <td>
+              <CounterMenu />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </>
   );
 };
-export default Menu;
+export default Menu; */
 
+/*   
+  Api();
+  const [productData, setProductData] = useState(null);
 
-{/* <table>
-  <tr>
-    <th>Header 1</th>
-    <th>Header 2</th>
-  </tr>
-  <tr>
-    <td>Data 1</td>
-    <td>Data 2</td>
-  </tr>
-</table>
- */}
-{
-  /*  <tr>{products.type}</tr>
-        <td>{products.name}</td>
-        <td> ${products.price}</td>
-        <td> <CounterMenu/> </td> */
-}
+  useEffect(() => {
+    const ProductData = async () => {
+      try {
+        const response = await Api(product);
+        setProductData(response);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    ProductData();
+  }, []); */

@@ -1,41 +1,90 @@
+import React, { useState } from "react";
+import CounterMenu from "./CounterMenu";
 import Button from "./Button";
 
- const UserOrder = () => {
+const UserOrder = ({ menu }) => {
+  const [selectedProducts, setSelectedProducts] = useState([]);
+
+  const handleProductQuantityChange = (productId, quantity) => {
+    const updatedProducts = selectedProducts.map((product) => {
+      if (product.id === productId) {
+        return { ...product, quantity };
+      }
+      return product;
+    });
+    setSelectedProducts(updatedProducts);
+  };
 
   return (
     <>
-    <table>
-    <tr>
-    <th>
-      <input type="text" placeholder="Cliente" />
-      </th>
-  </tr>
-       <tr>
-      <td>
-      <p>Cantidad </p>
-      <p>Producto</p>
-      <p>Valor total</p>
-      </td>
-      <td>Total $</td>
-      <td>
-      <Button className="btnUserOrder" text='Generar Pedido'></Button>
-      </td>
-      </tr>
-    </table>
-    
+      <table>
+        <tbody>
+          <tr>
+            <th>
+              <input type="text" placeholder="Cliente" />
+            </th>
+          </tr>
+          {selectedProducts.map((product) => (
+            <tr key={product.id}>
+              <td>
+                <p>{product.quantity}</p>
+                <p>{product.name}</p>
+              </td>
+              <td>
+              <CounterMenu
+                  product={product}
+                  onQuantityChange={handleProductQuantityChange}
+                />
+              </td>
+              <td>Total $</td>
+              <td>
+                <Button className="btnUserOrder" text="Generar Pedido" />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 };
 
-{/* <table>
-  <tr>
-    <th>Header 1</th>
-    <th>Header 2</th>
-  </tr>
-  <tr>
-    <td>Data 1</td>
-    <td>Data 2</td>
-  </tr>
-</table> */}
+export default UserOrder;
 
-export default UserOrder
+
+
+
+
+
+
+
+/*  const UserOrder = () => {
+
+  return (
+    <>
+ <table>
+  <tbody>
+    <tr>
+      <th>
+        <input type="text" placeholder="Cliente" />
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <p>Cantidad</p>
+        <p>Producto</p>
+        <p>Valor total</p>
+      </td>
+      <td>Total $</td>
+      <td>
+        <Button className="btnUserOrder" text="Generar Pedido" />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </>
+  );
+};
+
+
+export default UserOrder  */
