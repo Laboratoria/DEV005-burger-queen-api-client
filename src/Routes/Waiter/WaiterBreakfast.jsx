@@ -10,9 +10,21 @@ import UserOrder from "../../components/userOrder";
 import WaiterMenu from "../../Utilities/Api";
 
 export default function Breakfast() {
-  const [menu, setMenu] = useState([]);
+  return (
+    <>
+      <Header />
+      {/* <TopBar onMenuTypeChange={handleMenuType} /> */}
+        <WaiterMenu />
+ 
+      <div className="userOrder">
+        <UserOrder />
+      </div>
+    </>
+  );
+}
 
-  // Función para manejar el cambio de cantidad de productos
+/*   const [menu, setMenu] = useState([]);
+ // Función para manejar el cambio de cantidad de productos
   const handleProductQuantityChange = (productId, quantity) => {
     // Actualizar la cantidad del producto en el estado del menú
     const updatedMenu = menu.map((product) => {
@@ -22,21 +34,4 @@ export default function Breakfast() {
       return product;
     });
     setMenu(updatedMenu);
-  };
-  return (
-      <>
-        <Header prop="Marta" />
-        <TopBar />
-        <div className="menuTable">
-          <WaiterMenu
-            menuData={menu}
-            onProductQuantityChange={handleProductQuantityChange}
-          />
-        </div>
-        <div className="userOrder">
-          <UserOrder menu={menu} />
-        </div>
-      </>
- 
-  );
-}
+  }; */
