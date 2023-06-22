@@ -1,13 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-/*const httpOptions = {
-    headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'my-auth-token'
-    })
-};*/
-
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +9,9 @@ export class StoreService {
     this.getDataFromAPI();
   }
 
+  guardarToken(token: string) {
+    localStorage.setItem('token', token);
+  }
   getDataFromAPI() {
     this.http
     .post('http://localhost:8080/login', {
@@ -23,7 +19,9 @@ export class StoreService {
       password: '123456',
     })
     .subscribe((data: any) => {
-      console.log(data);
+      const token = data.accesstoken;
+      this.guardarToken(token);
     });
   }
+ 
 }
