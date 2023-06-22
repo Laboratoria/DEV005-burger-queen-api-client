@@ -3,7 +3,7 @@ import CounterMenu from "./CounterMenu";
 import Button from "./Button";
 
 const UserOrder = ({ menu }) => {
-  const [selectedProducts, setSelectedProducts] = useState([]);
+  /* const [selectedProducts, setSelectedProducts] = useState([]);
 
   const handleProductQuantityChange = (productId, quantity) => {
     const updatedProducts = selectedProducts.map((product) => {
@@ -13,11 +13,11 @@ const UserOrder = ({ menu }) => {
       return product;
     });
     setSelectedProducts(updatedProducts);
-  };
+  }; */
 
   return (
     <>
-      <table>
+    {/*   <table>
         <tbody>
           <tr>
             <th>
@@ -43,7 +43,7 @@ const UserOrder = ({ menu }) => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
     </>
   );
 };

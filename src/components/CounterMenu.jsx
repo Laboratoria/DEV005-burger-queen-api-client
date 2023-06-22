@@ -1,6 +1,37 @@
 import React, { useState } from "react";
 
-const CounterMenu = ({ product, onQuantityChange }) => {
+const CounterMenu = () => {
+  const [counter, setCounter] = useState(0);
+
+  const handleIncrement = () => {
+    setCounter(counter + 1);
+  };
+
+
+  const handleDecrement = () => {
+    if (counter > 0) {
+      setCounter(counter - 1);
+    }
+  };
+
+  const handleReset = () => {
+    setCounter(0);
+  };
+
+  return (
+    <section className="table">
+      <button onClick={handleIncrement}>➕</button>
+      <span>{counter}</span>
+      <button onClick={handleDecrement}>➖</button>
+      <button onClick={handleReset}>❌</button>
+    </section>
+  );
+};
+
+export default CounterMenu;
+
+
+/* const CounterMenu = ({ product, onQuantityChange }) => {
   const [counter, setCounter] = useState(0);
 
   const handleIncrement = () => {
@@ -22,19 +53,7 @@ const CounterMenu = ({ product, onQuantityChange }) => {
   const handleReset = () => {
     setCounter(0);
     onQuantityChange(product.id, 0);
-  };
-
-  return (
-    <section className="table">
-      <button onClick={handleIncrement}>➕</button>
-      <span>{counter}</span>
-      <button onClick={handleDecrement}>➖</button>
-      <button onClick={handleReset}>❌</button>
-    </section>
-  );
-};
-
-export default CounterMenu;
+  }; */
 
 
 /*  const CounterMenu = () => {

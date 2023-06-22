@@ -13,6 +13,9 @@ export const handleSubmittion = (goToAdmin, goToWaiter) => {
         const accessToken = response.data.accessToken;
         console.log('chayanne', accessToken);
         
+        const user = response.data.user; 
+        localStorage.setItem('email', user.email);
+
         if (response.data.user.role === "admin") {
           goToAdmin();
         } else if (response.data.user.role === "waiter") {

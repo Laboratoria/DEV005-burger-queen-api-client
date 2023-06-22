@@ -47,7 +47,7 @@ const Menu = ({ onProductQuantityChange }) => {
               <td>{product.name}</td>
               <td>${product.price}</td>
               <td>
-              <CounterMenu product={product} onQuantityChange={onProductQuantityChange} />
+              <CounterMenu /* product={product} onQuantityChange={onProductQuantityChange} */ />
 
               </td>
             </tr>
