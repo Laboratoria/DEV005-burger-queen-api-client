@@ -7,9 +7,9 @@ import {
 import "./index.css";
 import  Login from "./Login/login.jsx";
 import Admin from "./admi/admi";
-import Menu from "./waiter/menu";
+// import {Menu} from "./waiter/menu";
 import { useNavigate } from "react-router-dom";
-
+import Products from "./petitions/products";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/waiter',
-    element:<Menu />
+    element:<Products />
   },
   {
     path: '/Admin',
