@@ -9,9 +9,10 @@ const Products = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
+    // console.log("Token de acceso:", token);
     axios
       .get("http://localhost:8080/products", {
-        method: "GET",
+        // method: "GET",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -33,7 +34,9 @@ const Products = () => {
           <Button className="btn-almuerzo" text="Almuerzo" type="submit" />
         </div>
         <div className="container-productos">
-          {products.map((product) => (
+          {products.filter((product)=>{
+           return  product.type == "Desayuno"
+          }).map((product) => (
             <Menu {...product} />
           ))}
         </div>
