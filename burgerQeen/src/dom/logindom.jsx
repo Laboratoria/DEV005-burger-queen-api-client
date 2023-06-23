@@ -1,7 +1,7 @@
 import { Formik,  } from "formik";
 import Button from "../components/buttons";
 import { validationSchema } from "../components/validation";
-import { handleSubmittion } from "../response";
+import { handleSubmittion } from "../Petitions/response";
 import { useNavigation } from "../main";
 
 

@@ -9,6 +9,7 @@ export const handleSubmittion = (goToWaiter, goToAdmin) => {
           password,
         });
         const accessToken = response.data.accessToken;
+        localStorage.setItem ("accessToken",accessToken)
       console.log('petition', accessToken);
       
       if (response.data.user.role === "admin") {
