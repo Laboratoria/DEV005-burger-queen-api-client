@@ -22,17 +22,7 @@ import Button from '../components/buttons'
       <Link to='/'>
             <button className="botton-back">Atrás</button>
             </Link>
+    
     </>
     )
 }
-
-
-
-
-
-
-
-     
-            
-           
-
