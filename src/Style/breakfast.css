@@ -37,7 +37,7 @@ table {
 }
 
 .menuTable table {
-  background: red;
+  background: #d9d9d9;
   padding-bottom: 2vh;
 }
 
@@ -68,7 +68,6 @@ td {
 /* .menuTable > * {
   margin-left: 1em;
 } */
-} */
 
 /* revisar .useOrder cuando este lista la tabla de al lado (background deberia ser la combinacion entre la clase + table) */
 .userOrder {
@@ -77,12 +76,11 @@ td {
   background: #d9d9d9;
   width: 15em;
   height: 10em;
-  align-self: center;
 }
 
 .mainContentWaiter {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 1em;
 }
