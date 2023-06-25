@@ -3,11 +3,12 @@
   justify-content: center;
   margin-top: 6em;
   align-items: center;
+  gap: 2em;
 }
 
-.topBar > * {
+/* .topBar > * {
   margin-left: 5em;
-}
+} */
 
 .break {
   display: flex;
@@ -26,32 +27,61 @@
   justify-content: center;
   align-items: center;
 }
-.table > * {
+
+.table>* {
   margin-left: 1em;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.menuTable table {
+  background: red;
+  padding-bottom: 2vh;
 }
 
 .menuTable {
   margin-top: 2em;
-  margin-left: 2em;
-/*   padding: 1em; */
-  background: #d9d9d9;
-  width: 25em;
-  height: 10em;
-}
-th{
-  color: white;
-  background: #4974E3;
-  width: 100%;
-}
-.menuTable > * {
-  margin-left: 1em;
+  /*   padding: 1em; */
 }
 
-.userOrder{
+th {
+  color: white;
+  padding-top: 1vh;
+  padding-left: 1.2vw;
+  padding-right: 1.2vw;
+  padding-bottom: 1vh;
+}
+
+.menuTable th {
+  background: #4974E3;
+}
+
+td {
+  padding-top: 1vh;
+  padding-left: 1.2vw;
+  padding-right: 1.2vw;
+  padding-bottom: 2vh;
+}
+
+/* .menuTable > * {
+  margin-left: 1em;
+} */
+
+/* revisar .useOrder cuando este lista la tabla de al lado (background deberia ser la combinacion entre la clase + table) */
+.userOrder {
   margin-top: 2em;
-  margin-left: 2em;
-/*   padding: 1em; */
-background: #d9d9d9;
+  /*   padding: 1em; */
+  background: #d9d9d9;
   width: 15em;
   height: 10em;
+  align-self: center;
+}
+
+.mainContentWaiter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1em;
 }

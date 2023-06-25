@@ -1,0 +1,17 @@
+.tableOrder th {
+    background: #4974E3;
+}
+
+.tableOrder table {
+    background: #d9d9d9;
+    padding-bottom: 2vh;
+}
+
+.tableOrder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+    gap: 1em;
+
+}

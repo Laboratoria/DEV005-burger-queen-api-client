@@ -24,9 +24,10 @@ export default function Breakfast() {
     setMenu(updatedMenu);
   };
   return (
-      <>
-        <Header prop="Marta" />
-        <TopBar />
+    <>
+      <Header prop="Marta" />
+      <TopBar />
+      <div className="mainContentWaiter">
         <div className="menuTable">
           <WaiterMenu
             menuData={menu}
@@ -36,7 +37,8 @@ export default function Breakfast() {
         <div className="userOrder">
           <UserOrder menu={menu} />
         </div>
-      </>
- 
+      </div>
+    </>
+
   );
 }
