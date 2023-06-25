@@ -1,8 +1,9 @@
 import axios from "axios";
 import CounterMenu from "../components/CounterMenu";
 import React, { useEffect, useState } from "react";
+import TopBar from "../components/topBar";
 
-const Api = async () => {
+const ApiProducts = async () => {
   try {
     const token = localStorage.getItem("token");
     const response = await axios.get("http://localhost:8080/products", {
@@ -16,21 +17,10 @@ const Api = async () => {
     return MENU;
   } catch (error) {
     console.error(error);
-    return [];
   }
 };
 
-const Menu = ({ onProductQuantityChange }) => {
-  const [menu, setMenu] = useState([]);
-
-  useEffect(() => {
-    const data = async () => {
-      const menuData = await Api();
-      setMenu(menuData);
-    };
-    data();
-  }, []);
-
+const Menu = ({ menu, selectedMenu }) => {
   return (
     <>
       <table>
@@ -42,13 +32,12 @@ const Menu = ({ onProductQuantityChange }) => {
           </tr>
         </thead>
         <tbody>
-          {menu.map((product) => (
+          {getMenuItems(menu, selectedMenu).map((product) => (
             <tr key={product.id}>
               <td>{product.name}</td>
               <td>${product.price}</td>
               <td>
-              <CounterMenu /* product={product} onQuantityChange={onProductQuantityChange} */ />
-
+                <CounterMenu />
               </td>
             </tr>
           ))}
@@ -57,9 +46,41 @@ const Menu = ({ onProductQuantityChange }) => {
     </>
   );
 };
-
+const getMenuItems = (menu, selectedMenu) => {
+    if (selectedMenu === 'desayuno') {
+      return menu.filter((product) => product.type === 'Desayuno');
+    } else if (selectedMenu === 'almuerzo') {
+      return menu.filter((product) => product.type === 'Almuerzo');
+    }
+    return [];
+  };
 
 export default function WaiterMenu() {
-    return <Menu />;
+  const [menu, setMenu] = useState([]);
+  const [selectedMenu, setSelectedMenu] = useState('desayuno');
+
+  useEffect(() => {
+    const data = async () => {
+      const menuData = await ApiProducts();
+      setMenu(menuData);
+    };
+    data();
+  }, []);
+
+  const handleMenuType = (menuType) => {
+    setSelectedMenu(menuType);
+  };
+
+  return (
+    <>
+     <div>
+      <TopBar onMenuTypeChange={handleMenuType} />
+      </div>
+      <div className="menuTable">
+      <Menu menu={menu} selectedMenu={selectedMenu} />
+      </div>
+    </>
+  );
 }
+
 
