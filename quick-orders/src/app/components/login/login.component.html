@@ -12,8 +12,9 @@
                     </div>
                     <div class="loginGrid">
                         <img class="userLogin" src="./assets/Ellipse5.png" alt="user logo">
-                        <input class="userImput" type="email" placeholder="Correo" required="required">
-                        <input class="comentImput" type="password" placeholder="Contraseña" required="required">
+                        <input class="userImput" type="email" [(ngModel)] ="email" placeholder="Correo" required="required">
+                        <div class="errorMessage" *ngIf ="emailInvalid">The email address you entered is invalid</div>
+                        <input class="comentImput" type="password" [(ngModel)] ="password" placeholder="Contraseña" required="required">
                         <button name="buttonInicio" class="button-info" (click)="login()">Iniciar Sesión</button>
                     </div>
                 </div>

@@ -49,8 +49,7 @@ h1{
 
 .loginGrid{
     display: grid;
-    grid-template-rows: 200px 90px 90px 90px;
-    
+    grid-template-rows: 200px 70px 70px 70px 70px;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -59,7 +58,7 @@ h1{
 }
 
 input{
-    height: 50%;
+    height: 70%;
     width: 400px;
     text-align: center;
     font-family: 'Oxygen', sans-serif;
@@ -88,3 +87,11 @@ input{
     background-color: #F2884b;
 }
 
+.errorMessage {
+    position: relative;
+    height: 20%;
+    width: 400px;
+    top: 0;
+    bottom: 0;
+    color: antiquewhite;
+}

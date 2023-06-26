@@ -1,21 +1,34 @@
-import { Component } from "@angular/core";
-import { StoreService } from "src/app/services/store.service";
+import { Component, OnInit } from "@angular/core";
+import { Input } from "@angular/core";
 import { AuthService } from "src/app/services/auth.service";
 import { UsersService } from "src/app/services/users.service";
 import { Router } from "@angular/router";
-import { HttpHeaders } from "@angular/common/http";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  
+  token = '';
+  @Input() emailInvalid: boolean;
+  @Input() email: string;
+  @Input() password: string;
+  
   constructor(
     private authService: AuthService,
     private usersService: UsersService,
     private router: Router,
-  ) { }
+    
+  ) { 
+    this.email = '';
+    this.password = '';
+    this.emailInvalid = false;
+  }
+
+  ngOnInit() {
+  }
 
   createUser(){
     this.usersService.create({
@@ -28,28 +41,36 @@ export class LoginComponent {
   }
 
   login(){
-    this.authService.login('grace.hopper@systers.xyz', '123456')
+    const { email, password } = this.getCredentials();
+    this.authService.login(email, password)
     .subscribe(rta => {
       console.log(rta.accessToken);
-      // localStorage(rta.accessToken)
+      this.token = rta.accessToken;
       this.router.navigateByUrl('/waiter');
-      
+      this.getProfile();
     })
+    if (!this.isValidEmail(this.email)) {
+      this.emailInvalid = true;
+    }
   }
 
-  getProfile(token: string) {
-    let headers = new HttpHeaders();
-    headers = headers.set('Authorization', `Bearer ${token}`);
-    headers = headers.set('Content-type', 'application/json');
+  isValidEmail(email: string): boolean {
+    const regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z]{2,4})$/;
+    return regex.test(email);
+  }
+
+  getCredentials() {
+    return {
+      email: this.email,
+      password: this.password 
+    };
+  }
+
+  getProfile() {
+    this.authService.profile(this.token)
+    .subscribe(profile=> {
+      console.log(profile)
+    });
   }
 
 }
-
-/*constructor(private route: ActivatedRoute) { }
-
-ngOnInit() {
-  this.route.paramMap.subscribe(params => {
-    const datosUsuario = params.get('datosUsuario');
-    // Utiliza los datos del usuario según sea necesario
-  });
-}*/
