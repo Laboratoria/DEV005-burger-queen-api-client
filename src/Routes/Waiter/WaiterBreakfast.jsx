@@ -12,12 +12,15 @@ import WaiterMenu from "../../Utilities/Api";
 export default function Breakfast() {
   return (
     <>
-      <Header />
-      {/* <TopBar onMenuTypeChange={handleMenuType} /> */}
-        <WaiterMenu />
- 
-      <div className="userOrder">
-        <UserOrder />
+        <Header />
+        {/* <TopBar onMenuTypeChange={handleMenuType} /> */}
+      <div className="mainContentWaiter">
+        <div>
+          <WaiterMenu />
+          <div className="userOrder">
+          <UserOrder />
+        </div>
+        </div>
       </div>
     </>
   );
@@ -34,4 +37,26 @@ export default function Breakfast() {
       return product;
     });
     setMenu(updatedMenu);
+<<<<<<< HEAD
+  };
+  return (
+    <>
+      <Header prop="Marta" />
+      <TopBar />
+      <div className="mainContentWaiter">
+        <div className="menuTable">
+          <WaiterMenu
+            menuData={menu}
+            onProductQuantityChange={handleProductQuantityChange}
+          />
+        </div>
+        <div className="userOrder">
+          <UserOrder menu={menu} />
+        </div>
+      </div>
+    </>
+
+  );
+}
+=======
   }; */

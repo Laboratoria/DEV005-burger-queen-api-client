@@ -1,54 +1,75 @@
-
-.buttonWaiter{
-    display: flex;
-    flex-direction: row;
-    margin-left: 5em;
-   ;
+.buttonWaiter {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5em;
+  ;
 }
-.buttonWaiter > * {
-    margin-right: 1em;
-  }
+
+.buttonWaiter>* {
+  margin-right: 1em;
+}
 
 .buttons {
-    align-items: center;
-    background: #FBC54F;
-    margin-top: 10rem;
-    width: 20em;
-    height: 40em;
-    border-radius: 44px
-  }
+  align-items: center;
+  background: #FBC54F;
+  margin-top: 10rem;
+  width: 20em;
+  height: 40em;
+  border-radius: 44px
+}
 
-  #lunch{
-    position: relative;
-  }
-  #lunch::after {
-    content: "";
-    background-image: url(../assets/Almuerzo.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-  }
-  
-  #order{
-    position: relative;
-  }
-  #order::after {
-    content: "";
-    background-image: url(../assets/Pedidos.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-  }
-  
+#break {
+  position: relative;
+}
+
+#break::after {
+  content: "";
+  background-image: url(../assets/Desayuno.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  position: absolute;
+  background-size: cover;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 44px;
+}
+
+#lunch {
+  position: relative;
+}
+
+#lunch::after {
+  content: "";
+  background-image: url(../assets/Almuerzo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+#order {
+  position: relative;
+}
+
+#order::after {
+  content: "";
+  background-image: url(../assets/Pedidos.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}

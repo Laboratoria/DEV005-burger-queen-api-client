@@ -1,16 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import "../../Style/order.css";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
+
 
 
 function HeaderNewOrderTable({ order }) {
   return (
     <tr>
-      <th>ID: {order.id} </th>
-      <th>Cliente: {order.client} </th>
-      <th>Fecha de entrada: {order.dataEntry} </th>
+      <th>ID: {order.id} _____ Cliente: {order.client} _____ {order.dataEntry}</th>
     </tr>
   );
 }
@@ -18,15 +17,14 @@ function HeaderNewOrderTable({ order }) {
 function NewOrderItem({ product }) {
   return (
     <tr key={product.product.id}>
-      <td>{product.product.name}</td>
-      <td>x{product.qty}</td>
+      <td>x{product.qty} __ {product.product.name}</td>
     </tr>
   );
 }
 
 function NewOrderTable({ orders }) {
   return (
-    <div>
+    <div className="tableOrder">
       {orders.map((order) => (
         <div key={order.id}>
           <table>
@@ -54,7 +52,6 @@ function BtnMenu() {
     </div>
   )
 }
-
 
 function MainContent({ orders }) {
   return (
