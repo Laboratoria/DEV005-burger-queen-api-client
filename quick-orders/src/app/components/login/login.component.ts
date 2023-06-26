@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Input } from "@angular/core";
 import { AuthService } from "src/app/services/auth.service";
 import { UsersService } from "src/app/services/users.service";
 import { Router } from "@angular/router";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -12,23 +12,29 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   
   token = '';
-  @Input() emailInvalid: boolean;
-  @Input() email: string;
-  @Input() password: string;
+  authForm: FormGroup;
+  isSubmitted  =  false;
   
   constructor(
     private authService: AuthService,
     private usersService: UsersService,
     private router: Router,
+    private formBuilder: FormBuilder,
     
-  ) { 
-    this.email = '';
-    this.password = '';
-    this.emailInvalid = false;
-  }
+  ) { this.authForm  =  this.formBuilder.group({
+    email: ['', Validators.required],
+    password: ['', Validators.required]
+  });
+}
 
   ngOnInit() {
+    this.authForm  =  this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
+
+  get formControls() { return this.authForm.controls; }
 
   createUser(){
     this.usersService.create({
@@ -41,36 +47,11 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    const { email, password } = this.getCredentials();
-    this.authService.login(email, password)
-    .subscribe(rta => {
-      console.log(rta.accessToken);
-      this.token = rta.accessToken;
-      this.router.navigateByUrl('/waiter');
-      this.getProfile();
-    })
-    if (!this.isValidEmail(this.email)) {
-      this.emailInvalid = true;
+    this.isSubmitted = true;
+    if(this.authForm.invalid){
+      return; 
+    };
+    this.authService.login(this.authForm.value.email, this.authForm.value.password)
+    this.router.navigateByUrl('/waiter');
     }
   }
-
-  isValidEmail(email: string): boolean {
-    const regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z]{2,4})$/;
-    return regex.test(email);
-  }
-
-  getCredentials() {
-    return {
-      email: this.email,
-      password: this.password 
-    };
-  }
-
-  getProfile() {
-    this.authService.profile(this.token)
-    .subscribe(profile=> {
-      console.log(profile)
-    });
-  }
-
-}

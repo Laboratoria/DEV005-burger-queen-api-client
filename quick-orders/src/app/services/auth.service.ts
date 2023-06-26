@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse, HttpResponseBase, HttpStatusCode } from '@angular/common/http';
 import { Auth } from '../models/auth.model';
 import { User } from '../models/user.model';
 
@@ -19,7 +19,17 @@ export class AuthService {
       email: email,
       password: password
     };
-    return this.http.post<Auth>(`${this.apiURL}/login`, body);
+    const request = this.http.post<Auth>(`${this.apiURL}/login`, body);
+    request.subscribe((rta) => {
+      if(rta.status === 200) {
+        localStorage.setItem('ACCESS_TOKEN', rta.accessToken);
+      }
+    });
+    return localStorage.getItem('ACCESS_TOKEN') !== null;
+  }
+
+  public logout(){
+    localStorage.removeItem('ACCESS_TOKEN');
   }
 
   profile(token:string) {
