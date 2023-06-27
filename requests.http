@@ -1,0 +1,10 @@
+POST    http://localhost:8080/products/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY4Nzg5Njk4MiwiZXhwIjoxNjg3OTAwNTgyLCJzdWIiOiIyIn0.fzlBuJHBbwhy007gUhbzGn9VNv6TjZ4AAhOTIjby7-w
+
+{
+  "name": "Jugo de fruta",
+  "price": 7,
+  "image": "src/assets/jugo.png",
+  "type": "Desayuno"
+}
