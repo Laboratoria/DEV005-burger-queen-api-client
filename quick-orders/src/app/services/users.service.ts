@@ -8,17 +8,18 @@ import { User, CreateUserDTO } from '../models/user.model';
 })
 export class UsersService {
 
-  private apiURL = 'http://localhost:8080/users';
+  private apiURL = 'http://localhost:8080';
 
   constructor(
     private http: HttpClient
   ) { }
 
  create(dto: CreateUserDTO) {
-    return this.http.post<User>(this.apiURL, dto);
+    return this.http.post<User>(`${this.apiURL}/users`, dto);
  }
  getAll(){
-  return this.http.get<User[]>(this.apiURL);
+  return this.http.get<User[]>(`${this.apiURL}/users`);
  }
 
 }
+

@@ -9,7 +9,6 @@ import { User } from '../models/user.model';
 export class AuthService {
 
   private apiURL = 'http://localhost:8080';
-
   constructor(
     private http: HttpClient
   ) { }
@@ -19,7 +18,8 @@ export class AuthService {
       email: email,
       password: password
     };
-    const request = this.http.post<Auth>(`${this.apiURL}/login`, body);
+    return this.http.post<Auth>(`${this.apiURL}/login`, body); 
+    /*const request = this.http.post<Auth>(`${this.apiURL}/login`, body);
     request.subscribe((rta) => {
       if(rta.status === 200) {
         localStorage.setItem('ACCESS_TOKEN', rta.accessToken);
@@ -29,14 +29,15 @@ export class AuthService {
   }
 
   public logout(){
-    localStorage.removeItem('ACCESS_TOKEN');
+    localStorage.removeItem('ACCESS_TOKEN');*/
   }
 
+  // Quiero obtener el profile con el token que me hayan asignado
   profile(token:string) {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization',`Bearer ${token}`);
     headers = headers.set('Content-type', 'application/json');
-    return this.http.get<User>(`${this.apiURL}/profile`, {
+    return this.http.get<User>(`${this.apiURL}/users`, {
       headers
     });
   }
