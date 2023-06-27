@@ -10,16 +10,20 @@ const TopBar = ({ onMenuTypeChange }) => {
 
   return (
     <div className="topBar">
+        <NavLink to= "/breakfast">
       <Button
         className="break"
         text="Desayuno"
         onClick={() => handleButtonClick('desayuno')}
       />
+      </NavLink>
+      <NavLink to= "/breakfast">
       <Button
         className="break"
         text="Almuerzo"
         onClick={() => handleButtonClick('almuerzo')}
       />
+      </NavLink>
       <NavLink to= "/order">
       <Button
         className="break"

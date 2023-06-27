@@ -5,10 +5,14 @@ import Waiter from "./Routes/Waiter/waiter";
 import Admin from "./Routes/Admin/Admin";
 import Chef from "./Routes/Chef/Chef"
 import Breakfast from "./Routes/Waiter/WaiterBreakfast";
+import  ChefOrder  from "./Routes/Chef/ChefOrder";
+import ChefService  from "./Routes/Chef/ChefService";
 // import Order from "./Routes/Waiter/WaiterOrder";
 import { createHashRouter, Navigate, RouterProvider } from "react-router-dom";
 import Login from "./Routes/login";
 import Order from "./Routes/Waiter/WaiterOrder";
+import AdminEmployees from "./Routes/Admin/AdminEmployees";
+import AdminProducts from "./Routes/Admin/AdminProducts";
 
 
 const router = createHashRouter([
@@ -21,10 +25,6 @@ const router = createHashRouter([
     element: <Waiter />,
   },
   {
-    path: "/admin",
-    element: <Admin />,
-  },
-  {
     path: "/breakfast",
     element: <Breakfast />,
   },
@@ -35,6 +35,26 @@ const router = createHashRouter([
   {
     path: "/chef",
     element: <Chef />,
+  },
+  {
+    path: "/cheforder",
+    element: <ChefOrder />,
+  },
+  {
+    path: "/service",
+    element: <ChefService />,
+  },
+  {
+    path: "/admin",
+    element: <Admin />,
+  },
+  {
+    path: "/employes",
+    element: <AdminEmployees />,
+  },
+  {
+    path: "/products",
+    element: <AdminProducts />,
   },
   {
     path: "/*",
