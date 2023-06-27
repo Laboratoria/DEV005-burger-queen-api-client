@@ -49,7 +49,7 @@ const router = createHashRouter([
     element: <Admin />,
   },
   {
-    path: "/employes",
+    path: "/employees",
     element: <AdminEmployees />,
   },
   {

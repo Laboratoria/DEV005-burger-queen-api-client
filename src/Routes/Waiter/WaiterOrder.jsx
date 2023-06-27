@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "../../Style/order.css";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -46,9 +47,24 @@ function NewOrderTable({ orders }) {
 function BtnMenu() {
   return (
     <div className="topBar">
-      <Button className="break" onClick={onclick} text='Desayuno'></Button>
-      <Button className="break" onClick={onclick} text='Almuerzo'></Button>
-      <Button className="break" onClick={onclick} text='Pedidos'></Button>
+          <NavLink to= "/breakfast">
+      <Button
+        className="break"
+        text="Desayuno"
+      />
+      </NavLink>
+      <NavLink to= "/breakfast">
+      <Button
+        className="break"
+        text="Almuerzo"
+      />
+      </NavLink>
+      <NavLink to= "/order">
+      <Button
+        className="break"
+        text="Pedidos"
+      />
+      </NavLink>
     </div>
   )
 }
