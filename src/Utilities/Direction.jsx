@@ -10,6 +10,9 @@ export const useNavigation = () => {
   const goToWaiter = () => {
     navigate("/waiter");
   };
+  const goToChef = () => {
+    navigate("/chef");
+  };
 
-  return { goToAdmin, goToWaiter };
+  return { goToAdmin, goToWaiter, goToChef};
 };

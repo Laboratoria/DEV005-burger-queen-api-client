@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const handleSubmittion = (goToAdmin, goToWaiter) => {
+export const handleSubmittion = (goToAdmin, goToWaiter, goToChef) => {
   const handleSubmit = async (values, { resetForm }) => {
       const { email, password } = values;
       try {
@@ -17,9 +17,11 @@ export const handleSubmittion = (goToAdmin, goToWaiter) => {
         localStorage.setItem('email', user.email);
 
         if (response.data.user.role === "admin") {
-          goToAdmin();
+          goToChef();
         } else if (response.data.user.role === "waiter") {
           goToWaiter();
+        }else if (response.data.user.role === "chef") {
+          goToChef();
         }
         resetForm();
       } catch (error) {

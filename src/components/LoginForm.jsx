@@ -7,8 +7,8 @@ import Button  from "./Button";
 import { validationSchema } from "../Utilities/Validation";
 
 const LoginForm = () => {
-  const { goToAdmin, goToWaiter } = useNavigation();
-  const submit = handleSubmittion(goToAdmin, goToWaiter);
+  const { goToAdmin, goToWaiter, goToChef } = useNavigation();
+  const submit = handleSubmittion(goToAdmin, goToWaiter, goToChef);
 
   return (
     <div className="login">

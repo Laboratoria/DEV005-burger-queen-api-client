@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Waiter from "./Routes/Waiter/waiter";
 import Admin from "./Routes/Admin/Admin";
+import Chef from "./Routes/Chef/Chef"
 import Breakfast from "./Routes/Waiter/WaiterBreakfast";
 // import Order from "./Routes/Waiter/WaiterOrder";
 import { createHashRouter, Navigate, RouterProvider } from "react-router-dom";
@@ -30,6 +31,10 @@ const router = createHashRouter([
   {
     path: "/order",
     element: <Order />,
+  },
+  {
+    path: "/chef",
+    element: <Chef />,
   },
   {
     path: "/*",
