@@ -23,7 +23,7 @@ const Products = () => {
       })
       .then((response) => {
         setProducts(response.data);
-        console.log("Mostrando los productos");
+        console.log(response);
       })
       .catch((error) => {
         console.error(error);
