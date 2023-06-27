@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Button from "../components/buttons";
 import { Menu } from "../waiter/menu";
+import { Link } from 'react-router-dom';
 //import FilterBtn from "../components/filter-btn";
 
 const Products = () => {
@@ -22,7 +23,7 @@ const Products = () => {
       })
       .then((response) => {
         setProducts(response.data);
-        console.log("Mostrando los productos");
+        console.log(response);
       })
       .catch((error) => {
         console.error(error);
@@ -39,7 +40,6 @@ const Products = () => {
     <>
       <div className="container-menu">
         <h1>Menú</h1>
-        <div className="containerBtn">
           <Button
             className="btn-desayuno"
             text="Desayuno"
@@ -52,24 +52,33 @@ const Products = () => {
             type="submit"
             onClick={() => handleMenuSelection("almuerzo")}
           />
+          <Link to='/'>
+            <button className="botton-back">Atrás</button>
+            </Link>
         </div>
         <div className="container-productos">
           {filteredProducts.map((product) => (
             <Menu key={product.id} {...product} />
           ))}
         </div>
-      </div>
+        <article>
+            <p>Orden</p>
+        <input type="text" /> Cliente
+        </article>
     </>
+    
   );
+  
 };
 
-const getMenuItems = (menu, selectedMenu) => {
+function getMenuItems(menu, selectedMenu) {
   if (selectedMenu === "desayuno") {
     return menu.filter((product) => product.type === "Desayuno");
   } else if (selectedMenu === "almuerzo") {
     return menu.filter((product) => product.type === "Almuerzo");
   }
   return [];
-};
+}
+
 
 export default Products;

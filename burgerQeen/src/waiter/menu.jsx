@@ -18,11 +18,7 @@ import Button from '../components/buttons'
         </div>
            <Button className="btnAdd" text="Agregar"></Button>
        </div>
-      </div> 
-      <Link to='/'>
-            <button className="botton-back">Atrás</button>
-            </Link>
-    
+      </div>    
     </>
     )
 }
