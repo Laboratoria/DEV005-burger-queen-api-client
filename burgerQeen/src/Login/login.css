@@ -3,22 +3,19 @@
   height: 75%;
   padding: 5%; 
 }
-/* .h1 {
-  font-size: 49px;
-  position: relative;
-  top: 17px;
-  left: 39px;
-} */
+
 .inputs {
   display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
     border-radius: 20px;
     padding: 4%;
     background-color: #E1DDDD;
     opacity: 0.9;
-    margin: 30px;
-    width: 36%;
-    height: 405px;
+    width: 30%;
+    height: 250px;
     margin-top: -538px;
     margin-left: 500px;
     font-size: 30px;
@@ -26,29 +23,29 @@
 .us{
   display: flex;
   background: white;
-  width: 94%;
+  width: 180%;
   max-width: 321px;
   height: 45px;
   border: none;
   border-radius: 12px;
-  font-size: 21px;
+  font-size: 10px;
   padding-left: 5%;
   justify-content: flex-start;
 }
 .pas{
   display: flex;
   background: white;
-  width: 94%;
+  width: 180%;
   max-width: 321px;
   height: 45px;
   border: none;
   border-radius: 12px;
-  font-size: 21px;
+  font-size: 10px;
   padding-left: 5%;
   justify-content: flex-start;
 }
 
-.button-form {
+.btn-login {
   padding: 5px;
   color: #ffffff;
   background-color: #133C8B;
@@ -57,7 +54,7 @@
   display: flex;
   width: 100%;
   max-width: 343px;
-  height: 45px;
+  height: 40px;
   border-radius: 12px;
   justify-content: center;
   font-weight: bold;

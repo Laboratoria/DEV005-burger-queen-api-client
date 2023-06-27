@@ -1,5 +1,5 @@
 import './menu.css'
-import {Link} from "react-router-dom"
+
 import './menu.css'
 import Button from '../components/buttons'
 
@@ -8,6 +8,7 @@ import Button from '../components/buttons'
     return(
         <>
         <div className="cardProduct">
+           
             <div className="productName">{products.name}
         </div>
            <div className="imgProduct">
@@ -18,11 +19,9 @@ import Button from '../components/buttons'
         </div>
            <Button className="btnAdd" text="Agregar"></Button>
        </div>
-      </div> 
-      <Link to='/'>
-            <button className="botton-back">Atrás</button>
-            </Link>
-    
+       </div>
+     
+      
     </>
     )
 }
