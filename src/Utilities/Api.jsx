@@ -13,14 +13,16 @@ const ApiProducts = async () => {
       },
     });
 
+
     const MENU = response.data;
+    localStorage.setItem('products', JSON.stringify(response.data));
     return MENU;
   } catch (error) {
     console.error(error);
   }
 };
 
-const Menu = ({ menu, selectedMenu }) => {
+const Menu = ({ menu, selectedMenu, addToOrder}) => {
   return (
     <>
       <table>
@@ -37,7 +39,7 @@ const Menu = ({ menu, selectedMenu }) => {
               <td>{product.name}</td>
               <td>${product.price}</td>
               <td>
-                <CounterMenu />
+              <CounterMenu product={product} addToOrder={addToOrder} />
               </td>
             </tr>
           ))}
@@ -58,6 +60,13 @@ const getMenuItems = (menu, selectedMenu) => {
 export default function WaiterMenu() {
   const [menu, setMenu] = useState([]);
   const [selectedMenu, setSelectedMenu] = useState('desayuno');
+  const [orderItems, setOrderItems] = useState([]);
+
+  const addToOrder = (product, quantity) => {
+    const item = { ...product, quantity };
+    setOrderItems([...orderItems, item]);
+    localStorage.setItem("orderItems", JSON.stringify([...orderItems, item]));
+  };
 
   useEffect(() => {
     const data = async () => {
@@ -77,7 +86,7 @@ export default function WaiterMenu() {
       <TopBar onMenuTypeChange={handleMenuType} />
       </div>
       <div className="menuTable">
-      <Menu menu={menu} selectedMenu={selectedMenu} />
+      <Menu menu={menu} selectedMenu={selectedMenu} addToOrder={addToOrder}  />
       </div>
     </>
   );
