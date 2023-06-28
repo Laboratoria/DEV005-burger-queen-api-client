@@ -2,16 +2,29 @@ import "../../Style/breakfast.css";
 import Header from "../../components/Header";
 import UserOrder from "../../components/userOrder";
 import WaiterMenu from "../../Utilities/Api";
+import { useState } from "react";
 
 export default function Breakfast() {
+  const [orderItems, setOrderItems] = useState([]);
+  const [customerName, setCustomerName] = useState('');
   return (
     <>
         <Header />
       <div className="mainContentWaiter">
         <div>
-          <WaiterMenu />
+        <WaiterMenu
+            orderItems={orderItems}
+            setOrderItems={setOrderItems}
+            customerName={customerName}
+            setCustomerName={setCustomerName}
+          />
           <div className="userOrder">
-          <UserOrder />
+          <UserOrder
+              orderItems={orderItems}
+              setOrderItems={setOrderItems}
+              customerName={customerName}
+              setCustomerName={setCustomerName}
+            />
         </div>
         </div>
       </div>

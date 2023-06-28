@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 // Mostrar la orden del usuario
-const UserOrder = () => {
-  const [orderItems, setOrderItems] = useState([]);
-  const [customerName, setCustomerName] = useState('');
-
+const UserOrder = ({ orderItems, setOrderItems, customerName, setCustomerName }) => {
   useEffect(() => {
-    // Traer los productos
     const storedOrderItems = localStorage.getItem('orderItems');
     if (storedOrderItems) {
       try {
@@ -16,7 +12,7 @@ const UserOrder = () => {
         console.error('Error parsing JSON:', error);
       }
     }
-  }, []);
+  }, [setOrderItems]);
   
   // Generar la orden
   const handleGenerateOrder = () => {
@@ -33,14 +29,15 @@ const UserOrder = () => {
 
   return (
     <div className="userOrder">
-      <h2>Orden</h2>
-      <ShowOrder orderItems={orderItems} />
+  
+      
           <input
             type="text"
             value={customerName}
             onChange={(e) => setCustomerName(e.target.value)}
             placeholder="Nombre del cliente"
           />
+          <ShowOrder orderItems={orderItems} />
       {orderItems.length === 0 ? (
         <p>No hay productos seleccionados.</p>
       ) : (

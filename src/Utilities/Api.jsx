@@ -57,15 +57,14 @@ const getMenuItems = (menu, selectedMenu) => {
     return [];
   };
 
-export default function WaiterMenu() {
+export default function WaiterMenu({ orderItems, setOrderItems })  {
   const [menu, setMenu] = useState([]);
   const [selectedMenu, setSelectedMenu] = useState('desayuno');
-  const [orderItems, setOrderItems] = useState([]);
-
+ 
   const addToOrder = (product, quantity) => {
     const item = { ...product, quantity };
     setOrderItems([...orderItems, item]);
-    localStorage.setItem("orderItems", JSON.stringify([...orderItems, item]));
+    localStorage.setItem('orderItems', JSON.stringify([...orderItems, item]));
   };
 
   useEffect(() => {
