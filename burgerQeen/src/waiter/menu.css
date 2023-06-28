@@ -50,7 +50,7 @@ grid-row: 2;
 .container-productos{
   display: flex;
   justify-content: flex-start;
-  padding-left: 30px;
+  padding-left: 31px;
   flex-wrap: wrap;
 }
 .productName{
