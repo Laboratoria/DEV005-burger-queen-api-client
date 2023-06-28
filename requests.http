@@ -1,10 +1,10 @@
-POST    http://localhost:8080/products/ HTTP/1.1
+POST http://localhost:8080/products/ HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY4Nzg5Njk4MiwiZXhwIjoxNjg3OTAwNTgyLCJzdWIiOiIyIn0.fzlBuJHBbwhy007gUhbzGn9VNv6TjZ4AAhOTIjby7-w
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY4Nzk1ODU3NCwiZXhwIjoxNjg3OTYyMTc0LCJzdWIiOiIyIn0.CCK5H0i4ovAXlNUs7i_ki9uAsS86l4aDeUF-17oOxoU
 
 {
-  "name": "Jugo de fruta",
+  "name": "Jugo de frutas natural",
   "price": 7,
-  "image": "src/assets/jugo.png",
+  "image": "src/assets/frutas.png",
   "type": "Desayuno"
 }

@@ -39,6 +39,10 @@ const Products = () => {
   return (
     <>
       <div className="container-menu">
+        <article>
+      <p id="order">Orden</p>
+        <input type="text" id="client"/> Cliente
+        </article> 
         <h1>Menú</h1>
           <Button
             className="btn-desayuno"
@@ -61,10 +65,8 @@ const Products = () => {
             <Menu key={product.id} {...product} />
           ))}
         </div>
-        <article>
-            <p>Orden</p>
-        <input type="text" /> Cliente
-        </article>
+       
+      
     </>
     
   );
