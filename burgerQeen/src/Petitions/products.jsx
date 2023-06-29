@@ -39,10 +39,10 @@ const Products = () => {
   return (
     <>
       <div className="container-menu">
-      <article>
-            <p id='order'>Orden</p>
-            Cliente<input id="client" type="text" /> 
-        </article>
+        <article>
+      <p id="order">Orden</p>
+        <input type="text" id="client"/> Cliente
+        </article> 
         <h1>Menú</h1>
           <Button
             className="btn-desayuno"
@@ -65,7 +65,8 @@ const Products = () => {
             <Menu key={product.id} {...product} />
           ))}
         </div>
-        
+       
+      
     </>
     
   );

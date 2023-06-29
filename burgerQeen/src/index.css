@@ -10,7 +10,7 @@ h1 {
 
 body {
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 128vh;
   background-color: #FDFE74;
   color: #133C8B;
   font-family: 'Karma';
@@ -29,6 +29,48 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+.botton-back{
+  background-color: #133C8B;
+  position: absolute;
+  left: 39px;
+  top: 61px;
+  width: 9%;
+  height: 36px;
+}
+.btnAdd{
+  background-color: #133C8B;
+  display: grid;
+  width: 90%;
+  height: 33px;
+  margin-top: -63px;
+  align-items: center;
+}
+.btn-login{
+  background-color: #133C8B;
+  position: relative;
+  width: 115%;
+  max-width: 321px;
+  height: 47px;
+  border: none;
+  border-radius: 12px;
+  font-size: 21px;
+  padding-left: 5%;
+  top: 30px;
+  left: 13px;
+}
 
 
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #133C8B;
   
+  }
+  
+}
