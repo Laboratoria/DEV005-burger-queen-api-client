@@ -1,4 +1,27 @@
 import axios from "axios";
+
+const ApiProducts = async () => {
+  try {
+    const token = localStorage.getItem("token");
+    const response = await axios.get("http://localhost:8080/products", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    });
+
+    const MENU = response.data;
+    localStorage.setItem('products', JSON.stringify(response.data));
+    return MENU;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export default ApiProducts;
+
+
+/* import axios from "axios";
 import CounterMenu from "../components/CounterMenu";
 import React, { useEffect, useState } from "react";
 import TopBar from "../components/topBar";
@@ -48,6 +71,7 @@ const Menu = ({ menu, selectedMenu, addToOrder}) => {
     </>
   );
 };
+
 const getMenuItems = (menu, selectedMenu) => {
     if (selectedMenu === 'desayuno') {
       return menu.filter((product) => product.type === 'Desayuno');
@@ -62,9 +86,18 @@ export default function WaiterMenu({ orderItems, setOrderItems })  {
   const [selectedMenu, setSelectedMenu] = useState('desayuno');
  
   const addToOrder = (product, quantity) => {
-    const item = { ...product, quantity };
-    setOrderItems([...orderItems, item]);
-    localStorage.setItem('orderItems', JSON.stringify([...orderItems, item]));
+    const existingItemIndex = orderItems.findIndex((item) => item.id === product.id);
+  
+    const updatedItems = [...orderItems];
+  
+    if (existingItemIndex !== -1) {
+      quantity > 0 ? (updatedItems[existingItemIndex].quantity = quantity) : updatedItems.splice(existingItemIndex, 1);
+    } else if (quantity > 0) {
+      updatedItems.push({ ...product, quantity: 1 });
+    }
+  
+    setOrderItems(updatedItems);
+    localStorage.setItem('orderItems', JSON.stringify(updatedItems));
   };
 
   useEffect(() => {
@@ -92,3 +125,4 @@ export default function WaiterMenu({ orderItems, setOrderItems })  {
 }
 
 
+ */

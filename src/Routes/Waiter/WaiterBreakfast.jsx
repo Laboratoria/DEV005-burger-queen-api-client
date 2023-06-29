@@ -1,7 +1,7 @@
 import "../../Style/breakfast.css";
 import Header from "../../components/Header";
 import UserOrder from "../../components/userOrder";
-import WaiterMenu from "../../Utilities/Api";
+import WaiterMenu from "../../Utilities/WaiterMenu";
 import { useState } from "react";
 
 export default function Breakfast() {

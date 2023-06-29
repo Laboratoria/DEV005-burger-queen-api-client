@@ -1,39 +1,37 @@
 import React, { useState } from "react";
 
 const CounterMenu = ({ product, addToOrder }) => {
-  const [Quantity, setdQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(0);
 
   const handleIncrement = () => {
-    setdQuantity(Quantity + 1);
+    setQuantity(quantity + 1);
+    addToOrder(product, quantity + 1); // Agrega el producto a la orden
   };
 
   const handleDecrement = () => {
-    if (Quantity > 0) {
-      setdQuantity(Quantity - 1);
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+      addToOrder(product, quantity - 1); // Actualiza la cantidad del producto en la orden
     }
   };
 
-  const handleReset = () => {
-    setdQuantity(0);
-  };
-
-  const handleAddToOrder = () => {
-    addToOrder(product, Quantity);
-    setdQuantity(0);
+  const handleRemove = () => {
+    setQuantity(0);
+    addToOrder(product, 0); // Elimina el producto de la orden
   };
 
   return (
-    <section className="table">
-      <button onClick={handleIncrement}>➕</button>
-      <span>{Quantity}</span>
+    <div className="counterMenu">
       <button onClick={handleDecrement}>➖</button>
-      <button onClick={handleReset}>❌</button>
-      <button onClick={handleAddToOrder}>Agregar</button>
-    </section>
+      <span>{quantity}</span>
+      <button onClick={handleIncrement}>➕</button>
+      <button onClick={handleRemove}>❌</button>
+    </div>
   );
 };
 
 export default CounterMenu;
+
 
 /* import React, { useState } from "react";
 
