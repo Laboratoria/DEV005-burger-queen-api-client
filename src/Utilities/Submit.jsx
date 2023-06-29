@@ -17,7 +17,7 @@ export const handleSubmittion = (goToAdmin, goToWaiter, goToChef) => {
         localStorage.setItem('email', user.email);
 
         if (response.data.user.role === "admin") {
-          goToChef();
+          goToAdmin();
         } else if (response.data.user.role === "waiter") {
           goToWaiter();
         }else if (response.data.user.role === "chef") {
