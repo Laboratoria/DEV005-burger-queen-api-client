@@ -39,6 +39,10 @@ const Products = () => {
   return (
     <>
       <div className="container-menu">
+      <article>
+            <p id='order'>Orden</p>
+            Cliente<input id="client" type="text" /> 
+        </article>
         <h1>Menú</h1>
           <Button
             className="btn-desayuno"
@@ -53,7 +57,7 @@ const Products = () => {
             onClick={() => handleMenuSelection("almuerzo")}
           />
           <Link to='/'>
-            <button className="botton-back">Atrás</button>
+            <img src="/src/assets/flecha.png" alt="" className='botton-back' />
             </Link>
         </div>
         <div className="container-productos">
@@ -61,10 +65,7 @@ const Products = () => {
             <Menu key={product.id} {...product} />
           ))}
         </div>
-        <article>
-            <p>Orden</p>
-        <input type="text" /> Cliente
-        </article>
+        
     </>
     
   );
