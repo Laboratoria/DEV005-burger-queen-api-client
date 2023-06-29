@@ -36,7 +36,7 @@ body {
 
 .header:before {
   content: "";
-  background-image: url(../src/assets/LogoBurger.png);
+  background-image: url(../assets/LogoBurger.png);
   background-repeat: no-repeat;
   background-size: contain;
   transform: rotate(45deg);
