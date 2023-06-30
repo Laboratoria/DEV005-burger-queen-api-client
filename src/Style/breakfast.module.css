@@ -38,17 +38,11 @@
   padding-bottom: 2vh;
 }
 
-.tableBreakfast {
-/*   margin-top: 0.5rem; */
-  /*   padding: 1em; */
-}
-
 .tableBreakfast th {
-  background: #4974E3;
+  background: #37415A;
 }
 
 .menuTable table {
-  background-color: #fbc54f;
   border-collapse: collapse;
   align-self: center;
 }
@@ -68,38 +62,56 @@
   background: #4974E3;
 }
 
-/* .menuTable > * {
-  margin-left: 1em;
-} */
-
-/* revisar .useOrder cuando este lista la tabla de al lado (background deberia ser la combinacion entre la clase + table) */
-/* .userOrder {
-  margin-top: 2em; */
-  /*   padding: 1em; */
-/*   background: #d9d9d9;
-  width: 15em;
-  height: 10em;
-} */
-
-.userOrder{
-  background-color: blue;
-  display: flex;
-  
-}
-
 .tableBreakfast{
   display: flex;
-  background-color: red;
   justify-content: center;
   margin-bottom: 1rem;
 }
 
 .menuTable {
-  background-color: aqua;
   display: flex;
   justify-content: center;
 }
 
-.inputClientName {
+.orderSection{
+  background-color: #d9d9d9;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+}
 
+.inputClientName{
+  background-color: #37415A;
+  width: 100%;
+}
+
+.inputClientName input {
+  margin-left: 1vw;
+}
+
+td button {
+  margin-left: 0.8rem;
+}
+
+td span {
+  margin-left: 0.8rem;
+}
+
+.right {
+  text-align: right;
+}
+
+.center{
+  text-align: center;
+}
+
+.bold{
+  font-weight: bolder;
+}
+
+.green {
+  background-color: #5CB46C;
+  margin-bottom: 1rem;
 }

@@ -25,7 +25,7 @@ const LoginForm = () => {
             <Input type="email" name="email" />
             <LabelText text="Contraseña" />
             <Input type="password" name="password" />
-            <Button id={LoginCSS["btnLogin"]} text="Ingresar" />
+            <Button className={`${LoginCSS.green} button`} text="Ingresar" />
           </Form>
         </Formik>
       </section>
