@@ -5,6 +5,14 @@ body {
   font-size: 1.3rem;
   font-family: sans-serif;
 }
+
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .header {
   background: black;
   color: white;
@@ -17,6 +25,7 @@ body {
   top: 0;
   left: 0;
 }
+
 .header h1 {
   margin-left: 1em;
 }
@@ -29,10 +38,6 @@ body {
   align-items: center;
   gap: 2rem;
 }
-
-/* .rigth > * {
-  margin-right: 1em;
-} */
 
 .header:before {
   content: "";
@@ -59,4 +64,43 @@ button.out {
 
 p {
   font-size: 1.7rem;
+}
+
+input {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  border-radius: 2rem;
+  padding: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+label {
+  font-size: 1.8rem;
+}
+
+div.error-message {
+  color: white;
+  background-color: #C21D13;
+  padding: 0.3rem;
+  margin-bottom: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  color: white;
+  padding-top: 1vh;
+  padding-left: 1.2vw;
+  padding-right: 1.2vw;
+  padding-bottom: 1vh;
+}
+
+td {
+  padding-top: 1vh;
+  padding-left: 1.2vw;
+  padding-right: 1.2vw;
+  padding-bottom: 2vh;
 }

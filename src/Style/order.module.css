@@ -1,0 +1,80 @@
+.tableOrder th {
+    background: #4974E3;
+}
+
+.tableOrder table {
+    background: #d9d9d9;
+    padding-bottom: 2vh;
+}
+
+.tableOrder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+    gap: 1em;
+}
+
+.topBar {
+    display: flex;
+    justify-content: center;
+    margin-top: 6em;
+    align-items: center;
+    gap: 2em;
+}
+
+.break {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    background: #fbc54f;
+    width: 9em;
+    height: 3em;
+    border-radius: 20em;
+}
+
+.table {
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table>* {
+    margin-left: 1em;
+}
+
+.menuTable table {
+    background: #d9d9d9;
+    padding-bottom: 2vh;
+}
+
+.menuTable {
+    margin-top: 2em;
+    /*   padding: 1em; */
+}
+
+.menuTable th {
+    background: #4974E3;
+}
+
+/* .menuTable > * {
+    margin-left: 1em;
+  } */
+
+/* revisar .useOrder cuando este lista la tabla de al lado (background deberia ser la combinacion entre la clase + table) */
+.userOrder {
+    margin-top: 2em;
+    /*   padding: 1em; */
+    background: #d9d9d9;
+    width: 15em;
+    height: 10em;
+}
+
+.mainContentWaiter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}

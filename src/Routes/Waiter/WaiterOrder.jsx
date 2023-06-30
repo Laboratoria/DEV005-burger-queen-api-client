@@ -1,6 +1,6 @@
+import OrderCSS from "../../Style/order.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "../../Style/order.css";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
 import { NavLink } from "react-router-dom";
@@ -25,7 +25,7 @@ function NewOrderItem({ product }) {
 
 function NewOrderTable({ orders }) {
   return (
-    <div className="tableOrder">
+    <div className={OrderCSS.tableOrder}>
       {orders.map((order) => (
         <div key={order.id}>
           <table>
@@ -46,22 +46,22 @@ function NewOrderTable({ orders }) {
 
 function BtnMenu() {
   return (
-    <div className="topBar">
+    <div className={OrderCSS.topBar}>
           <NavLink to= "/breakfast">
       <Button
-        className="break"
+        className={OrderCSS.break}
         text="Desayuno"
       />
       </NavLink>
       <NavLink to= "/breakfast">
       <Button
-        className="break"
+        className={OrderCSS.break}
         text="Almuerzo"
       />
       </NavLink>
       <NavLink to= "/order">
       <Button
-        className="break"
+        className={OrderCSS.break}
         text="Pedidos"
       />
       </NavLink>

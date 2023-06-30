@@ -1,10 +1,3 @@
-#root {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .login::before {
   content: "";
   position: fixed;
@@ -59,22 +52,3 @@
   font-size: 1.3rem;
 }
 
-input {
-  font-size: 1.3rem;
-  margin-top: 1rem;
-  border-radius: 2rem;
-  padding: 0.5rem;
-  margin-bottom: 1.2rem;
-}
-
-label {
-  font-size: 1.8rem;
-}
-
-div.error-message {
-  color: white;
-  background-color: #C21D13;
-  padding: 0.3rem;
-  margin-bottom: 1.2rem;
-  margin-top: 0.5rem;
-}

@@ -1,3 +1,4 @@
+import BreakfastCSS from "../Style/breakfast.module.css";
 import React, { useEffect, useState } from "react";
 import TopBar from "../../src/components/topBar";
 import Api from "./Api";
@@ -39,7 +40,7 @@ export default function WaiterMenu({ orderItems, setOrderItems }) {
       <div>
         <TopBar onMenuTypeChange={handleMenuType} />
       </div>
-      <div className="menuTable">
+      <div className={BreakfastCSS.menuTable}>
         <MenuTable menu={menu} selectedMenu={selectedMenu} addToOrder={addToOrder} />
       </div>
     </>

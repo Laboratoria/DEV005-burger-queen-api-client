@@ -1,3 +1,4 @@
+import LoginCSS from "../Style/login.module.css";
 import { Formik, Form } from "formik";
 import { handleSubmittion } from "../Utilities/Submit";
 import { useNavigation } from "../Utilities/Direction";
@@ -11,9 +12,9 @@ const LoginForm = () => {
   const submit = handleSubmittion(goToAdmin, goToWaiter, goToChef);
 
   return (
-    <div className="login">
+    <div className={LoginCSS.login}>
       <h1>Burger Queen</h1>
-      <section className="form">
+      <section className={LoginCSS.form}>
         <h2>Inicio de Sesión</h2>
         <Formik
           initialValues={{ email: "", password: "" }}
@@ -24,7 +25,7 @@ const LoginForm = () => {
             <Input type="email" name="email" />
             <LabelText text="Contraseña" />
             <Input type="password" name="password" />
-            <Button id="btnLogin" text="Ingresar" />
+            <Button id={LoginCSS["btnLogin"]} text="Ingresar" />
           </Form>
         </Formik>
       </section>
