@@ -40,15 +40,7 @@
   margin: 1em;
 }
 
-#btnLogin {
+.green {
   background-color: #5CB46C;
-  margin-top: 1rem;
-  color: white;
-  border-radius: 5em;
-  padding-left: 4rem;
-  padding-right: 4rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  font-size: 1.3rem;
 }
 

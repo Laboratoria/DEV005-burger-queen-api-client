@@ -88,6 +88,7 @@ div.error-message {
 
 table {
   border-collapse: collapse;
+  width: ;
 }
 
 th {
@@ -103,4 +104,15 @@ td {
   padding-left: 1.2vw;
   padding-right: 1.2vw;
   padding-bottom: 2vh;
+}
+
+.button {
+  margin-top: 1rem;
+  color: white;
+  border-radius: 5em;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.3rem;
 }

@@ -29,71 +29,75 @@ const UserOrder = ({ orderItems, setOrderItems, customerName, setCustomerName })
   };
 
   // Generar la orden
-const handleGenerateOrder = async () => {
-  if (!customerName) {
-    console.error("Debe ingresar el nombre del cliente");
-    return;
-  }
-
-  const orderData = {
-    userId: 1,
-    client: customerName,
-    products: orderItems.map((order) => ({
-      qty: order.quantity,
-      product: {
-        id: order.id,
-        name: order.name,
-        price: order.price,
-        typeFood: order.typeFood,
-        dateEntry: order.dateEntry,
-      },
-    })),
-    status: "pending",
-    dataEntry: new Date().toISOString(),
-  };
-
-  try {
-    const token = localStorage.getItem("token");
-    const response = await axios.post(
-      "http://localhost:8080/orders",
-      orderData,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
-        },
-      }
-    );
-
-    console.log(orderData);
-    if (response.status === 201) {
-      console.log("Pedido enviado exitosamente");
-    } else {
-      console.error("Error al enviar el pedido:", response.status);
+  const handleGenerateOrder = async () => {
+    if (!customerName) {
+      console.error("Debe ingresar el nombre del cliente");
+      return;
     }
-  } catch (error) {
-    console.error("Error de red:", error);
-  }
 
-  setOrderItems([]);
-  localStorage.removeItem("orderItems");
-  setCustomerName("");
-};
+    const orderData = {
+      userId: 1,
+      client: customerName,
+      products: orderItems.map((order) => ({
+        qty: order.quantity,
+        product: {
+          id: order.id,
+          name: order.name,
+          price: order.price,
+          typeFood: order.typeFood,
+          dateEntry: order.dateEntry,
+        },
+      })),
+      status: "pending",
+      dataEntry: new Date().toISOString(),
+    };
+
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.post(
+        "http://localhost:8080/orders",
+        orderData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+
+      console.log(orderData);
+      if (response.status === 201) {
+        console.log("Pedido enviado exitosamente");
+      } else {
+        console.error("Error al enviar el pedido:", response.status);
+      }
+    } catch (error) {
+      console.error("Error de red:", error);
+    }
+
+    setOrderItems([]);
+    localStorage.removeItem("orderItems");
+    setCustomerName("");
+  };
 
 
   return (
-    <div className="orderSection">
-    <input
-      type="text"
-      id="customerName"
-      value={customerName}
-      onChange={(e) => setCustomerName(e.target.value)}
-      placeholder="Cliente"
-    />
-    <ShowOrder orderItems={orderItems} />
-    <button onClick={handleGenerateOrder}>Generar Pedido</button>
-  </div>
-  
+    <div className={BreakfastCSS.orderSection}>
+      <div className={BreakfastCSS.inputClientName}>
+        <input
+          type="text"
+          id="customerName"
+          value={customerName}
+          onChange={(e) => setCustomerName(e.target.value)}
+          placeholder="Cliente"
+        />
+      </div>
+      <ShowOrder orderItems={orderItems} />
+      <div>
+        <button className={`${BreakfastCSS.green} button`} onClick={handleGenerateOrder}>Generar Pedido</button>
+      </div>
+    </div>
+
   );
 };
 
@@ -124,8 +128,8 @@ const ShowOrder = ({ orderItems }) => {
         </tbody>
         <tfoot>
           <tr>
-            <td colSpan="2">Total:</td>
-            <td>${calculateTotalPrice()}</td>
+            <td className={`${BreakfastCSS.right} ${BreakfastCSS.bold}`} colSpan="2">Total:</td>
+            <td className={BreakfastCSS.bold} >${calculateTotalPrice()}</td>
           </tr>
         </tfoot>
       </table>
@@ -137,7 +141,7 @@ const ShowOrder = ({ orderItems }) => {
 const ItemEntry = ({ item }) => {
   return (
     <tr>
-      <td>{item.quantity}</td>
+      <td className={BreakfastCSS.center}>{item.quantity}</td>
       <td>{item.name}</td>
       <td>${item.price * item.quantity}</td>
     </tr>
@@ -145,4 +149,3 @@ const ItemEntry = ({ item }) => {
 };
 
 export default UserOrder;
- */

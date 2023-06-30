@@ -5,6 +5,7 @@
 .tableOrder table {
     background: #d9d9d9;
     padding-bottom: 2vh;
+    width: 80vw;
 }
 
 .tableOrder {
@@ -78,3 +79,12 @@
     align-items: center;
     gap: 1em;
 }
+
+.tableHeader {
+    white-space: nowrap;
+    text-align: left;
+  }
+  
+  .tableHeader span {
+    margin-right: 20px;
+  }
