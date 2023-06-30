@@ -10,7 +10,11 @@ import { NavLink } from "react-router-dom";
 function HeaderNewOrderTable({ order }) {
   return (
     <tr>
-      <th>ID: {order.id} _____ Cliente: {order.client} _____ {order.dataEntry}</th>
+      <th className={OrderCSS.tableHeader}>
+        <span>ID: {order.id}</span>
+        <span>Cliente: {order.client}</span>
+        <span>{new Date(order.dataEntry).toLocaleTimeString()}</span>
+      </th>
     </tr>
   );
 }
@@ -18,7 +22,10 @@ function HeaderNewOrderTable({ order }) {
 function NewOrderItem({ product }) {
   return (
     <tr key={product.product.id}>
-      <td>x{product.qty} __ {product.product.name}</td>
+      <td className={OrderCSS.tableHeader}>
+        <span>x{product.qty}</span>
+        <span>{product.product.name}</span>
+      </td>
     </tr>
   );
 }
@@ -47,23 +54,23 @@ function NewOrderTable({ orders }) {
 function BtnMenu() {
   return (
     <div className={OrderCSS.topBar}>
-          <NavLink to= "/breakfast">
-      <Button
-        className={OrderCSS.break}
-        text="Desayuno"
-      />
+      <NavLink to="/breakfast">
+        <Button
+          className={OrderCSS.break}
+          text="Desayuno"
+        />
       </NavLink>
-      <NavLink to= "/breakfast">
-      <Button
-        className={OrderCSS.break}
-        text="Almuerzo"
-      />
+      <NavLink to="/breakfast">
+        <Button
+          className={OrderCSS.break}
+          text="Almuerzo"
+        />
       </NavLink>
-      <NavLink to= "/order">
-      <Button
-        className={OrderCSS.break}
-        text="Pedidos"
-      />
+      <NavLink to="/order">
+        <Button
+          className={OrderCSS.break}
+          text="Pedidos"
+        />
       </NavLink>
     </div>
   )
