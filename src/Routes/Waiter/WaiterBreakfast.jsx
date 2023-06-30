@@ -1,4 +1,4 @@
-import "../../Style/breakfast.css";
+import BreakfastCSS from "../../Style/breakfast.module.css";
 import Header from "../../components/Header";
 import UserOrder from "../../components/userOrder";
 import WaiterMenu from "../../Utilities/WaiterMenu";
@@ -9,25 +9,19 @@ export default function Breakfast() {
   const [customerName, setCustomerName] = useState('');
   return (
     <>
-        <Header />
-      <div className="mainContentWaiter">
-        <div>
-        <WaiterMenu
-            orderItems={orderItems}
-            setOrderItems={setOrderItems}
-            customerName={customerName}
-            setCustomerName={setCustomerName}
-          />
-          <div className="userOrder">
-          <UserOrder
-              orderItems={orderItems}
-              setOrderItems={setOrderItems}
-              customerName={customerName}
-              setCustomerName={setCustomerName}
-            />
-        </div>
-        </div>
-      </div>
+      <Header />
+      <WaiterMenu
+        orderItems={orderItems}
+        setOrderItems={setOrderItems}
+        customerName={customerName}
+        setCustomerName={setCustomerName}
+      />
+      <UserOrder
+        orderItems={orderItems}
+        setOrderItems={setOrderItems}
+        customerName={customerName}
+        setCustomerName={setCustomerName}
+      />
     </>
   );
 }

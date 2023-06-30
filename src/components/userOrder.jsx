@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import BreakfastCSS from "../Style/breakfast.module.css";
 
 // Mostrar la orden del usuario
 const UserOrder = ({ orderItems, setOrderItems, customerName, setCustomerName }) => {
@@ -40,8 +41,8 @@ const UserOrder = ({ orderItems, setOrderItems, customerName, setCustomerName })
   };
 
   return (
-    <div className="userOrder">
-      <input
+    <div className={BreakfastCSS.userOrder}>
+      <input className={BreakfastCSS.inputClientName}
         type="text"
         value={customerName}
         onChange={(e) => setCustomerName(e.target.value)}
@@ -68,26 +69,28 @@ const ShowOrder = ({ orderItems }) => {
   };
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Cantidad</th>
-          <th>Producto</th>
-          <th>Precio</th>
-        </tr>
-      </thead>
-      <tbody>
-        {orderItems.map((item) => (
-          <ItemEntry key={item.id} item={item} />
-        ))}
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colSpan="2">Total:</td>
-          <td>${calculateTotalPrice()}</td>
-        </tr>
-      </tfoot>
-    </table>
+    <div className={BreakfastCSS.tableBreakfast}>
+      <table>
+        <thead>
+          <tr>
+            <th>Cantidad</th>
+            <th>Producto</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          {orderItems.map((item) => (
+            <ItemEntry key={item.id} item={item} />
+          ))}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colSpan="2">Total:</td>
+            <td>${calculateTotalPrice()}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
   );
 };
 

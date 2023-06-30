@@ -1,16 +1,16 @@
-import "../../Style/admin.css";
+import AdminCSS from "../../Style/admin.module.css";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
 
 
 export default function Admin() {
-    return <>
+  return <>
     <Header prop="Grace" />
-    <div className="buttonAdmin">
-    <Button className= "buttons" id="employees" text="Colaboradores" />
-    <Button className= "buttons" id="products" text="Productos" />
-  </div>
+    <div className={AdminCSS.buttonAdmin}>
+      <Button className={AdminCSS.buttons} id={AdminCSS["employees"]}  text="Colaboradores" />
+      <Button className={AdminCSS.buttons} id={AdminCSS["products"]} text="Productos" />
+    </div>
   </>
-    
+
 }
 
