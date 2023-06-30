@@ -5,19 +5,19 @@ const CounterMenu = ({ product, addToOrder }) => {
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);
-    addToOrder(product, quantity + 1); // Agrega el producto a la orden
+    addToOrder(product, quantity + 1); 
   };
 
   const handleDecrement = () => {
     if (quantity > 0) {
       setQuantity(quantity - 1);
-      addToOrder(product, quantity - 1); // Actualiza la cantidad del producto en la orden
+      addToOrder(product, quantity - 1); 
     }
   };
 
   const handleRemove = () => {
     setQuantity(0);
-    addToOrder(product, 0); // Elimina el producto de la orden
+    addToOrder(product, 0); 
   };
 
   return (
