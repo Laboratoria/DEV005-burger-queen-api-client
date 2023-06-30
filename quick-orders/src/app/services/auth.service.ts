@@ -33,6 +33,15 @@ export class AuthService {
   }
 
   // Quiero obtener el profile con el token que me hayan asignado
+  /*profile(token:string, uid:number) {
+    let headers = new HttpHeaders();
+    headers = headers.set('Authorization',`Bearer ${token}`);
+    headers = headers.set('Content-type', 'application/json');
+    return this.http.get<User>(`${this.apiURL}/users/${uid}`, {
+      headers
+    });
+  }*/
+
   profile(token:string) {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization',`Bearer ${token}`);

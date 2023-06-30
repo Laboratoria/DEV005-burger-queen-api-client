@@ -15,6 +15,8 @@ import { of } from "rxjs";
 export class LoginComponent implements OnInit {
   
   token = '';
+  worker = '';
+  // uid = '';
   authForm: FormGroup;
   isSubmitted  =  false;
   
@@ -69,11 +71,16 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.authForm.value.email, this.authForm.value.password)
     .subscribe(response => {
       this.token = response.accessToken;
-      const result = response.role;
-      console.log(result)
+      this.worker = response.user.role;
+      if(this.worker === 'admin'){
+        this.router.navigateByUrl('/admin');
+      } else {
+        this.router.navigateByUrl('/waiter');
+      }
+      console.log(this.worker)
+      // debugger;
       this.getProfile();
     });
-    this.router.navigateByUrl('/waiter');
     }
 
     getProfile(){
