@@ -60,6 +60,21 @@
     background: #4974E3;
 }
 
+.buttonPosition{
+    display: flex;
+    justify-content:right;
+  align-items:center;
+}
+.btnDelivery{
+    background-color: #5CB46C;
+  margin-bottom: 1rem;
+  color: white;
+  border-radius: 3rem;
+ font-size: 1.2rem;
+  width: 8em;
+    height: 2.5em;
+}
+
 /* .menuTable > * {
     margin-left: 1em;
   } */

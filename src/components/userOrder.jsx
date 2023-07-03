@@ -79,6 +79,16 @@ const UserOrder = ({ orderItems, setOrderItems, customerName, setCustomerName })
     localStorage.removeItem("orderItems");
     setCustomerName("");
   };
+  const formatName = (name) => {
+    const truncatedName = name.substring(0, 20);
+    const formattedName = truncatedName
+      .toLowerCase()
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  
+    return formattedName;
+  };
 
 
   return (
@@ -88,7 +98,7 @@ const UserOrder = ({ orderItems, setOrderItems, customerName, setCustomerName })
           type="text"
           id="customerName"
           value={customerName}
-          onChange={(e) => setCustomerName(e.target.value)}
+          onChange={(e) => setCustomerName(formatName(e.target.value))}
           placeholder="Cliente"
         />
       </div>

@@ -10,6 +10,5 @@ const ChefService = () => {
              <DeliveredOrders/>
         </div>
       )
-
 }
 export default ChefService;

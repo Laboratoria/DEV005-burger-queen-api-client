@@ -8,12 +8,16 @@ import { NavLink } from "react-router-dom";
 
 
 function HeaderNewOrderTable({ order }) {
+  const replaceStatus = (status) => {
+    return status === "delivered" ? "Listo" : status === "pending" ? "Pendiente" : status;
+  };
   return (
     <tr>
       <th className={OrderCSS.tableHeader}>
-        <span>ID: {order.id}</span>
-        <span>Cliente: {order.client}</span>
-        <span>{new Date(order.dataEntry).toLocaleTimeString()}</span>
+      <span>Cliente: {order.client}</span>
+        <span>Orden N°: {order.id}</span>
+        <span> realizada a las {new Date(order.dataEntry).toLocaleTimeString()}</span>
+        <span> {replaceStatus(order.status)}</span>
       </th>
     </tr>
   );
@@ -25,6 +29,7 @@ function NewOrderItem({ product }) {
       <td className={OrderCSS.tableHeader}>
         <span>x{product.qty}</span>
         <span>{product.product.name}</span>
+        <span>{product.status}</span>
       </td>
     </tr>
   );
@@ -85,18 +90,11 @@ function MainContent({ orders }) {
   )
 }
 
-function HeaderView() {
-  return (
-    <div>
-      <Header prop="Marta" />
-    </div>
-  )
-}
 
 function AllWaiterOrderView({ orders }) {
   return (
     <div>
-      <HeaderView />
+       <Header />
       <MainContent orders={orders} />
     </div>
   );

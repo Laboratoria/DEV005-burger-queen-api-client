@@ -8,7 +8,6 @@ const MenuTable = ({ menu, selectedMenu, addToOrder }) => {
     } else if (selectedMenu === 'almuerzo') {
       return menu.filter((product) => product.type === 'Almuerzo');
     }
-    return [];
   };
 
   return (
