@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 
 function HeaderNewOrderTable({ order }) {
   const replaceStatus = (status) => {
-    return status === "delivered" ? "Listo" : status === "pending" ? "Pendiente" : status;
+    return status === "delivering" ? "Listo" : status === "pending" ? "Pendiente" : status;
   };
   return (
     <tr>
@@ -22,14 +22,43 @@ function HeaderNewOrderTable({ order }) {
     </tr>
   );
 }
+function NewOrderItem({ product, order  }) {
+  const [isDelivered, setIsDelivered] = useState(false);
 
-function NewOrderItem({ product }) {
+  const handleDelivery = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      await axios.patch(
+        `http://localhost:8080/orders/${orderId}`,
+        { status: "delivered", deliveryTime: new Date().toISOString() },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      setIsDelivered(true);
+      order.status = "delivered";
+      console.log(product);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <tr key={product.product.id}>
       <td className={OrderCSS.tableHeader}>
         <span>x{product.qty}</span>
         <span>{product.product.name}</span>
-        <span>{product.status}</span>
+        {order.status === "delivering" && !isDelivered && (
+          <button
+            style={{ backgroundColor: 'red', color: 'white' }}
+            onClick={handleDelivery}
+            text="Entregado" />
+        )}
+       
+        {order.status === "delivered" && <span>Entregado</span>}
       </td>
     </tr>
   );
@@ -46,7 +75,12 @@ function NewOrderTable({ orders }) {
             </thead>
             <tbody>
               {order.products.map((product) => (
-                <NewOrderItem product={product} key={product.product.id} />
+                <NewOrderItem
+                  product={product}
+                  order={order}
+                  key={product.product.id}
+                  orderId={order.id} // Agrega el prop `orderId` con el valor de `order.id`
+                />
               ))}
             </tbody>
           </table>
@@ -55,6 +89,7 @@ function NewOrderTable({ orders }) {
     </div>
   );
 }
+
 
 function BtnMenu() {
   return (
@@ -102,9 +137,9 @@ function AllWaiterOrderView({ orders }) {
 
 export default function Order() {
   const [orders, setOrders] = useState([]);
-
+  const [deliveryStatus, setDeliveryStatus] = useState("");
   useEffect(() => {
-    const fetchData = async () => {
+    const getData = async () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get("http://localhost:8080/orders", {
@@ -121,7 +156,7 @@ export default function Order() {
       }
     };
 
-    fetchData();
+    getData();
   }, []);
 
   return <AllWaiterOrderView orders={orders} />;

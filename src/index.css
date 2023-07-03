@@ -88,7 +88,7 @@ div.error-message {
 
 table {
   border-collapse: collapse;
-  width: ;
+  border-radius: 10px;
 }
 
 th {

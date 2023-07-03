@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import OrderCSS from "../Style/order.module.css";
-import calculateTime from "../components/calculateTime";
+import calculateTime from "./calculateTime";
 
 const DeliveredOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -28,7 +28,7 @@ const DeliveredOrders = () => {
     }
   };
 
-  const deliveredOrders = orders.filter((order) => order.status === "delivered");
+  const deliveredOrders = orders.filter((order) => order.status === "delivering");
 
   return (
     <div className={OrderCSS.tableOrder}>
