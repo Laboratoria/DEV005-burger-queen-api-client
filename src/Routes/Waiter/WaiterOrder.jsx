@@ -5,60 +5,86 @@ import Header from "../../components/Header";
 import Button from "../../components/Button";
 import { NavLink } from "react-router-dom";
 
-
-
-function HeaderNewOrderTable({ order }) {
-  const replaceStatus = (status) => {
-    return status === "delivering" ? "Listo" : status === "pending" ? "Pendiente" : status;
-  };
+function OrderHeader({ order }) {
   return (
-    <tr>
-      <th className={OrderCSS.tableHeader}>
+    <th className={OrderCSS.tableHeader}>
       <span>Cliente: {order.client}</span>
-        <span>Orden N°: {order.id}</span>
-        <span> realizada a las {new Date(order.dataEntry).toLocaleTimeString()}</span>
-        <span> {replaceStatus(order.status)}</span>
-      </th>
-    </tr>
+      <span>Orden N°: {order.id}</span>
+      <span>{new Date(order.dataEntry).toLocaleTimeString()}
+      </span>
+    </th>
   );
 }
-function NewOrderItem({ product, order  }) {
-  const [isDelivered, setIsDelivered] = useState(false);
 
-  const handleDelivery = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      await axios.patch(
-        `http://localhost:8080/orders/${orderId}`,
-        { status: "delivered", deliveryTime: new Date().toISOString() },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
-      setIsDelivered(true);
-      order.status = "delivered";
-      console.log(product);
-    } catch (error) {
-      console.error(error);
+function StatusButton({ order, localStatus, handleStatusChange }) {
+  const replaceStatus = (status) => {
+    return status === "delivering"
+      ? "Retirar"
+      : status === "pending"
+      ? "Pendiente"
+      : status === "delivered"
+      ? "Entregado"
+      : status;
+  };
+
+  return (
+    <td className={OrderCSS.status} data-status={localStatus}>
+      {localStatus === "delivering" ? (
+        <button
+          className={OrderCSS.statusButton}
+          data-status={localStatus}
+          onClick={handleStatusChange}>Retirar</button>
+      ) : (
+        <span className={OrderCSS.status} data-status={localStatus}>
+          {replaceStatus(localStatus)}
+        </span>
+      )}
+    </td>
+  );
+}
+
+function HeaderNewOrderTable({ order }) {
+  const [localStatus, setLocalStatus] = useState(order.status);
+
+  const handleStatusChange = async () => {
+    if (localStatus === "delivering") {
+      try {
+        const token = localStorage.getItem("token");
+        await axios.patch(
+          `http://localhost:8080/orders/${order.id}`,
+          { status: "delivered" },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
+            },
+          }
+        );
+        setLocalStatus("delivered");
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
+  return (
+    <tr>
+      <OrderHeader order={order} />
+      <StatusButton
+        order={order}
+        localStatus={localStatus}
+        handleStatusChange={handleStatusChange}
+      />
+    </tr>
+  );
+}
+
+function NewOrderItem({ product }) {
   return (
     <tr key={product.product.id}>
       <td className={OrderCSS.tableHeader}>
         <span>x{product.qty}</span>
         <span>{product.product.name}</span>
-        {order.status === "delivering" && !isDelivered && (
-          <button
-            style={{ backgroundColor: 'red', color: 'white' }}
-            onClick={handleDelivery}
-            text="Entregado" />
-        )}
-       
-        {order.status === "delivered" && <span>Entregado</span>}
       </td>
     </tr>
   );
@@ -79,7 +105,6 @@ function NewOrderTable({ orders }) {
                   product={product}
                   order={order}
                   key={product.product.id}
-                  orderId={order.id} // Agrega el prop `orderId` con el valor de `order.id`
                 />
               ))}
             </tbody>
@@ -90,30 +115,20 @@ function NewOrderTable({ orders }) {
   );
 }
 
-
 function BtnMenu() {
   return (
     <div className={OrderCSS.topBar}>
       <NavLink to="/breakfast">
-        <Button
-          className={OrderCSS.break}
-          text="Desayuno"
-        />
+        <Button className={OrderCSS.break} text="Desayuno" />
       </NavLink>
       <NavLink to="/breakfast">
-        <Button
-          className={OrderCSS.break}
-          text="Almuerzo"
-        />
+        <Button className={OrderCSS.break} text="Almuerzo" />
       </NavLink>
       <NavLink to="/order">
-        <Button
-          className={OrderCSS.break}
-          text="Pedidos"
-        />
+        <Button className={OrderCSS.break} text="Pedidos" />
       </NavLink>
     </div>
-  )
+  );
 }
 
 function MainContent({ orders }) {
@@ -122,22 +137,21 @@ function MainContent({ orders }) {
       <BtnMenu />
       <NewOrderTable orders={orders} />
     </div>
-  )
+  );
 }
-
 
 function AllWaiterOrderView({ orders }) {
   return (
     <div>
-       <Header />
+      <Header />
       <MainContent orders={orders} />
     </div>
   );
 }
 
+
 export default function Order() {
   const [orders, setOrders] = useState([]);
-  const [deliveryStatus, setDeliveryStatus] = useState("");
   useEffect(() => {
     const getData = async () => {
       try {

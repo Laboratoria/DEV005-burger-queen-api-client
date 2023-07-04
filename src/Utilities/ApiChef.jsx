@@ -7,10 +7,10 @@ const ApiChef = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetchData();
+    getData();
   }, []);
 
-  const fetchData = async () => {
+  const getData = async () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get("http://localhost:8080/orders", {
