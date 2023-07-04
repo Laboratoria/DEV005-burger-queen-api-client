@@ -13,7 +13,10 @@ const OrderTable = ({ order, handleDelivery }) => {
               <span>Orden: {order.id}</span>
               <span> Hora de ingreso {new Date(order.dataEntry).toLocaleTimeString()}</span>
             </th>
-            <th className={OrderCSS.tableHeader}></th>
+            <th className={OrderCSS.tableHeader}>
+            <button className={OrderCSS.btnDelivery} onClick={() => handleDelivery(order.id)}>Entregar</button>
+
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -23,9 +26,9 @@ const OrderTable = ({ order, handleDelivery }) => {
               <span>x{product.qty}</span>
               <span>{product.product.name}</span>
               </td>
-              <td className={OrderCSS.buttonPosition}>
+            {/*   <td className={OrderCSS.buttonPosition}>
               <button className={OrderCSS.btnDelivery} onClick={() => handleDelivery(order.id)}>Entregar</button>
-            </td>
+            </td> */}
             </tr>
           ))}
         </tbody>

@@ -80,6 +80,7 @@ function HeaderNewOrderTable({ order }) {
 }
 
 function NewOrderItem({ product }) {
+  
   return (
     <tr key={product.product.id}>
       <td className={OrderCSS.tableHeader}>
@@ -91,9 +92,14 @@ function NewOrderItem({ product }) {
 }
 
 function NewOrderTable({ orders }) {
+  const sortedOrders = orders.sort((a, b) => {
+    if (a.status === "delivering") return -1;
+    if (a.status === "pending" && b.status !== "delivering") return -1;
+    return 1;
+  });
   return (
     <div className={OrderCSS.tableOrder}>
-      {orders.map((order) => (
+      {sortedOrders.map((order) => (
         <div key={order.id}>
           <table>
             <thead>

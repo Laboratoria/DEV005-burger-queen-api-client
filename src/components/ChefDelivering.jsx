@@ -28,7 +28,14 @@ const DeliveredOrders = () => {
     }
   };
 
-  const deliveredOrders = orders.filter((order) => order.status === "delivering");
+  const deliveredOrders = orders.filter((order) => order.status === "delivering" || order.status === "delivered");
+  const replaceStatus = (status) => {
+    return status === "delivering"
+      ? "Retirar"
+      : status === "delivered"
+      ? "Entregado"
+      : status;
+  };
 
   return (
     <div className={OrderCSS.tableOrder}>
@@ -43,6 +50,10 @@ const DeliveredOrders = () => {
                   <span>Cliente: {order.client}</span>
                     <span>Orden: {order.id}</span>
                     <span> realizada en {calculateTime(new Date(order.dataEntry), new Date(order.deliveryTime))}</span>
+                   
+                  </th>
+                  <th className={OrderCSS.status} data-status={order.status}>
+                  <span>  {replaceStatus(order.status)}</span>
                   </th>
                 </tr>
               </thead>

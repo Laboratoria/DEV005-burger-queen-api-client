@@ -80,7 +80,7 @@ const UserOrder = ({ orderItems, setOrderItems, customerName, setCustomerName })
     setCustomerName("");
   };
   const formatName = (name) => {
-    const truncatedName = name.substring(0, 20);
+    const truncatedName = name.substring(0, 10);
     const formattedName = truncatedName
       .toLowerCase()
       .split(' ')

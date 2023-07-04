@@ -7,6 +7,12 @@
   padding-bottom: 2vh;
   width: 80vw;
 }
+@media (max-width: 820px) and (orientation: portrait) {
+  .tableOrder table {
+    width: 90vw;
+  }
+
+}
 
 .tableOrder {
   display: flex;
@@ -110,6 +116,7 @@
 .tableHeader {
   white-space: nowrap;
   text-align: left;
+  border-radius: 10px 0 0 0 ;
 }
 
 .tableHeader span {
@@ -120,6 +127,7 @@
   width: 8em;
   font-size: 1em;
   color: white;
+  border-radius: 0 10px 0 0 ;
 }
 .statusButton {
   width: 8em;
