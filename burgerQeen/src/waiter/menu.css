@@ -1,24 +1,54 @@
 .container-menu {
   display: grid;
   padding: 5px;
-  grid-template-columns: 200px 200px 200px 200px; /* Define el número y el tamaño de las columnas */
+  grid-template-columns: 200px 200px 180px 200px; /* Define el número y el tamaño de las columnas */
   grid-template-rows: 100px 50px; /* Define el número y el tamaño de las filas */
   grid-gap: 10px; /* Define el espacio entre las celdas */
 }
-article{
+th{
+  padding: 35px;
+}
+.container-order{
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.botton-back {
+  padding: 10px;
+  width: 80px;
+}
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   grid-column: 4;
+  grid-row: 2;
+  width: 170%;
+  height: 1200%;
+  border: 3px solid #133c8b;
+  border-radius: 20px;
+}
+
+#client {
+  border-radius: 20px;
+  width: 220px;
+  height: 5%;
+}
+#order {
+  font-size: 30px;
+  margin: 10px;
+}
+h1 {
+  display: flex;
+  flex-direction: column-reverse;
+  grid-column: 3;
   grid-row: 1;
-  }
-  
-h1{
-grid-column: 3;
-grid-row: 1;
 }
-.container-productos{
-width: 80%;
-height: 80px;
+.container-productos {
+  width: 80%;
+  height: 80px;
 }
-.productImg{
+.productImg {
   display: flex;
   justify-content: end;
   width: 100%;
@@ -26,15 +56,15 @@ height: 80px;
   margin-top: 28px;
   margin-left: -50px;
 }
-.btn-desayuno{
-grid-column: 1;
-grid-row: 2;
+.btn-desayuno {
+  grid-column: 1;
+  grid-row: 2;
 }
-.btn-almuerzo{
-grid-column: 2;
-grid-row: 2;
+.btn-almuerzo {
+  grid-column: 2;
+  grid-row: 2;
 }
-.cardProduct{
+.cardProduct {
   background-color: #ffffff;
   width: 25%;
   height: 121px;
@@ -47,18 +77,17 @@ grid-row: 2;
   grid-gap: 33px;
   margin: 2%;
 }
-.container-productos{
+.container-productos {
   display: flex;
   justify-content: flex-start;
   padding-left: 30px;
   flex-wrap: wrap;
 }
-.productName{
-display: flex;
-font-size: 15px;
+.productName {
+  display: flex;
+  font-size: 15px;
 }
-.producPrice
-{
+.producPrice {
   position: relative;
   top: -29px;
   left: 144px;

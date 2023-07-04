@@ -1,8 +1,4 @@
 
-
-a:hover {
-  color: #535bf2;
-}
 h1 {
   font-size: 49px;
   grid-row: 1;
@@ -18,28 +14,24 @@ body {
   background-color: #FDFE74;
   color: #133C8B;
   font-family: 'Karma';
-  padding: 3%;
-  margin: 0%
+  overflow: auto;
+  overflow: hidden;
+  
 }
 button {
   border-radius: 30px;
   color: white;
   cursor: pointer;
   background-color:#133C8B;
+  font-size: 22px;
+  letter-spacing: 2px;
    }
 
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-.botton-back{
-  background-color: #133C8B;
-  position: absolute;
-  left: 39px;
-  top: 61px;
-  width: 9%;
-  height: 36px;
-}
+
 .btnAdd{
   background-color: #133C8B;
   display: grid;

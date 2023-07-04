@@ -1,22 +1,29 @@
 import axios from "axios";
 
-export const handleSubmittion = (goToWaiter, goToAdmin) => {
-     const handleSubmit = async (values, { resetForm }) => {
-      const { email, password } = values;
-      try {
-        const response = await axios.post("http://localhost:8080/login", {
-          email,
-          password,
-        });
-        const accessToken = response.data.accessToken;
-        localStorage.setItem ("accessToken",accessToken)
-      console.log('petition', accessToken);
-      
+export const handleSubmittion = (goToAdmin, goToWaiter, goToChef) => {
+  const handleSubmit = async (values, { resetForm }) => {
+    const { email, password } = values;
+    try {
+      const response = await axios.post("http://localhost:8080/login", {
+        email,
+        password,
+      });
+      localStorage.setItem("accessToken", response.data.accessToken);
+      const accessToken = response.data.accessToken;
+      console.log("petition", accessToken);
+
+      const user = response.data.user;
+      localStorage.setItem("email", user.email);
+      console.log(user);
+
       if (response.data.user.role === "admin") {
         goToAdmin();
       } else if (response.data.user.role === "waiter") {
         goToWaiter();
+      } else if (response.data.user.role === "chef") {
+        goToChef();
       }
+
       resetForm();
     } catch (error) {
       if (error.response) {
@@ -29,7 +36,6 @@ export const handleSubmittion = (goToWaiter, goToAdmin) => {
         console.error("Error: No se pudo conectar al servidor");
       }
     }
+  };
+  return handleSubmit;
 };
-  
-return handleSubmit
-}
