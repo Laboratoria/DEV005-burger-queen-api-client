@@ -1,13 +1,13 @@
 /* eslint-disable react/jsx-key */
-import '../waiter/menu.css'
+import "../waiter/menu.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Button from "../components/buttons";
-import { Menu } from "../waiter/menu";
-import { Link } from 'react-router-dom';
-//import FilterBtn from "../components/filter-btn";
+import Menu from "../waiter/menu";
+import { Link } from "react-router-dom";
 
-const Products = () => {
+// eslint-disable-next-line react/prop-types
+const Products = ({ handleAddProduct }) => {
   const [products, setProducts] = useState([]);
   const [selectedMenu, setSelectedMenu] = useState("");
 
@@ -40,37 +40,36 @@ const Products = () => {
     <>
       <div className="container-menu">
         <article>
-      <p id="order">Orden</p>
-        <input type="text" id="client"/> Cliente
-        </article> 
+          <p id="order">Orden</p>
+        </article>
         <h1>Menú</h1>
-          <Button
-            className="btn-desayuno"
-            text="Desayuno"
-            type="submit"
-            onClick={() => handleMenuSelection("desayuno")}
+        <Button
+          className="btn-desayuno"
+          text="Desayuno"
+          type="submit"
+          onClick={() => handleMenuSelection("desayuno")}
+        />
+        <Button
+          className="btn-almuerzo"
+          text="Almuerzo"
+          type="submit"
+          onClick={() => handleMenuSelection("almuerzo")}
+        />
+        <Link to="/">
+          <img src="/src/assets/flecha.png" alt="" className="botton-back" />
+        </Link>
+      </div>
+      <div className="container-productos">
+        {filteredProducts.map((product) => (
+          <Menu
+            key={product.id}
+            product={product}
+            handleAddProduct={handleAddProduct}
           />
-          <Button
-            className="btn-almuerzo"
-            text="Almuerzo"
-            type="submit"
-            onClick={() => handleMenuSelection("almuerzo")}
-          />
-          <Link to='/'>
-            <img src="/src/assets/flecha.png" alt="" className='botton-back' />
-            </Link>
-        </div>
-        <div className="container-productos">
-          {filteredProducts.map((product) => (
-            <Menu key={product.id} {...product} />
-          ))}
-        </div>
-       
-      
+        ))}
+      </div>
     </>
-    
   );
-  
 };
 
 function getMenuItems(menu, selectedMenu) {
@@ -81,6 +80,5 @@ function getMenuItems(menu, selectedMenu) {
   }
   return [];
 }
-
 
 export default Products;

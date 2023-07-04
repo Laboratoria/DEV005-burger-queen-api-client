@@ -1,7 +1,9 @@
-POST http://localhost:8080/login HTTP/1.1
-content-type: application/json
+GET  http://localhost:8080/products/ HTTP/1.1
+Content-type: application/json
+Authorization: Bearer eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY4ODE0ODQ3MSwiZXhwIjoxNjg4MTUyMDcxLCJzdWIiOiIyIn0.ngKVj9_d7KzOJF9eazWR9gmdngF1ZSvgA1QPbKx-5Xw
 
 {
-    "email": "grace.hopper@systers.xyz",
-    "password": "123456"
+    "email": "mesero@veggie.com",
+    "password": "123456",
+    "role": "waiter"
 }

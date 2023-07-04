@@ -23,20 +23,15 @@ button {
   color: white;
   cursor: pointer;
   background-color:#133C8B;
+  font-size: 22px;
+  letter-spacing: 2px;
    }
 
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-.botton-back{
-  background-color: #133C8B;
-  position: absolute;
-  left: 39px;
-  top: 61px;
-  width: 9%;
-  height: 36px;
-}
+
 .btnAdd{
   background-color: #133C8B;
   display: grid;
