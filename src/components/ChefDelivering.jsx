@@ -46,7 +46,7 @@ const DeliveredOrders = () => {
             <table>
               <thead>
                 <tr>
-                  <th className={OrderCSS.tableHeader}>
+                  <th className={`${OrderCSS.tableHeader} ${OrderCSS.tableHeaderLeft}`}>
                   <span>Cliente: {order.client}</span>
                     <span>Orden: {order.id}</span>
                     <span> realizada en {calculateTime(new Date(order.dataEntry), new Date(order.deliveryTime))}</span>

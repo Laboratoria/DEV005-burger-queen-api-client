@@ -1,5 +1,6 @@
 import React from "react";
 import CounterMenu from "../components/CounterMenu";
+import BreakfastCSS from "../Style/breakfast.module.css";
 
 const MenuTable = ({ menu, selectedMenu, addToOrder }) => {
   const getMenuItems = (menu, selectedMenu) => {
@@ -15,9 +16,9 @@ const MenuTable = ({ menu, selectedMenu, addToOrder }) => {
       <table>
         <thead>
           <tr>
-            <th>Producto</th>
+            <th id={BreakfastCSS['producto']}>Producto</th>
             <th>Precio</th>
-            <th>Cantidad</th>
+            <th id={BreakfastCSS['cantidad']}>Cantidad</th>
           </tr>
         </thead>
         <tbody>

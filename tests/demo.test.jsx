@@ -19,7 +19,6 @@ describe('Button', () => {
         // Assert that onClick has been called
         expect(onClickMock).toHaveBeenCalledTimes(1);
       });
-    
 })
  /*  test('debe de incrementar con el botón +1', () => {
         

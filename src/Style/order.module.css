@@ -116,13 +116,20 @@
 .tableHeader {
   white-space: nowrap;
   text-align: left;
-  border-radius: 10px 0 0 0 ;
 }
 
 .tableHeader span {
   margin-right: 20px;
 }
 
+.tableHeaderLeft {
+  border-radius: 10px 0 0 0 ;
+}
+
+.tableHeaderRight {
+  border-radius: 0 10px 0 0 ;
+}
+  
 .status {
   width: 6em;
   font-size: 1em;
@@ -153,4 +160,8 @@
 
 .status[data-status="default"] {
   background-color: gray;
+}
+
+.orderSection {
+  border-radius: 10px 0 0 0;
 }

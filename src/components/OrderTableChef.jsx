@@ -1,6 +1,7 @@
 // OrderTable.jsx
 import React from "react";
 import OrderCSS from "../Style/order.module.css";
+import Breakfast from "../Routes/Waiter/WaiterBreakfast";
 
 const OrderTable = ({ order, handleDelivery }) => {
   return (
@@ -8,14 +9,13 @@ const OrderTable = ({ order, handleDelivery }) => {
       <table>
         <thead>
           <tr>
-            <th className={OrderCSS.tableHeader}>
+            <th className={`${OrderCSS.tableHeader} ${OrderCSS.tableHeaderLeft}`}>
             <span>Cliente: {order.client}</span>
               <span>Orden: {order.id}</span>
               <span> Hora de ingreso {new Date(order.dataEntry).toLocaleTimeString()}</span>
             </th>
-            <th className={OrderCSS.tableHeader}>
+            <th className={`${OrderCSS.tableHeader} ${OrderCSS.tableHeaderRight}`}>
             <button className={OrderCSS.btnDelivery} onClick={() => handleDelivery(order.id)}>Entregar</button>
-
             </th>
           </tr>
         </thead>
