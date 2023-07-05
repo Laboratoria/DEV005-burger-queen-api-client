@@ -1,13 +1,10 @@
-
 import Button from "../components/buttons";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Admin from "../admi/admi";
 import { Link } from "react-router-dom";
-
 const Employees = () => {
   const [employees, setEmployees] = useState([]);
-
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
     axios
@@ -26,14 +23,8 @@ const Employees = () => {
         console.error(error);
       });
   }, []);
-
   return (
     <>
-      <div className="container-user">
-        {employees.map((user) => (
-          <Admin key={user.id} user={user} />
-        ))}
-      </div>
       <div className="buttonAdmin">
         <Button className="buttons" id="employees" text="Colaboradores" />
         <Button className="buttons" id="products" text="Productos" />
@@ -41,8 +32,19 @@ const Employees = () => {
           <img src="/src/assets/flecha.png" alt="" className="botton-back" />
         </Link>
       </div>
+      <div className="container-user">
+        {employees.map(( user ) => (
+          <Admin key={user.id} user={user} />
+        ))}
+      </div>
     </>
   );
 };
-
 export default Employees;
+
+
+
+
+
+
+
