@@ -1,7 +1,5 @@
-
 import { useState } from "react";
-import Shopping from "../waiter/shopping";
-import Products from "../Petitions/products";
+import Products from "../petitions/products";
 import ShoppingC from "../waiter/shoppingC";
 import ClientName from "../waiter/client.jsx";
 import axios from "axios";
@@ -19,11 +17,11 @@ const Order = () => {
           ? { ...item, quantity: item.quantity + 1 }
           : item
       );
-      setTotalPrice(totalPrice + selectedProduct.price);
+      setTotalPrice(totalPrice + Number(selectedProduct.price));
       return setSelectedProducts([...newProducts]);
     }
-    console.log(selectedProduct);
-
+    selectedProduct.quantity = 1
+    setTotalPrice(totalPrice + Number(selectedProduct.price));
     setSelectedProducts([...selectedProducts, selectedProduct]);
     console.log("Click en agregar");
   };
@@ -37,8 +35,7 @@ const Order = () => {
     setSelectedProducts(results);
   };
   console.log("Este es el arreglo del producto seleccionado", selectedProducts);
-  console.log("TOTAL PRICE", totalPrice);
-
+  // console.log("TOTAL PRICE", totalPrice);
   //Para disminuir la cantidad de item en 1
   const reduceProduct = (productToDelete) => {
     //si es 1 llama a deleteProduct para que elimine todo el item
@@ -52,12 +49,11 @@ const Order = () => {
         return item;
       });
       setSelectedProducts(updatedProducts);
-      setTotalPrice(totalPrice - productToDelete.price);
+      setTotalPrice(totalPrice - Number(productToDelete.price));
     }
   };
   //const clientValue será el nombre del cliente y set ClienteValue es la función
   const [clientValue, setClientValue] = useState("");
-
   // Enviar la orden a la API
   const sendOrder = () => {
     //token de acceso
@@ -69,12 +65,6 @@ const Order = () => {
     //fecha actual
     const date = new Date(Date.now()).toLocaleTimeString();
     const manualStatus = "pending";
-    // console.log('SEND-ORDER' , token);
-    // console.log('userId' , userId);
-    // console.log('clientName', client);
-    // console.log('products', selectedProducts);
-    // console.log('TIME', date);
-    // console.log('status', manualStatus)
     const dataOrder = {
       userId: userId,
       client: client,
@@ -83,14 +73,12 @@ const Order = () => {
       dataEntry: date,
       dataExit: null,
     };
-
     axios
-      .post("http://localhost:8080/orders", {
+      .post("http://localhost:8080/orders", dataOrder, {
         headers: {
           "Content-Type": "application/json",
-          authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(dataOrder),
       })
       .then(() => {
         setSelectedProducts([]);
@@ -99,16 +87,10 @@ const Order = () => {
       })
       .catch((error) => console.log(error));
   };
-
   return (
     <>
       <div className="container-order">
         <div className="container-shopping-list">
-          <Shopping
-            selectedProducts={selectedProducts}
-            totalPrice={totalPrice}
-            reduceProduct={reduceProduct}
-          />
         </div>
         <ClientName clientValue={clientValue} setClientValue={setClientValue} />
         <Products handleAddProduct={handleAddProduct} />

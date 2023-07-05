@@ -7,6 +7,7 @@ import Chef from "./chef/chef";
 import Products from "./Petitions/products";
 import Order from "./components/order";
 import Employees from "./Petitions/employees";
+import OrTicket from "./chef/tickets";
 const router = createHashRouter([
   {
     path: "/",
@@ -36,6 +37,10 @@ const router = createHashRouter([
     element: <Employees />,
 
   },
+  {
+    path: '/waiter',
+    element: <OrTicket />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

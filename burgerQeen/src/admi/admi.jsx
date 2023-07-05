@@ -12,5 +12,4 @@ const Admin = ({user}) => {
     </div>
   );
 };
-
 export default Admin;
