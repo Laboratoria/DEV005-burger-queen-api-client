@@ -10,13 +10,12 @@
             <nav class="navbar">
                 <img class="userLogin" src="./assets/Ellipse5.png" alt="user logo">
                 <p class="nombre">Administrador</p>
-                <div class="menuUser"></div>
             </nav>
         <div class="vista">
-            <button class="user" (click) ="activateView()">Usuario</button>
-            <button class="menu" (click) ="activateView2()" >Lista de menú</button>
+            <button class="user" (click) ="activateView('view1')"> Usuario </button>
+            <button class="menu" (click) ="activateView2('view2')"> Productos </button>
         </div>
-            <div class="encabezado" *ngIf ="isActivate">
+            <div class="encabezado" *ngIf ="activeView === 'view1'">
                 <div class="sections">
                     <p class="section1">Correo</p>
                     <p class="section1">Contraseña</p>
@@ -31,14 +30,16 @@
                         <img class="trash" src="./assets/basura_2.png">
                     </div>
                 </div>
+                <button class="addUser">Agregar Usuario</button>
             </div>
-        <div class="vistaMenu" *ngIf ="isTurnOn">
+        <div class="vistaMenu" *ngIf ="activeView === 'view2'">
             <div class="products"> 
                 <ul>
                     <li class="productName"></li>
                     <li class="productPrice"></li>
                 </ul>
             </div>
+            <button class="addProduct">Agregar Producto</button>
         </div>
     </div>
     </body>

@@ -12,8 +12,7 @@ import { User } from "src/app/models/user.model";
 
 export class AdminComponent implements OnInit {
 
-isActivate = false;
-isTurnOn = false;
+activeView = 'view1';
 data: User[];
 
     constructor(
@@ -21,7 +20,7 @@ data: User[];
     private usersService: UsersService,
     private router: Router,
     ){
-        this.data = [];
+        this.data = [];       
     }
 
     ngOnInit(){
@@ -36,12 +35,12 @@ data: User[];
         })
     }
     
-    activateView() {
-        this.isActivate = true;
+    activateView(view:string) {
+        this.activeView = view;
     }
 
-    activateView2() {
-        this.isTurnOn = true;
+    activateView2(view:string) {
+        this.activeView = view;
     }
 
 }
