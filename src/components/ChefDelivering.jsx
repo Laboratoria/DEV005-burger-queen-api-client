@@ -31,7 +31,7 @@ const DeliveredOrders = () => {
   const deliveredOrders = orders.filter((order) => order.status === "delivering" || order.status === "delivered");
   const replaceStatus = (status) => {
     return status === "delivering"
-      ? "Retirar"
+      ? "Listo para servir"
       : status === "delivered"
       ? "Entregado"
       : status;
