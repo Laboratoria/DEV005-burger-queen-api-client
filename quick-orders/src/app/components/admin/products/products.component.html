@@ -1,0 +1,18 @@
+<table mat-table [dataSource] ="date">
+    <thead>
+        <tr>
+            <th>Correo</th>
+            <th>Password</th>
+            <th>Role</th>
+        </tr> 
+    </thead>
+    <tbody>
+        <tr *ngFor ="let info of date" class="table">
+            <td>{{ info.email }}</td>
+            <td>{{ info.password }}</td>
+            <td>{{ info.role }}</td>
+        </tr>
+    </tbody>
+    
+    
+</table>

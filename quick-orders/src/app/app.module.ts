@@ -8,8 +8,10 @@ import { LoginComponent } from './components/login/login.component';
 import { WaiterComponent } from './components/waiter/waiter.component';
 import { KitchenComponent } from './components/kitchen/kitchen.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { MatTableModule } from '@angular/material/table';
 // Interceptors
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { ProductsComponent } from './components/admin/products/products.component';
 
 
 // Crear constante de componentes 
@@ -20,13 +22,15 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     WaiterComponent,
     KitchenComponent,
     AdminComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
   ],
   providers: [
     {
