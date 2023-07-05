@@ -124,13 +124,13 @@
 }
 
 .status {
-  width: 8em;
+  width: 6em;
   font-size: 1em;
   color: white;
   border-radius: 0 10px 0 0 ;
 }
 .statusButton {
-  width: 8em;
+  width: 7em;
   font-size: 1em;
   color: rgb(0, 0, 0);
   background-color: #FBC54F;

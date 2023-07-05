@@ -21,7 +21,7 @@ function StatusButton({ order, localStatus, handleStatusChange }) {
     return status === "delivering"
       ? "Retirar"
       : status === "pending"
-      ? "Pendiente"
+      ? "En cocina"
       : status === "delivered"
       ? "Entregado"
       : status;
