@@ -19,36 +19,22 @@ export class AuthService {
       password: password
     };
     return this.http.post<Auth>(`${this.apiURL}/login`, body); 
-    /*const request = this.http.post<Auth>(`${this.apiURL}/login`, body);
-    request.subscribe((rta) => {
-      if(rta.status === 200) {
-        localStorage.setItem('ACCESS_TOKEN', rta.accessToken);
-      }
-    });
-    return localStorage.getItem('ACCESS_TOKEN') !== null;
+  
   }
 
-  public logout(){
-    localStorage.removeItem('ACCESS_TOKEN');*/
-  }
+  /*profile() {
+    
+    console.log("profile")
+    return this.http.get<User[]>(`${this.apiURL}/users`);
+  }*/
 
-  // Quiero obtener el profile con el token que me hayan asignado
-  /*profile(token:string, uid:number) {
+  /*profile(token:string) {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization',`Bearer ${token}`);
     headers = headers.set('Content-type', 'application/json');
-    return this.http.get<User>(`${this.apiURL}/users/${uid}`, {
+    return this.http.get<User[]>(`${this.apiURL}/users`, {
       headers
     });
   }*/
-
-  profile(token:string) {
-    let headers = new HttpHeaders();
-    headers = headers.set('Authorization',`Bearer ${token}`);
-    headers = headers.set('Content-type', 'application/json');
-    return this.http.get<User>(`${this.apiURL}/users`, {
-      headers
-    });
-  }
 }
 

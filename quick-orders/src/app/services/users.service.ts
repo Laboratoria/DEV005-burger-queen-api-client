@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; // para hacer peticiones
 import { User, CreateUserDTO } from '../models/user.model';
-
+import { Auth } from '../models/auth.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +14,17 @@ export class UsersService {
     private http: HttpClient
   ) { }
 
- create(dto: CreateUserDTO) {
+ /*create(dto: CreateUserDTO) {
     return this.http.post<User>(`${this.apiURL}/users`, dto);
  }
  getAll(){
   return this.http.get<User[]>(`${this.apiURL}/users`);
- }
+ }*/
+
+ profile() {
+  console.log("profile")
+  return this.http.get<User[]>(`${this.apiURL}/users`);
+}
 
 }
 

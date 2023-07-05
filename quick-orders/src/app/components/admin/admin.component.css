@@ -57,6 +57,10 @@ body, html {
     min-height: 100vh;
 }
 
+.navbar{
+    display: flex;
+}
+
 .vista {
     display: flex;
     position: relative;
@@ -100,7 +104,7 @@ body, html {
 .section1 {
     display: flex;
     position: relative;
-    background-color: #D9D9D9;
+    background-color: #F4F4F4;
     width: 33.31%;
     height: 50px;
     font-size: 20px;
@@ -108,30 +112,62 @@ body, html {
     justify-content:center;
 }
 
-.tabla{
+.cards{
     display: flex;
     position: relative;
+    flex-direction: column;
     height: 100%;
     width: 90%;
-    background-color: #D9D9D9;
+    background-color: #F4F4F4;
     align-items: center;
     justify-content:center;
     margin-bottom: 50px;
     border-radius: 0 0 10px 10px;
 }
 
-.data1{
+.tabla{
+    display: flex;
+    position: relative;
+    height: 20px;
+    width: 100%;
+    background-color: #F4F4F4;
+    align-items: center;
+    justify-content:center;
+    margin-bottom: 50px;
+    border-radius: 0 0 10px 10px;
+}
+
+.infoEmail{
     display: flex;
     position: relative;
     align-items: center;
     justify-content:center;
     width: 30%;
-    background-color: #D9D9D9;
+    background-color: #F4F4F4;
 }
 
-.trash {
+.infoPass{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content:center;
+    width: 50%;
+    background-color: #F4F4F4;
+}
+
+.infoRole{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content:center;
+    width: 20%;
+    background-color: #F4F4F4;
+}
+
+.trash, .edit {
     width: 30px;
-    background-color: #D9D9D9;
+    background-color: #F4F4F4;
+    margin: 5px;
 }
 
 

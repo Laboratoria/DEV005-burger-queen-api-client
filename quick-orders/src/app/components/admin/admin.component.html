@@ -13,27 +13,31 @@
                 <div class="menuUser"></div>
             </nav>
         <div class="vista">
-            <button class="user">Usuario</button>
-            <button class="menu">Lista de menú</button>
+            <button class="user" (click) ="activateView()">Usuario</button>
+            <button class="menu" (click) ="activateView2()" >Lista de menú</button>
         </div>
-            <div class="encabezado">
+            <div class="encabezado" *ngIf ="isActivate">
                 <div class="sections">
                     <p class="section1">Correo</p>
                     <p class="section1">Contraseña</p>
                     <p class="section1">Rol</p>
                 </div>
-                <div class="tabla">
-                    <div class="data1">ejemplo@gmail.com</div>
-                    <div class="data1">burguermesero1</div>
-                    <div class="data1">mesero</div>
-                    <img class="trash" src="./assets/basura.png">
-                    <img class="edit">
+                <div class="cards" >
+                    <div *ngFor ="let info of data" class="tabla">
+                        <p class="infoEmail">{{ info.email }}</p>
+                        <p class="infoPass">{{ info.password  }}</p>
+                        <p class="infoRole">{{ info.role }}</p>
+                        <img class="edit" src="./assets/editar.png">
+                        <img class="trash" src="./assets/basura_2.png">
+                    </div>
                 </div>
             </div>
-           
-        <div class="vistaMenu">
-            <div>
-    
+        <div class="vistaMenu" *ngIf ="isTurnOn">
+            <div class="products"> 
+                <ul>
+                    <li class="productName"></li>
+                    <li class="productPrice"></li>
+                </ul>
             </div>
         </div>
     </div>
