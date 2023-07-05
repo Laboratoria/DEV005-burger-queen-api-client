@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 
 function OrderHeader({ order }) {
   return (
-    <th className={OrderCSS.tableHeader}>
+    <th className={`${OrderCSS.tableHeader} ${OrderCSS.tableHeaderLeft}`}>
       <span>Cliente: {order.client}</span>
       <span>Orden N°: {order.id}</span>
       <span>{new Date(order.dataEntry).toLocaleTimeString()}
