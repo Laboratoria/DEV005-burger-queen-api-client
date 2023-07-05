@@ -2,11 +2,11 @@ import { Formik,  } from "formik";
 import Button from "../components/buttons";
 import { validationSchema } from "../components/validation";
 import { handleSubmittion } from "../petitions/response";
-import { useNavigation } from "../main";
+import { useNavigation } from "../components/navigation";
 
- export const LoginDom = () => {
-    const { goToAdmin, goToWaiter } = useNavigation();
-  const submit = handleSubmittion(goToAdmin, goToWaiter);
+export const LoginDom = () => {
+  const { goToAdmin, goToWaiter, goToChef} = useNavigation();
+const submit = handleSubmittion(goToAdmin, goToWaiter, goToChef);
     return (
      <> 
        <img className="logo" src="/src/assets/Veggie.png"/>

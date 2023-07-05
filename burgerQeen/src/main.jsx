@@ -1,48 +1,46 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createHashRouter, Navigate, RouterProvider } from "react-router-dom";
 import "./index.css";
 import  Login from "./Login/login.jsx";
 import Admin from "./admi/admi";
-// import {Menu} from "./waiter/menu";
-import { useNavigate } from "react-router-dom";
 import Products from "./petitions/products";
+import Chef from "./chef/chef";
+import Order from "./components/order";
+import Employees from "./petitions/employees";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
-    element: <Login />,
+    element: <Login />
+  },
+  {
+    path: "/chef",
+    element: <Chef />,
+  },
+  {
+    path: "/*",
+    element: <Navigate to="/" />,
   },
   {
     path: '/waiter',
-    element:<Products />
+    element:<Order/>,
   },
   {
     path: '/Admin',
-    element:<Admin/>
+    element:<Employees/>,
   },
 ]);
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router}></RouterProvider>
   </React.StrictMode>
 );
 
-export const useNavigation = () => {
-  const navigateOn = useNavigate();
-
-  const goToWaiter = () => {
-    navigateOn("/waiter");
-  };
 
 
-const goToAdmin = () => {
-    navigateOn("/admin");
-  };
 
-  return { goToWaiter, goToAdmin, };
-};
+
+
+
+

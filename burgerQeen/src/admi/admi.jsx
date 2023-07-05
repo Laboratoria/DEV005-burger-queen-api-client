@@ -1,20 +1,15 @@
-import {Link} from "react-router-dom"
+import React from "react";
+//  import "./admin.css";
 
-export default function Admin() {
-    return ( 
-    <>
-    
-    <h1>Menú</h1>
-    
-    <button className="botton-cook">Enviar a cocina</button>
-        <Link to='/Client'>
-            <button className="botton-back">Atrás</button>
-            </Link>
-            <p>Resumen de orden</p>
-            <div className="order"></div>
-           
-            
-    
-     </>
-    )
-}
+const Admin = ({ user }) => {
+  return (
+    <div className="users">
+      <div className="users-name">{user.email}</div>
+      <div className="user-password">{user.password}</div>
+      <div className="user-role">{user.role}</div>
+     
+    </div>
+  );
+};
+
+export default Admin;

@@ -32,18 +32,10 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-.botton-back{
-  background-color: #133C8B;
-  position: absolute;
-  left: 39px;
-  top: 61px;
-  width: 9%;
-  height: 36px;
-}
+
 .btnAdd{
   background-color: #133C8B;
   display: grid;
-  width: 90%;
   height: 33px;
   margin-top: -68px;
   align-items: center;
@@ -63,17 +55,3 @@ button:focus-visible {
 }
 
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #133C8B;
-  
-  }
-  
-}

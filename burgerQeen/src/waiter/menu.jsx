@@ -1,24 +1,30 @@
-import './menu.css'
-// import {Link} from "react-router-dom"
-import './menu.css'
-import Button from '../components/buttons'
+import React from "react";
+import "./menu.css";
+import Button from "../components/buttons";
+import PropTypes from "prop-types";
 
-   export const Menu = (products) => {
-    // hacer la peticion
-    return(
-        <>
-        <div className="cardProduct">
-            <div className="productName">{products.name}
-        </div>
-           <div className="imgProduct">
-              <img className="productImg" src={products.image}/>
-        </div>
-          <div className="pricebtnsAdd">
-            <div className="producPrice">{products.price}
-        </div>
-           <Button className="btnAdd" text="Agregar"></Button>
-       </div>
-      </div>    
-    </>
-    )
-}
+const Menu = ({ product, handleAddProduct }) => {
+  return (
+    <div className="cardProduct">
+      <div className="productName">{product && product.name}</div>
+      <div className="imgProduct">
+        <img className="productImg" src={product && product.image} alt="" />
+      </div>
+      <div className="pricebtnsAdd">
+        <div className="producPrice">{product && product.price} $</div>
+        <Button
+          className="btnAdd"
+          text="Agregar"
+          onClick={() => handleAddProduct(product)}
+        />
+      </div>
+    </div>
+  );
+};
+
+Menu.propTypes = {
+  handleAddProduct: PropTypes.func,
+  product: PropTypes.object,
+};
+
+export default Menu;

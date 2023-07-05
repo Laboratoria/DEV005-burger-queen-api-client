@@ -1,0 +1,15 @@
+.imagen-chef{
+    width: 120px; 
+}
+.imagen-calendar{
+width: 250px; 
+position: relative;
+right: 30px;
+top: 20px;
+    
+}
+
+#imges{
+    display: flex;
+    flex-direction: column;
+}

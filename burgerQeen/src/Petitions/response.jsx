@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const handleSubmittion = (goToWaiter, goToAdmin) => {
+export const handleSubmittion = (goToAdmin, goToWaiter, goToChef) => {
      const handleSubmit = async (values, { resetForm }) => {
       const { email, password } = values;
       try {
@@ -8,14 +8,20 @@ export const handleSubmittion = (goToWaiter, goToAdmin) => {
           email,
           password,
         });
+        localStorage.setItem("accessToken", response.data.accessToken);
         const accessToken = response.data.accessToken;
-        localStorage.setItem ("accessToken",accessToken)
-      console.log('petition', accessToken);
+        console.log('petition', accessToken);
+
+      const user = response.data.user; 
+        localStorage.setItem('email', user.email);
+        console.log(user);
       
       if (response.data.user.role === "admin") {
         goToAdmin();
       } else if (response.data.user.role === "waiter") {
         goToWaiter();
+      } else if (response.data.user.role === "chef") {
+        goToChef();
       }
       resetForm();
     } catch (error) {
@@ -33,3 +39,6 @@ export const handleSubmittion = (goToWaiter, goToAdmin) => {
   
 return handleSubmit
 }
+
+
+
