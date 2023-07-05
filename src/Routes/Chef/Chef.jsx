@@ -11,7 +11,7 @@ const Chef = () => {
         <Button className={ChefCSS.buttons} id={ChefCSS["order"]} />
       </NavLink>
       <NavLink to="/service">
-        <Button className={ChefCSS.buttons} id="service"  />
+        <Button className={ChefCSS.buttons} id={ChefCSS["service"]} />
       </NavLink>
     </div>
   )
