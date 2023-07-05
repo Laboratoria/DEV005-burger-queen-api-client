@@ -1,96 +1,181 @@
 .container-menu {
   display: grid;
   padding: 5px;
-  grid-template-columns: 200px 200px 180px 200px; /* Define el número y el tamaño de las columnas */
-  grid-template-rows: 100px 50px; /* Define el número y el tamaño de las filas */
-  grid-gap: 10px; /* Define el espacio entre las celdas */
-}
-th{
-  padding: 35px;
-}
-.container-order{
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-}
-.botton-back {
-  padding: 10px;
-  width: 80px;
-}
-article {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  grid-column: 4;
-  grid-row: 2;
-  width: 170%;
-  height: 1200%;
-  border: 3px solid #133c8b;
-  border-radius: 20px;
+  grid-template-columns: 348px 300px 500px 300px;
+  grid-template-rows: 104px 100px 100px 100px;
+  grid-gap: 18px;
+  margin: -125px;
 }
 
-#client {
-  border-radius: 20px;
-  width: 220px;
-  height: 5%;
+article{
+grid-column: 3;
+grid-row: 2;
 }
-#order {
-  font-size: 30px;
-  margin: 10px;
+.clientName{
+position: relative;
+top: 164px;
+left: 597px;
+font-size: 24px;
 }
-h1 {
-  display: flex;
-  flex-direction: column-reverse;
-  grid-column: 3;
-  grid-row: 1;
+.Total{
+position: relative;
+top: 95px;
+left: 34px;
+font-size: 20px;
 }
-.container-productos {
-  width: 80%;
-  height: 80px;
+.input-name{
+position: relative;
+top: 112px;
+left: 1163px;
+border-radius: 16px;
+width: 37%;
+height: 38px;
+font-size: 19px;
 }
-.productImg {
-  display: flex;
-  justify-content: end;
-  width: 100%;
-  height: 78px;
-  margin-top: 28px;
-  margin-left: -50px;
+.container-shopping-list{
+position: relative;
+top: -100px;
+left: 917px;
+
+font-size: 30px;
 }
-.btn-desayuno {
-  grid-column: 1;
-  grid-row: 2;
+.btn-cook{
+position: absolute;
+top: 576px;
+left: 634px;
+width: 33%;
+height: 33px;
+font-size: 17px;
 }
-.btn-almuerzo {
-  grid-column: 2;
-  grid-row: 2;
+.btn-delete{
+position: absolute;
+top: 658px;
+left: 635px;
+width: 33%;
+height: 31px;
+font-size: 17px;
+padding: 10px;
 }
-.cardProduct {
-  background-color: #ffffff;
-  width: 25%;
-  height: 121px;
-  padding: 20px;
-  opacity: 0.9;
-  border-radius: 20px;
-  grid-gap: 3em / 45%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 33px;
-  margin: 2%;
+.tacho{
+height: 70px;
 }
-.container-productos {
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 30px;
-  flex-wrap: wrap;
+h1{
+grid-column: 3;
+grid-row: 1;
+margin-top: -30px;
 }
-.productName {
-  display: flex;
-  font-size: 15px;
+.container-productos{
+width: 80%;
+height: 80px;
 }
-.producPrice {
-  position: relative;
-  top: -29px;
-  left: 144px;
-  width: 5%;
-  height: 30px;
+.productImg{
+display: flex;
+justify-content: end;
+width: 190%;
+height: 84px;
+margin-top: 17px;
+margin-left: -67px;
 }
+.btn-desayuno{
+position: relative;
+width: 92%;
+height: 51px;
+top: 99px;
+left: 166px;
+font-size: 20px;
+}
+.btn-almuerzo{
+position: relative;
+width: 107%;
+height: 51px;
+top: 99px;
+left: 183px;
+font-size: 20px;
+}
+.cardProduct{
+background-color: #FFFFFF;
+width: 25%;
+height: 121px;
+padding: 20px;
+opacity: 0.9;
+border-radius: 20px;
+grid-gap: 3em / 45%;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-gap: 33px;
+margin: 2%;
+}
+.container-productos{
+display: flex;
+justify-content: flex-start;
+padding-left: 31px;
+flex-wrap: wrap;
+}
+.productName{
+display: flex;
+font-size: 16px;
+width: 199%;
+margin-left: 5px;
+margin-top: -10px;
+}
+.producPrice
+{
+position: relative;
+top: -26px;
+left: 155px;
+width: 86%;
+font-size: 21px;
+}
+.botton-back{
+padding: 10px;
+width: 80px;
+}
+article{
+display: flex;
+flex-direction: column;
+align-items: center;
+grid-column: 4;
+grid-row: 3;
+width: 226%;
+height: 898%;
+border: 1px solid #133C8B;
+border-radius: 20px;
+background: #E1DDDD ;
+opacity: 81%;
+}
+.botton-back{
+display: flex;
+padding: 10px;
+width: 80px;
+margin-left: -621px;
+margin-top: 20px;
+}
+#client{
+border-radius: 20px;
+width: 220px;
+height: 5%;
+}
+#order{
+font-size: 50px;
+margin: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
