@@ -91,17 +91,17 @@ height: 80px;
   font-size: 20px;
 }
 .cardProduct{
-  background-color: #ffffff;
-  width: 25%;
-  height: 121px;
-  padding: 20px;
-  opacity: 0.9;
-  border-radius: 20px;
-  grid-gap: 3em / 45%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 33px;
-  margin: 2%;
+background-color: #FFFFFF;
+width: 25%;
+height: 121px;
+padding: 20px;
+opacity: 0.9;
+border-radius: 20px;
+grid-gap: 3em / 45%;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-gap: 33px;
+margin: 2%;
 }
 .container-productos{
   display: flex;
@@ -159,3 +159,56 @@ article{
   font-size: 34px;
   margin: 10px;
 }
+.botton-back{
+padding: 10px;
+width: 80px;
+}
+article{
+display: flex;
+flex-direction: column;
+align-items: center;
+grid-column: 4;
+grid-row: 3;
+width: 226%;
+height: 898%;
+border: 1px solid #133C8B;
+border-radius: 20px;
+background: #E1DDDD ;
+opacity: 81%;
+}
+.botton-back{
+display: flex;
+padding: 10px;
+width: 80px;
+margin-left: -621px;
+margin-top: 20px;
+}
+#client{
+border-radius: 20px;
+width: 220px;
+height: 5%;
+}
+#order{
+font-size: 50px;
+margin: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

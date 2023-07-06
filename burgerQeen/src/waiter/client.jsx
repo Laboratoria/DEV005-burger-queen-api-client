@@ -1,10 +1,8 @@
 import PropTypes from 'prop-types';
-
 const ClientName = ({ clientValue, setClientValue }) => {
   const inputValue = (event) => {
     setClientValue(event.target.value);
   };
-
   return (
     <>
       <div className='container-waiter'>
@@ -24,19 +22,8 @@ const ClientName = ({ clientValue, setClientValue }) => {
     </>
   );
 };
-
 ClientName.propTypes = {
   clientValue: PropTypes.string,
   setClientValue: PropTypes.func,
 };
-
 export default ClientName;
-
-
-
-
-
-
-
-
-
