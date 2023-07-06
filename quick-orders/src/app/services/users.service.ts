@@ -22,7 +22,6 @@ export class UsersService {
  }*/
 
  profile() {
-  console.log("profile")
   return this.http.get<User[]>(`${this.apiURL}/users`);
 }
 

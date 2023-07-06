@@ -1,18 +1,22 @@
-<table mat-table [dataSource] ="date">
+<table class="productTable">
     <thead>
         <tr>
-            <th>Correo</th>
-            <th>Password</th>
-            <th>Role</th>
+            <th> Tipo </th>
+            <th> Nombre </th>
+            <th> Precio </th>
+            <th> </th>
+            <th> </th>
         </tr> 
     </thead>
     <tbody>
-        <tr *ngFor ="let info of date" class="table">
-            <td>{{ info.email }}</td>
-            <td>{{ info.password }}</td>
-            <td>{{ info.role }}</td>
-        </tr>
+        <tr *ngFor ="let info of products">
+            <td > {{info.type}} </td>
+            <td> {{ info.name }} </td>
+            <td> {{ info.price }} </td>
+            <td><img class="edit" src="./assets/editar.png"></td>
+            <td><img class="trash" src="./assets/basura_2.png"></td>
+        </tr> 
     </tbody>
-    
-    
-</table>
+    </table>
+
+ 

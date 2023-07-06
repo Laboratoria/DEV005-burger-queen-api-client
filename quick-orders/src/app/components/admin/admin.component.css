@@ -186,13 +186,12 @@ body, html {
 .products{
     display: flex;
     position: relative;
-    flex-direction: column;
     height: 90%;
     width: 90%;
     background-color: #F4F4F4;
+    border-radius: 0 0 10px 10px;
     align-items: center;
     justify-content:center;
-    border-radius: 0 0 10px 10px;
 }
 
 .addUser, .addProduct {
