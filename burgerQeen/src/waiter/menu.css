@@ -12,9 +12,9 @@ article{
   }
 .clientName{
   position: relative;
-  top: 164px;
-  left: 597px;
-  font-size: 24px;
+  top: 277px;
+  left: 1052px;
+  font-size: 26px;
 }
 .Total{
   position: relative;
@@ -24,18 +24,18 @@ article{
 }
 .input-name{
   position: relative;
-  top: 112px;
-  left: 595px;
+  top: 205px;
+  left: 994px;
   border-radius: 16px;
-  width: 37%;
-  height: 38px;
-  font-size: 19px;
+  width: 50%;
+  height: 46px;
+  font-size: 25px;
 }
 .container-shopping-list{
   position: relative;
-  top: 68px;
-  left: 612px;
-  font-size: 19px;
+  top: 192px;
+  left: 1062px;
+  font-size: 26px;
   margin: -2%;
 }
 .btn-cook{
@@ -134,11 +134,13 @@ article{
   align-items: center;
   grid-column: 4;
   grid-row: 3;
-  width: 189%;
-  height: 898%;
+  width: 247%;
+  height: 1285%;
   border: 1px solid #133C8B;
   border-radius: 20px;
   background: #e1dddd;
+  margin-left: 418px;
+  margin-top: 101px;
 }
 .botton-back{
   display: flex;
