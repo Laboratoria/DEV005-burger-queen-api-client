@@ -1,7 +1,6 @@
-// OrderTable.jsx
+
 import React from "react";
 import OrderCSS from "../Style/order.module.css";
-import Breakfast from "../Routes/Waiter/WaiterBreakfast";
 
 const OrderTable = ({ order, handleDelivery }) => {
   return (
@@ -26,9 +25,6 @@ const OrderTable = ({ order, handleDelivery }) => {
               <span>x{product.qty}</span>
               <span>{product.product.name}</span>
               </td>
-            {/*   <td className={OrderCSS.buttonPosition}>
-              <button className={OrderCSS.btnDelivery} onClick={() => handleDelivery(order.id)}>Entregar</button>
-            </td> */}
             </tr>
           ))}
         </tbody>

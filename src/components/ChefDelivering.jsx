@@ -8,10 +8,10 @@ const DeliveredOrders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    Data();
+    getData();
   }, []);
 
-  const Data = async () => {
+  const getData = async () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get("http://localhost:8080/orders", {

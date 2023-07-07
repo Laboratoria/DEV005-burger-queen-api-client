@@ -1,5 +1,4 @@
 import WaiterCSS from "../../Style/waiter.module.css";
-// import {Link} from "react-router-dom"
 import Button from "../../components/Button";
 import Header from "../../components/Header";
 import { NavLink } from "react-router-dom";
