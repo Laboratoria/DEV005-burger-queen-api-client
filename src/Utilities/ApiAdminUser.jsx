@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import EmployeesTable from "../components/employeesTable";
+import EmployeesTable from "../components/EmployeesTable";
 
-export const ApiAdmin = () => {
+const ApiAdminUser = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -20,6 +20,7 @@ export const ApiAdmin = () => {
       });
       const usersData = response.data;
       setUsers(usersData);
+      localStorage.setItem("usersData", JSON.stringify(usersData));
     } catch (error) {
       console.error(error);
       setUsers([]);
@@ -33,3 +34,4 @@ export const ApiAdmin = () => {
   );
 };
 
+export default ApiAdminUser;

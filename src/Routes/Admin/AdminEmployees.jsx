@@ -1,5 +1,5 @@
 import React from 'react'
-import { ApiAdmin } from '../../Utilities/ApiAdmin';
+import ApiAdminUser  from '../../Utilities/ApiAdminUser';
 import Header from "../../components/Header";
 import TopBarAdmin from '../../components/topBarAdmin';
 
@@ -8,7 +8,7 @@ export const AdminEmployees = () => {
     <>
      <Header />
      <TopBarAdmin/>
-    <ApiAdmin/>
+    <ApiAdminUser/>
     </>
   )
 }
