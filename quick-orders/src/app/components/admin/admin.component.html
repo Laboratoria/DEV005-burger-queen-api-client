@@ -16,19 +16,8 @@
             <button class="menu" (click) ="activateView2('view2')"> Productos </button>
         </div>
             <div class="encabezado" *ngIf ="activeView === 'view1'">
-                <div class="sections">
-                    <p class="section1">Correo</p>
-                    <p class="section1">Contraseña</p>
-                    <p class="section1">Rol</p>
-                </div>
                 <div class="cards" >
-                    <div *ngFor ="let info of data" class="tabla">
-                        <p class="infoEmail">{{ info.email }}</p>
-                        <p class="infoPass">{{ info.password  }}</p>
-                        <p class="infoRole">{{ info.role }}</p>
-                        <img class="edit" src="./assets/editar.png">
-                        <img class="trash" src="./assets/basura_2.png">
-                    </div>
+                   <app-users></app-users>
                 </div>
                 <button class="addUser">Agregar Usuario</button>
             </div>

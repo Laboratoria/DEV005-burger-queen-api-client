@@ -98,30 +98,31 @@ body, html {
     margin-top: 0;
 }
 
-.sections {
+.vistaMenu{
     display: flex;
     position: relative;
+    height: 100%;
+    width: 100%;
     align-items: center;
-    justify-content:center;
-    width: 90%;
-}
-
-.section1 {
-    display: flex;
-    position: relative;
-    background-color: #F4F4F4;
-    width: 33.31%;
-    height: 50px;
-    font-size: 20px;
-    align-items: center;
-    justify-content:center;
+    flex-direction: column;
+    margin-top: 0;
 }
 
 .cards{
     display: flex;
     position: relative;
-    flex-direction: column;
-    height: 80%;
+    height: 90%;
+    width: 90%;
+    background-color: #F4F4F4;
+    align-items: center;
+    justify-content:center;
+    border-radius: 0 0 10px 10px;
+}
+
+.products{
+    display: flex;
+    position: relative;
+    height: 90%;
     width: 90%;
     background-color: #F4F4F4;
     align-items: center;
@@ -139,59 +140,6 @@ body, html {
     justify-content:center;
     margin-bottom: 50px;
     border-radius: 0 0 10px 10px;
-}
-
-.infoEmail{
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content:center;
-    width: 30%;
-    background-color: #F4F4F4;
-}
-
-.infoPass{
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content:center;
-    width: 50%;
-    background-color: #F4F4F4;
-}
-
-.infoRole{
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content:center;
-    width: 20%;
-    background-color: #F4F4F4;
-}
-
-.trash, .edit{
-    width: 30px;
-    background-color: #F4F4F4;
-    margin: 5px;
-}
-
-.vistaMenu{
-    display: flex;
-    position: relative;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    flex-direction: column;
-}
-
-.products{
-    display: flex;
-    position: relative;
-    height: 90%;
-    width: 90%;
-    background-color: #F4F4F4;
-    border-radius: 0 0 10px 10px;
-    align-items: center;
-    justify-content:center;
 }
 
 .addUser, .addProduct {

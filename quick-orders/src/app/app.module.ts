@@ -12,6 +12,7 @@ import { MatTableModule } from '@angular/material/table';
 // Interceptors
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { ProductsComponent } from './components/admin/products/products.component';
+import { UsersComponent } from './components/admin/users/users.component';
 
 
 // Crear constante de componentes 
@@ -23,6 +24,7 @@ import { ProductsComponent } from './components/admin/products/products.componen
     KitchenComponent,
     AdminComponent,
     ProductsComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

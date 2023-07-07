@@ -6,7 +6,7 @@ button = #731616
 tab = #D9D9D9 
 */
 
-.productTable{
+.productUsers{
     width: 80vw;
     height: 60vh;
     color: black;
@@ -53,24 +53,23 @@ tbody tr {
 }
 
 td {
-  word-wrap: break-word;
-  padding: 10px;
-  font-size: small;
+    word-wrap: break-word;
+    padding: 10px;
+    font-size: small;
 }
 
 .email{
-  width: 25%;
+    width: 25%;
 }
 
 .pass{
-  width: 40%;
+    width: 40%;
 }
 
 .role{
-  width: 15%;
+    width: 15%;
 }
 
 .img{
-  width: 10%;
+    width: 10%;
 }
-

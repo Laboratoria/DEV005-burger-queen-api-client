@@ -1,20 +1,20 @@
 <table class="productTable">
     <thead>
         <tr>
-            <th> Tipo </th>
-            <th> Nombre </th>
-            <th> Precio </th>
-            <th> </th>
-            <th> </th>
+            <th class="email"> Tipo </th>
+            <th class="pass"> Nombre </th>
+            <th class="role"> Precio </th>
+            <th class="img"> </th>
+            <th class="img"> </th>
         </tr> 
     </thead>
     <tbody>
         <tr *ngFor ="let info of products">
-            <td > {{info.type}} </td>
-            <td> {{ info.name }} </td>
-            <td> {{ info.price }} </td>
-            <td><img class="edit" src="./assets/editar.png"></td>
-            <td><img class="trash" src="./assets/basura_2.png"></td>
+            <td class="email"> {{info.type}} </td>
+            <td class="pass"> {{ info.name }} </td>
+            <td class="role"> {{ info.price }} </td>
+            <td class="img"><img class="edit" src="./assets/editar.png"></td>
+            <td class="img"><img class="trash" src="./assets/basura_2.png"></td>
         </tr> 
     </tbody>
     </table>
