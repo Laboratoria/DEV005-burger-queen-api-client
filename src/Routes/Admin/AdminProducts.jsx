@@ -1,71 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Modal from 'react-modal';
+import MenuTableEdit from '../../components/MenuTableEdit';
 
-const MenuTable = () => {
-  const [breakfastProducts, setBreakfastProducts] = useState([]);
-  const [lunchProducts, setLunchProducts] = useState([]);
+function BtnEditModal() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:8080/products", {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
-          },
-        });
-        const products = response.data;
-        const breakfastItems = products.filter(
-          (product) => product.type === 'Desayuno'
-        );
-        const lunchItems = products.filter(
-          (product) => product.type === 'Almuerzo'
-        );
-        setBreakfastProducts(breakfastItems);
-        setLunchProducts(lunchItems);
-      } catch (error) {
-        console.error('Error al obtener los datos:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  const renderTableBody = (products) => {
-    return (
-      <tbody>
-        {products.map((product) => (
-          <tr key={product.id}>
-            <td>{product.name}</td>
-            <td>${product.price}</td>
-          </tr>
-        ))}
-      </tbody>
-    );
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setModalIsOpen(false);
   };
 
   return (
     <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Desayuno</th>
-          </tr>
-        </thead>
-        {renderTableBody(breakfastProducts)}
-      </table>
+      <button onClick={openModal}>EDIT</button>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}>
+        <h1>HELLO WORLD</h1>
+        
+        <button onClick={closeModal}>CLOSE</button>
+      </Modal>
+    </div>
+  )
+}
 
-      <table>
-        <thead>
-          <tr>
-            <th>Almuerzo</th>
-          </tr>
-        </thead>
-        {renderTableBody(lunchProducts)}
-      </table>
+const AdminProducts = () => {
+  return (
+    <div>
+      <MenuTableEdit BtnEditModal={BtnEditModal} />
     </div>
   );
-};
+}
 
-export default MenuTable;
+
+export default AdminProducts;
