@@ -14,10 +14,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { ProductsComponent } from './components/admin/products/products.component';
 import { UsersComponent } from './components/admin/users/users.component';
-import { ModalComponent } from './components/admin/modal/modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgMaterialModule } from './ng-material/ng-material.module';
- 
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 // Crear constante de componentes 
 @NgModule({
@@ -29,7 +28,6 @@ import { NgMaterialModule } from './ng-material/ng-material.module';
     AdminComponent,
     ProductsComponent,
     UsersComponent,
-    ModalComponent,
 
   ],
   imports: [
@@ -39,6 +37,7 @@ import { NgMaterialModule } from './ng-material/ng-material.module';
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
+    MatFormFieldModule,
     MatDialogModule,
     BrowserAnimationsModule,
     NgMaterialModule,
