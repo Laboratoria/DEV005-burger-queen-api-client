@@ -9,11 +9,15 @@ import { WaiterComponent } from './components/waiter/waiter.component';
 import { KitchenComponent } from './components/kitchen/kitchen.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 // Interceptors
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { ProductsComponent } from './components/admin/products/products.component';
 import { UsersComponent } from './components/admin/users/users.component';
-
+import { ModalComponent } from './components/admin/modal/modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgMaterialModule } from './ng-material/ng-material.module';
+ 
 
 // Crear constante de componentes 
 @NgModule({
@@ -25,6 +29,8 @@ import { UsersComponent } from './components/admin/users/users.component';
     AdminComponent,
     ProductsComponent,
     UsersComponent,
+    ModalComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -33,6 +39,9 @@ import { UsersComponent } from './components/admin/users/users.component';
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    NgMaterialModule,
   ],
   providers: [
     {
