@@ -11,15 +11,17 @@ const ShoppingC = ({selectedProducts, totalPrice, reduceProduct,sendOrder, clien
   }, [clientValue, selectedProducts]);
 return(
     <>
+    <img src="/src/assets/waiter.png" className="bodyWaiter"/>
+    <div className="bodyWaiter">
     <div className='container-order'>
       <div className='container-shopping-list'>
         <Shopping selectedProducts = {selectedProducts} totalPrice = {totalPrice} reduceProduct = {reduceProduct}/>
       </div>
       <div className='container-btn-order'>
         <Button className = "btn-cook"  onClick ={()=> sendOrder()} text="Enviar a cocina" disabled={!btnActive}/>
-        <Button className = "btn-delete"  onClick ={()=> sendOrder()} text="Cancelar Orden" disabled={!btnActive}/>
       </div>
       <div className="cubo"></div>
+    </div>
     </div>
   </>
   );
@@ -32,24 +34,3 @@ return(
   clientValue: PropTypes.string
 }
 export default ShoppingC
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

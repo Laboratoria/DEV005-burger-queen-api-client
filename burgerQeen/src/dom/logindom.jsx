@@ -1,7 +1,7 @@
 import { Formik } from "formik";
 import Button from "../components/buttons";
 import { validationSchema } from "../components/validation";
-import { handleSubmittion } from "../petitions/response";
+import { handleSubmittion } from "../Petitions/response";
 import { useNavigation } from "../components/navegation";
 
 export const LoginDom = () => {
@@ -12,7 +12,7 @@ export const LoginDom = () => {
       <img className="logo" src="/src/assets/Veggie.png" />
 
       <div className="inputs">
-        <h1>Bienvenidos</h1>
+        <h1 className="bienvenidos">Bienvenidos</h1>
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={validationSchema}

@@ -65,6 +65,7 @@ const Order = () => {
     //fecha actual
     const date = new Date(Date.now()).toLocaleTimeString();
     const manualStatus = "pending";
+
     const dataOrder = {
       userId: userId,
       client: client,

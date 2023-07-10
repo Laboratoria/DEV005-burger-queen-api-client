@@ -12,7 +12,7 @@ const Menu = ({ product, handleAddProduct}) => {
         <img className="productImg" src={product && product.image} alt="" />
       </div>
       <div className="pricebtnsAdd">
-        <div className="producPrice">{product && product.price}</div>
+        <div className="producPrice">{product && product.price} $</div>
         <Button
           className="btnAdd"
           text="Agregar"

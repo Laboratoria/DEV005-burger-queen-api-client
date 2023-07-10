@@ -1,158 +1,172 @@
+.bodyWaiter{ 
+  position: absolute;
+  width: 58%;
+  height: 2288px;
+  top: -1px;
+  left: -6px;
+}
+.Menu{
+  position: absolute;
+  left: 922px;
+  top: 230px;
+  font-size: 100px;
+}
 .container-menu {
   display: grid;
   padding: 5px;
-  grid-template-columns: 448px 400px 600px 400px;
-  grid-template-rows: 104px 100px 100px 100px;
+  grid-template-columns: 248px 200px 200px 200px 232px;
+  grid-template-rows: 74px 50px 50px 173px;
   grid-gap: 18px;
   margin: -125px;
-}
-.cubo{
-  background-color: white;
-  width: 35%;
-  height: 1470px;
-  top: -2px;
-  left: 0px;
-  position: absolute;
-
-}
-body{
-  background-color: #FDFE74;
-}
+  }
 article{
-grid-column: 3;
-grid-row: 2;
-}
+  grid-column: 3;
+  grid-row: 2;
+  }
 .clientName{
-position: relative;
-top: 164px;
-left: 597px;
-font-size: 24px;
+  position: relative;
+  top: 534px;
+  left: 2018px;
+  font-size: 43px;
 }
 .Total{
-position: relative;
-top: 95px;
-left: 34px;
-font-size: 20px;
+  position: relative;
+  top: 95px;
+  left: 34px;
+  font-size: 39px;
 }
 .input-name{
-position: relative;
-top: 112px;
-left: 1163px;
-border-radius: 16px;
-width: 37%;
-height: 38px;
-font-size: 19px;
+  position: absolute;
+  top: 362px;
+  left: 1988px;
+  border-radius: 20px;
+  width: 64%;
+  height: 80px;
+  font-size: 39px;
+  border: 1px solid #133C8B;
 }
 .container-shopping-list{
-position: relative;
-top: -100px;
-left: 917px;
-
-font-size: 30px;
+  position: relative;
+  top: 663px;
+  left: 2036px;
+  font-size: 32px;
+  margin: -2%;
 }
 .btn-cook{
-position: absolute;
-top: 576px;
-left: 634px;
-width: 33%;
-height: 33px;
-font-size: 17px;
+  position: absolute;
+  top: 1634px;
+  left: 2097px;
+  width: 75%;
+  height: 73px;
+  font-size: 41px;
+  border-radius: 26px;
 }
 .btn-delete{
-position: absolute;
-top: 658px;
-left: 635px;
-width: 33%;
-height: 31px;
-font-size: 17px;
-padding: 10px;
+  position: absolute;
+  top: 658px;
+  left: 635px;
+  width: 33%;
+  height: 31px;
+  font-size: 17px;
 }
 .tacho{
-height: 70px;
+  height: 30px;
 }
 h1{
-grid-column: 3;
-grid-row: 1;
-margin-top: -30px;
-}
-.container-productos{
-width: 80%;
-height: 80px;
+  grid-column: 3;
+  grid-row: 2;
+  margin-top: -86px;
+  font-size: 103px;
+  margin-left: 650px;
 }
 .productImg{
-display: flex;
-justify-content: end;
-width: 190%;
-height: 84px;
-margin-top: 17px;
-margin-left: -67px;
+  display: flex;
+  justify-content: end;
+  width: 224%;
+  height: 134px;
+  margin-top: 87px;
+  margin-left: -152px;
 }
 .btn-desayuno{
-position: relative;
-width: 92%;
-height: 51px;
-top: 99px;
-left: 166px;
-font-size: 20px;
+  position: relative;
+  width: 165%;
+  height: 91px;
+  top: 353px;
+  left: 1043px;
+  font-size: 48px;
+  border: 1px solid #133C8B;
+  background: #ffffff;
+  color: #133c8b;
 }
 .btn-almuerzo{
-position: relative;
-width: 107%;
-height: 51px;
-top: 99px;
-left: 183px;
-font-size: 20px;
+  position: relative;
+  width: 195%;
+  height: 91px;
+  top: 353px;
+  left: 1245px;
+  font-size: 48px;
+  border: 1px solid #133C8B;
+  background: #ffffff;
+  color: #133c8b;
 }
 .cardProduct{
-background-color: #FFFFFF;
-width: 25%;
-height: 121px;
-padding: 20px;
-opacity: 0.9;
-border-radius: 20px;
-grid-gap: 3em / 45%;
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-grid-gap: 33px;
-margin: 2%;
+  background-color: #ffffff;
+  width: 87%;
+  height: 306px;
+  padding: 14px;
+  opacity: 0.9;
+  border-radius: 20px;
+  grid-gap: 3em / 45%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 33px;
+  margin: 2%;
+  margin-left: 74px;
+  margin-top: 51px;
+  border: 1px solid #133C8B;
 }
 .container-productos{
-display: flex;
-justify-content: flex-start;
-padding-left: 31px;
-flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 354px 354px 354px;
+  margin-left: 758px;
+  margin-top: 147px;  
 }
 .productName{
-display: flex;
-font-size: 16px;
-width: 199%;
-margin-left: 5px;
-margin-top: -10px;
+  display: flex;
+  font-size: 32px;
+  width: 205%;
+  margin-left: 14px;
+  margin-top: 3px;
 }
-.producPrice
-{
-position: relative;
-top: -26px;
-left: 155px;
-width: 86%;
-font-size: 21px;
-}
-.botton-back{
-padding: 10px;
-width: 80px;
+.producPrice{
+  position: relative;
+  top: -26px;
+  left: 241px;
+  width: 86%;
+  font-size: 33px;
 }
 article{
-display: flex;
-flex-direction: column;
-align-items: center;
-grid-column: 4;
-grid-row: 3;
-width: 226%;
-height: 898%;
-border: 1px solid #133C8B;
-border-radius: 20px;
-background: #E1DDDD ;
-opacity: 81%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column: 4;
+  grid-row: 4;
+  width: 331%;
+  height: 1292px;
+  border: 4px solid #133C8B;
+  border-radius: 20px;
+  background: #E1DDDD;
+  margin-left: 1400px;
+  margin-top: 242px;
+}
+#client{
+  border-radius: 20px;
+  width: 220px;
+  height: 5%;
+}
+#order{
+  font-size: 34px;
+  margin: 10px;
 }
 .botton-back{
 display: flex;
