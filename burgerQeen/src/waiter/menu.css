@@ -1,15 +1,15 @@
 .bodyWaiter{ 
   position: absolute;
-  width: 49%;
-  height: 1766px;
+  width: 58%;
+  height: 2288px;
   top: -1px;
   left: -6px;
 }
 .Menu{
   position: absolute;
-  left: 768px;
-  top: 184px;
-  font-size: 54px;
+  left: 922px;
+  top: 230px;
+  font-size: 100px;
 }
 .container-menu {
   display: grid;
@@ -25,8 +25,8 @@ article{
   }
 .clientName{
   position: relative;
-  top: 505px;
-  left: 1860px;
+  top: 534px;
+  left: 2018px;
   font-size: 43px;
 }
 .Total{
@@ -37,25 +37,25 @@ article{
 }
 .input-name{
   position: absolute;
-  top: 259px;
-  left: 1702px;
+  top: 362px;
+  left: 1988px;
   border-radius: 20px;
-  width: 50%;
-  height: 55px;
+  width: 64%;
+  height: 80px;
   font-size: 39px;
   border: 1px solid #133C8B;
 }
 .container-shopping-list{
   position: relative;
-  top: 621px;
-  left: 1885px;
-  font-size: 30px;
+  top: 663px;
+  left: 2036px;
+  font-size: 32px;
   margin: -2%;
 }
 .btn-cook{
   position: absolute;
-  top: 1535px;
-  left: 1954px;
+  top: 1634px;
+  left: 2097px;
   width: 75%;
   height: 73px;
   font-size: 41px;
@@ -87,29 +87,24 @@ h1{
   margin-top: 87px;
   margin-left: -152px;
 }
-/* .container-input-btn{
-  position: absolute;
-  top:30px;
-  left:50px;
-} */
 .btn-desayuno{
   position: relative;
-  width: 156%;
-  height: 83px;
+  width: 165%;
+  height: 91px;
   top: 353px;
-  left: 853px;
-  font-size: 44px;
+  left: 1043px;
+  font-size: 48px;
   border: 1px solid #133C8B;
   background: #ffffff;
   color: #133c8b;
 }
 .btn-almuerzo{
   position: relative;
-  width: 175%;
-  height: 83px;
+  width: 195%;
+  height: 91px;
   top: 353px;
-  left: 1026px;;
-  font-size: 44px;
+  left: 1245px;
+  font-size: 48px;
   border: 1px solid #133C8B;
   background: #ffffff;
   color: #133c8b;
@@ -131,11 +126,10 @@ h1{
   border: 1px solid #133C8B;
 }
 .container-productos{
-    display: grid;
-    grid-template-columns: 354px 354px 354px;
-    padding-left: -16px;
-    margin-left: 472px;
-    margin-top: 147px;   
+  display: grid;
+  grid-template-columns: 354px 354px 354px;
+  margin-left: 758px;
+  margin-top: 147px;  
 }
 .productName{
   display: flex;
@@ -157,14 +151,13 @@ article{
   align-items: center;
   grid-column: 4;
   grid-row: 4;
-  width: 311%;
+  width: 331%;
   height: 1292px;
   border: 4px solid #133C8B;
   border-radius: 20px;
   background: #E1DDDD;
-  margin-left: 1244px;
-  margin-top: 206px;
-}
+  margin-left: 1400px;
+  margin-top: 242px;
 }
 #client{
   border-radius: 20px;
