@@ -1,8 +1,6 @@
 import './chef.css'
 import OrTicket from './tickets';
 import { useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
-
 
 const Chef = () => {
   const [orders, setOrders] = useState([]);
@@ -90,30 +88,28 @@ const Chef = () => {
 
   return(
   <> 
-    
+  <div className='body'>
     <section className='title-chef-orders'>
-      <h1 className='title-status-chef'>Pendientes</h1>
-      <h1 className='title-status-chef'>Listas para servir</h1>
+      <h1 className='title-orders'>Ordenes</h1>
       </section>
-    <section className='container-order-cooking'>
+    <section className='container-cooking'>
         <div className='container-order-ticket'>
         {orders
         .filter(order => order.status === 'pending')
         .map(order => (<OrTicket key={order.id} order={order} changeStatus={changeStatus} showButton= {true}/>))}
         </div>
-        <div className='container-order-to-delivery'>
+        <div className='container-delivery'>
         {orders
         .filter(order => order.status === 'delivery')
         .map(order => (<OrTicket key={order.id} order={order} showButton= {false}/>))}
         </div>
         <div>
-      <img src="/src/assets/veggie.png" className='imagen-chef' />
-      <img src="/src/assets/calendar.png" className='imagen-calendar'/>
+     
     </div>
-    <Link to="/">
-          <img src="/src/assets/flecha.png" alt="" className="botton-back" />
-        </Link>
+    
    </section> 
+   <img src="/src/assets/chef.png" className='chef'/>
+   </div>
   </>
   );
 };

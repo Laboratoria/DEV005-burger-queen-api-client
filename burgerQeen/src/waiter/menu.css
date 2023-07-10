@@ -1,12 +1,23 @@
 .container-menu {
   display: grid;
   padding: 5px;
-  grid-template-columns: 348px 300px 500px 300px;
+  grid-template-columns: 448px 400px 600px 400px;
   grid-template-rows: 104px 100px 100px 100px;
   grid-gap: 18px;
   margin: -125px;
 }
+.cubo{
+  background-color: white;
+  width: 35%;
+  height: 1470px;
+  top: -2px;
+  left: 0px;
+  position: absolute;
 
+}
+body{
+  background-color: #FDFE74;
+}
 article{
 grid-column: 3;
 grid-row: 2;

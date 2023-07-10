@@ -11,11 +11,10 @@ h1 {
 body {
   min-width: 1000px;
   min-height: 128vh;
-  background-color: #FDFE74;
   color: #133C8B;
   font-family: 'Karma';
   overflow: auto;
-  overflow: hidden;
+  
   
 }
 button {

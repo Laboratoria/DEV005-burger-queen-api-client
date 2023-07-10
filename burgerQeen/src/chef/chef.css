@@ -1,15 +1,34 @@
-.imagen-chef{
-    width: 120px; 
-}
-.imagen-calendar{
-    width: 250px; 
-position: relative;
-right: 30px;
-top: 20px;
-    
-}
-
-#imges{
+.title-orders{
+    font-size: 80px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+.ticket-order{
+    border: 4px solid #133C8B;
+    width: 25%;
+    height: 280px;
+    font-size: 20px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 15px; 
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+}
+.check{
+    width: 20%;
+    position: absolute;
+    left: 100px;
+    top: 320px;
+}
+
+
+.chef{
+    position: absolute;
+    width: 20%;
+    height: 768px;
+    top: 0px;
+    left: 824px;
+    
 }
