@@ -1,4 +1,4 @@
-import "../admi/admi.css";
+
 import Button from "../components/buttons";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -26,29 +26,18 @@ const Employees = () => {
   }, []);
   return (
     <>
-      <h1 className="admi">Administrador</h1>
-      <table className="items-users">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Rol</th>
-            <th>Editar</th>
-          </tr>
-        </thead>
-      </table>
-      <div className="more-user-products">
-      <img src="src/assets/adduser.png" alt="add-user" className="add-user" /> Agregar colaboradores
-        <Button className="btn-add-products" id="products" text="Productos" />
-        </div>
+
+      <div className="buttonAdmin">
+        <Button className="buttons" id="employees" text="Colaboradores" />
+        <Button className="buttons" id="products" text="Productos" />
+        <Link to="/">
+          <img src="/src/assets/flecha.png" alt="" className="botton-back" />
+        </Link>
+      </div>
       <div className="container-user">
-        {employees.map((user) => (
+        {employees.map(( user ) => (
           <Admin key={user.id} user={user} />
         ))}
-        <Link to="/">
-          <img src="/src/assets/flecha.png" alt="salir" className="botton-back" />
-        </Link>
       </div>
     </>
   );
