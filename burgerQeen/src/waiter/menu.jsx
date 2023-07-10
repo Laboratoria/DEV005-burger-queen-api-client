@@ -1,7 +1,3 @@
-import React from "react";
-import "./menu.css";
-import Button from "../components/buttons";
-import PropTypes from "prop-types";
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import "./menu.css";
@@ -16,7 +12,7 @@ const Menu = ({ product, handleAddProduct}) => {
         <img className="productImg" src={product && product.image} alt="" />
       </div>
       <div className="pricebtnsAdd">
-        <div className="producPrice">{product && product.price}</div>
+        <div className="producPrice">{product && product.price} $</div>
         <Button
           className="btnAdd"
           text="Agregar"

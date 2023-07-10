@@ -1,16 +1,10 @@
-DELETE  http://localhost:8080/products/23 HTTP/1.1
-POST  http://localhost:8080/products/ HTTP/1.1
+DELETE  http://localhost:8080/orders/49 HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1lc2Vyb0B2ZWdnaWUuY29tIiwiaWF0IjoxNjg4NTM0Mzk0LCJleHAiOjE2ODg1Mzc5OTQsInN1YiI6IjUifQ.FLmI4Bk48pl2LkM5tF-rm70AyNshIQhs5IO1ovKUBBw
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1lc2Vyb0B2ZWdnaWUuY29tIiwiaWF0IjoxNjg4MTY3ODY2LCJleHAiOjE2ODgxNzE0NjYsInN1YiI6IjUifQ.vt1uz8l-dWgx8Gcxqr1kBlgSn1ja5b6cNqougFiJddc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNoZWZAdmVnZ2llLmNvbSIsImlhdCI6MTY4ODY1Njc0NCwiZXhwIjoxNjg4NjYwMzQ0LCJzdWIiOiI0In0.2ZqyKDn9XA2MMvEUkySti9Q0sfpKiavlQ90O8MohEWs
 
 {
   "name": "Hamburguesa simple",
   "price": 10,
   "image": "src/assets/burgersimple.png",
-  "type": "Almuerzo"
-  "name": "Agua 750ml",
-  "price": 7,
-  "image": "src/assets/agua750.jpg",
   "type": "Almuerzo"
 }

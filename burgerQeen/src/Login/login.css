@@ -3,63 +3,78 @@
   height: 75%;
   padding: 5%; 
 }
-
+.bienvenidos{
+  position: relative;
+  top: -2px;
+  left: -608px;
+  font-size: 46px;
+}
 .inputs {
   display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    flex-wrap: nowrap;
-    border-radius: 20px;
-    padding: 4%;
-    background-color: #E1DDDD;
-    opacity: 0.9;
-    width: 30%;
-    height: 250px;
-    margin-top: -538px;
-    margin-left: 500px;
-    font-size: 30px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  border-radius: 20px;
+  padding: 7%;
+  background-color: #e1dddd;
+  opacity: 2.9;
+  width: 30%;
+  height: 330px;
+  margin-top: -538px;
+  margin-left: 500px;
+  font-size: 30px;
 }
 .us{
   display: flex;
-  background: white;
-  width: 180%;
-  max-width: 321px;
-  height: 45px;
+  background: #ffffff;
   border: none;
-  border-radius: 12px;
-  font-size: 10px;
   padding-left: 5%;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 380px;
+  height: 46px;
+  font-weight: bold;
+  font-size: 23px;
+  border-radius: 10px;
+  margin-left: -6px;
+  margin-bottom: 20px;
 }
 .pas{
   display: flex;
-  background: white;
-  width: 180%;
-  max-width: 321px;
-  height: 45px;
+  background: #ffffff;
   border: none;
-  border-radius: 12px;
-  font-size: 10px;
   padding-left: 5%;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 99%;
+  max-width: 380px;
+  height: 46px;
+  font-weight: bold;
+  font-size: 23px;
+  border-radius: 10px;
+  margin-bottom: 2px;
 }
 
 .btn-login {
-  padding: 5px;
+  display:flex;
   color: #ffffff;
   background-color: #133C8B;
-  transition: border-color 0.25s;
-  margin-top: 35px;
-  display: flex;
-  width: 100%;
-  max-width: 343px;
-  height: 40px;
-  border-radius: 12px;
+  flex-direction: column;
   justify-content: center;
-  font-weight: bold;
+  align-items: center;
+  width: 104%;
+  max-width: 380px;
+  box-sizing: border-box;
+  height: 48px;
   font-size: 22px;
   border: none;
-  align-items: center;
-  margin-bottom: 15px;
+  border-radius: 10px;
+  margin-left: -9px;
+  margin-bottom: -3px;
+}
+
 }

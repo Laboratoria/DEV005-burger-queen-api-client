@@ -2,10 +2,9 @@
 import "../waiter/menu.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Button from "../components/buttons";
-import  Menu  from "../waiter/menu";
 import { Link } from "react-router-dom";
-
+import Menu from "../waiter/menu";
+import Button from "../components/buttons";
 //import FilterBtn from "../components/filter-btn";
 
 // eslint-disable-next-line react/prop-types
@@ -40,11 +39,12 @@ const Products = ({ handleAddProduct }) => {
 
   return (
     <>
+  
       <div className="container-menu">
         <article>
           <p id="order">Orden</p>
         </article>
-        <h1>Menú</h1>
+        <h1 className="Menu">Menú</h1>
         <Button
           className="btn-desayuno"
           text="Desayuno"
@@ -58,14 +58,17 @@ const Products = ({ handleAddProduct }) => {
           onClick={() => handleMenuSelection("almuerzo")}
         />
         <Link to="/">
-          <img src="/src/assets/flechas.png" alt="" className="botton-back" />
+          <img src="../assets/flechas.png" alt="" className="botton-back" />
         </Link>
       </div>
+      
       <div className="container-productos">
         {filteredProducts.map((product) => (
           <Menu key={product.id} product={product} handleAddProduct={handleAddProduct} />
         ))}
-      </div>
+        
+      </div> 
+     
     </>
   );
 };

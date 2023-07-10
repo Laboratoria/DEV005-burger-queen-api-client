@@ -1,14 +1,13 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { createHashRouter, Navigate, RouterProvider } from "react-router-dom";
-import { createHashRouter, Navigate, RouterProvider } from "react-router-dom";
 import "./index.css";
 import  Login from "./Login/login.jsx";
-import Admin from "./admi/admi";
 import Products from "./petitions/products";
 import Chef from "./chef/chef";
 import Order from "./components/order";
 import Employees from "./petitions/employees";
+import OrTicket from "./chef/tickets";
 
 const router = createHashRouter([
   {
@@ -28,13 +27,12 @@ const router = createHashRouter([
     element:<Order/>,
   },
   {
-    path: '/Admin',
-    element:<Employees/>,
+    path: '/waiter',
+    element:<Products/>,
   },
   {
-    path: '/admin',
-    element: <Employees />,
-
+    path: '/Admin',
+    element:<Employees/>,
   },
   {
     path: '/waiter',
