@@ -1,9 +1,6 @@
-
 import PropTypes from 'prop-types';
 import Button from '../components/buttons';
-
 const OrTicket = ({order, changeStatus, showButton}) => {
- 
   return(
     <>
     <div className="ticket-order">
@@ -30,13 +27,10 @@ const OrTicket = ({order, changeStatus, showButton}) => {
         <div className='order-status'>Estado: {order.status}</div>
         <div className='order-date'>A cocina: {order.dataEntry}</div>
         {order.dataExit !== null && <div className='order-date-exit'> T.Preparación: {order.dataExit} min</div>}
-       
       </div>
-      
-      
       <div className="container-btn-add">
         {showButton &&
-        <Button className ="btn-order-ready" text="Preparado" onClick= {() => changeStatus(order)}/> 
+        <Button className ="btn-order-ready" text="Preparado" onClick= {() => changeStatus(order)}/>
         }
       </div>
     </div>

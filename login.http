@@ -1,9 +1,10 @@
-POST  http://localhost:8080/users HTTP/1.1
-Content-type: application/json 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuaXRhLmJvcmdAc3lzdGVycy54eXoiLCJpYXQiOjE2ODgxNDE5MjUsImV4cCI6MTY4ODE0NTUyNSwic3ViIjoiMSJ9.iXLXjlJakP5u_Fa_LXJHZhXLiWhEzwIcO8BNIZKwn_0
+POST  http://localhost:8080/users/ HTTP/1.1
+Content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1lc2Vyb0B2ZWdnaWUuY29tIiwiaWF0IjoxNjg5MDA1OTQ1LCJleHAiOjE2ODkwMDk1NDUsInN1YiI6IjUifQ.0U3ZQlPmN2Fm9tE31EA3bA9Ir0ee9jPeMJyQ1PQSMAo
 
 {
-    "email": "mesero@veggie.com",
-    "password": "123456",
-    "role": "waiter"
+  "name": "Camilo lugo",
+  "email": "camilo.mesero@veggie.com",
+  "password": "123456",
+  "role": "waiter"
 }

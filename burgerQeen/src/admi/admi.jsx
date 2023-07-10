@@ -2,14 +2,21 @@
 import React from "react";
 import "./admi.css"
 // eslint-disable-next-line react/prop-types
-const Admin = ({user}) => {
+const Admin = ({user, handleEditUser}) => {
     
   return (
+    <>
+    
     <div className="users">
-      <div className="user-name">{user.email}</div>
+      <div className="user-id">{user.id}</div>
+      <div className="user-name">{user.name}</div>
+      <div className="user-email">{user.email}</div>
       <div className="user-role">{user.role}</div>
-      <div className="user-password">{user.password}</div>
-    </div>
+      
+
+      <img src="src/assets/editar.png" alt="editar" className="btn-editar-users"
+        onClick={() => handleEditUser(user)} />
+    </div></>
   );
 };
 export default Admin;

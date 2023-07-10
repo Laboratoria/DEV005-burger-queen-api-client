@@ -20,6 +20,7 @@ return(
       <div className='container-btn-order'>
         <Button className = "btn-cook"  onClick ={()=> sendOrder()} text="Enviar a cocina" disabled={!btnActive}/>
       </div>
+      <div className="cubo"></div>
     </div>
     </div>
   </>
