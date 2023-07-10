@@ -1,31 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
-import renderTableBody from './RenderTableBody';
+import RenderTableBody from './RenderTableBody';
 import ApiGetProducts from './ApiGetProducts';
 
-const MenuTableEdit = ({ BtnEditModal }) => {
-
+const MenuTableEdit = ({ BtnBreakfastModal, BtnLunchModal }) => {
   return (
     <div>
       <table>
         <thead>
           <tr>
             <th>Desayuno</th>
-            <BtnEditModal />
+            <th><BtnBreakfastModal /></th>
           </tr>
         </thead>
-        {renderTableBody(breakfastProducts)}
+        <ApiGetProducts
+          renderTableBody={(products) => (
+            <RenderTableBody products={products} type={"desayuno"} />
+          )}
+        />
       </table>
 
       <table>
         <thead>
           <tr>
             <th>Almuerzo</th>
-            <BtnEditModal />
+            <th><BtnLunchModal /></th>
           </tr>
         </thead>
-        {renderTableBody(lunchProducts)}
+        <ApiGetProducts
+          renderTableBody={(products) => (
+            <RenderTableBody products={products} type={"almuerzo"} />
+          )}
+        />
       </table>
     </div>
   );

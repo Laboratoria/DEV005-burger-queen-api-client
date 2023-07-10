@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const ApiGetProducts = () => {
-    const [breakfastProducts, setBreakfastProducts] = useState([]);
-    const [lunchProducts, setLunchProducts] = useState([]);
+const ApiGetProducts = ({ renderTableBody }) => {
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -15,14 +15,16 @@ const ApiGetProducts = () => {
                     },
                 });
                 const products = response.data;
-                const breakfastItems = products.filter(
+                console.log(products)
+                setProducts(products);
+                /* const breakfastItems = products.filter(
                     (product) => product.type === 'Desayuno'
                 );
                 const lunchItems = products.filter(
                     (product) => product.type === 'Almuerzo'
                 );
                 setBreakfastProducts(breakfastItems);
-                setLunchProducts(lunchItems);
+                setLunchProducts(lunchItems); */
             } catch (error) {
                 console.error('Error al obtener los datos:', error);
             }
@@ -30,6 +32,16 @@ const ApiGetProducts = () => {
 
         fetchData();
     }, []);
+
+/*     const breakfastProducts = products.filter(
+        (product) => product.type === 'Desayuno'
+      );
+    
+      const lunchProducts = products.filter(
+        (product) => product.type === 'Almuerzo'
+      ); */
+
+      return renderTableBody(products);
 }
 
 export default ApiGetProducts;
