@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
+
 const Shopping = ({ selectedProducts, totalPrice, reduceProduct }) => {
+  console.log("Holaaaa");
   return (
     <table>
       <thead>
-        <tr className="cabecera">
+        <tr>
           <th>Producto</th>
           <th>Precio</th>
           <th>Cant</th>
@@ -19,7 +21,7 @@ const Shopping = ({ selectedProducts, totalPrice, reduceProduct }) => {
             <td>${item.quantity * item.price}</td>
             <td className="tacho-guia">
               <img src="/src/assets/tacho.png" className="tacho" onClick={() => reduceProduct(item)} />
-              </td>
+              </td>                         
           </tr>
         ))}
       </tbody>
@@ -38,23 +40,3 @@ Shopping.propTypes = {
   reduceProduct: PropTypes.func,
 };
 export default Shopping;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

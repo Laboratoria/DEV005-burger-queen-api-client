@@ -1,13 +1,4 @@
 
-h1 {
-  font-size: 49px;
-  grid-row: 1;
-  grid-column: 4;
-  position: relative;
-  top: 17px;
-  left: 39px;
-}
-
 body {
   min-width: 1000px;
   min-height: 128vh;
@@ -23,7 +14,6 @@ button {
   cursor: pointer;
   background-color:#133C8B;
   font-size: 22px;
-  letter-spacing: 2px;
    }
 
 button:focus,
@@ -34,10 +24,10 @@ button:focus-visible {
 .btnAdd{
   background-color: #133C8B;
   display: grid;
-  width: 90%;
-  height: 33px;
-  margin-top: -63px;
+  height: 61px;
+  margin-top: -68px;
   align-items: center;
+  font-size: 25px;
 }
 .btn-login{
   background-color: #133C8B;
