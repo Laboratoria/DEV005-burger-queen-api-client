@@ -60,7 +60,7 @@ export class UsersComponent  implements OnInit {
   }
 
   addcustomer(){
-    this.openDialog(-1, 'Ads Customer');
+    this.openDialog(1, 'Ads Customer');
   }
 
 }

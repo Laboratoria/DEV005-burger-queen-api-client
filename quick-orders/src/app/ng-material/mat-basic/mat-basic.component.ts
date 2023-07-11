@@ -66,11 +66,6 @@ export class MatBasicComponent implements OnInit {
       console.log(this.userToEdit)
       this.generateForm()
     })
-    /*this.getUser.edit(id).subscribe(item => {
-      this.editdata = item;
-      console.log(item);
-      this.myform.setValue({correo: this.editdata.email, contraseña: this.editdata.password, rol: this.editdata.role})
-    })*/
   }
 
   Closepopup() {
@@ -78,15 +73,17 @@ export class MatBasicComponent implements OnInit {
   }
 
   Saveuser() { 
-    this.getUser.create(this.myform.value.correo, this.myform.value.contraseña, this.myform.value.rol)
-    .subscribe(res=>{
-      this.Closepopup();
-      console.log(res);
-    });
+    if(this.myform.value.id > 1) {
+      this.getUser.edit(this.userToEdit.id, this.userToEdit.email, this.userToEdit.password, this.userToEdit.role).subscribe(res => {
+        this.Closepopup();
+        console.log(res);
+      });
+    } else {
+      this.getUser.create(this.myform.value.correo, this.myform.value.contraseña, this.myform.value.rol)
+      .subscribe(res=>{
+        this.Closepopup();
+        console.log(res);
+      })
+    }
   }
-
-  saveEdit(){
-    this.getUser.edit(this.userToEdit.id, this.userToEdit.email, this.userToEdit.password, this.userToEdit.role).subscribe(res => console.log)
-  }
-
 }
