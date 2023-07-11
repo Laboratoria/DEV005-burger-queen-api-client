@@ -1,0 +1,16 @@
+
+.modal-admin{
+    height: 350px;
+    padding-bottom: 50px;
+}
+
+.modal-text-admin {
+    margin-top: 20px; 
+    color: #fff;
+    font-size: 2.2rem;
+    line-height: 1.5;
+    font-weight: lighter;
+}
+.btn-admin{
+    background-color: #f8b704e8;
+}

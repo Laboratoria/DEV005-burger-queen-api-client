@@ -1,0 +1,91 @@
+/* -------------------------formulario-----------*/
+/* pantalla chicas */
+.login-form {
+    background-color: #696969a5;
+    width: 80%;
+    display: grid;
+    gap: 20px;
+    max-width: 450px;
+    padding: 30px 12px 20px;
+    border-radius: 20px;
+}
+
+.login-form h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.group {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.messageError {
+    color: rgb(70, 3, 3);
+    font-size: 1rem;
+    font-weight: bold;  
+    padding: 7px;
+    height: 72px;
+
+}
+.activate  {
+    background-color: rgba(255, 0, 0, 0.123);
+    border-radius: 18px;
+}
+
+
+.inp,
+.btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 18px;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    outline: none;
+    border: none;
+}
+
+.btn {
+    margin: 0 auto;
+}
+
+.btn {
+    background-color: #F8B504;
+    font-weight: bold;
+}
+
+.inp::placeholder {
+    color: rgb(130, 126, 126);
+}
+
+@media (min-width:750px) {
+    .global-container {
+        background-image: url('../../assets/lgVertical.png');
+        gap: 30px;
+    }
+
+    .login-form {
+        padding: 45px 20px 60px 20px;
+        max-width: 570px;
+        gap: 18px;
+    }
+
+    .inp,
+    .btn {
+        padding: 25px;
+        font-size: 2.5rem;
+    }
+
+    .login-form h2 {
+        font-size: 3.5rem;
+    }
+}
+
+
+@media (min-width:1000px) {
+    .login-form {
+        margin-left: 400px;
+    }
+}
