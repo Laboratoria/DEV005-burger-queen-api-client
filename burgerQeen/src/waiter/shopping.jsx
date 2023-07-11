@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
-
+import { Link } from "react-router-dom";
+import "../waiter/menu.css"
 const Shopping = ({ selectedProducts, totalPrice, reduceProduct }) => {
   console.log("Holaaaa");
   return (
-    <table>
+    <><table>
       <thead>
         <tr>
           <th>Producto</th>
@@ -21,17 +22,21 @@ const Shopping = ({ selectedProducts, totalPrice, reduceProduct }) => {
             <td>${item.quantity * item.price}</td>
             <td className="tacho-guia">
               <img src="/src/assets/tacho.png" className="tacho" onClick={() => reduceProduct(item)} />
-              </td>                         
+            </td>
           </tr>
         ))}
       </tbody>
       <tfoot className="Total">
-          <td colSpan={3} align="center">
-            Total a pagar
-          </td>
-          <td>${totalPrice}</td>
+        <td colSpan={3} align="center">
+          Total a pagar
+        </td>
+        <td>${totalPrice}</td>
       </tfoot>
     </table>
+    <Link to="/"> 
+          <img src="/src/assets/flecha.png" alt="salir" className="botton-back" />
+    </Link>
+    </>
   );
 };
 Shopping.propTypes = {

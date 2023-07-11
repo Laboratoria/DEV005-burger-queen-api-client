@@ -4,8 +4,8 @@ body {
   min-height: 128vh;
   color: #133C8B;
   font-family: 'Karma';
-  overflow: auto;
-  
+  background-color: #FDFE74;
+  overflow: hidden;
   
 }
 button {

@@ -25,37 +25,37 @@ article{
   }
 .clientName{
   position: relative;
-  top: 534px;
+  top: 550px;
   left: 2018px;
-  font-size: 43px;
+  font-size: 55px;
 }
 .Total{
-  position: relative;
-  top: 95px;
-  left: 34px;
-  font-size: 39px;
+  position: absolute;
+  font-size: 55px;
+  top: 1160px;
+  left: 200px;
 }
 .input-name{
   position: absolute;
   top: 362px;
   left: 1988px;
   border-radius: 20px;
-  width: 64%;
+  width: 85%;
   height: 80px;
   font-size: 39px;
   border: 1px solid #133C8B;
 }
 .container-shopping-list{
   position: relative;
-  top: 663px;
+  top: 673px;
   left: 2036px;
-  font-size: 32px;
+  font-size: 55px;
   margin: -2%;
 }
 .btn-cook{
   position: absolute;
-  top: 1634px;
-  left: 2097px;
+  top: 1934px;
+  left: 2206px;
   width: 75%;
   height: 73px;
   font-size: 41px;
@@ -70,7 +70,7 @@ article{
   font-size: 17px;
 }
 .tacho{
-  height: 30px;
+  height: 50px;
 }
 h1{
   grid-column: 3;
@@ -151,8 +151,8 @@ article{
   align-items: center;
   grid-column: 4;
   grid-row: 4;
-  width: 331%;
-  height: 1292px;
+  width: 431%;
+  height: 1592px;
   border: 4px solid #133C8B;
   border-radius: 20px;
   background: #E1DDDD;
@@ -169,11 +169,10 @@ article{
   margin: 10px;
 }
 .botton-back{
-display: flex;
-padding: 10px;
-width: 80px;
-margin-left: -621px;
-margin-top: 20px;
+width: 75%;
+position: absolute;
+top: -700px;
+left: 628px;
 }
 #client{
 border-radius: 20px;
@@ -181,7 +180,7 @@ width: 220px;
 height: 5%;
 }
 #order{
-font-size: 50px;
+font-size: 60px;
 margin: 10px;
 }
 
