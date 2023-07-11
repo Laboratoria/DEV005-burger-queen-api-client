@@ -37,6 +37,7 @@ create(email: string, password: string, role: string) {
 // Editar usuario
 edit(id:number, email: string, password: string, role: string) {
   const body = {
+    id : id,
     email: email,
     password : password,
     role: role,

@@ -41,6 +41,7 @@ export class UsersComponent  implements OnInit {
     this.usersService.delete(id).subscribe(profile => {
       console.log(profile);
     })
+    this.getAllusers(); 
   }
 
   openDialog(id: number, title: any) {

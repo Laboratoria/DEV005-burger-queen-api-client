@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CreateUserService } from 'src/app/services/create-user.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder, FormsModule, FormGroup, Validators } from "@angular/forms";
 import { UsersService } from 'src/app/services/users.service';
@@ -20,7 +19,6 @@ export class MatBasicComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private createUserService: CreateUserService,
     private Ref: MatDialogRef<MatBasicComponent>,
     private builder: FormBuilder,
     private getUser: UsersService,
@@ -73,16 +71,17 @@ export class MatBasicComponent implements OnInit {
   }
 
   Saveuser() { 
-    if(this.myform.value.id > 1) {
+    console.log(this.userToEdit.id, "usertoedit")
+    if(this.userToEdit.id > 1) {
       this.getUser.edit(this.userToEdit.id, this.userToEdit.email, this.userToEdit.password, this.userToEdit.role).subscribe(res => {
-        this.Closepopup();
         console.log(res);
+        this.Closepopup();
       });
     } else {
       this.getUser.create(this.myform.value.correo, this.myform.value.contraseña, this.myform.value.rol)
       .subscribe(res=>{
-        this.Closepopup();
         console.log(res);
+        this.Closepopup();
       })
     }
   }
