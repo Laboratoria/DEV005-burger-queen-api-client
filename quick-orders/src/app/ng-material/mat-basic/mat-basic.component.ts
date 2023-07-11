@@ -78,16 +78,15 @@ export class MatBasicComponent implements OnInit {
   }
 
   Saveuser() { 
-    if(this.data.id === -1) {
-      this.getUser.create(this.myform.value.correo, this.myform.value.contraseña, this.myform.value.rol)
-      .subscribe(res=>{
-        this.Closepopup();
-        console.log(res);
-      });
-    } else {
-      this.getUser.edit(this.userToEdit.id, this.userToEdit.email, this.userToEdit.password, this.userToEdit.role)
-    }
-   
+    this.getUser.create(this.myform.value.correo, this.myform.value.contraseña, this.myform.value.rol)
+    .subscribe(res=>{
+      this.Closepopup();
+      console.log(res);
+    });
+  }
+
+  saveEdit(){
+    this.getUser.edit(this.userToEdit.id, this.userToEdit.email, this.userToEdit.password, this.userToEdit.role).subscribe(res => console.log)
   }
 
 }
