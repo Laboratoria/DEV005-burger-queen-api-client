@@ -61,7 +61,7 @@ export class MatBasicComponent implements OnInit {
   }
 
   setpopupdate(id: number) {
-    this.getUser.infoUser(id).subscribe(res => {
+    this.getUser.getOneUser(id).subscribe(res => {
       this.userToEdit = res;
       console.log(this.userToEdit)
       this.generateForm()
@@ -73,16 +73,21 @@ export class MatBasicComponent implements OnInit {
     })*/
   }
 
-
   Closepopup() {
     this.Ref.close();
   }
 
-  Saveuser() {
-    this.getUser.create(this.myform.value.correo, this.myform.value.contraseña, this.myform.value.rol).subscribe(res=>{
-      this.Closepopup();
-      console.log(res);
-    });
+  Saveuser() { 
+    if(this.data.id === -1) {
+      this.getUser.create(this.myform.value.correo, this.myform.value.contraseña, this.myform.value.rol)
+      .subscribe(res=>{
+        this.Closepopup();
+        console.log(res);
+      });
+    } else {
+      this.getUser.edit(this.userToEdit.id, this.userToEdit.email, this.userToEdit.password, this.userToEdit.role)
+    }
+   
   }
 
 }

@@ -3,8 +3,6 @@ import { AuthService } from "src/app/services/auth.service";
 import { UsersService } from "src/app/services/users.service";
 import { Router } from "@angular/router";
 import { User } from "src/app/models/user.model";
-import { DeleteService } from "src/app/services/delete.service";
-import { EditService } from "src/app/services/edit.service";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatBasicComponent } from "src/app/ng-material/mat-basic/mat-basic.component";
 
@@ -21,8 +19,6 @@ export class UsersComponent  implements OnInit {
     private authService: AuthService,
     private usersService: UsersService,
     private router: Router,
-    private deleteUser: DeleteService,
-    private editUser: EditService,
     public dialog: MatDialog,
 
     ){
@@ -34,20 +30,18 @@ export class UsersComponent  implements OnInit {
   }
 
   getAllusers() {
-  this.usersService.profile().subscribe(profile => {
+  this.usersService.allUsers().subscribe(profile => {
       this.data = profile
       console.log(this.data)
       })
   }
 
-  deleteThisUser(){
-    this.deleteUser.delete().subscribe(profile => {
+  deleteThisUser(id:number){
+    console.log(id);
+    this.usersService.delete(id).subscribe(profile => {
+      console.log(profile);
     })
   }
-
-  /*editThisUser(){
-    this.editUser.edit()
-  }*/
 
   openDialog(id: number, title: any) {
     const dialogRef = this.dialog.open(MatBasicComponent, {
@@ -66,7 +60,7 @@ export class UsersComponent  implements OnInit {
   }
 
   addcustomer(){
-    this.openDialog(1, 'Ads Customer');
+    this.openDialog(-1, 'Ads Customer');
   }
 
 }

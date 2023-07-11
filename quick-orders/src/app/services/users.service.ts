@@ -15,12 +15,12 @@ export class UsersService {
   ) { }
 
 //Traer todos los usuarios
- profile() {
+ allUsers() {
   return this.http.get<User[]>(`${this.apiURL}/users`);
 }
 
 // Traer solo un usuario
-infoUser(id:number) {
+getOneUser(id:number) {
   return this.http.get<User>(`${this.apiURL}/users/${id}`);
 }
 
@@ -35,8 +35,17 @@ create(email: string, password: string, role: string) {
 }
 
 // Editar usuario
-edit(id:number) {
-  return this.http.patch<User>(`${this.apiURL}/users/${id}`, id);
+edit(id:number, email: string, password: string, role: string) {
+  const body = {
+    email: email,
+    password : password,
+    role: role,
+  }; 
+  return this.http.patch<User>(`${this.apiURL}/users/${id}`, body);
+}
+// Eliminar usuario
+delete(id:number) {
+  return this.http.delete<User>(`${this.apiURL}/users/${id}`);
 }
 
 }

@@ -4,8 +4,8 @@
             <th class="email"> Email </th>
             <th class="pass"> Contraseña </th>
             <th class="role"> Rol </th>
-            <th > </th>
-            <th > </th>
+            <th> </th>
+            <th> </th>
         </tr> 
     </thead>
     <tbody>
@@ -14,7 +14,7 @@
             <td class="pass"> {{ info.password }} </td>
             <td class="role"> {{ info.role }} </td>
             <td class="img"><button class="butonEdit" (click) ="editcustomer(info.id)">Editar</button></td>
-            <td class="img"><button class="butonDelete">Eliminar</button></td>
+            <td class="img"><button class="butonDelete" (click) ="deleteThisUser(info.id)">Eliminar</button></td>
         </tr> 
     </tbody>
     </table>
