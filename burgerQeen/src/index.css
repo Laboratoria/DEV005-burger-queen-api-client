@@ -5,8 +5,7 @@ body {
   color: #133C8B;
   font-family: 'Karma';
   overflow: auto;
-  
-  
+  background-color: #FDFE74;
 }
 button {
   border-radius: 30px;

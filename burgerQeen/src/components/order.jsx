@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Products from "../petitions/products";
+import Products from "../Petitions/products";
 import ShoppingC from "../waiter/shoppingC";
 import ClientName from "../waiter/client.jsx";
 import axios from "axios";

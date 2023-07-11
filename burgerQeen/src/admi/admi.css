@@ -1,49 +1,107 @@
-.btn-editar-users{
-    width: 5%;
+.btn-editar-users {
+  width: 5%;
 }
-.users{
-    display: flex;
-    justify-content: space-around;
-    background-color: white;
-    border-radius: 15px;
-    width: 100%;
-    height: 35px;
-    margin: 15px;
-    margin-left: 10px;
-    
+
+.users {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  border-radius: 15px;
+  width: 100%;
+  height: 35px;
+  margin: 15px;
+  margin-left: 10px;
 }
-.add-user{
-    position: relative;
-    
-    width: 15%;
-    display: flex;
-   flex-direction: column;
-   
-  
-   
+
+.add-user {
+  position: relative;
+  width: 15%;
+  display: flex;
+  flex-direction: column;
 }
-.items-users{
-   position: absolute;
-   top: 240px;
-    background-color:#133C8B ;
-    width: 100%;
-    color: white;
-    height: 30px;
+
+.items-users {
+  position: absolute;
+  top: 240px;
+  background-color: #133c8b;
+  width: 100%;
+  color: white;
+  height: 30px;
   border-radius: 15px;
 }
-.admi{
-    display: flex;
-    font-size: 50px;
-    justify-content: center;
-    margin-top: 20px;
+
+.admi {
+  display: flex;
+  font-size: 50px;
+  justify-content: center;
+  margin-top: 20px;
 }
-.more-user-products{
-    display: flex;
-    justify-content:space-between;
-    padding: 0;
+
+.more-user-products {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
 }
-.btn-add-products{
-    height: 30px;
-    display: flex;
-    align-self: center;
+
+.btn-add-products {
+  height: 30px;
+  display: flex;
+  align-self: center;
+}
+
+.btn-eliminar-users {
+  width: 5%;
+}
+
+/* Estilos del modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.modal h3 {
+  margin: 0 0 20px;
+  font-size: 20px;
+}
+
+.modal input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-buttons button {
+  margin-left: 10px;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
