@@ -14,15 +14,29 @@ export class UsersService {
     private http: HttpClient
   ) { }
 
- /*create(dto: CreateUserDTO) {
-    return this.http.post<User>(`${this.apiURL}/users`, dto);
- }
- getAll(){
-  return this.http.get<User[]>(`${this.apiURL}/users`);
- }*/
-
+//Traer todos los usuarios
  profile() {
   return this.http.get<User[]>(`${this.apiURL}/users`);
+}
+
+// Traer solo un usuario
+infoUser(id:number) {
+  return this.http.get<User>(`${this.apiURL}/users/${id}`);
+}
+
+// Crear usuarios
+create(email: string, password: string, role: string) {
+  const body = {
+    email: email,
+    password : password,
+    role: role,
+  }; 
+  return this.http.post<User[]>(`${this.apiURL}/users`, body);
+}
+
+// Editar usuario
+edit(id:number) {
+  return this.http.patch<User>(`${this.apiURL}/users/${id}`, id);
 }
 
 }

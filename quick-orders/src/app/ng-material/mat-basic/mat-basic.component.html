@@ -1,26 +1,25 @@
 <div class="component">
-    <form [formGroup] ="myForm" (ngSubmit)= "Saveuser()">
+    <form [formGroup] ="myform" (ngSubmit)= "Saveuser()" id="formModal">
+        <h1 mat-dialog-title>{{data.title}}</h1>
         <div mat-dialog-content class="mat-typography">
             <img class="userLogin" src="./assets/Ellipse5.png" alt="user logo">
-            <mat-form-field>
+            <mat-form-field id="emailModal" >
                 <mat-label>Correo</mat-label>
-                <input formControlName="correo" matInput class="infouno" placeholder="ejemplo@gmail.com">
+                <input formControlName="correo" matInput placeholder="ejemplo@gmail.com">
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field id="passModal" >
                 <mat-label>Contraseña</mat-label>
-                <input formControlName="contraseña" matInput class="infodos" placeholder="Escribe la contraseña">
+                <input formControlName="contraseña" matInput  placeholder="Escribe la contraseña">
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field id="roleModal" >
                 <mat-label>Rol</mat-label>
-                <input formControlName="rol" matInput class="infotres" placeholder="Especifica el rol">
+                <input formControlName="rol" matInput placeholder="Especifica el rol">
             </mat-form-field>
-
-            <mat-dialog-actions align="end" class="close">
-                <button mat-button (click) ="Closepopup()">Cancelar</button>
-                <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click) ="createUser()">Create</button>
-              </mat-dialog-actions>
+            <div mat-dialog-actions align="end" class="close">
+                <button  mat-raised-button color="primary" (click) ="Closepopup()">Cancelar</button>
+                <button mat-raised-button color="primary">Guardar</button>
+              </div>
           </div>
           </form>
-         
 </div>
 

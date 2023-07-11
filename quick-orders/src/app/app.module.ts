@@ -16,7 +16,6 @@ import { ProductsComponent } from './components/admin/products/products.componen
 import { UsersComponent } from './components/admin/users/users.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgMaterialModule } from './ng-material/ng-material.module';
-import { MatFormFieldModule } from '@angular/material/form-field';
 
 // Crear constante de componentes 
 @NgModule({
@@ -37,7 +36,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatFormFieldModule,
     MatDialogModule,
     BrowserAnimationsModule,
     NgMaterialModule,

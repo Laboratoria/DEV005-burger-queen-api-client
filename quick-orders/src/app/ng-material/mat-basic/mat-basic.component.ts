@@ -3,6 +3,9 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { CreateUserService } from 'src/app/services/create-user.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder, FormsModule, FormGroup, Validators } from "@angular/forms";
+import { UsersService } from 'src/app/services/users.service';
+import { User } from 'src/app/models/user.model';
+
 
 @Component({
   selector: 'app-mat-basic',
@@ -11,41 +14,75 @@ import { FormBuilder, FormsModule, FormGroup, Validators } from "@angular/forms"
 })
 export class MatBasicComponent implements OnInit {
 
-  myForm: FormGroup;
-  isSubmited = false;
+  myform: FormGroup;
+  userToEdit: User; 
+  editdata: User;
 
   constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private createUserService: CreateUserService,
     private Ref: MatDialogRef<MatBasicComponent>,
     private builder: FormBuilder,
+    private getUser: UsersService,
 
-  ){  this.myForm  =  this.builder.group({
-    email: ['', Validators.required],
-    password: ['', Validators.required],
-    role: ['', Validators.required],
-  });
+  ){  
+    this.userToEdit = {} as User;
+    this.editdata = {} as User;
+
+    this.myform = this.builder.group(
+      { correo: this.builder.control(''),
+      contraseña: this.builder.control(''),
+      rol: this.builder.control(''),
+    });  
   }
 
-  ngOnInit() {
+  ngOnInit(): void { 
+    console.log(this.data.id)
+    if (this.data.title === 'Edit Customer') {
+      this.setpopupdate(this.data.id);
+    }
   }
+
+  generateForm(){
+    if(this.data.title === 'Edit Customer') {
+      this.myform = this.builder.group(
+      { correo: this.builder.control(this.userToEdit.email),
+      contraseña: this.builder.control(this.userToEdit.password),
+      rol: this.builder.control(this.userToEdit.role),
+    });
+  } 
+  else {
+      this.myform = this.builder.group(
+      { correo: this.builder.control(''),
+      contraseña: this.builder.control(''),
+      rol: this.builder.control(''),
+    });
+  }    
+  }
+
+  setpopupdate(id: number) {
+    this.getUser.infoUser(id).subscribe(res => {
+      this.userToEdit = res;
+      console.log(this.userToEdit)
+      this.generateForm()
+    })
+    /*this.getUser.edit(id).subscribe(item => {
+      this.editdata = item;
+      console.log(item);
+      this.myform.setValue({correo: this.editdata.email, contraseña: this.editdata.password, rol: this.editdata.role})
+    })*/
+  }
+
 
   Closepopup() {
     this.Ref.close();
   }
 
-  myform = this.builder.group({
-    correo: this.builder.control(''),
-    contraseña: this.builder.control(''),
-    rol: this.builder.control('')
-  });
-
   Saveuser() {
-    console.log(this.myForm.value);
+    this.getUser.create(this.myform.value.correo, this.myform.value.contraseña, this.myform.value.rol).subscribe(res=>{
+      this.Closepopup();
+      console.log(res);
+    });
   }
-
-  createUser() {
-    
-  }
-
 
 }

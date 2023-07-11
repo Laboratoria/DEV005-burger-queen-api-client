@@ -18,7 +18,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     FormsModule,
     MatButtonModule,
-    MatFormFieldModule,
     ReactiveFormsModule,
   ],
   exports: [

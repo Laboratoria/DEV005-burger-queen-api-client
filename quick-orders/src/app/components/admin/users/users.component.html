@@ -4,8 +4,8 @@
             <th class="email"> Email </th>
             <th class="pass"> Contraseña </th>
             <th class="role"> Rol </th>
-            <th class="img"> </th>
-            <th class="img"> </th>
+            <th > </th>
+            <th > </th>
         </tr> 
     </thead>
     <tbody>
@@ -13,8 +13,10 @@
             <td class="email"> {{ info.email }} </td>
             <td class="pass"> {{ info.password }} </td>
             <td class="role"> {{ info.role }} </td>
-            <td class="img"><img class="edit" src="./assets/editar.png"></td>
-            <td class="img"><img class="trash" src="./assets/basura_2.png"></td>
+            <td class="img"><button class="butonEdit" (click) ="editcustomer(info.id)">Editar</button></td>
+            <td class="img"><button class="butonDelete">Eliminar</button></td>
         </tr> 
     </tbody>
     </table>
+
+    

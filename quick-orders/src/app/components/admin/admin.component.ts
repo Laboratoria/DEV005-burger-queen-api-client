@@ -43,11 +43,32 @@ export class AdminComponent implements OnInit {
         this.activeView = view;
     }
 
-    openDialog() {
-        const dialogRef = this.dialog.open(MatBasicComponent, {width: '60%'});
+    openDialog(id: number, title: any) {
+        const dialogRef = this.dialog.open(MatBasicComponent, {
+            width: '60%',
+            data: {
+                title: title,
+                id: id
+            }});
         dialogRef.afterClosed().subscribe(result => {
           console.log(`Dialog result: ${result}`);
         });
       }
 
+      addcustomer(){
+        this.openDialog(1, 'Add. Customer');
+      }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
