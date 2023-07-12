@@ -1,6 +1,6 @@
-DELETE  http://localhost:8080/orders/49 HTTP/1.1
+DELETE  http://localhost:8080/orders/3 HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNoZWZAdmVnZ2llLmNvbSIsImlhdCI6MTY4ODY1Njc0NCwiZXhwIjoxNjg4NjYwMzQ0LCJzdWIiOiI0In0.2ZqyKDn9XA2MMvEUkySti9Q0sfpKiavlQ90O8MohEWs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRpZWdvLmNoZWZAdmVnZ2llLmNvbSIsImlhdCI6MTY4OTEyMDg4MywiZXhwIjoxNjg5MTI0NDgzLCJzdWIiOiIzIn0.dFUYaQdHbGCN66M1_FQ0KrDeM9gN8SYr3DSqCjNQ4iA
 
 {
   "name": "Hamburguesa simple",

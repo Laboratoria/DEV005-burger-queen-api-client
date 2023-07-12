@@ -4,10 +4,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Admin from "../admi/admi";
 import { Link } from "react-router-dom";
-
 const Employees = () => {
   const [employees, setEmployees] = useState([]);
-
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
@@ -24,10 +22,8 @@ const Employees = () => {
         console.error(error);
       }
     };
-
     fetchEmployees();
   }, []);
-
   const handleEditEmployee = async (id, updatedData) => {
     try {
       const token = localStorage.getItem("accessToken");
@@ -47,14 +43,12 @@ const Employees = () => {
           employee.id === id ? { ...employee, ...updatedData } : employee
         )
       );
-
       console.log(response);
       // Maneja la respuesta de la API después de editar el empleado
     } catch (error) {
       console.error(error);
     }
   };
-
   const handleDeleteEmployee = async (id) => {
     try {
       const token = localStorage.getItem("accessToken");
@@ -68,21 +62,33 @@ const Employees = () => {
       setEmployees((prevEmployees) =>
         prevEmployees.filter((employee) => employee.id !== id)
       );
-
       console.log("Empleado eliminado exitosamente");
     } catch (error) {
       console.error(error);
     }
   };
-
   return (
     <>
-      <div className="buttonAdmin">
-        <Button className="buttons" id="products" text="Productos" />
+    <h1 className="admi">Administradores</h1>
+      <table className="items-users">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+      </table>
+      <div className="more-user-products">
+      <img src="/src/assets/adduser.png" alt="add-user" className="add-user" />
+        <Button className="btn-add-products" id="products" text="Productos" />
+        </div>
         <Link to="/">
-          <img src="/src/assets/flecha.png" alt="" className="botton-back" />
+          <img src="/src/assets/flecha.png" alt="" className="botton-back-admi" />
         </Link>
-      </div>
       <div className="container-user">
         {employees.map((user) => (
           <Admin
@@ -96,5 +102,4 @@ const Employees = () => {
     </>
   );
 };
-
 export default Employees;

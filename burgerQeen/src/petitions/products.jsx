@@ -58,7 +58,7 @@ const Products = ({ handleAddProduct }) => {
           onClick={() => handleMenuSelection("almuerzo")}
         />
         <Link to="/">
-          <img src="../assets/flechas.png" alt="" className="botton-back" />
+          <img src="/src/assets/flechas.png" alt="" className="botton-back" />
         </Link>
       </div>
       

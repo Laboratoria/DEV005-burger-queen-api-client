@@ -1,67 +1,64 @@
-.bodyWaiter{ 
+.bodyWaiter {
   position: absolute;
   width: 58%;
   height: 2288px;
   top: -1px;
   left: -6px;
 }
-.Menu{
+.Menu {
   position: absolute;
   left: 922px;
-  top: 230px;
+  top: 156px;
   font-size: 100px;
 }
 .container-menu {
   display: grid;
   padding: 5px;
-  grid-template-columns: 248px 200px 200px 200px 232px;
-  grid-template-rows: 74px 50px 50px 173px;
-  grid-gap: 18px;
   margin: -125px;
-  }
-article{
+}
+article {
   grid-column: 3;
   grid-row: 2;
-  }
-.clientName{
+}
+.clientName {
   position: relative;
-  top: 534px;
+  top: 574px;
   left: 2018px;
-  font-size: 43px;
+  font-size: 55px;
 }
-.Total{
-  position: relative;
-  top: 95px;
-  left: 34px;
-  font-size: 39px;
-}
-.input-name{
+.Total {
   position: absolute;
-  top: 362px;
-  left: 1988px;
-  border-radius: 20px;
-  width: 64%;
-  height: 80px;
-  font-size: 39px;
-  border: 1px solid #133C8B;
+  font-size: 55px;
+  top: 1160px;
+  left: 200px;
 }
-.container-shopping-list{
+.input-name {
+  position: absolute;
+  top: 257px;
+  left: 1924px;
+  border-radius: 20px;
+  width: 74%;
+  height: 85px;
+  font-size: 39px;
+  border: 1px solid #133c8b;
+}
+.container-shopping-list {
   position: relative;
-  top: 663px;
+  top: 727px;
   left: 2036px;
-  font-size: 32px;
+  font-size: 55px;
   margin: -2%;
 }
-.btn-cook{
+.btn-cook {
   position: absolute;
-  top: 1634px;
-  left: 2097px;
-  width: 75%;
-  height: 73px;
-  font-size: 41px;
+  top: 2015px;
+  left: 2007px;
+  width: 110%;
+  height: 77px;
+  font-size: 48px;
   border-radius: 26px;
 }
-.btn-delete{
+.btn-delete {
   position: absolute;
   top: 658px;
   left: 635px;
@@ -69,17 +66,17 @@ article{
   height: 31px;
   font-size: 17px;
 }
-.tacho{
-  height: 30px;
+.tacho {
+  height: 50px;
 }
-h1{
+h1 {
   grid-column: 3;
   grid-row: 2;
   margin-top: -86px;
   font-size: 103px;
   margin-left: 650px;
 }
-.productImg{
+.productImg {
   display: flex;
   justify-content: end;
   width: 224%;
@@ -87,29 +84,29 @@ h1{
   margin-top: 87px;
   margin-left: -152px;
 }
-.btn-desayuno{
+.btn-desayuno {
   position: relative;
   width: 165%;
   height: 91px;
   top: 353px;
   left: 1043px;
   font-size: 48px;
-  border: 1px solid #133C8B;
+  border: 1px solid #133c8b;
   background: #ffffff;
   color: #133c8b;
 }
-.btn-almuerzo{
+.btn-almuerzo {
   position: relative;
   width: 195%;
   height: 91px;
   top: 353px;
   left: 1245px;
   font-size: 48px;
-  border: 1px solid #133C8B;
+  border: 1px solid #133c8b;
   background: #ffffff;
   color: #133c8b;
 }
-.cardProduct{
+.cardProduct {
   background-color: #ffffff;
   width: 87%;
   height: 306px;
@@ -123,84 +120,63 @@ h1{
   margin: 2%;
   margin-left: 74px;
   margin-top: 51px;
-  border: 1px solid #133C8B;
+  border: 1px solid #133c8b;
 }
-.container-productos{
+.container-productos {
   display: grid;
   grid-template-columns: 354px 354px 354px;
   margin-left: 758px;
-  margin-top: 147px;  
+  margin-top: -1476px;
 }
-.productName{
+.productName {
   display: flex;
   font-size: 32px;
   width: 205%;
   margin-left: 14px;
   margin-top: 3px;
 }
-.producPrice{
+.producPrice {
   position: relative;
   top: -26px;
   left: 241px;
   width: 86%;
   font-size: 33px;
 }
-article{
+article {
   display: flex;
   flex-direction: column;
   align-items: center;
   grid-column: 4;
   grid-row: 4;
-  width: 331%;
-  height: 1292px;
-  border: 4px solid #133C8B;
+  width: 41%;
+  height: 1592px;
+  border: 4px solid #133c8b;
   border-radius: 20px;
-  background: #E1DDDD;
-  margin-left: 1400px;
+  background: #e1dddd;
+  margin-left: 1606px;
   margin-top: 242px;
 }
-#client{
+#client {
   border-radius: 20px;
   width: 220px;
   height: 5%;
 }
-#order{
+#order {
   font-size: 34px;
   margin: 10px;
 }
-.botton-back{
-display: flex;
-padding: 10px;
-width: 80px;
-margin-left: -621px;
-margin-top: 20px;
+.botton-back {
+  width: 30%;
+  position: absolute;
+  top: 31px;
+  left: 2659px;
 }
-#client{
-border-radius: 20px;
-width: 220px;
-height: 5%;
+#client {
+  border-radius: 20px;
+  width: 220px;
+  height: 5%;
 }
-#order{
-font-size: 50px;
-margin: 10px;
+#order {
+  font-size: 60px;
+  margin: 10px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

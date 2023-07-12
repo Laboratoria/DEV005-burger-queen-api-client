@@ -1,58 +1,62 @@
-.btn-editar-users {
+.btn-editar-users{
   width: 5%;
 }
-
-.users {
+.users{
   display: flex;
   justify-content: space-around;
+  align-items: center;
   background-color: white;
   border-radius: 15px;
-  width: 100%;
+  width: 96%;
   height: 35px;
-  margin: 15px;
   margin-left: 10px;
+  margin-top: 28px;
 }
-
-.add-user {
+.add-user{
   position: relative;
   width: 15%;
   display: flex;
-  flex-direction: column;
+ flex-direction: column;
 }
-
-.items-users {
+.items-users{
   position: absolute;
-  top: 240px;
-  background-color: #133c8b;
-  width: 100%;
-  color: white;
-  height: 30px;
-  border-radius: 15px;
+  top: 250px;
+  left: 10px;
+   background-color:#133C8B ;
+   width: 95%;
+   color: white;
+   height: 30px;
+ border-radius: 15px;
 }
-
-.admi {
+.admi{
   display: flex;
   font-size: 50px;
   justify-content: center;
   margin-top: 20px;
+  margin-left: 80px;
 }
-
-.more-user-products {
+.more-user-products{
   display: flex;
-  justify-content: space-between;
-  padding: 0;
+  justify-content: space-around;
+ margin-top: 10px;
+ padding: 15px;
 }
-
-.btn-add-products {
-  height: 30px;
+.btn-add-products{
+  width: 13%;
+  height: 35px;
   display: flex;
   align-self: center;
+  align-items: center;
 }
-
+.botton-back-admi{
+  width: 10%;
+  position: absolute;
+  top: -5px;
+  left: 939px;
+}
 .btn-eliminar-users {
   width: 5%;
 }
-
 /* Estilos del modal */
 .modal-overlay {
   position: fixed;
@@ -66,7 +70,6 @@
   align-items: center;
   z-index: 999;
 }
-
 .modal {
   background-color: white;
   border-radius: 10px;
@@ -74,12 +77,10 @@
   width: 300px;
   animation: slideIn 0.3s ease-in-out;
 }
-
 .modal h3 {
   margin: 0 0 20px;
   font-size: 20px;
 }
-
 .modal input {
   width: 100%;
   margin-bottom: 10px;
@@ -87,16 +88,13 @@
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
 .modal-buttons {
   display: flex;
   justify-content: flex-end;
 }
-
 .modal-buttons button {
   margin-left: 10px;
 }
-
 @keyframes slideIn {
   0% {
     transform: translateY(100%);
@@ -104,4 +102,7 @@
   100% {
     transform: translateY(0);
   }
+}
+th{
+  width: 17%;
 }
