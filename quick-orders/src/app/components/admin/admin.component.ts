@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { User } from "src/app/models/user.model";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatBasicComponent } from "src/app/ng-material/mat-basic/mat-basic.component"; 
+import { MatProductsComponent } from "src/app/ng-material/mat-products/mat-products.component";
 
 @Component ({
     selector: 'app-admin',
@@ -24,12 +25,9 @@ export class AdminComponent implements OnInit {
     private router: Router,
     public dialog: MatDialog,
     
-    ){ 
+    ){ }
 
-    }
-
-    ngOnInit(){
-    }
+    ngOnInit(){}
     
     activateView(view:string) {
         this.activeView = view;
@@ -43,9 +41,12 @@ export class AdminComponent implements OnInit {
         this.activeView = view;
     }
 
+    // Dinámica del usuario
+
     openDialog(id: number, title: any) {
         const dialogRef = this.dialog.open(MatBasicComponent, {
             width: '60%',
+            height: '80%',
             data: {
                 title: title,
                 id: id
@@ -56,8 +57,28 @@ export class AdminComponent implements OnInit {
       }
 
       addcustomer(){
-        this.openDialog(1, 'Add. Customer');
+        this.openDialog(1, 'Add Customer');
       }
+
+      // Dinámica del producto
+
+      openDialogProduct(id: number, title: any) {
+        const dialogRef = this.dialog.open(MatProductsComponent, {
+            width: '60%',
+            height: '80%',
+            data: {
+                title: title,
+                id: id
+            }});
+        dialogRef.afterClosed().subscribe(result => {
+          console.log(`Dialog result: ${result}`);
+        });
+      }
+
+      addProduct(){
+        this.openDialogProduct(1, 'Add Product');
+      }
+
 }
 
 

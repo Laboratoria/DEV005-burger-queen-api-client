@@ -44,6 +44,7 @@ edit(id:number, email: string, password: string, role: string) {
   }; 
   return this.http.patch<User>(`${this.apiURL}/users/${id}`, body);
 }
+
 // Eliminar usuario
 delete(id:number) {
   return this.http.delete<User>(`${this.apiURL}/users/${id}`);

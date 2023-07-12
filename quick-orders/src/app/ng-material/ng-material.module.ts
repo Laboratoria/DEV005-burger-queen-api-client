@@ -8,10 +8,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatProductsComponent } from './mat-products/mat-products.component';
 
 @NgModule({
   declarations: [
-    MatBasicComponent
+    MatBasicComponent,
+    MatProductsComponent
   ],
   imports: [
     CommonModule,

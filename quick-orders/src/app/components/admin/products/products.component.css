@@ -58,19 +58,23 @@ td {
   font-size: small;
 }
 
-.email{
-  width: 25%;
-}
-
-.pass{
-  width: 40%;
-}
-
-.role{
+.name{
   width: 15%;
 }
 
-.img{
+.price{
   width: 10%;
+}
+
+.image{
+  width: 15%;
+}
+
+.type{
+  width: 10%;
+}
+
+.actions {
+width: 5%;
 }
 
