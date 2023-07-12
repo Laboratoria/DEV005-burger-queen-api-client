@@ -83,7 +83,7 @@ const Employees = () => {
         </thead>
       </table>
       <div className="more-user-products">
-      <img src="/src/assets/adduser.png" alt="add-user" className="add-user" />
+      <img src="/src/assets/adduser.png" alt="add-user" className="add-user" /> 
         <Button className="btn-add-products" id="products" text="Productos" />
         </div>
         <Link to="/">

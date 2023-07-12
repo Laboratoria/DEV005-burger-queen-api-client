@@ -1,6 +1,6 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import "./admi.css";
-
 const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editedData, setEditedData] = useState({
@@ -9,15 +9,12 @@ const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
     password: user.password,
     role: user.role
   });
-
   const handleEditUser = () => {
     setIsModalOpen(true);
   };
-
   const handleModalClose = () => {
     setIsModalOpen(false);
   };
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setEditedData((prevData) => ({
@@ -25,18 +22,17 @@ const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
       [name]: value
     }));
   };
-
   const handleSaveChanges = () => {
     handleEditEmployee(user.id, editedData);
     setIsModalOpen(false);
   };
-
   const handleDeleteUser = () => {
+    // eslint-disable-next-line react/prop-types
     if (window.confirm(`¿Estás seguro de eliminar al usuario ${user.name}?`)) {
+      // eslint-disable-next-line react/prop-types
       handleDeleteEmployee(user.id);
     }
   };
-
   return (
     <>
       <div className="users">
@@ -44,14 +40,12 @@ const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
         <div className="user-name">{user.name}</div>
         <div className="user-email">{user.email}</div>
         <div className="user-role">{user.role}</div>
-
         <img
           src="src/assets/editar.png"
           alt="editar"
           className="btn-editar-users"
           onClick={handleEditUser}
         />
-
         <img
           src="src/assets/delete.png"
           alt="eliminar"
@@ -59,7 +53,6 @@ const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
           onClick={handleDeleteUser}
         />
       </div>
-
       {isModalOpen && (
         <div className="modal-overlay">
           <div className="modal">
@@ -104,4 +97,12 @@ const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
 };
 
 export default Admin;
+
+
+
+
+
+
+
+
 
