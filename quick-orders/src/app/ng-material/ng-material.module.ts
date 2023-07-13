@@ -9,6 +9,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProductsComponent } from './mat-products/mat-products.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MatProductsComponent } from './mat-products/mat-products.component';
     MatAutocompleteModule,
     MatButtonModule,
     FormsModule,
+    MatCardModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

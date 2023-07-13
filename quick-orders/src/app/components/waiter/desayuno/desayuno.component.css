@@ -1,0 +1,10 @@
+.card-class {
+    margin: 3%;
+    width: 70%;
+    height: 20%;
+}
+
+.contentCard {
+    border-radius: 10px;
+    background-color: beige;
+}

@@ -10,6 +10,7 @@ import { KitchenComponent } from './components/kitchen/kitchen.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon'
 // Interceptors
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { ProductsComponent } from './components/admin/products/products.component';
@@ -18,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgMaterialModule } from './ng-material/ng-material.module';
 import { DesayunoComponent } from './components/waiter/desayuno/desayuno.component';
 import { AlmuerzoComponent } from './components/waiter/almuerzo/almuerzo.component';
+
 
 // Crear constante de componentes 
 @NgModule({
@@ -43,6 +45,7 @@ import { AlmuerzoComponent } from './components/waiter/almuerzo/almuerzo.compone
     MatDialogModule,
     BrowserAnimationsModule,
     NgMaterialModule,
+    MatIconModule,
   ],
   providers: [
     {
