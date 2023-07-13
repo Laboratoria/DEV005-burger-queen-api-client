@@ -1,7 +1,7 @@
+import { NavLink } from "react-router-dom";
 import AdminCSS from "../../Style/admin.module.css";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
-import { NavLink } from "react-router-dom";
 
 export default function Admin() {
   return <>
