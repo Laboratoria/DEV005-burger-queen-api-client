@@ -4,9 +4,9 @@ import ShoppingC from "../waiter/shoppingC";
 import ClientName from "../waiter/client.jsx";
 import axios from "axios";
 const Order = () => {
-  //selección de productos del usuario
+  
   const [selectedProducts, setSelectedProducts] = useState([]);
-  //constante con el total del valor a pagar
+  
   const [totalPrice, setTotalPrice] = useState(0);
   //función del btn que agrega los productos seleccionados al carrito
   const handleAddProduct = (selectedProduct) => {

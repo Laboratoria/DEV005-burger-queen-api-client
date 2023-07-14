@@ -2,15 +2,16 @@ import PropTypes from 'prop-types';
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import "./admi.css";
-const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
+const EditProducts = ({ product, handleEditProduct, handleDeleteProduct }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editedData, setEditedData] = useState({
-    name: user.name,
-    email: user.email,
-    password: user.password,
-    role: user.role
+    name: product.name,
+    price: product.price,
+    image: product.img,
+    type: product.type,
+    
   });
-  const handleEditUser = () => {
+  const handleEditProduct = () => {
     setIsModalOpen(true);
   };
   const handleModalClose = () => {
@@ -24,40 +25,41 @@ const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
     }));
   };
   const handleSaveChanges = () => {
-    handleEditEmployee(user.id, editedData);
+    handleEditProduct(product.id, editedData);
     setIsModalOpen(false);
   };
-  const handleDeleteUser = () => {
+  const handleDeleteProduct = () => {
     // eslint-disable-next-line react/prop-types
-    if (window.confirm(`¿Estás seguro de eliminar al usuario ${user.name}?`)) {
+    if (window.confirm(`¿Estás seguro de eliminar al usuario ${product.name}?`)) {
       // eslint-disable-next-line react/prop-types
-      handleDeleteEmployee(user.id);
+      handleDeleteProduct(product.id);
     }
   };
   return (
     <>
-      <div className="users">
-        <div className="user-id">{user.id}</div>
-        <div className="user-name">{user.name}</div>
-        <div className="user-email">{user.email}</div>
-        <div className="user-role">{user.role}</div>
+      <div className="products">
+        <div className="product-id">{product.id}</div>
+        <div className="product-name">{product.name}</div>
+        <div className="product-price">{product.price}</div>
+        <div className="product-image">{product.image}</div>
+        <div className="product-type">{product.type}</div>
         <img
           src="src/assets/editar.png"
           alt="editar"
           className="btn-editar-users"
-          onClick={handleEditUser}
+          onClick={handleEditProduct}
         />
         <img
           src="src/assets/delete.png"
           alt="eliminar"
           className="btn-eliminar-users"
-          onClick={handleDeleteUser}
+          onClick={handleDeleteProduct}
         />
       </div>
       {isModalOpen && (
         <div className="modal-overlay">
           <div className="modal">
-            <h3>Editar Usuario</h3>
+            <h3>Editar Producto</h3>
             <input
               type="text"
               name="name"
@@ -67,24 +69,24 @@ const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
             />
             <input
               type="text"
-              name="email"
-              value={editedData.email}
+              name="price"
+              value={editedData.price}
               onChange={handleInputChange}
-              placeholder="Email"
+              placeholder="precio"
             />
             <input
-              type="password"
-              name="password"
-              value={editedData.password}
+              type="img"
+              name="image"
+              value={editedData.image}
               onChange={handleInputChange}
-              placeholder="Contraseña"
+              placeholder="image"
             />
             <input
               type="text"
-              name="role"
-              value={editedData.role}
+              name="type"
+              value={editedData.type}
               onChange={handleInputChange}
-              placeholder="Rol"
+              placeholder="Tipo"
             />
             <div className="modal-buttons">
               <button onClick={handleSaveChanges}>Guardar cambios</button>
@@ -96,18 +98,9 @@ const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
     </>
   );
 };
-Admin.propTypes = {
-  user: PropTypes.object,
-  handleEditEmployee: PropTypes.func,
-  handleDeleteEmployee: PropTypes.func,
+EditProducts.propTypes = {
+  product: PropTypes.object,
+  handleEditProducts: PropTypes.func,
+  handleDeleteProducts: PropTypes.func,
 }
-export default Admin;
-
-
-
-
-
-
-
-
-
+export default EditProducts;
