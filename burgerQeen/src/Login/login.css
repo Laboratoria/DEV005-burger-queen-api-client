@@ -1,80 +1,70 @@
-.logo{ 
+.logo {
   width: 40%;
   height: 75%;
-  padding: 5%; 
+  padding: 5%;
 }
-.bienvenidos{
-  position: relative;
-  top: -2px;
-  left: -608px;
+
+.bienvenidos {
   font-size: 46px;
 }
+
 .inputs {
   display: flex;
+  background-color: #e1ddddb5;
+  margin-top: -578px;
+  margin-left: 531px;
+  width: 42%;
+  height: 505px;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  flex-wrap: nowrap;
   border-radius: 20px;
-  padding: 7%;
-  background-color: #e1dddd;
-  opacity: 2.9;
-  width: 30%;
-  height: 330px;
-  margin-top: -538px;
-  margin-left: 500px;
-  font-size: 30px;
-}
-.us{
-  display: flex;
-  background: #ffffff;
-  border: none;
-  padding-left: 5%;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 380px;
-  height: 46px;
+  font-size: 25px;
   font-weight: bold;
-  font-size: 18px;
-  border-radius: 10px;
-  margin-left: -6px;
-  margin-bottom: 20px;
 }
-.pas{
+
+.usuario {
   display: flex;
   background: #ffffff;
   border: none;
   padding-left: 5%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 99%;
-  max-width: 380px;
+  width: 100%;
+  height: 46px;
+  font-size: 18px;
+  border-radius: 18px;
+  margin-left: -6px;
+  margin-bottom: 26px; /* Separación inferior del botón */
+}
+
+.pasword {
+  display: flex;
+  background: #ffffff;
+  border: none;
+  padding-left: 5%;
   height: 46px;
   font-weight: bold;
   font-size: 23px;
-  border-radius: 10px;
-  margin-bottom: 2px;
+  border-radius: 18px;
+  margin-bottom: 9px; /* Separación inferior del botón */
 }
+
+.m-error {
+  font-size: 20px;
+  color: #171717;
+  display: flex;
+  justify-content: flex-start;
+  margin: 7px 0px -12px 4px;
+  margin-bottom: 8px;
+}
+
 
 .btn-login {
-  display:flex;
-  color: #ffffff;
-  background-color: #133C8B;
-  flex-direction: column;
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 104%;
-  max-width: 380px;
-  box-sizing: border-box;
+  width: 103%;
   height: 48px;
-  font-size: 22px;
   border: none;
-  border-radius: 10px;
-  margin-left: -9px;
-  margin-bottom: -3px;
-}
-
+  border-radius: 18px;
+  margin-top: 38px;
+  padding: 8px;
 }

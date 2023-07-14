@@ -52,7 +52,7 @@ const Employees = () => {
   const handleDeleteEmployee = async (id) => {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await axios.delete(`http://localhost:8080/users/${id}`, {
+      await axios.delete(`http://localhost:8080/users/${id}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,

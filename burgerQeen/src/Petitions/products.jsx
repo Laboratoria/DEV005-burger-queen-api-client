@@ -1,8 +1,6 @@
-/* eslint-disable react/jsx-key */
 import "../waiter/menu.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import Menu from "../waiter/menu";
 import Button from "../components/buttons";
 //import FilterBtn from "../components/filter-btn";
@@ -57,9 +55,7 @@ const Products = ({ handleAddProduct }) => {
           type="submit"
           onClick={() => handleMenuSelection("almuerzo")}
         />
-        <Link to="/">
-          <img src="/src/assets/flechas.png" alt="" className="botton-back" />
-        </Link>
+       
       </div>
       
       <div className="container-productos">

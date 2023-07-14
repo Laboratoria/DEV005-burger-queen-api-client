@@ -90,8 +90,8 @@ const Order = () => {
   };
   return (
     <>
-      <div className="container-order">
-        <div className="container-shopping-list">
+      <div className="container-order-shopping">
+        <div className="container-shopping-lista">
         </div>
         <ClientName clientValue={clientValue} setClientValue={setClientValue} />
         <Products handleAddProduct={handleAddProduct} />
