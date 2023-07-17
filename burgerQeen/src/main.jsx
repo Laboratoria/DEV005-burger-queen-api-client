@@ -3,14 +3,14 @@ import * as ReactDOM from "react-dom/client";
 import { createHashRouter, Navigate, RouterProvider } from "react-router-dom";
 import "./index.css";
 import  Login from "./Login/login.jsx";
-import Products from "./petitions/products";
+import Products from "./Petitions/products";
 import Chef from "./chef/chef";
 import Order from "./components/order";
 import Employees from "./petitions/employees";
 import OrTicket from "./chef/tickets";
 import Menu from "./waiter/menu";
-import AdminProducts from "./admi/admiproducts";
-import AddEmployees from "./petitions/addemployees"
+import AdmiProducts from "./admi/admiproducts";
+import AddEmployees from "./petitions/addemployees";
 const router = createHashRouter([
   {
     path: "/",
@@ -46,12 +46,12 @@ const router = createHashRouter([
   },
   {
     path: '/admi',
-    element: <AdminProducts />,
+    element: <AdmiProducts />,
   },
   {
     path: '/admi',
     element: <AddEmployees />,
-  },
+  }
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

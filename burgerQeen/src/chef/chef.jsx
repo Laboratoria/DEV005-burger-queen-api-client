@@ -1,14 +1,14 @@
 import './chef.css'
 import OrTicket from './tickets';
 import { useState, useEffect} from 'react';
-
+import { Link } from "react-router-dom";
 const Chef = () => {
   const [orders, setOrders] = useState([]);
   //crear const con dataExit en memoria
   // const [dataExit, setDataExit] = useState(null);
   const token = localStorage.getItem('accessToken');
   //variable que se crea al presionar el boton de chef cuando el pedido está listo
-  useEffect(() =>{ 
+  useEffect(() =>{
     function getOrders() {
       fetch('http://localhost:8080/orders', {
         method: 'GET',
@@ -26,12 +26,10 @@ const Chef = () => {
         console.log(error)
       })
       .finally(() => {
-        
       });
     }
     // se ejecuta getOrders una vez para que la primera llamada sea inmediata y no esperar 5 segundos
     getOrders();
-    
     // crear un intervalo, donde va la función que trae la petición fetch y luego el tiempo en milisegundos(5 segundos)
     const intervalId = setInterval(getOrders, 10000)
     //este retorno es opcional del useEffect, evita que se ejecute cuando estoy en otra pantalla o que se pueda duplicar
@@ -39,7 +37,6 @@ const Chef = () => {
       clearInterval(intervalId)
     };
   }, [token])
-
   const changeStatus = (order) => {
       //Cambiando el estado de la orden de pending a delivery
     console.log(order.id)
@@ -52,17 +49,15 @@ const Chef = () => {
     console.log('Esta es la hora de entrada del pedido', dataEntry);
     console.log('Esta es la hora de salida del pedido', newDataExit);
     console.log('Estos son los minutos que tardó en preparar', minutesDiference);
-
     const dataOrder = {
       status: 'delivery',
       dataExit: minutesDiference,
     };
     fetch(`http://localhost:8080/orders/${order.id}`, {
-
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
-        'authorization': `Bearer ${token}`,  
+        'authorization': `Bearer ${token}`,
       },
       body: JSON.stringify(dataOrder)
     })
@@ -73,8 +68,7 @@ const Chef = () => {
     })
     .catch(error => console.log(error))
   }
-
-  // Actualizando la lista de pedidos luego del cambio de estado  
+  // Actualizando la lista de pedidos luego del cambio de estado
   const updateOrderStatus = (orderId, newStatus, minutesDiference) => {
     setOrders(prevOrders => {
       return prevOrders.map(order => {
@@ -85,9 +79,8 @@ const Chef = () => {
       });
     });
   };
-
   return(
-  <> 
+  <>
   <div className='body'>
     <section className='title-chef-orders'>
       <h1 className='title-orders'>Ordenes</h1>
@@ -103,15 +96,27 @@ const Chef = () => {
         .filter(order => order.status === 'delivery')
         .map(order => (<OrTicket key={order.id} order={order} showButton= {false}/>))}
         </div>
+        <Link to="/">
+          <img src="/src/assets/flechas.png" alt="" className="botton-back-chef" />
+        </Link>
         <div>
-     
     </div>
-    
-   </section> 
-   <img src="/src/assets/chef.png" className='chef'/>
+   </section>
+   <img src="/src/assets/waiter.png" className='chef'/>
    </div>
   </>
   );
 };
-
 export default Chef
+
+
+
+
+
+
+
+
+
+
+
+

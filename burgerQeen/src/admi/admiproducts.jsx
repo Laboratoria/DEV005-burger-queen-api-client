@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from "react";
 import "./admi.css";
+
 const AdmiProducts = ({ product, handleEditProduct, handleDeleteProduct }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editedData, setEditedData] = useState({
@@ -9,12 +10,15 @@ const AdmiProducts = ({ product, handleEditProduct, handleDeleteProduct }) => {
     image: product.img,
     type: product.type,
   });
+
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setEditedData((prevData) => ({
@@ -22,15 +26,18 @@ const AdmiProducts = ({ product, handleEditProduct, handleDeleteProduct }) => {
       [name]: value
     }));
   };
+
   const handleSaveChanges = () => {
     handleEditProduct(product.id, editedData);
     setIsModalOpen(false);
   };
+
   const handleConfirmDelete = () => {
     if (window.confirm(`¿Estás seguro de eliminar al usuario ${product.name}?`)) {
       handleDeleteProduct(product.id);
     }
   };
+
   return (
     <>
       <div className="products">
@@ -94,29 +101,11 @@ const AdmiProducts = ({ product, handleEditProduct, handleDeleteProduct }) => {
     </>
   );
 };
+
 AdmiProducts.propTypes = {
   product: PropTypes.object,
   handleEditProduct: PropTypes.func,
   handleDeleteProduct: PropTypes.func,
 };
+
 export default AdmiProducts;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

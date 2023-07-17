@@ -4,7 +4,7 @@ body {
   min-height: 128vh;
   color: #133C8B;
   font-family: 'Karma';
-  background-color: #FDFE74;
+  background-color: #fdfe74d1;
   overflow: hidden;
   
 }
@@ -24,23 +24,11 @@ button:focus-visible {
 .btnAdd{
   background-color: #133C8B;
   display: grid;
-  height: 61px;
-  margin-top: -68px;
+  height: 39px;
+  margin-top: -37px;
   align-items: center;
-  font-size: 25px;
+  font-size: 17px;
 }
-.btn-login{
-  background-color: #133C8B;
-  position: relative;
-  width: 115%;
-  max-width: 321px;
-  height: 47px;
-  border: none;
-  border-radius: 12px;
-  font-size: 21px;
-  padding-left: 5%;
-  top: 30px;
-  left: 13px;
-}
+
 
 

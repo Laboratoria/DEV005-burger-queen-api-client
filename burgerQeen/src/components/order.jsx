@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Products from "../petitions/products";
+import Products from "../Petitions/products";
 import ShoppingC from "../waiter/shoppingC";
 import ClientName from "../waiter/client.jsx";
 import axios from "axios";
@@ -90,8 +90,8 @@ const Order = () => {
   };
   return (
     <>
-      <div className="container-order">
-        <div className="container-shopping-list">
+      <div className="container-order-shopping">
+        <div className="container-shopping-lista">
         </div>
         <ClientName clientValue={clientValue} setClientValue={setClientValue} />
         <Products handleAddProduct={handleAddProduct} />
