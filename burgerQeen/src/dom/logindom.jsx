@@ -9,7 +9,7 @@ export const LoginDom = () => {
   const submit = handleSubmittion(goToAdmin, goToWaiter, goToChef);
   return (
     <>
-      <img className="logo" src="/src/assets/Veggie.png" />
+     <img className="logo" src="/src/assets/Veggie.png" />
 
       <div className="inputs">
         <h1 className="bienvenidos">Bienvenidos</h1>
@@ -20,10 +20,10 @@ export const LoginDom = () => {
         >
           {({ handleSubmit, handleChange, values, errors }) => (
             <form onSubmit={handleSubmit}>
-              <div>
+              <div className="Usuario">
                 Usuario:
                 <input
-                  className="us"
+                  className="usuario"
                   type="email"
                   name="email"
                   placeholder="ejemplo@gmail.com"
@@ -31,12 +31,12 @@ export const LoginDom = () => {
                   onChange={handleChange}
                   required
                 />
-                {errors.email && <span>{errors.email}</span>}
+                {errors.email && <span className="m-error">{errors.email}</span>}
               </div>
               <div>
                 Contraseña:
                 <input
-                  className="pas"
+                  className="pasword"
                   type="password"
                   name="password"
                   placeholder="*********"
@@ -44,7 +44,7 @@ export const LoginDom = () => {
                   onChange={handleChange}
                   required
                 />
-                {errors.password && <span>{errors.password}</span>}
+                {errors.password && <span className="m-error">{errors.password}</span>}
               </div>
               <Button className="btn-login" text="Ingresar" type="submit" />
             </form>

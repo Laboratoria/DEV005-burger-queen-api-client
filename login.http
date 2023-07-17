@@ -1,10 +1,10 @@
-POST  http://localhost:8080/users/ HTTP/1.1
+DELETE  HTTP/1.1 http://localhost:8080/oders/ HTTP/1.1
 Content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1lc2Vyb0B2ZWdnaWUuY29tIiwiaWF0IjoxNjg5MDA1OTQ1LCJleHAiOjE2ODkwMDk1NDUsInN1YiI6IjUifQ.0U3ZQlPmN2Fm9tE31EA3bA9Ir0ee9jPeMJyQ1PQSMAo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmEuYWRtaUB2ZWdnaWUuY29tIiwiaWF0IjoxNjg5MzQxNzU4LCJleHAiOjE2ODkzNDUzNTgsInN1YiI6IjYifQ.5VaogCP9eQXMn6gwaaQN02b2bBfu6I7JLcGNxWeYE9s
 
 {
-  "name": "Camilo lugo",
-  "email": "camilo.mesero@veggie.com",
+  "name": "Paola Perez",
+  "email": "paola.admi@veggie.com",
   "password": "123456",
-  "role": "waiter"
+  "role": "admin"
 }

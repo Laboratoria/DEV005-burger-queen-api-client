@@ -11,8 +11,7 @@ const ShoppingC = ({selectedProducts, totalPrice, reduceProduct,sendOrder, clien
   }, [clientValue, selectedProducts]);
 return(
     <>
-    <img src="/src/assets/waiter.png" className="bodyWaiter"/>
-    <div className="bodyWaiter">
+    {/* <img src="/src/assets/waiter.png" className="logoWaiter"/> */}
     <div className='container-order'>
       <div className='container-shopping-list'>
         <Shopping selectedProducts = {selectedProducts} totalPrice = {totalPrice} reduceProduct = {reduceProduct}/>
@@ -21,7 +20,6 @@ return(
         <Button className = "btn-cook"  onClick ={()=> sendOrder()} text="Enviar a cocina" disabled={!btnActive}/>
       </div>
       <div className="cubo"></div>
-    </div>
     </div>
   </>
   );
