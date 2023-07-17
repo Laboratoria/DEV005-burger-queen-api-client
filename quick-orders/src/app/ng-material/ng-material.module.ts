@@ -10,6 +10,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProductsComponent } from './mat-products/mat-products.component';
 import { MatCardModule } from '@angular/material/card';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     FormsModule,
     MatCardModule,
+    ScrollingModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

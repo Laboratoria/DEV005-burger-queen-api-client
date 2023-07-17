@@ -1,10 +1,10 @@
-<mat-card class="card-class" *ngFor ="let breakfast of menuBreakfast">
+<mat-card  class="card-class" *ngFor ="let breakfast of menuBreakfast">
     <mat-card-content class="contentCard">
-        <div>
-            <p> {{breakfast.name}} </p>
-            <p> {{breakfast.price}} </p>
+        <div class="contentSecondCard">
+            <p class="cardText"> {{breakfast.name}} </p>
+            <p class="cardPrice"> {{breakfast.price}} </p>
             <mat-card-actions>
-                <button>Agregar</button>
+                <button class="cardButton">Agregar</button>
             </mat-card-actions>
         </div>
     </mat-card-content>

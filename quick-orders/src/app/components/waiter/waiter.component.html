@@ -18,18 +18,34 @@
             <div class="encabezado" >
                
                 <div class="cards">
-                    <!--<div class="inputsHead">
-                        <div>
+
+                    <div class="inputsHead">
+                        <div class="headNombre">
                             <label>Nombre</label>
                             <input type="text">
                         </div>
-                        <div>
+                        <div class="headMesa">
                             <label>N° de mesa</label>
                             <input type="text">
                         </div>
-                    </div>-->
-                    <app-desayuno></app-desayuno>
+                    </div>
+                    <div class="bodyTable">
+                        <app-desayuno class="appBreakfast"></app-desayuno>
+                        <div class="descriptionProduct">
+                            <p>Cantidad</p>
+                            <p>Descripción</p>
+                            <p>Sub Total</p>
+                            <div class="contentPedido">
+                                <p>Contenido</p>
+                            </div>
+                            <div>
+                                <p>Total</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+                <button class="addProduct">Generar orden</button>
             </div>
            <!-- <div class="vitaModal" *ngIf ="activeView === 'view3'">
                 <app-modal></app-modal>

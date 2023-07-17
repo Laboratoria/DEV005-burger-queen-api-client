@@ -4,7 +4,8 @@ import { ProductsService } from 'src/app/services/products.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder, FormsModule, FormGroup, Validators } from "@angular/forms";
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 
 @Component({

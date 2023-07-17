@@ -10,7 +10,9 @@ import { KitchenComponent } from './components/kitchen/kitchen.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 // Interceptors
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { ProductsComponent } from './components/admin/products/products.component';
@@ -46,6 +48,8 @@ import { AlmuerzoComponent } from './components/waiter/almuerzo/almuerzo.compone
     BrowserAnimationsModule,
     NgMaterialModule,
     MatIconModule,
+    ScrollingModule,
+    InfiniteScrollModule,
   ],
   providers: [
     {
