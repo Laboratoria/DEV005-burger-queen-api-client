@@ -1,7 +1,7 @@
 import { Formik } from "formik";
 import Button from "../components/buttons";
 import { validationSchema } from "../components/validation";
-import { handleSubmittion } from "../Petitions/response";
+import { handleSubmittion } from "../petitions/response";
 import { useNavigation } from "../components/navegation";
 
 export const LoginDom = () => {

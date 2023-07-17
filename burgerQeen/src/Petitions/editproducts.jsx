@@ -39,7 +39,7 @@ const AdminProducts = () => {
       );
       // Actualizar el estado sin recargar la página
       setAdminProducts((prevProducts) =>
-      prevProducts.map((product) =>
+        prevProducts.map((product) =>
           product.id === id ? { ...product, ...updatedData } : product
         )
       );
@@ -52,15 +52,18 @@ const AdminProducts = () => {
   const handleDeleteProducts = async (id) => {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await axios.delete(`http://localhost:8080/products/${id}`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.delete(
+        `http://localhost:8080/products/${id}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       // Eliminar el producto del estado sin recargar la página
       setAdminProducts((prevProducts) =>
-      prevProducts.filter((product) => product.id !== id)
+        prevProducts.filter((product) => product.id !== id)
       );
       console.log("producto eliminado exitosamente");
     } catch (error) {
@@ -83,19 +86,29 @@ const AdminProducts = () => {
         </thead>
       </table>
       <div className="more-user-products">
-      <img src="/src/assets/adduser.png" alt="add-user" className="add-user" /> 
-        <Button className="btn-add-products" id="products" text="Productos"  onClick={EditProducts}/>
-        </div>
-        <Link to="/">
-          <img src="/src/assets/flecha.png" alt="" className="botton-back-admi" />
-        </Link>
+        <img
+          src="/src/assets/adduser.png"
+          alt="add-user"
+          className="add-user"
+        />
+        <Button
+          className="btn-add-products"
+          id="products"
+          text="Productos"
+          onClick={EditProducts}
+        />
+      </div>
+      <Link to="/">
+        <img src="/src/assets/flecha.png" alt="" className="botton-back-admi" />
+      </Link>
       <div className="container-user">
         {products.map((product) => (
-         <EditProducts
-         key={product.id}
+          <EditProducts
+            key={product.id}
             product={product}
             handleEditProducts={handleEditProducts}
-            handleDeleteProducts={handleDeleteProducts} />
+            handleDeleteProducts={handleDeleteProducts}
+          />
         ))}
       </div>
     </>

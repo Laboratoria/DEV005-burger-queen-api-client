@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Admin from "../admi/admi";
 import { Link } from "react-router-dom";
+import AddEmployees from "./addemployees";
 const Employees = () => {
-  const [employees, setEmployees] = useState([]);
+  const [employees, setEmployees, handleUserCreated] = useState([]);
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
@@ -83,7 +84,9 @@ const Employees = () => {
         </thead>
       </table>
       <div className="more-user-products">
-      <img src="/src/assets/adduser.png" alt="add-user" className="add-user" /> 
+      <img src="/src/assets/adduser.png" alt="add-user" className="add-user"  />
+      <AddEmployees onUserCreated={handleUserCreated}/>
+      <img src="/src/assets/adduser.png" alt="add-user" className="add-user" onClick={handleUserCreated}/>
         <Button className="btn-add-products" id="products" text="Productos" />
         </div>
         <Link to="/">
@@ -91,12 +94,12 @@ const Employees = () => {
         </Link>
       <div className="container-user">
         {employees.map((user) => (
-          <Admin
+          <><Admin
             key={user.id}
             user={user}
             handleEditEmployee={handleEditEmployee}
-            handleDeleteEmployee={handleDeleteEmployee}
-          />
+            handleDeleteEmployee={handleDeleteEmployee} />
+           </>
         ))}
       </div>
     </>
