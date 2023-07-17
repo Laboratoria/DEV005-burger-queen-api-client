@@ -1,22 +1,24 @@
 import PropTypes from 'prop-types';
-// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import "./admi.css";
-const EditProducts = ({ product, handleEditProduct, handleDeleteProduct }) => {
+
+const AdmiProducts = ({ product, handleEditProduct, handleDeleteProduct }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editedData, setEditedData] = useState({
     name: product.name,
     price: product.price,
     image: product.img,
     type: product.type,
-    
   });
-  const handleEditProduct = () => {
+
+  const handleOpenModal = () => {
     setIsModalOpen(true);
   };
-  const handleModalClose = () => {
+
+  const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setEditedData((prevData) => ({
@@ -24,17 +26,18 @@ const EditProducts = ({ product, handleEditProduct, handleDeleteProduct }) => {
       [name]: value
     }));
   };
+
   const handleSaveChanges = () => {
     handleEditProduct(product.id, editedData);
     setIsModalOpen(false);
   };
-  const handleDeleteProduct = () => {
-    // eslint-disable-next-line react/prop-types
+
+  const handleConfirmDelete = () => {
     if (window.confirm(`¿Estás seguro de eliminar al usuario ${product.name}?`)) {
-      // eslint-disable-next-line react/prop-types
       handleDeleteProduct(product.id);
     }
   };
+
   return (
     <>
       <div className="products">
@@ -47,13 +50,13 @@ const EditProducts = ({ product, handleEditProduct, handleDeleteProduct }) => {
           src="src/assets/editar.png"
           alt="editar"
           className="btn-editar-users"
-          onClick={handleEditProduct}
+          onClick={handleOpenModal}
         />
         <img
           src="src/assets/delete.png"
           alt="eliminar"
           className="btn-eliminar-users"
-          onClick={handleDeleteProduct}
+          onClick={handleConfirmDelete}
         />
       </div>
       {isModalOpen && (
@@ -90,7 +93,7 @@ const EditProducts = ({ product, handleEditProduct, handleDeleteProduct }) => {
             />
             <div className="modal-buttons">
               <button onClick={handleSaveChanges}>Guardar cambios</button>
-              <button onClick={handleModalClose}>Cancelar</button>
+              <button onClick={handleCloseModal}>Cancelar</button>
             </div>
           </div>
         </div>
@@ -98,9 +101,11 @@ const EditProducts = ({ product, handleEditProduct, handleDeleteProduct }) => {
     </>
   );
 };
-EditProducts.propTypes = {
+
+AdmiProducts.propTypes = {
   product: PropTypes.object,
-  handleEditProducts: PropTypes.func,
-  handleDeleteProducts: PropTypes.func,
-}
-export default EditProducts;
+  handleEditProduct: PropTypes.func,
+  handleDeleteProduct: PropTypes.func,
+};
+
+export default AdmiProducts;

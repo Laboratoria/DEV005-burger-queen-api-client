@@ -1,39 +1,51 @@
-import PropTypes from 'prop-types';
-// eslint-disable-next-line no-unused-vars
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 import "./admi.css";
+
 const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editedData, setEditedData] = useState({
     name: user.name,
     email: user.email,
     password: user.password,
-    role: user.role
+    role: user.role,
   });
+
   const handleEditUser = () => {
     setIsModalOpen(true);
   };
+
   const handleModalClose = () => {
     setIsModalOpen(false);
   };
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setEditedData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
+
   const handleSaveChanges = () => {
     handleEditEmployee(user.id, editedData);
     setIsModalOpen(false);
   };
+
   const handleDeleteUser = () => {
-    // eslint-disable-next-line react/prop-types
     if (window.confirm(`¿Estás seguro de eliminar al usuario ${user.name}?`)) {
-      // eslint-disable-next-line react/prop-types
       handleDeleteEmployee(user.id);
     }
   };
+
+  const handleRoleChange = (event) => {
+    const { value } = event.target;
+    setEditedData((prevData) => ({
+      ...prevData,
+      role: value,
+    }));
+  };
+
   return (
     <>
       <div className="users">
@@ -58,56 +70,72 @@ const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
         <div className="modal-overlay">
           <div className="modal">
             <h3>Editar Usuario</h3>
-            <input
-              type="text"
-              name="name"
-              value={editedData.name}
-              onChange={handleInputChange}
-              placeholder="Nombre"
-            />
-            <input
-              type="text"
-              name="email"
-              value={editedData.email}
-              onChange={handleInputChange}
-              placeholder="Email"
-            />
-            <input
-              type="password"
-              name="password"
-              value={editedData.password}
-              onChange={handleInputChange}
-              placeholder="Contraseña"
-            />
-            <input
-              type="text"
-              name="role"
-              value={editedData.role}
-              onChange={handleInputChange}
-              placeholder="Rol"
-            />
+            <tr>
+              <td>Nombre de Colaborador:</td>
+              <td>
+                <input
+                  type="text"
+                  name="name"
+                  value={editedData.name}
+                  onChange={handleInputChange}
+                  placeholder="Nombre"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Correo:</td>
+              <td>
+                <input
+                  type="text"
+                  name="email"
+                  value={editedData.email}
+                  onChange={handleInputChange}
+                  placeholder="Email"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Contraseña:</td>
+              <td>
+                <input
+                  type="password"
+                  name="password"
+                  value={editedData.password}
+                  onChange={handleInputChange}
+                  placeholder="Contraseña"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Rol:</td>
+              <td>
+                <select value={editedData.role} onChange={handleRoleChange}>
+                  <option value="">Selecciona una opción</option>
+                  <option value="chef">Chef</option>
+                  <option value="admin">Admin</option>
+                  <option value="waiter">Waiter</option>
+                </select>
+              </td>
+            </tr>
             <div className="modal-buttons">
-              <button onClick={handleSaveChanges}>Guardar cambios</button>
-              <button onClick={handleModalClose}>Cancelar</button>
+              <button className="btn-guardar" onClick={handleSaveChanges}>
+                Guardar cambios
+              </button>
             </div>
+            <span className="modal-close" onClick={handleModalClose}>
+              x
+            </span>
           </div>
         </div>
       )}
     </>
   );
 };
+
 Admin.propTypes = {
   user: PropTypes.object,
   handleEditEmployee: PropTypes.func,
   handleDeleteEmployee: PropTypes.func,
-}
+};
+
 export default Admin;
-
-
-
-
-
-
-
-
-

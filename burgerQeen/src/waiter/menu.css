@@ -29,16 +29,16 @@ article {
 }
 
 .Total {
-  font-size: 27px;
-    top: 633px;
-    left: 781px;
-    width: 21%;
-    border: 3px solid #133c8b;
-    border-radius: 20px;
-    background: #ffffff;
-    height: 52px;
-    position: absolute;
-  }
+  font-size: 24px;
+  top: 633px;
+  left: 785px;
+  width: 18%;
+  /* border: 3px solid #133c8b; */
+  border-radius: 20px;
+  background: #ffffff;
+  height: 51px;
+  position: absolute;
+}
 .input-name {
   border-radius: 20px;
   width: 90%;
@@ -52,10 +52,10 @@ article {
   flex-direction: column;
   font-size: 21px;
   margin: -91px;
-  margin-top: -374px;
+  margin-top: -739px;
   margin-left: 678px;
 }
- 
+
 .btn-cook {
   position: absolute;
   width: 31%;
@@ -78,7 +78,6 @@ article {
   margin-left: -119px;
 }
 
-
 .productImg {
   display: flex;
   justify-content: flex-end;
@@ -89,7 +88,6 @@ article {
 }
 
 .btn-desayuno {
- 
   position: absolute;
   top: 176px;
   width: 28%;
@@ -98,35 +96,34 @@ article {
   border: 1px solid #133c8b;
   background: #ffffff;
   color: #133c8b;
-  left:387px;
+  left: 387px;
 }
 
 .btn-almuerzo {
   position: absolute;
-    width: 30%;
-    height: 50px;
-    font-size: 30px;
-    border: 1px solid #133c8b;
-    background: #ffffff;
-    color: #133c8b;
-    top: 176px;
+  width: 30%;
+  height: 50px;
+  font-size: 30px;
+  border: 1px solid #133c8b;
+  background: #ffffff;
+  color: #133c8b;
+  top: 176px;
 }
 
 .cardProduct {
   background-color: #ffffff;
-    width: 116%;
-    max-width: 280px;
-    height: 138px;
-    padding: 14px;
-    opacity: 0.9;
-    border-radius: 20px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 26px;
-    margin: 10px;
-    border: 1px solid #133c8b;
+  width: 116%;
+  max-width: 280px;
+  height: 138px;
+  padding: 14px;
+  opacity: 0.9;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 26px;
+  margin: 10px;
+  border: 1px solid #133c8b;
 }
-
 
 .container-productos {
   display: flex;
@@ -147,7 +144,8 @@ article {
 .producPrice {
   position: absolute;
   font-size: 24px;
-  margin-left: 228px;
+  margin: -35px 246px -59px 244px;
+  border-radius: 12px;
 }
 
 article {
@@ -191,4 +189,8 @@ article {
 #order {
   font-size: 60px;
   margin: 10px;
+}
+.btn-cerrar {
+  width: 27%;
+  margin: 0px 121px;
 }

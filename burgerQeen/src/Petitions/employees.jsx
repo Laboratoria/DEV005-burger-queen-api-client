@@ -4,8 +4,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Admin from "../admi/admi";
 import { Link } from "react-router-dom";
+import AddEmployees from "./addemployees";
+
 const Employees = () => {
   const [employees, setEmployees] = useState([]);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
@@ -24,6 +28,11 @@ const Employees = () => {
     };
     fetchEmployees();
   }, []);
+
+  const handleUserCreated = (newUser) => {
+    setEmployees((prevEmployees) => [...prevEmployees, newUser]);
+  };
+
   const handleEditEmployee = async (id, updatedData) => {
     try {
       const token = localStorage.getItem("accessToken");
@@ -37,18 +46,17 @@ const Employees = () => {
           },
         }
       );
-      // Actualizar el estado sin recargar la página
       setEmployees((prevEmployees) =>
         prevEmployees.map((employee) =>
           employee.id === id ? { ...employee, ...updatedData } : employee
         )
       );
       console.log(response);
-      // Maneja la respuesta de la API después de editar el empleado
     } catch (error) {
       console.error(error);
     }
   };
+
   const handleDeleteEmployee = async (id) => {
     try {
       const token = localStorage.getItem("accessToken");
@@ -58,7 +66,6 @@ const Employees = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      // Eliminar el empleado del estado sin recargar la página
       setEmployees((prevEmployees) =>
         prevEmployees.filter((employee) => employee.id !== id)
       );
@@ -67,9 +74,18 @@ const Employees = () => {
       console.error(error);
     }
   };
+
+  const handleOpenAddModal = () => {
+    setIsAddModalOpen(true);
+  };
+
+  const handleCloseAddModal = () => {
+    setIsAddModalOpen(false);
+  };
+
   return (
     <>
-    <h1 className="admi">Administradores</h1>
+      <h1 className="admi">Administradores</h1>
       <table className="items-users">
         <thead>
           <tr>
@@ -83,12 +99,23 @@ const Employees = () => {
         </thead>
       </table>
       <div className="more-user-products">
-      <img src="/src/assets/adduser.png" alt="add-user" className="add-user" /> 
+        {/* <button onClick={handleOpenAddModal} className="btn-add-products">
+          Agregar Colaborador
+        </button> */}
+        <img
+          src="/src/assets/adduser.png" 
+          alt="add-user"
+          className="add-user" onClick={handleOpenAddModal}
+        />
         <Button className="btn-add-products" id="products" text="Productos" />
-        </div>
-        <Link to="/">
-          <img src="/src/assets/flecha.png" alt="" className="botton-back-admi" />
-        </Link>
+      </div>
+      <Link to="/">
+        <img
+          src="/src/assets/flecha.png"
+          alt=""
+          className="botton-back-admi"
+        />
+      </Link>
       <div className="container-user">
         {employees.map((user) => (
           <Admin
@@ -99,7 +126,22 @@ const Employees = () => {
           />
         ))}
       </div>
+
+      {isAddModalOpen && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <span className="modal-close1" onClick={handleCloseAddModal}>
+             x
+            </span>
+            <div className="modal-content">
+              {/* Aquí va el contenido del modal para agregar colaboradores */}
+              <AddEmployees onUserCreated={handleUserCreated} />
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
+
 export default Employees;
