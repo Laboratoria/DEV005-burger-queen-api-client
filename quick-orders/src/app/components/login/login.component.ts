@@ -41,18 +41,6 @@ export class LoginComponent implements OnInit {
 
   get formControls() { return this.authForm.controls; }
 
-  /*createUser(){
-    this.usersService.create({
-      email: 'jackeline@gmail.com',
-      password: '333777',
-      rol: 'waiter',
-    })
-    .subscribe(rta => {
-      console.log(rta);
-    })
-  }*/
-
-
   login(){
     this.isSubmitted = true;
     if(this.authForm.invalid){
@@ -62,16 +50,7 @@ export class LoginComponent implements OnInit {
     .subscribe(response => {
       localStorage.setItem('token', response.accessToken)
       console.log(response.accessToken)
-      //const tokenGuardado = localStorage.getItem('token');
 
-      // Verificar si se encontró un token en el almacenamiento local
-      /*if (tokenGuardado) {
-      console.log("Token encontrado:", tokenGuardado);
-      } else {
-      console.log("No se encontró ningún token en el almacenamiento local.");
-      }*/
-
-      // this.token = response.accessToken;
       this.worker = response.user.role;
 
       if(this.worker === 'admin'){
@@ -80,13 +59,8 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/waiter');
       }
 
-      /*this.authService.profile(this.token)
-        .subscribe(profile => {
-            this.data = profile[0]
-            console.log(this.data)
-            })*/
     });
-    
+        
     }
 
  }  

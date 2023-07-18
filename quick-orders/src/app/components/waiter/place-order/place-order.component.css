@@ -7,21 +7,51 @@ tab = #D9D9D9
 */
 
 .orderTable {
+    display:inline-table;
     width: 90%;
-    height: 90%;
-    align-items: center;
+    height: 90%;   
 }
 
-.headTitle {
-    flex-direction:row;
+tr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+}
+
+.plus, .less {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7%;
 }
 
 .number {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content:center;
-    flex-direction:row;
+    width: 15%;
 }
+
+.description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+
+.subtotal, .actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+.headTitle {
+    flex-direction:row;
+    height: 15%;
+}
+
 
 p{
     margin: 5px;
