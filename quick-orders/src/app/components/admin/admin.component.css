@@ -59,7 +59,6 @@ body, html {
     min-height: 100vh;
 }
 
-
 .vista {
     display: flex;
     position: relative;
@@ -86,7 +85,6 @@ body, html {
 .user:hover, .menu:hover {
     background-color: #F4F4F4;
 }
-
 
 .encabezado{
     display: flex;
@@ -118,6 +116,14 @@ body, html {
     justify-content:center;
     border-radius: 0 0 10px 10px;
 }
+
+/*.cardsUser, .cardsProducts{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+}*/
 
 .products{
     display: flex;

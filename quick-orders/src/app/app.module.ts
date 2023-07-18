@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgMaterialModule } from './ng-material/ng-material.module';
 import { DesayunoComponent } from './components/waiter/desayuno/desayuno.component';
 import { AlmuerzoComponent } from './components/waiter/almuerzo/almuerzo.component';
+import { PlaceOrderComponent } from './components/waiter/place-order/place-order.component';
 
 
 // Crear constante de componentes 
@@ -35,6 +36,7 @@ import { AlmuerzoComponent } from './components/waiter/almuerzo/almuerzo.compone
     UsersComponent,
     DesayunoComponent,
     AlmuerzoComponent,
+    PlaceOrderComponent,
 
   ],
   imports: [

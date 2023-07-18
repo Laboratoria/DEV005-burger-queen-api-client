@@ -57,6 +57,10 @@ body, html {
     width: 100vw;
     height: 100vh;
     min-height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 
@@ -91,7 +95,7 @@ body, html {
 .encabezado{
     display: flex;
     position: relative;
-    height: 100%;
+    height: 85%;
     width: 100%;
     align-items: center;
     flex-direction: column;
@@ -108,7 +112,7 @@ body, html {
     margin-top: 0;
 }
 
-.cards{
+.cardsWaiter{
     display: grid;
     position: relative;
     height: 90%;
@@ -135,6 +139,17 @@ body, html {
     height: 90%;
 }
 
+.divDesayuno {
+    display: flex;
+    overflow: scroll;
+    position: relative;
+    align-items: center;
+    justify-content:center;
+    background-color: #F4F4F4;
+    width: 100%;
+    height: 90%;
+}
+
 .breakfastContent{
     display: flex;
     position: relative;
@@ -149,7 +164,7 @@ body, html {
     align-items: center;
     background-color: #F4F4F4;
     margin: 8px;
-    width: 27%;
+    width: 30%;
     height: 35%;
     padding: 10px;
     margin-left: 20px;
@@ -162,6 +177,7 @@ label {
 
 input {
     background-color: white;
+    width: 50%;
     margin-left: 5px;
 }
 
@@ -262,7 +278,7 @@ app-modal{
     display: flex;
     position: relative;
     align-items: center;
-    background-color:#D9D9D9;
+    background-color:#F4F4F4;
     border-radius: 10px;
     width: 100%;
     height: 100%;
@@ -281,4 +297,17 @@ app-modal{
     border: none;
     margin-left: 75%;
     margin-top: 10px;
+}
+
+/*ORDER*/
+
+.appOrder{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    margin: 5px;
+    background-color: #F4F4F4;
 }

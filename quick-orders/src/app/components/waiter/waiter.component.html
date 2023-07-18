@@ -15,9 +15,9 @@
             <button class="user" > Desayuno </button>
             <button class="menu" > Almuerzo </button>
         </div>
-            <div class="encabezado" >
+            <div class="encabezado">
                
-                <div class="cards">
+                <div class="cardsWaiter">
 
                     <div class="inputsHead">
                         <div class="headNombre">
@@ -30,32 +30,17 @@
                         </div>
                     </div>
                     <div class="bodyTable">
-                        <app-desayuno class="appBreakfast"></app-desayuno>
+                        <div class="divDesayuno">
+                            <app-desayuno class="appBreakfast"></app-desayuno>
+                        </div>
                         <div class="descriptionProduct">
-                            <p>Cantidad</p>
-                            <p>Descripción</p>
-                            <p>Sub Total</p>
-                            <div class="contentPedido">
-                                <p>Contenido</p>
-                            </div>
-                            <div>
-                                <p>Total</p>
-                            </div>
+                            <app-place-order class="appOrder"></app-place-order>
                         </div>
                     </div>
 
                 </div>
                 <button class="addProduct">Generar orden</button>
             </div>
-           <!-- <div class="vitaModal" *ngIf ="activeView === 'view3'">
-                <app-modal></app-modal>
-            </div> --> 
-        <!--<div class="vistaMenu" >
-            <div class="products"> 
-                
-            </div>
-            <button class="addProduct">Agregar Producto</button>
-        </div>--> 
     </div>
     </body>
 </html>
