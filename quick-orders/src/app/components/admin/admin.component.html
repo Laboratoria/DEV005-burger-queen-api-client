@@ -1,4 +1,37 @@
-<h1>Admin</h1>
-<p>Este es el componente de admin.</p>
-<button class="user">Usuario</button>
-<button class="menu">Lista de meú</button>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Administrador</title>
+    </head>
+    <body>
+        <div class="allBody">
+            <nav class="navbar">
+                <img class="userLogin" src="./assets/Ellipse5.png" alt="user logo">
+                <p class="nombre">Administrador</p>
+            </nav>
+        <div class="vista">
+            <button class="user" (click) ="activateView('view1')"> Usuario </button>
+            <button class="menu" (click) ="activateView2('view2')"> Productos </button>
+        </div>
+            <div class="encabezado" *ngIf ="activeView === 'view1'">
+                <div class="cards" >
+                   <app-users class="cardsUser"></app-users>
+                </div>
+                <button class="addUser" (click) ="addcustomer()" >Agregar Usuario</button>
+            </div>
+           <!-- <div class="vitaModal" *ngIf ="activeView === 'view3'">
+                <app-modal></app-modal>
+            </div> --> 
+        <div class="vistaMenu" *ngIf ="activeView === 'view2'">
+            <div class="products"> 
+                <app-products class="cardsProducts"></app-products>
+            </div>
+            <button class="addProduct" (click) ="addProduct()" >Agregar Producto</button>
+        </div>
+    </div>
+    </body>
+</html>
+
+<!---->

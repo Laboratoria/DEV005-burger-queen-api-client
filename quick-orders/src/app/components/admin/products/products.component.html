@@ -1,0 +1,23 @@
+<table class="productTable">
+    <thead>
+        <tr>
+            <th class="name"> Nombre </th>
+            <th class="price"> Precio </th>
+            <th class="image"> Imagen </th>
+            <th class="type"> Tipo </th>
+            <th class="actions"> </th>
+            <th class="actions"> </th>
+        </tr> 
+    </thead>
+    <tbody class="tableProducts">
+        <tr *ngFor ="let info of products">
+            <td class="name"> {{info.name}} </td>
+            <td class="price"> {{ info.price }} </td>
+            <td class="image"> {{ info.image }} </td>
+            <td class="type"> {{ info.type }} </td>
+            <td class="actions"><button class="butonEdit" (click) ="editProduct(info.id)" >Editar</button></td>
+            <td class="actions"><button class="butonDelete" (click) ="deleteThisProduct(info.id)" >Eliminar</button></td>
+        </tr> 
+    </tbody>
+    </table>
+

@@ -1,0 +1,28 @@
+<div class="component">
+    <form [formGroup] ="myform" (ngSubmit)= "Saveproduct()" id="formModal">
+        <h1 mat-dialog-title>{{data.title}}</h1>
+        <div mat-dialog-content class="mat-typography">
+            <mat-form-field class="nameModal" >
+                <mat-label>Nombre</mat-label>
+                <input formControlName="name" matInput placeholder="Un nombre">
+            </mat-form-field>
+            <mat-form-field class="priceModal" >
+                <mat-label>Precio</mat-label>
+                <input formControlName="price" matInput  placeholder="Precio">
+            </mat-form-field>
+            <mat-form-field class="imgModal" >
+                <mat-label>Imagen</mat-label>
+                <input formControlName="image" matInput placeholder="Coloca una imagen">
+            </mat-form-field>
+            <mat-form-field class="typeModal" >
+                <mat-label>Tipo</mat-label>
+                <input formControlName="type" matInput placeholder="Especifica el rol">
+            </mat-form-field>
+            <div mat-dialog-actions align="end" class="close">
+                <button (click) ="Closepopup()">Cancelar</button>
+                <button >Guardar</button>
+              </div>
+          </div>
+          </form>
+</div>
+

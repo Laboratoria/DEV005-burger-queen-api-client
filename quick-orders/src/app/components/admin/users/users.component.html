@@ -1,0 +1,22 @@
+<table class="productUsers">
+    <thead>
+        <tr>
+            <th class="email"> Email </th>
+            <th class="pass"> Contraseña </th>
+            <th class="role"> Rol </th>
+            <th> </th>
+            <th> </th>
+        </tr> 
+    </thead>
+    <tbody>
+        <tr *ngFor ="let info of data" >
+            <td class="email"> {{ info.email }} </td>
+            <td class="pass"> {{ info.password }} </td>
+            <td class="role"> {{ info.role }} </td>
+            <td class="img"><button class="butonEdit" (click) ="editcustomer(info.id)">Editar</button></td>
+            <td class="img"><button class="butonDelete" (click) ="deleteThisUser(info.id)">Eliminar</button></td>
+        </tr> 
+    </tbody>
+    </table>
+
+    

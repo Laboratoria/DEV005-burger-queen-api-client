@@ -1,2 +1,46 @@
-<h1>Waiter</h1>
-<p>Este es el componente de waiter.</p>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Administrador</title>
+    </head>
+    <body>
+        <div class="allBody">
+            <nav class="navbar">
+                <img class="userLogin" src="./assets/Ellipse5.png" alt="user logo">
+                <p class="nombre">Waiter</p>
+            </nav>
+        <div class="vista">
+            <button class="user" > Desayuno </button>
+            <button class="menu" > Almuerzo </button>
+        </div>
+            <div class="encabezado">
+               
+                <div class="cardsWaiter">
+
+                    <div class="inputsHead">
+                        <div class="headNombre">
+                            <label>Nombre</label>
+                            <input type="text">
+                        </div>
+                        <div class="headMesa">
+                            <label>N° de mesa</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="bodyTable">
+                        <div class="divDesayuno">
+                            <app-desayuno class="appBreakfast"></app-desayuno>
+                        </div>
+                        <div class="descriptionProduct">
+                            <app-place-order class="appOrder"></app-place-order>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="addProduct">Generar orden</button>
+            </div>
+    </div>
+    </body>
+</html>

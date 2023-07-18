@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap');
+/*Paleta de colores
+body = #F5F5F5
+button = #F2B366 
+button = #731616
+tab = #D9D9D9 
+*/
+
+.productUsers{
+    width: 80vw;
+    height: 60vh;
+    color: black;
+    font-family: 'Oxygen', sans-serif;
+    border-collapse: collapse;
+    table-layout: fixed;
+    border: 1px solid #D9D9D9;
+    background-color: #F4F4F4;
+    align-items: center;
+    justify-content:center;
+}
+
+thead {
+    width: 80vw;
+    height: 10%;
+    background-color: #D9D9D9;
+  }
+
+tbody {
+    width: 80vw;
+    height: 10%;
+    background-color: #F4F4F4;
+    align-items: center;
+    justify-content:center;
+}
+
+tbody td {
+  text-align: center;
+  align-items: center;
+  justify-content:center;
+}
+
+tbody tr {
+  text-align: center;
+  justify-content:center;
+  height: 20px;
+  border: 1px solid #D9D9D9;
+}
+
+.edit , .trash {
+  width: 30px;
+  background-color: #F4F4F4;
+  margin: 5px;
+}
+
+td {
+    word-wrap: break-word;
+    padding: 10px;
+    font-size: small;
+}
+
+.email{
+    width: 25%;
+}
+
+.pass{
+    width: 40%;
+}
+
+.role{
+    width: 15%;
+}
+
+.img{
+    width: 10%;
+}
