@@ -1,12 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
-const AddEmployees = () => {
+const AddEmployees = ({ onUserCreated }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
   const [username, setUsername] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
-  const [ setIsModalOpen] = useState(false);
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -26,7 +25,7 @@ const AddEmployees = () => {
         email: email,
         password: password,
         role: role,
-        username: username,
+        name: username,
       };
       const response = await axios.post(
         "http://localhost:8080/users",
@@ -40,6 +39,7 @@ const AddEmployees = () => {
       );
       console.log("Usuario creado exitosamente:", response.data);
       setSuccessMessage("Usuario creado exitosamente");
+      onUserCreated(response.data); // Llama a la función para pasar el nuevo usuario creado al componente padre (Employees)
       setEmail("");
       setPassword("");
       setRole("");
@@ -48,73 +48,62 @@ const AddEmployees = () => {
       console.error("Error al crear el usuario:", error);
     }
   };
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
   return (
-    <section>
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={handleCloseModal}>
-              &times;
-            </span>
-            <h2>Crear Nuevo Usuario</h2>
-            {successMessage && <p>{successMessage}</p>}
-            <table>
-              <tbody>
-                <tr>
-                  <td>Nombre de Colaborador:</td>
-                  <td>
-                    <input
-                      type="text"
-                      value={username}
-                      onChange={handleUsernameChange}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Correo:</td>
-                  <td>
-                    <input
-                      type="text"
-                      value={email}
-                      onChange={handleEmailChange}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Contraseña:</td>
-                  <td>
-                    <input
-                      type="password"
-                      value={password}
-                      onChange={handlePasswordChange}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Rol:</td>
-                  <td>
-                    <input
-                      type="text"
-                      value={role}
-                      onChange={handleRoleChange}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td colSpan="2">
-                    <button onClick={handleCreateUser}>incorporar</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-    </section>
+    <>
+      <h3>Crear Nuevo Usuario</h3>
+      {successMessage && <p>{successMessage}</p>}
+      <table>
+        <tbody>
+          <tr>
+            <td>Nombre de Colaborador:</td>
+            <td>
+              <input
+                type="text"
+                value={username}
+                onChange={handleUsernameChange}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Correo:</td>
+            <td>
+              <input
+                type="text"
+                value={email}
+                onChange={handleEmailChange}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Contraseña:</td>
+            <td>
+              <input
+                type="password"
+                value={password}
+                onChange={handlePasswordChange}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Rol:</td>
+            <td>
+            <select  value={role} onChange={handleRoleChange}>
+      <option value="">Selecciona una opción</option>
+      <option value="chef">Chef</option>
+      <option value="admin">Admin</option>
+      <option value="waiter">Waiter</option>
+    </select>
+              {/* <input type="text" value={role} onChange={handleRoleChange} /> */}
+            </td>
+          </tr>
+          <tr>
+            <td colSpan="2">
+              <button className="btn-registrar" onClick={handleCreateUser}>Registrar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </>
   );
 };
 export default AddEmployees;
