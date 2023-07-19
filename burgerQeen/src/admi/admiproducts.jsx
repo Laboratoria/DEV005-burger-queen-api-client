@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./admi.css";
@@ -11,8 +11,14 @@ const AdmiProducts = ({ handleEditProduct, handleDeleteProduct }) => {
     image: "",
     type: "",
   });
+  const [editProduct, setEditProduct] = useState({
+    name: "",
+    price: "",
+    image: "",
+    type: "",
+  });
   const [products, setProducts] = useState([]);
-
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -54,6 +60,19 @@ const AdmiProducts = ({ handleEditProduct, handleDeleteProduct }) => {
       [name]: value,
     }));
   };
+  const handleOpenEditModal = (product) => {
+    setIsEditModalOpen(true);
+    setEditProduct(product)
+  };
+  const handleCloseEditModal = () => {
+    setIsEditModalOpen(false);
+    setNewProduct({
+      name: "",
+      price: "",
+      image: "",
+      type: "",
+    });
+  };
 
   const handleAddProduct = async () => {
     try {
@@ -81,12 +100,16 @@ const AdmiProducts = ({ handleEditProduct, handleDeleteProduct }) => {
   const handleEditProductRequest = async (productId, editedData) => {
     try {
       const token = localStorage.getItem("accessToken");
-      await axios.patch(`http://localhost:8080/products/${productId}`, editedData, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await axios.patch(
+        `http://localhost:8080/products/${productId}`,
+        editedData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       const updatedProducts = products.map((product) =>
         product.id === productId ? { ...product, ...editedData } : product
       );
@@ -106,7 +129,9 @@ const AdmiProducts = ({ handleEditProduct, handleDeleteProduct }) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      const updatedProducts = products.filter((product) => product.id !== productId);
+      const updatedProducts = products.filter(
+        (product) => product.id !== productId
+      );
       setProducts(updatedProducts);
       console.log("Producto eliminado exitosamente");
     } catch (error) {
@@ -134,6 +159,7 @@ const AdmiProducts = ({ handleEditProduct, handleDeleteProduct }) => {
         <button onClick={handleOpenAddModal}>Agregar Producto</button>
 
         {/* Modal de agregar productos */}
+
         {isAddModalOpen && (
           <div className="modal">
             <div className="modal-content">
@@ -171,6 +197,43 @@ const AdmiProducts = ({ handleEditProduct, handleDeleteProduct }) => {
             </div>
           </div>
         )}
+        {isEditModalOpen && (
+          <div className="modal">
+            <div className="modal-content">
+              <h2>Agregar Producto</h2>
+              <input
+                type="text"
+                name="name"
+                value={editProduct.name}
+                onChange={handleInputChange}
+                placeholder="Nombre"
+              />
+              <input
+                type="text"
+                name="price"
+                value={editProduct.price}
+                onChange={handleInputChange}
+                placeholder="Precio"
+              />
+              <input
+                type="text"
+                name="image"
+                value={editProduct.image}
+                onChange={handleInputChange}
+                placeholder="Imagen URL"
+              />
+              <input
+                type="text"
+                name="type"
+                value={editProduct.type}
+                onChange={handleInputChange}
+                placeholder="Tipo"
+              />
+              <button onClick={handleEditProductRequest}>Guardar cambios</button>
+              <button onClick={handleCloseAddModal}>Cancelar</button>
+            </div>
+          </div>
+        )}
 
         {products.map((product) => (
           <div key={product.id}>
@@ -184,7 +247,7 @@ const AdmiProducts = ({ handleEditProduct, handleDeleteProduct }) => {
                 src="src/assets/editar.png"
                 alt="editar"
                 className="btn-editar-productsAdmi"
-                onClick={() => handleEditProductRequest(product.id)}
+                onClick={() => handleOpenEditModal(product)}
               />
               <img
                 src="src/assets/delete.png"
