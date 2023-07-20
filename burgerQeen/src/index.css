@@ -1,0 +1,34 @@
+
+body {
+  min-width: 1000px;
+  min-height: 128vh;
+  color: #133C8B;
+  font-family: 'Karma';
+  background-color: #fdfe74d1;
+  
+  
+}
+button {
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  background-color:#133C8B;
+  font-size: 22px;
+   }
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.btnAdd{
+  background-color: #133C8B;
+  display: grid;
+  height: 39px;
+  margin-top: -37px;
+  align-items: center;
+  font-size: 17px;
+}
+
+
+

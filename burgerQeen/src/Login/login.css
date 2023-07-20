@@ -1,0 +1,70 @@
+.logo {
+  width: 40%;
+  height: 75%;
+  padding: 5%;
+}
+
+.bienvenidos {
+  font-size: 46px;
+}
+
+.inputs {
+  display: flex;
+  background-color: #e1ddddb5;
+  margin-top: -578px;
+  margin-left: 531px;
+  width: 42%;
+  height: 505px;
+  flex-direction: column;
+  border-radius: 20px;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.usuario {
+  display: flex;
+  background: #ffffff;
+  border: none;
+  padding-left: 5%;
+  width: 100%;
+  height: 46px;
+  font-size: 18px;
+  border-radius: 18px;
+  margin-left: -6px;
+  margin-bottom: 26px; /* Separación inferior del botón */
+}
+
+.pasword {
+  display: flex;
+  background: #ffffff;
+  border: none;
+  padding-left: 5%;
+  height: 46px;
+  font-weight: bold;
+  font-size: 23px;
+  border-radius: 18px;
+  margin-bottom: 9px; /* Separación inferior del botón */
+}
+
+.m-error {
+  font-size: 20px;
+  color: #171717;
+  display: flex;
+  justify-content: flex-start;
+  margin: 7px 0px -12px 4px;
+  margin-bottom: 8px;
+}
+
+
+.btn-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 103%;
+  height: 48px;
+  border: none;
+  border-radius: 18px;
+  margin-top: 38px;
+  padding: 8px;
+}
