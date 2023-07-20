@@ -5,11 +5,12 @@ import axios from "axios";
 import Admin from "../admi/admi";
 import { Link } from "react-router-dom";
 import AddEmployees from "./addemployees";
-
-const Employees = () => {
+import ProductsList from "./ProductsList"; // Importa el componente de la lista de productos
+import AdmiProducts from "../admi/admiproducts";
+const Employees = ({ handleEditEmployee, handleDeleteEmployee }) => {
   const [employees, setEmployees] = useState([]);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-
+  const [showProducts, setShowProducts] = useState(false); // Nuevo estado para controlar la visualización de productos
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
@@ -28,86 +29,71 @@ const Employees = () => {
     };
     fetchEmployees();
   }, []);
-
   const handleUserCreated = (newUser) => {
     setEmployees((prevEmployees) => [...prevEmployees, newUser]);
   };
-
-  const handleEditEmployee = async (id, updatedData) => {
-    try {
-      const token = localStorage.getItem("accessToken");
-      const response = await axios.patch(
-        `http://localhost:8080/users/${id}`,
-        updatedData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      setEmployees((prevEmployees) =>
-        prevEmployees.map((employee) =>
-          employee.id === id ? { ...employee, ...updatedData } : employee
-        )
-      );
-      console.log(response);
-    } catch (error) {
-      console.error(error);
-    }
+  const handleShowProducts = () => {
+    setShowProducts(true);
+    setIsAddModalOpen(false); // Para ocultar el modal de agregar colaboradores si está abierto
   };
-
-  const handleDeleteEmployee = async (id) => {
-    try {
-      const token = localStorage.getItem("accessToken");
-      await axios.delete(`http://localhost:8080/users/${id}`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      setEmployees((prevEmployees) =>
-        prevEmployees.filter((employee) => employee.id !== id)
-      );
-      console.log("Empleado eliminado exitosamente");
-    } catch (error) {
-      console.error(error);
-    }
+  const handleShowEmployees = () => {
+    setShowProducts(false);
   };
-
   const handleOpenAddModal = () => {
     setIsAddModalOpen(true);
+    setShowProducts(false); // Al abrir el modal de agregar productos, ocultamos la lista de colaboradores
   };
-
   const handleCloseAddModal = () => {
     setIsAddModalOpen(false);
   };
-
   return (
     <>
       <h1 className="admi">Administradores</h1>
-      <table className="items-users">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Rol</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
-          </tr>
-        </thead>
-      </table>
+      {showProducts ? (
+        <><AdmiProducts /></>
+      ) : (
+        <table className="items-users">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Rol</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {employees.map((user) => (
+              <Admin
+                key={user.id}
+                user={user}
+                handleEditEmployee={handleEditEmployee}
+                handleDeleteEmployee={handleDeleteEmployee}
+              />
+            ))}
+          </tbody>
+        </table>
+      )}
       <div className="more-user-products">
-        {/* <button onClick={handleOpenAddModal} className="btn-add-products">
-          Agregar Colaborador
-        </button> */}
         <img
-          src="/src/assets/adduser.png" 
+          src="/src/assets/adduser.png"
           alt="add-user"
-          className="add-user" onClick={handleOpenAddModal}
+          className="add-user"
+          onClick={handleOpenAddModal}
         />
-        <Button className="btn-add-products" id="products" text="Productos" />
+        <Button
+          className="btn-add-products"
+          id="products"
+          text="Productos"
+          onClick={handleShowProducts} // Agrega la función para mostrar los productos al hacer clic en el botón
+        />
+        <Button
+          className="btn-add-products"
+          id="employees"
+          text="Colaboradores"
+          onClick={handleShowEmployees} // Agrega la función para mostrar los colaboradores al hacer clic en el botón
+        />
       </div>
       <Link to="/">
         <img
@@ -116,22 +102,11 @@ const Employees = () => {
           className="botton-back-admi"
         />
       </Link>
-      <div className="container-user">
-        {employees.map((user) => (
-          <Admin
-            key={user.id}
-            user={user}
-            handleEditEmployee={handleEditEmployee}
-            handleDeleteEmployee={handleDeleteEmployee}
-          />
-        ))}
-      </div>
-
       {isAddModalOpen && (
         <div className="modal-overlay">
           <div className="modal">
             <span className="modal-close1" onClick={handleCloseAddModal}>
-             x
+              x
             </span>
             <div className="modal-content">
               {/* Aquí va el contenido del modal para agregar colaboradores */}
@@ -143,5 +118,4 @@ const Employees = () => {
     </>
   );
 };
-
 export default Employees;

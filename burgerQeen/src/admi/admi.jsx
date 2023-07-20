@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import "./admi.css";
-
 const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editedData, setEditedData] = useState({
@@ -10,15 +9,12 @@ const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
     password: user.password,
     role: user.role,
   });
-
   const handleEditUser = () => {
     setIsModalOpen(true);
   };
-
   const handleModalClose = () => {
     setIsModalOpen(false);
   };
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setEditedData((prevData) => ({
@@ -26,18 +22,15 @@ const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
       [name]: value,
     }));
   };
-
   const handleSaveChanges = () => {
     handleEditEmployee(user.id, editedData);
     setIsModalOpen(false);
   };
-
   const handleDeleteUser = () => {
     if (window.confirm(`¿Estás seguro de eliminar al usuario ${user.name}?`)) {
       handleDeleteEmployee(user.id);
     }
   };
-
   const handleRoleChange = (event) => {
     const { value } = event.target;
     setEditedData((prevData) => ({
@@ -45,7 +38,6 @@ const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
       role: value,
     }));
   };
-
   return (
     <>
       <div className="users">
@@ -131,11 +123,9 @@ const Admin = ({ user, handleEditEmployee, handleDeleteEmployee }) => {
     </>
   );
 };
-
 Admin.propTypes = {
   user: PropTypes.object,
   handleEditEmployee: PropTypes.func,
   handleDeleteEmployee: PropTypes.func,
 };
-
 export default Admin;

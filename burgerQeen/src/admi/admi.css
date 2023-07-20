@@ -1,5 +1,9 @@
-.btn-editar-users {
-  width: 5%;
+.btn-editar-users,
+.btn-eliminar-productsAdmi{
+  width: 25%;
+}
+.btn-editar-productsAdmi{
+  width: 45%;
 }
 .users {
   display: flex;
@@ -143,4 +147,61 @@ th {
 .btn-almuerzo:active {
   background-color: #133c8b;
   color: #ffffff;
+}
+.modal-close{
+  color: #133c8b;
+}
+.container-productsAdmi{
+  display: flex;
+
+align-items: center;
+background-color: white;
+border-radius: 15px;
+  width: 100%;
+  height: 40px;
+  margin: 51px 27px -34px
+}
+.items-productslist{
+  position: absolute;
+  top: 163px;
+  left: 14px;
+  background-color: #133c8b;
+  width: 100%;
+  color: white;
+  height: 38px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+    justify-content: center;
+   
+}
+.container-productsAdmi{
+ display: grid;
+ justify-content: stretch;
+ align-content: center;
+ justify-items: center;
+ grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.id-productsAdmi{
+  grid-area: 1fr;
+}
+.name-productsAdmi{
+  grid-area: 2fr;
+}
+.price-productsAdmi{
+  grid-area: 3fr;
+}
+.image-productsAdmi{
+  grid-area: 4fr;
+}
+.type-productsAdmi{
+  grid-area: 5fr;
+
+}
+.btn-editar-productsAdmi{
+  grid-area: 6fr;
+
+}
+.btn-eliminar-productsAdmi{
+  grid-area: 7fr;
 }
