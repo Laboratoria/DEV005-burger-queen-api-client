@@ -44,9 +44,19 @@ describe('loginComponent', () => {
     expect(component.authForm.value.password).toEqual('');
   });
 
+  it('should call login() method when login() is clicked', () => {
+    spyOn(component, 'login');
+    const button = fixture.nativeElement.querySelector('button');
+    button.click();
+    expect(component.login).toHaveBeenCalled();
+  })
+
   fit('should login the user successfully', (done) => {
-    component.authForm.value.email = 'grace.hopper@systers.xyz';
-    component.authForm.value.password = '123456';
+    //set
+    //console.log(component.authForm);
+    //component.authForm.value.email = 'grace.hopper@systers.xyz';
+    //component.authForm.value.password = '123456';
+component.authForm.setValue({ 'email': 'grace.hopper@systers.xyz', 'password':  '123456' });
 
     //@ts-ignore
     spyOn(component.authService, 'login')

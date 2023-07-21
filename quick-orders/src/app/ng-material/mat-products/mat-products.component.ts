@@ -75,8 +75,8 @@ export class MatProductsComponent {
   Saveproduct() { 
     console.log(this.productToEdit.id, "usertoedit")
     if(this.productToEdit.id > 1) {
-      this.getProduct.edit(this.productToEdit.id, this.productToEdit.name, 
-        this.productToEdit.price, this.productToEdit.image, this.productToEdit.type).subscribe(res => {
+      this.getProduct.edit(this.productToEdit.id, this.myform.value.name, 
+        this.myform.value.price, this.myform.value.image, this.myform.value.type).subscribe(res => {
         console.log(res);
         this.Closepopup();
       });
