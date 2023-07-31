@@ -6,15 +6,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder, FormsModule, FormGroup, Validators } from "@angular/forms";
 import { MatIconModule } from '@angular/material/icon';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
   selector: 'app-desayuno',
   templateUrl: './desayuno.component.html',
-  styleUrls: ['./desayuno.component.css']
+  styleUrls: ['./desayuno.component.scss']
 })
 export class DesayunoComponent implements OnInit {
-
+  faPlus = faPlusCircle;
 menuBreakfast: Product [];
 
 constructor(

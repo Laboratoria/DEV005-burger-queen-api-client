@@ -11,13 +11,23 @@
     </thead>
     <tbody class="tableProducts">
         <tr class="lineInfo">
-            <td class="plus"> <button class="add">+</button> </td>
+            <td class="plus"> 
+            <button class="buttonAdd">
+                <fa-icon class="icoonPlus" [icon] ="faPlus" style="font-size: 20px;"></fa-icon>
+            </button>
+            </td>
             <td class="number"> <p>2</p> </td>
-            <td class="less"> <button class="less">-</button> </td>
+            <td class="less"> 
+                <button class="buttonLess">
+                    <fa-icon class="icoonMinus" [icon] ="faMinus" style="font-size: 20px;"></fa-icon>
+                </button>
+            </td>
             <td class="description"> Sandwich </td>
             <td class="subtotal"> 500 </td>
             <td class="actions"> 
-                <button class="delete">Eliminar</button>
+                <button class="delete">
+                    <fa-icon class="icoonDelete" [icon] ="faTrash" style="font-size: 20px;"></fa-icon>
+                </button>
             </td>
         </tr> 
     </tbody>

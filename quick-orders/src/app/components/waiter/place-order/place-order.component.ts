@@ -8,12 +8,26 @@ import { Product } from "src/app/models/products.model";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatBasicComponent } from "src/app/ng-material/mat-basic/mat-basic.component";
 import { MatProductsComponent } from "src/app/ng-material/mat-products/mat-products.component";
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-place-order',
   templateUrl: './place-order.component.html',
   styleUrls: ['./place-order.component.css']
 })
-export class PlaceOrderComponent {
+export class PlaceOrderComponent implements OnInit {
+
+  faPlus = faPlus;
+  faMinus = faMinus;
+  faTrash = faTrash;
+
+  constructor(
+    ) {
+    }
+    
+      ngOnInit() { 
+      }
 
 }

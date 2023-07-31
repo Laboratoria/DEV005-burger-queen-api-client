@@ -20,7 +20,7 @@
                                     <div class="emailError" *ngIf= "formControls['email'].errors['required']">El email es requerido</div>
                                 </div>
                             <p [ngClass] ="{'has-error': isSubmitted && formControls['password'].errors }">
-                                <input class="password" type="password" placeholder="password" formControlName="password"> 
+                                <input class="password" type="password" placeholder="Password" formControlName="password"> 
                             </p>
                                 <div *ngIf = "isSubmitted && formControls['password'].errors" class="help-block"> 
                                     <div class="passwordError" *ngIf= "formControls['password'].errors['required']">La contraseña es requerido</div>
