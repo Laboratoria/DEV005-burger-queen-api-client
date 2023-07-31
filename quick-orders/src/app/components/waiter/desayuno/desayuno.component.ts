@@ -17,11 +17,13 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 export class DesayunoComponent implements OnInit {
   faPlus = faPlusCircle;
 menuBreakfast: Product [];
+oneProduct: Product ;
 
 constructor(
   private productService: ProductsService,
 ) {
 this.menuBreakfast = [];
+this.oneProduct = {} as Product;
 }
 
 ngOnInit(){
@@ -35,7 +37,18 @@ getProducts() {
   })
 }
 
+getProduct(id:number){
+  this.productService.getOneProduct(id).subscribe((profile) => {
+    this.oneProduct = profile
+    localStorage.setItem('data', JSON.stringify([profile]));
+    console.log(this.oneProduct)
+  })
+}
 
+agregarCard(id: number) {
+  this.getProduct(id)
+}
 
+//Necesitamos hacer un post para guardar estos pedidos en una orden
 
 }
