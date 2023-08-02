@@ -1,4 +1,4 @@
-# Burger Queen (API Client) - Agregando rama Karen
+# Burger Queen (API Client) - Agregando rama para Github Karen
 
 ## Índice
 
