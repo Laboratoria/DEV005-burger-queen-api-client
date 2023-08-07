@@ -1,0 +1,33 @@
+/* ---------------------fondo vista Administrator----------------  */
+
+.global-container {
+    background-image: url('../../assets/lgVertical.png');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (min-width:750px) {
+    .global-container {
+        gap: 30px;
+    }
+}
+
+.content-logo img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 550px;
+}
+
+
+@media (min-width:1000px) {
+    .global-container {
+        background-image: url('../../assets/ham.png');
+        gap: 30px;
+    }
+}

@@ -1,0 +1,317 @@
+/* Estilos para dispositivos móviles */
+.global-container-waiter {
+    background-image: url('../../assets/fondoGeneral.jpg');
+}
+
+.box-btn-view {
+    text-align: end;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.btn-viewOrder {
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 16px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #fffffff1;
+}
+
+.container-columns1 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.column-menu,
+.column-ticket {
+    flex: 1 1 100%;
+}
+
+.group-client {
+    padding-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.group-client label {
+    font-size: 2.6rem;
+    font-weight: bold;
+}
+
+.group-client input {
+
+    width: 100%;
+    padding: 5px;
+    border-radius: 7px;
+    outline: none;
+    background-color: #fffffff9;
+    font-size: 2.6rem;
+    border-radius: 10px;
+}
+
+.content-order {
+    background-color: #5D5D5D;
+    min-height: 625px;
+    border-radius: 0 0 20px 20px;
+    padding: 0 15px;
+}
+
+.sub-title {
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+    font-size: 2rem;
+}
+
+.content-buttons {
+    padding-bottom: 10px;
+}
+
+.btn-break,
+.btn-lunch {
+    font-size: 2.3rem;
+    padding: 18px;
+    width: 50%;
+    border-radius: 0 0 20px 20px;
+    background-color: transparent;
+    color: #000;
+    font-weight: bold;
+    outline: none;
+}
+
+.subtitle-list {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+}
+
+.subtitle-product {
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.ticket-header {
+    border-radius: 10px 10px 0 0;
+}
+
+.ticket-header,
+.ticket-body,
+.ticket-footer {
+    background-color: #fffffff1;
+}
+
+.ticket-subtitle {
+    background-color: #fffffff1;
+    text-align: center;
+}
+
+
+.ticket-subtitle .ticket-header p {
+    color: #000;
+    padding: 10px;
+}
+
+.ticket-header p {
+    background-color: #fffffff1;
+    font-size: 2.6rem;
+    font-weight: bold;
+    margin-left: 19px;
+    height: 34px;
+}
+
+.ticket-body {
+    min-height: 420px;
+    padding: 10px;
+}
+
+.ticket-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: 3px solid #000;
+    border-radius: 0 0 12px 12px;
+}
+
+.ticket-footer p {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.ticket-footer span {
+    font-weight: lighter;
+    margin-left: 10px;
+}
+
+.ticket-btns {
+    display: grid;
+    gap: 12px;
+    margin: 15px 0 15px 0;
+}
+
+.ticket-enviar,
+.ticket-cancel {
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.active {
+    background-color: #F8B504;
+}
+
+/* tabletas y pantallas más grandes */
+@media (min-width: 768px) {
+    .global-container-waiter {
+        background-image: url('../../assets/fondoGeneral.jpg');
+        background-size: cover;
+    }
+
+    .container-columns1 {
+        flex-wrap: nowrap;
+    }
+
+    .column-menu,
+    .column-ticket {
+        flex: 1 1 400px;
+    }
+
+    .btn-viewOrder {
+        font-size: 1.8rem;
+
+    }
+    .btn-break,
+    .btn-lunch{
+        font-size: 2.1rem;
+    }
+
+    .ticket-body {
+        min-height: 570px;
+        border-top: solid 3px #000;
+    }
+
+    .content-order {
+        min-height: 720px;
+    }
+
+    .ticket-enviar,
+    .ticket-cancel {
+        padding: 8px;
+    }
+
+    .ticket-subtitle {
+        font-size: 3.4rem;
+        padding: 10px;
+        margin-bottom: 12px;
+        border-bottom: solid 3px #000;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .ticket-footer p {
+        font-size: 2.6rem;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .sub-title {
+        font-size: 2.6rem;
+    }
+}
+
+
+@media (min-width: 820px){
+    .content-order {
+        min-height: 785px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .ticket-body {
+        min-height: 300px;
+    }
+    
+    .content-order {
+        min-height: 450px;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .ticket-enviar,
+    .ticket-cancel {
+        padding: 8px;
+    }
+
+    .ticket-subtitle {
+        font-size: 2.7rem;
+    }
+
+    .btn-viewOrder {
+
+        margin-top: -22px;
+    }
+
+    .subtitle-product {
+        font-size: 2rem;
+    }
+
+    .ticket-footer p {
+        font-size: 2.3rem;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .sub-title {
+        font-size: 2.6rem;
+    }
+
+    .btn-break,
+    .btn-lunch {
+        padding: 15px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .ticket-body {
+        min-height: 285px;
+    }
+
+    .content-order {
+        min-height: 472px;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .group-client input {
+        padding: 10px 14px;
+    }
+
+    .group-client {
+        padding-bottom: 15px;
+    }
+
+    .ticket-subtitle {
+        font-size: 2.4rem;
+    }
+
+    .ticket-header p {
+        font-size: 2.4rem;
+    }
+
+    .ticket-btns {
+        display: grid;
+        gap: 7px;
+        margin: 10px 0 15px 0;
+    }
+
+    .ticket-enviar,
+    .ticket-cancel {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,130 @@
+/*fondo*/
+.modal-add {
+    background-color: rgba(0, 0, 0, 0.577);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-add {
+    font-size: 3.2rem;
+    font-weight: bold;
+    padding-bottom: 20px;
+    color: #fff;
+}
+
+.modal-content-add {
+    background-color: rgb(116 113 113);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 15px;
+    width: 660px;
+    height: 500px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-item {
+    width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item {
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2.5rem;
+    gap: 15px;
+}
+
+.inp-modal {
+    width: 100%;
+    padding: 13px;
+    border-radius: 18px;
+    font-size: 2.2rem;
+    outline: none;
+    border: none;
+}
+
+.item-select-price{
+    display: flex;
+    padding: 20px 0 20px 0;
+}
+
+.item-select{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-right: 25px;
+}
+
+.inp-select{
+    padding: 12px 45px 12px 20px;
+    border-radius: 15px;
+    font-size: 1.7rem;
+    outline: none;
+    border: none;
+}
+
+.item-price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;  
+}
+
+.inp-price{
+    width:60%;
+    padding: 13px 0 13px 0;
+    border-radius: 15px;
+    font-size: 2rem;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+
+.labels{
+    font-size: 2.5rem;
+}
+
+option{
+    background-color: #fff;
+}
+
+.box-close {
+    border-radius: 50px;
+    width: 50px;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(40%, -40%);
+}
+
+.close {
+    width: 100%;
+}
+
+.btn-add {
+    background-color: #F8B504;
+    padding: 10px 81px;
+    border-radius: 15px;
+    color: #000;
+    border: none;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 15px;
+}

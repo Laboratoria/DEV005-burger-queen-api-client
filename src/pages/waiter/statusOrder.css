@@ -1,0 +1,52 @@
+.global-container-waiter {
+    background-image: url('../../assets/fondoGeneral.jpg');
+}
+.content-viewOrder{
+ display: flex;
+ flex-wrap: wrap;
+}
+.title-columns-pending {
+    color: white;
+    font-size: 3rem;
+    padding: 0px 0px 12px 0px;
+    margin-left: 40px;
+}
+
+.box-back {
+    display: flex;
+    padding: 25px 0 0 35px;
+}
+
+.back {
+    background-color: #f8b704;
+    width: 50px;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+
+@media (min-width: 768px) {
+    .title-columns-pending {
+        font-size: 3rem;
+    }
+
+    .box-back {
+        padding: 30px 0 0 40px;
+    }
+
+    .back {
+        width: 60px;
+        padding: 8px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .box-back {
+        padding: 28px 0px 0px 22px
+    }
+
+    .back {
+        width: 70px;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,44 @@
+/* ------------------Logotipo Burger Queen------- */
+/* pantallas chicas */
+
+.content-logo{
+    width: 200px;
+    margin: 0 auto;
+}
+
+.content-logo img{
+    width: 100%;
+    max-width: 450px;
+}
+
+/* pantallas más grandes */
+
+@media (min-width:768px){
+    .content-logo{
+        width: 450px;
+    }
+    .content-logo img{
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        max-width: 400px;
+    }
+}
+
+@media (min-width:820px){
+    .content-logo{
+        padding-bottom: 30px;
+    }
+   
+}
+
+@media (min-width:1000px){
+    .content-logo{
+        width: 375px;
+        padding-bottom: 35px;
+    }
+    .content-logo img{
+        max-width: 250px;
+    }
+}
+

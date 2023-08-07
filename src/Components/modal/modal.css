@@ -1,0 +1,61 @@
+/* modal para confirmar y cancelar lista de pedidos a la cocina  */
+.modal {
+    background-color: rgba(0, 0, 0, 0.577);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #000;
+    font-weight: bold;
+    border-radius: 15px;
+    width: 600px;
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+}
+
+.check {
+    width: 80px;
+}
+
+.modal-text {
+    color: #fff;
+    font-size: 3rem;
+}
+
+.btn-modal {
+    background-color: #F8B504;
+    padding: 10px 20px;
+    border-radius: 15px;
+    color: #fff;
+    border: none;
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: relative;
+}
+
+.box-close {
+    background-color: #F8B504;
+    border-radius: 50px;
+    width: 50px;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(40%, -40%);
+}
+
+.close {
+    width: 100%;
+}

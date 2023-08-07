@@ -1,0 +1,55 @@
+/* estilos para el texto producto, precio y total */
+.product-order-list {
+    font-size: 2.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3px 0 4px 0;
+}
+
+.item-cardOrder {
+    font-size: 19px;
+    padding-left: 24px;
+}
+
+
+.item-product {
+    display: flex;
+    gap: 23px;
+    align-items: center;
+}
+
+.price-delete {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.price-delete img {
+    width: 23px;
+}
+
+.price-delete .symbol,
+.price-delete .price {
+    font-size: 19px;
+}
+
+
+
+@media (min-width:750px) {
+    .product-order-list {
+        margin: 23px 5px 23px 15px;
+    }
+
+    .item-cardOrder {
+        padding-left: 0px;
+    }
+}
+
+@media (min-width:1000px) {
+    .product-order-list {
+        font-size: 2rem;
+        margin: 2px 0 4px 21px;
+    }
+
+}

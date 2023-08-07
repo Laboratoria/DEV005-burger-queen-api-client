@@ -1,0 +1,41 @@
+.box-order-cheff {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+
+.box-order-cheff::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0.445);
+}
+
+.box-order-cheff::-webkit-scrollbar-thumb {
+    background-color: rgba(128, 128, 128, 0.247);
+}
+
+@media (min-width:768px) {
+    .box-order-cheff {
+        max-height: 720px;
+        overflow-y: scroll;
+        margin-top: 15px;
+
+    }
+}
+
+@media (min-width:820px) {
+    .box-order-cheff {
+        max-height: 823px;
+        overflow-y: scroll;
+        margin-top: 15px;
+        align-items: center;
+    }
+}
+
+@media (min-width:1000px) {
+    .box-order-cheff {
+        height: 504px;
+        overflow-y: scroll;
+        margin-top: 15px;
+    }
+}

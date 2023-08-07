@@ -1,0 +1,35 @@
+/* estilos que contiens a los productos en vista waiter */
+.content-list-breakfast {
+    padding-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    overflow: auto;
+    max-height: 435px;
+}
+
+.content-list-breakfast::-webkit-scrollbar {
+    background-color: #ffd4b9;
+    /* Color de fondo de la barra de desplazamiento */
+    width: 8px;
+    /* Ancho de la barra de desplazamiento */
+}
+
+.content-list-breakfast::-webkit-scrollbar-thumb {
+    background-color: #888;
+    /* Color del control deslizante de la barra de desplazamiento */
+}
+
+
+@media (min-width:820px) {
+    .content-list-breakfast {
+        max-height: 634px
+    }
+}
+
+@media (min-width:1000px) {
+    .content-list-breakfast {
+        max-height: 349px;
+    }
+}

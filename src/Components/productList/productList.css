@@ -1,0 +1,25 @@
+.content-product-list{
+    max-height: 320px; 
+    overflow-y: auto
+}
+
+.content-product-list::-webkit-scrollbar {
+    background-color: #ffd4b9; /* Color de fondo de la barra de desplazamiento */
+    width: 8px; /* Ancho de la barra de desplazamiento */
+}
+  
+.content-product-list::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color del control deslizante de la barra de desplazamiento */
+}
+
+@media (min-width:820px){
+    .content-product-list{
+        max-height: 450px; 
+    }
+}
+
+@media (min-width:1024px){
+    .content-product-list{
+        max-height: 200px; 
+    }
+}

@@ -1,0 +1,85 @@
+.global-container-Admi {
+    background-image: url('../../assets/fondoGeneral.jpg');
+    background-color: #000;
+    padding: 20px 0 90px 0;
+}
+
+.content-general-products {
+    background-color: #4e4e4e;
+    padding: 20px;
+    height: 750px;
+    overflow: auto;
+    border-radius: 18px;
+}
+
+.content-add {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-addProduct {
+    display: flex;
+    align-items: center;
+    padding: 10px 25px 10px 25px;
+    gap: 10px;
+    border-radius: 18px;
+    font-size: 2rem;
+    margin: 12px;
+}
+
+.rolTitle {
+    color: #F8B504;
+    font-size: 3rem;
+    padding-bottom: 5px;
+}
+
+.content-cards-products {
+    border-top: solid 2px #F8B504;
+    padding: 25px;
+}
+
+.btn-product,
+.btn-staff {
+    font-size: 2.3rem;
+    font-weight: bold;
+    padding: 18px;
+    width: 50%;
+    border-radius: 0 0 20px 20px;
+    background-color: transparent;
+    color: #000;
+    outline: none;
+}
+
+.active {
+    background-color: #F8B504;
+}
+
+
+@media (min-width:820px) {
+    .content-general-products {
+        height: 900px;
+    }
+
+    .btn-product,
+    .btn-staff {
+        margin: -20px 0px 0px -1px;
+    }
+
+    .btn-product,
+    .btn-staff {
+        padding: 11px;
+    }
+}
+
+
+@media (min-width:1024px) {
+
+    .btn-product,
+    .btn-staff {
+        margin: -20px 0px 0px -1px;
+    }
+
+    .content-general-products {
+        height: 570px;
+    }
+}

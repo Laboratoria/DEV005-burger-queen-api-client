@@ -1,0 +1,12 @@
+.list-product {
+    color: #fff;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-text-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
