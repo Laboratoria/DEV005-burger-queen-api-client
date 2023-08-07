@@ -1,0 +1,166 @@
+.tableOrder th {
+  background: #060303;
+}
+
+.tableOrder table {
+  background: #d9d9d9;
+  padding-bottom: 2vh;
+  width: 80vw;
+}
+@media (max-width: 820px) and (orientation: portrait) {
+  .tableOrder table {
+    width: 90vw;
+  }
+}
+
+.tableOrder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
+  gap: 1em;
+}
+
+.topBar {
+  display: flex;
+  justify-content: center;
+  margin-top: 6em;
+  align-items: center;
+  gap: 2em;
+  position: static;
+}
+
+.break {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  background: #fbc54f;
+  width: 9em;
+  height: 3em;
+  border-radius: 20em;
+}
+.break:active, .break:focus{
+    background: #FD9342;
+    color: black;
+  }
+
+.table {
+  color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table > * {
+  margin-left: 1em;
+}
+
+.menuTable table {
+  background: #d9d9d9;
+  padding-bottom: 2vh;
+  height: 100vh;
+}
+
+.menuTable {
+  margin-top: 2em;
+  /*   padding: 1em; */
+}
+
+.menuTable th {
+  background: #060303;
+}
+.statusColumn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonPosition {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+.btnDelivery {
+  background-color: #5cb46c;
+  margin-bottom: 1rem;
+  color: white;
+  border-radius: 3rem;
+  font-size: 1.2rem;
+  width: 8em;
+  height: 2.5em;
+}
+
+/* .menuTable > * {
+    margin-left: 1em;
+  } */
+
+/* revisar .useOrder cuando este lista la tabla de al lado (background deberia ser la combinacion entre la clase + table) */
+.userOrder {
+  margin-top: 2em;
+  /*   padding: 1em; */
+  background: #d9d9d9;
+  width: 15em;
+  height: 10em;
+}
+
+.mainContentWaiter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.tableHeader {
+  white-space: nowrap;
+  text-align: left;
+}
+
+.tableHeader span {
+  margin-right: 20px;
+}
+
+.tableHeaderLeft {
+  border-radius: 10px 0 0 0 ;
+}
+
+.tableHeaderRight {
+  border-radius: 0 10px 0 0 ;
+}
+  
+.status {
+  width: 6em;
+  font-size: 1em;
+  color: white;
+  border-radius: 0 10px 0 0 ;
+}
+.statusButton {
+  width: 7em;
+  font-size: 1em;
+  color: rgb(0, 0, 0);
+  background-color: #FBC54F;
+  padding: 0.2em;
+  border-radius: 20px;
+}
+
+.status[data-status="delivering"] {
+  background-color: #060303;
+  padding: 0.2em;
+}
+
+.status[data-status="pending"] {
+  background-color: #B54A5D;
+}
+
+.status[data-status="delivered"] {
+  background-color: #5CB46C;
+}
+
+.status[data-status="default"] {
+  background-color: gray;
+}
+
+.orderSection {
+  border-radius: 10px 0 0 0;
+}

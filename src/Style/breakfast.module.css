@@ -1,0 +1,164 @@
+.waiter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container {
+  display: flex;
+  flex-direction: unset;
+  align-items: flex-start;
+  gap: 2em;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 820px) and (orientation: portrait) {
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+  }
+}
+.topBar {
+  display: flex;
+  justify-content: center;
+  margin-top: 6em;
+  margin-bottom: 4em;
+  align-items: center;
+  gap: 2em;
+}
+
+.break {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  background: #fbc54f;
+  width: 9em;
+  height: 3em;
+  border-radius: 20em;
+}
+.break:active,
+.break:focus {
+  background: #FD9342;
+  color: #060303;
+}
+
+.table {
+  color: #060303;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table > * {
+  margin-left: 1em;
+}
+
+.tableBreakfast table {
+  border-collapse: collapse;
+  align-self: center;
+}
+
+.tableBreakfast table {
+  background: #d9d9d9;
+  padding-bottom: 2vh;
+}
+
+.tableBreakfast th {
+  background: #060303;
+}
+
+.menuTable table {
+  border-collapse: collapse;
+  align-self: center;
+}
+
+.menuTable table {
+  background: #d9d9d9;
+  padding-bottom: 2vh;
+}
+
+/* .menuTable {
+  margin-top: 2rem;
+  margin-bottom: 2rem; */
+  /*   padding: 1em; */
+/* } */
+
+.menuTable th {
+  background: #060303;
+}
+
+.menuTable button {
+  padding: 1em;
+}
+
+.tableBreakfast {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.menuTable {
+  display: flex;
+  justify-content: center;
+}
+
+.orderSection {
+  background-color: #d9d9d9;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  border-radius: 10px;
+}
+
+.inputClientName {
+  background-color: #060303;
+  width: 100%;
+}
+
+.inputClientName input {
+  margin-left: 1vw;
+}
+
+.inputClientName {
+  border-radius: 10px 10px 0 0;
+}
+
+td button {
+  margin-left: 0.8rem;
+}
+
+td span {
+  margin-left: 0.8rem;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+.green {
+  background-color: #5cb46c;
+  margin-bottom: 1rem;
+}
+
+#producto {
+  border-radius: 10px 0 0 0;
+}
+
+#cantidad {
+  border-radius: 0 10px 0 0;
+}
