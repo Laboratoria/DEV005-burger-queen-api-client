@@ -1,4 +1,4 @@
-import bearerToken from "../http";
+import bearerToken from "../api/http";
 import axios from "axios";
 
 function Get() {
