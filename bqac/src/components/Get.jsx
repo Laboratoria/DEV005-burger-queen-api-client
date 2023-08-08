@@ -1,52 +1,38 @@
-import bearerToken from "../api/http";
+import { useEffect, useState } from "react";
+import apiConfig from "../api/http";
 import axios from "axios";
 
 function Get() {
-  const headers = { Authorization: `Bearer ${bearerToken.token}` };
+  // get data from API
+  const [productos, traerProductos] = useState('');
+  const headers = { Authorization: `Bearer ${apiConfig.token}` };
 
-  const getTrending = () => {
-    axios({
-      method: "get",
-      url: "http://localhost:8080/products",
-      headers,
-    }).then((response) => console.log("get products", response));
-    axios({
-      method: "get",
-      url: "http://localhost:8080/users",
-      headers,
-    }).then((response) => console.log("get users", response));
-    axios({
-      method: "get",
-      url: "http://localhost:8080/orders",
-      headers,
-    }).then((response) => console.log("get orders", response));
-    const loginDta = axios.post(
-        "http://localhost:8080/login",
-        {
-          email: "grace.hopper@systers.xyz",
-          password: "123456",
-        },
-        headers
-      )
-      .then((response) => {
-        const datas = response; 
-        console.log(datas.data.accessToken)});
-      axios.patch(
-        " http://localhost:8080/orders/2",
-        {
-          status: "delivered",
-          dateProcessed: "2022-03-05 16:00"
-      },
-        loginDta
-      )
-      .then((response) => console.log("patch orders", response));
+  const obtenerProductos = async () => {
+    try {
+      const response = await axios.get(`${apiConfig.baseUrl}/products`, {
+        headers,
+      });
+      traerProductos(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  getTrending();
+  useEffect(() => {
+    obtenerProductos();
+  });
 
   return (
     <>
-      <h1>Burger QAC</h1>
+      {productos.length > 0 ? (
+        <ul>
+          {productos.map((producto) => (
+            <li key={producto.id}>{producto.name}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>No hay productos disponibles.</p>
+      )}
     </>
   );
 }
