@@ -9,10 +9,11 @@ function Get() {
 
   const obtenerProductos = async () => {
     try {
-      const response = await axios.get(`${apiConfig.baseUrl}/products`, {
+      const response = await axios.get(`${apiConfig.baseUrl}products`, {
         headers,
       });
       traerProductos(response.data);
+      /* console.log(response) */
     } catch (error) {
       console.log(error);
     }
