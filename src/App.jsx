@@ -1,22 +1,20 @@
 // import { Users } from './Usefetch'
 // import React from 'react';
 import './App.css'
-import Home  from './Home';
-import Login from './Login'
-import PageNotFound from './pages/PageNotFound'
 import {
   BrowserRouter as Router,
-  Route
+  Route, Routes
 } from 'react-router-dom';
+import Home  from './Home';
+import Login from './Login';
 
 function App() {
   return (
     <Router>
-      <div className='App'>
-          <Route exact path='/' component={Home} />
-          <Route exact path="/Login" component={Login} />
-        <Route component={PageNotFound} />
-      </div>
+      <Routes>
+          <Route exact path='/' element={<Home/>} />
+          <Route exact path="/Login" element={<Login/>} />
+      </Routes>   
     </Router>
   );
 }
