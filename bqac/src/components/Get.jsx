@@ -43,7 +43,6 @@ function Get() {
 
   console.log(users)
 
-
   return (
     <>
       {productos.length > 0 ? (
