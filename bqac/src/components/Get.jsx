@@ -21,6 +21,7 @@ function Get() {
 
   useEffect(() => {
     obtenerProductos();
+
   },[]);
 
   const usuariosNuevos = async () => {
@@ -42,6 +43,9 @@ function Get() {
 
   console.log(users)
 
+
+
+  }, []);
 
 
   return (
