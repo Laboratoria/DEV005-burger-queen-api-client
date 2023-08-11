@@ -1,5 +1,11 @@
+import Button from 'react-bootstrap/Button';
+import { BsFill5SquareFill } from "react-icons/bs";
+
 export const Login = () => {
   return (
-    <div>Login</div>
+  <div>
+      <Button variant="primary">Primary</Button>{' '}
+      <BsFill5SquareFill></BsFill5SquareFill>
+  </div>
   )
 }
