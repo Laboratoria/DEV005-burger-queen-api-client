@@ -1,0 +1,18 @@
+button {
+  width: 300px;
+  height: 70px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    font-size: xx-large;
+    background-color: #FCBF49;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+  button:hover {
+    border-color: #646cff;
+    transform: scale(1.05);
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }

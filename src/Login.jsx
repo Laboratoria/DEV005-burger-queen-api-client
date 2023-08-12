@@ -1,7 +1,8 @@
 //import React from 'react';
 //import useState from 'react';
 import React, { useState } from 'react';
-
+import Buttons from './components/Buttons/Buttons';
+import logo from './assets/logo.png'
 
 const Login = () => (
   <section className='Login'>
@@ -28,23 +29,29 @@ function UserForm() {
       console.log(contactInfo, 'JAJAJAJAJ');
       };  
   return (
+   
+    
     <div className="form-container">
+      <header className="login-header">
+        <img src={logo}/>
+      </header>
       <form onSubmit={handleSubmit}>
-        
+      <div className="content-login">  
         <div>
           <h1>Login</h1>
         </div>
-        <div>
+        <div className="div-inputs">
           <input
+            className="inputs-login"
             type="email"
             name="email"
             placeholder = "Email"
             value={contactInfo.email}
             onChange={handleChange}
           />
-        </div>
-        <div>
+       
           <input
+          className="inputs-login"
             type="password"
             name="password"
             placeholder="Password"
@@ -55,10 +62,12 @@ function UserForm() {
         <div>
           <p>If you forgot your password contact the administrator</p>
         </div>
-        <div>
-          <button type='submit'>Sing In</button>
+        <Buttons
+        tag="Sing in"
+        />
         </div>
       </form>
     </div>
+    
   );
 }
