@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const options =  {
   "Content-Type": "application/json",
-"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY5MTc4MTY5OCwiZXhwIjoxNjkxNzg1Mjk4LCJzdWIiOiIyIn0.kgpT5cM7Uf6VUod9OcSWlUGvRYSZc_6Pn99hKhqTZig"
+"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY5MTg5MTI3MSwiZXhwIjoxNjkxODk0ODcxLCJzdWIiOiIyIn0.M1YZm2n2IEgIP43Xdt-69OCc12eABtWSvMIqmqtbZn4"
 }
 
 //Actualizar JWT
@@ -24,7 +24,7 @@ export async function Users(url) {
       updateAuth()
       Users(url)
     }
-
+    console.log(res.data,'mamama') 
   return res.data;
 }
 

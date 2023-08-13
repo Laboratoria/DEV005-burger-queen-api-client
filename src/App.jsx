@@ -38,8 +38,8 @@ export default App;
 
 
 
-
-/* async function App() {
+/* 
+async function App() {
   const dataUsers  = await Users('http://localhost:8080/users')
   console.log(dataUsers)
   return (
@@ -50,6 +50,6 @@ export default App;
 
     </>
   )
-}
+} */
 
-export default App */
+
