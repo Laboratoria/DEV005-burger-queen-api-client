@@ -1,0 +1,25 @@
+.bg-admin{
+  background-color: #F4EBE6;
+  height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  background-color: #6A3F36;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 5px 10%;
+  color: white;
+  box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.5);
+}
+
+.cont-logo{
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+}
+
+.cont-items{
+  list-style: none;
+}

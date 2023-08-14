@@ -5,7 +5,7 @@ export const Login = () => {
   return (
   <div>
       <Button variant="primary">Primary</Button>{' '}
-      <BsFill5SquareFill></BsFill5SquareFill>
+      <BsFill5SquareFill />
   </div>
   )
 }
