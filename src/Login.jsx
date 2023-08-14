@@ -3,8 +3,9 @@
 import React, { useState } from 'react';
 import Buttons from './components/Buttons/Buttons';
 import logo from './assets/logo.png'
-
-
+//import { GetUsers } from './services/UsersPeticion';
+import { useNavigate } from 'react-router-dom';
+import { Users } from './services/Usefetch';
 
 const Login = () => (
   <section className='Login'>
@@ -14,8 +15,10 @@ const Login = () => (
 
 export default Login;
 
+
+
 function UserForm() {
-  
+  const navigate = useNavigate();
 
   const [contactInfo, setContactInfo] = useState({
     email: "",
@@ -26,11 +29,25 @@ function UserForm() {
     setContactInfo({ ...contactInfo,   [event.target.name]:event.target.value });
     };
 
-    const handleSubmit = (event) => {
-      // prevents the submit button from refreshing the page
+    
+
+
+    const handleSubmit = async (event) => {
       event.preventDefault();
       console.log(contactInfo, 'JAJAJAJAJ');
-      };  
+
+      try {
+        const usersData = await Users(); // Llama a la función GetUsers
+        console.log(usersData); // Imprime los datos de los usuarios
+        navigate('/Waiter'); // Navega a la ruta '/Waiter' después de obtener los usuarios
+        alert('Inicio de sesion exitoso');
+      } catch (error) {
+        console.error(error);
+        console.error(error)
+        // Maneja el error si es necesario
+      }
+    } 
+
   return (
    
     
@@ -65,7 +82,7 @@ function UserForm() {
         <div>
           <p>If you forgot your password contact the administrator</p>
         </div>
-        <Buttons
+        <Buttons type="submit" 
         tag="Sing in"
         />
         </div>
