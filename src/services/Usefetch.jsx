@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-let authToken = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY5MjA0ODg2OSwiZXhwIjoxNjkyMDUyNDY5LCJzdWIiOiIyIn0.bxA1V5tjjmwMBp8AxsJ8BdGklPU9ZBbJLVpj0zZIu6s";
+let authToken = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY5MjA2MzQzMCwiZXhwIjoxNjkyMDY3MDMwLCJzdWIiOiIyIn0.VVgOaecrhxfDUKlKX5zu5W0lWNr7Fy3YXWAo98AOiFU";
 
-// Function to update authentication token
+// Función para actualizar el token de autenticación
 async function updateAuth() {
   try {
     const response = await axios.post('http://localhost:8080/users', {
@@ -15,6 +15,7 @@ async function updateAuth() {
     console.error('Error updating auth:', error);
   }
 }
+updateAuth()
 
 // Fetch users data
 export async function Users(url) {
@@ -27,7 +28,7 @@ export async function Users(url) {
     });
 
     console.log('RES', res.data);
-    if (res.status === 402) {
+    if (!res.status === 200) {
       await updateAuth();
       return Users(url); // Return the result of the recursive call
     }
