@@ -1,73 +1,55 @@
-import axios from 'axios';
+import axios from "axios";
 
-let authToken = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY5MjA2MzQzMCwiZXhwIjoxNjkyMDY3MDMwLCJzdWIiOiIyIn0.VVgOaecrhxfDUKlKX5zu5W0lWNr7Fy3YXWAo98AOiFU";
+let authToken =`Bearer ${localStorage.getItem("code")}`; 
 
-// Función para actualizar el token de autenticación
+// Function to update authentication token
 async function updateAuth() {
+  console.log("Entre al update");
   try {
-    const response = await axios.post('http://localhost:8080/users', {
-      "email": "grace.hopper@systers.xyz",
-      "password": "123456"
+    const response = await axios.post("http://localhost:8080/login", {
+      email: "grace.hopper@systers.xyz",
+      password: "123456",
     });
-    authToken = `Bearer ${response.data.token}`;
-    console.log('NEW TOKEN', authToken);
+    authToken = `Bearer ${response.data.accessToken}`;
+    localStorage.setItem("code", response.data.accessToken);
+    console.log("NEW TOKEN", authToken);
+    return;
   } catch (error) {
-    console.error('Error updating auth:', error);
+    console.error("Error updating auth:", error);
   }
 }
-updateAuth()
 
 // Fetch users data
-export async function Users(url) {
+export async function Users() {
+  console.log("Entre al user");
   try {
-    const res = await axios.get(url, {
+    const res = await axios.get('http://localhost:8080/users', {
       headers: {
         "Content-Type": "application/json",
-        "Authorization": authToken
-      }
+        Authorization: `${authToken}`,
+      },
     });
 
-    console.log('RES', res.data);
-    if (!res.status === 200) {
-      await updateAuth();
-      return Users(url); // Return the result of the recursive call
-    }
+    console.log("RES", res.data);
 
-    console.log(res.data, 'mamama');
+    console.log(res.data, "MAMAMAMAMAMAMA");
     return res.data;
   } catch (error) {
-    console.error('Error fetching users:', error);
+    if (error.response.status == 401) {
+      updateAuth();
+      return Users();
+    }
+    console.error("Error fetching users:", error);
     return null;
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/*import axios from 'axios'
-
+{
+  /*import axios from 'axios'
 const options =  {
   "Content-Type": "application/json",
 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY5MjA0ODg2OSwiZXhwIjoxNjkyMDUyNDY5LCJzdWIiOiIyIn0.bxA1V5tjjmwMBp8AxsJ8BdGklPU9ZBbJLVpj0zZIu6s"
 }
-
 //Actualizar JWT  solicitud a la url de inicio de sesion 
 async function updateAuth(){
   const response = await axios.post('http://localhost:8080/users',{
@@ -78,10 +60,8 @@ async function updateAuth(){
   console.log('NEW TOKEN', response.data.token)
   options.Authorization = `Bearer ${newToken}`
 }
-
 //Traer los usuarios
 export async function Users(url) {
-
     const res = await axios.get(url,{  headers: options})
     console.log('RES', res)
     //funcion recursiva para actualizar JWT si da 402
@@ -92,4 +72,5 @@ export async function Users(url) {
     console.log(res.data,'mamama') 
   return res.data;
 }
-*/}
+*/
+}
