@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const options =  {
   "Content-Type": "application/json",
-"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY5MTg5MTI3MSwiZXhwIjoxNjkxODk0ODcxLCJzdWIiOiIyIn0.M1YZm2n2IEgIP43Xdt-69OCc12eABtWSvMIqmqtbZn4"
+"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY5MjA2NTUwMSwiZXhwIjoxNjkyMDY5MTAxLCJzdWIiOiIyIn0.4m-Ms7GaOb3KqoJiHh479AjLwG_KYC23S9d_xpSC6Fw"
 }
 
 //Actualizar JWT
@@ -15,19 +15,19 @@ async function updateAuth(){
 }
 
 //Traer los usuarios
-export async function Users(url) {
+async function Users(url) {
  
     const res = await axios.get(url,{  headers: options})
-    console.log('RES', res)
+    console.log('RES', res.status)
     //funcion recursiva para actualizar JWT si da 402
-    if(res.status == 402){
+    if(!res.status == 200){
       updateAuth()
       Users(url)
     }
-    console.log(res.data,'mamama') 
+    console.log(res.data, 'mamama') 
   return res.data;
 }
-
+export default Users
 /* const url =  'http://localhost:8080/users'
 fetch(url)
 .then(response => response.json())
