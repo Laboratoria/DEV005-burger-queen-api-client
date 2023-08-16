@@ -14,7 +14,7 @@ const Home = () => {
     <section className='Home'>
       <h2>Fast, rescued food at your service.</h2>
       <div>
-        <img src={logo} alt='Logo' />
+        <img className='img-home' src={logo} alt='Logo' />
       </div>
       <Buttons tag='Get started'  onClick={handleButtonClick} />
     </section>

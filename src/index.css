@@ -77,10 +77,18 @@ p{
   font-size: xx-large;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
 }
+
 h2{
-  width: 300px;
- 
+  margin-top: 100px;
+  width: 350px;
+  font-size: 50px;
+    color: #626262;
+}
+
+.img-home{
+  height: 590px;
+  width: 590px;
+  margin-bottom: 100px;
 }
