@@ -1,8 +1,8 @@
 import'./buttons.css'
-function Buttons(props) {
+function Buttons(prop) {
   return (
     <div>
-      <button type="submit" onClick={props.onClick}>{props.tag}</button>
+      <button type="submit" onClick={prop.onClick}>{prop.tag}</button>
     </div>
   );
 }
