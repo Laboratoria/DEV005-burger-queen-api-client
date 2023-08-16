@@ -1,5 +1,3 @@
-//import React from 'react';
-//import useState from 'react';
 import React, { useState } from 'react';
 import Buttons from './components/Buttons/Buttons';
 import logo from './assets/logo.png'
