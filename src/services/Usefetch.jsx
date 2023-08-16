@@ -3,23 +3,24 @@ import axios from "axios";
 let authToken =`Bearer ${localStorage.getItem("code")}`; 
 
 // Function to update authentication token
-async function updateAuth() {
+export async function updateAuth(email, password) {
   console.log("Entre al update");
   try {
     const response = await axios.post("http://localhost:8080/login", {
-      email: "grace.hopper@systers.xyz",
-      password: "123456",
+      email: email,
+      password: password,
     });
     authToken = `Bearer ${response.data.accessToken}`;
     localStorage.setItem("code", response.data.accessToken);
     console.log("NEW TOKEN", authToken);
-    return;
+    console.log('Datos Usuarios,', response.data.user)
+    return response.data.user;
   } catch (error) {
     console.error("Error updating auth:", error);
   }
 }
 
-// Fetch users data
+/* // Fetch users data
 export async function Users() {
   console.log("Entre al user");
   try {
@@ -42,7 +43,7 @@ export async function Users() {
     console.error("Error fetching users:", error);
     return null;
   }
-}
+} */
 
 {
   /*import axios from 'axios'

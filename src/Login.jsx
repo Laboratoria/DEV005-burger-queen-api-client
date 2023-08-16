@@ -3,9 +3,8 @@
 import React, { useState } from 'react';
 import Buttons from './components/Buttons/Buttons';
 import logo from './assets/logo.png'
-//import { GetUsers } from './services/UsersPeticion';
 import { useNavigate } from 'react-router-dom';
-import { Users } from './services/Usefetch';
+import { updateAuth } from './services/Usefetch';
 
 const Login = () => (
   <section className='Login'>
@@ -39,9 +38,27 @@ function UserForm() {
       }
 
       try {
-        const usersData = await Users('http://localhost:8080/users');
-        console.log('OBJETO DATA',usersData); 
-        usersData.forEach(user => {
+        const response = await updateAuth(contactInfo.email, contactInfo.password);
+  
+        if (response.role === 'admin') {
+          alert('Successful Log In');
+          navigate('/Admin');
+        }
+        if (response.role === 'waiter') {
+          alert('Successful Log In');
+          navigate('/Waiter');
+        }
+        if (response.role === 'cheff') {
+          alert('Successful Log In');
+          navigate('/Cheff');
+        }
+      } catch (error) {
+        alert('Log In failed');
+        console.error("Error en el inicio de sesión:", error);
+        // Puedes mostrar un mensaje de error o realizar otras acciones aquí
+      }
+       
+       /*  usersData.forEach(user => {
           console.log(user,'RESPUESTA ')
           if (user.email.includes(contactInfo.email) && user.password.includes(contactInfo.password)) {
             if(user.role === 'admin'){
@@ -55,10 +72,7 @@ function UserForm() {
               return navigate('/Cheff');
             }              
           }
-        });
-      } catch (error) {
-        console.error(error);
-      }
+        }); */
     } 
 
   return (
@@ -78,7 +92,7 @@ function UserForm() {
             className="inputs-login"
             type="email"
             name="email"
-            placeholder = "Email"
+            placeholder = "👤︎  Email"
             value={contactInfo.email}
             onChange={handleChange}
           />
@@ -87,7 +101,7 @@ function UserForm() {
           className="inputs-login"
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="🔒︎  Password"
             value={contactInfo.password}
             onChange={handleChange}
           />
