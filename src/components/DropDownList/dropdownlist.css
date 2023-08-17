@@ -1,0 +1,52 @@
+.button-dropdown{
+    margin-top: 20px;
+    width: 200px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    color: #626262;
+    font-size: xx-large;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+   border-style: none;
+    
+}
+.dd-list{
+    background-color: white;
+    margin: 0;
+
+}
+.button-list{
+
+    background-color: white;
+    color: #626262;
+    border: none;
+   
+}
+.button-list:hover{
+    transform: scale(1.05);
+}
+.dd-list{
+    width: 200px;
+    height: 200px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    text-align: center;
+    border-bottom: #626262;
+    
+}
+.dd-list-item{
+    width: 100%;
+    
+  
+}
+.tag-list{
+
+    font-size: x-large;
+}

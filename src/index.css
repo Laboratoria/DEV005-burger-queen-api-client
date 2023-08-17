@@ -61,7 +61,7 @@ h1 {
   font-size:xx-large;
   border-radius: 5px;
 }
-p{
+.forgot-password{
   color: #F8774A;
   font-size: x-large;
   margin-bottom: 100px;
@@ -91,4 +91,19 @@ h2{
   height: 590px;
   width: 590px;
   margin-bottom: 100px;
+}
+
+
+
+/*Waiter*/
+
+
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.client-name{
+  width: 500px;
+  
 }

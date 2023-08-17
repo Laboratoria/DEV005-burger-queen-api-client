@@ -35,7 +35,7 @@
     background-color: transparent;
 }
 
-button:hover {
+.button:hover {
     border-color: transparent;
     transform: scale(1.05);
 }

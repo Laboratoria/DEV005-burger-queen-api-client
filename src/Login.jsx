@@ -34,7 +34,7 @@ function UserForm() {
       console.log(contactInfo, 'JAJAJAJAJA DATA INPUT');
 
       if (!contactInfo.email || !contactInfo.password) {
-        alert('Por favor, completa todos los campos requeridos.');
+        alert('Please fill in the required information');
         return;
       }
 
@@ -52,9 +52,9 @@ function UserForm() {
         if (response.role === 'cheff') {
           alert('Successful Log In');
           navigate('/Cheff');
-        }
+        } 
       } catch (error) {
-        alert('Log In failed');
+        alert('Wrong email or password. Please enter the correct information');
         console.error("Error en el inicio de sesión:", error);
         // Puedes mostrar un mensaje de error o realizar otras acciones aquí
       }
@@ -108,7 +108,7 @@ function UserForm() {
           />
         </div>
         <div>
-          <p>If you forgot your password contact the administrator</p>
+          <p className='forgot-password'>If you forgot your password contact the administrator</p>
         </div>
         <Buttons type="submit" 
         tag="Sing in"

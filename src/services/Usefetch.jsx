@@ -16,7 +16,7 @@ export async function updateAuth(email, password) {
     console.log('Datos Usuarios,', response.data.user)
     return response.data.user;
   } catch (error) {
-    console.error("Error updating auth:", error);
+    alert('Error has occurred, please try again later.');
   }
 }
 
