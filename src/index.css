@@ -98,7 +98,7 @@ h2{
 /*Waiter*/
 
 
-.container{
+.container-info{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -106,4 +106,8 @@ h2{
 .client-name{
   width: 500px;
   
+}
+
+.waiter-color-header{
+  background-color: #626262;
 }
