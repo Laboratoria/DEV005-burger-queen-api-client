@@ -20,8 +20,29 @@ export async function updateAuth(email, password) {
   }
 }
 
+
+
+export async function getproduct() {
+  try {
+    const res = await axios.get('http://localhost:8080/products', {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${authToken}`,
+      },
+    });
+
+    console.log("RES", res.data);
+
+    console.log(res.data, "MAMAMAMAMAMAMA");
+    return res.data;
+  } catch (error) {
+        console.error("Error fetching products:", error);
+    return null;
+  }
+} 
+
 /* // Fetch users data
-export async function Users() {
+export async function getproduct() {
   console.log("Entre al user");
   try {
     const res = await axios.get('http://localhost:8080/users', {

@@ -13,6 +13,10 @@
    border-style: none;
     
 }
+.dd-wrapper{
+    position: relative;
+    z-index: ;
+}
 .dd-list{
     background-color: white;
     margin: 0;
@@ -39,10 +43,14 @@
     list-style: none;
     text-align: center;
     border-bottom: #626262;
+     position: absolute;
+    z-index: 1;
     
 }
 .dd-list-item{
     width: 100%;
+    height: auto;
+   
     
   
 }
