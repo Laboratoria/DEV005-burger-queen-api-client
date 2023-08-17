@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Buttons from './components/Buttons/Buttons';
 import logo from './assets/logo.png'
 import { useNavigate } from 'react-router-dom';
-import { updateAuth } from './services/Usefetch';
+import { updateAuth } from './services/UseAxios';
 import Swal from 'sweetalert2';
+
 
 const Login = () => (
   <section className='Login'>

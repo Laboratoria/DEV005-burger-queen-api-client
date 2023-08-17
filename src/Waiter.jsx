@@ -1,20 +1,31 @@
 import Dropdown from "./components/DropDownList/DropDownList";
 import Header from "./components/header/header";
 import Navigation from "./components/navigation/navigation";
+import Products from '../src/components/Products/Products'
 
 const Waiter = () => (
-  <section className="Waiter">
+  <div> 
     <Header role="Waiter" />
     <Navigation tabs={['Menu', 'Orders']} /> 
-    <div className="container">
+     <article className="Waiter">
+   
+    <section className="container-info">
       <input
         type="text"
         placeholder="Client Name"
         className="inputs-login client-name"
       />
       <Dropdown title="Table" items={items} multiSelect />
-    </div>
-  </section>
+    </section>
+    <section className="container-products">
+      <Products />
+
+    </section>
+    <section className="container-count">
+
+    </section>
+  </article>
+  </div>
 );
 
 export default Waiter;
