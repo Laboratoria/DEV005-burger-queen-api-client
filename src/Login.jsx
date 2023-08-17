@@ -3,6 +3,7 @@ import Buttons from './components/Buttons/Buttons';
 import logo from './assets/logo.png'
 import { useNavigate } from 'react-router-dom';
 import { updateAuth } from './services/Usefetch';
+import Swal from 'sweetalert2';
 
 const Login = () => (
   <section className='Login'>
@@ -34,7 +35,7 @@ function UserForm() {
       console.log(contactInfo, 'JAJAJAJAJA DATA INPUT');
 
       if (!contactInfo.email || !contactInfo.password) {
-        alert('Please fill in the required information');
+        new Swal('Please fill in the required information');
         return;
       }
 
@@ -42,19 +43,19 @@ function UserForm() {
         const response = await updateAuth(contactInfo.email, contactInfo.password);
   
         if (response.role === 'admin') {
-          alert('Successful Log In');
+          new Swal('Successful Log In');
           navigate('/Admin');
         }
         if (response.role === 'waiter') {
-          alert('Successful Log In');
+          new Swal('Successful Log In');
           navigate('/Waiter');
         }
         if (response.role === 'cheff') {
-          alert('Successful Log In');
+          new Swal('Successful Log In');
           navigate('/Cheff');
         } 
       } catch (error) {
-        alert('Wrong email or password. Please enter the correct information');
+        new Swal('Wrong email or password. Please enter the correct information');
         console.error("Error en el inicio de sesión:", error);
         // Puedes mostrar un mensaje de error o realizar otras acciones aquí
       }
