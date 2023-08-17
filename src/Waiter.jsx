@@ -1,11 +1,13 @@
 import Dropdown from "./components/DropDownList/DropDownList";
 import Header from "./components/header/header";
+import Navigation from "./components/navigation/navigation";
 import Products from '../src/components/Products/Products'
 
 const Waiter = () => (
   <div> 
     <Header role="Waiter" />
-  <article className="Waiter">
+    <Navigation tabs={['Menu', 'Orders']} /> 
+     <article className="Waiter">
    
     <section className="container-info">
       <input

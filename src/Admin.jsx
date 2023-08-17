@@ -1,9 +1,10 @@
 import Header from "./components/header/header";
+import Navigation from "./components/navigation/navigation";
 
 const Admin = () => (
   <section className="Admin">
     <Header className="admin-header" role="Admin" />
-    <h3>Hello Admin</h3>
+    <Navigation tabs={['Products', 'Employees']}/>
   </section>
 );
 
