@@ -5,11 +5,11 @@
 }
 
 .container-count{
-    width: 50%;
+    width: 40%;
     height: 500px;
     border: 5px solid;
     border-color: rgb(101, 226, 43);
-    margin-left: 50%;
+    margin-left: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,13 +51,8 @@ label{
 
 /*----------------BREAKFAST.JSX -------------------------------*/
 .listado-productos{
-    width: 50%;
+    width: 60%;
     border: 5px solid;
     border-color: blueviolet;
     position: absolute;
-}
-
-.listadoproductos-resumenpedido{
-    border: 5px solid salmon;
-    position: relative;
-}
+} 
