@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { getproduct } from "../../services/UseAxios";
 import './products.css'
@@ -6,23 +7,21 @@ function Products() {
   const [products, setProducts] = useState([]);
  
   
+=======
+import Buttons from "../Buttons/Buttons";
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await getproduct();
-        setProducts(response);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
+import "./products.css";
+>>>>>>> 395cf4e62653c47f7983c5742915cb76f84f91f8
 
-    fetchProducts();
-  }, []);
+function Products({ productType, products, handlerAddProduct }) {
+  const filteredProducts = products.filter(
+    (product) => product.type === productType
+  );
 
   const [add, setAdd] = useState(0);
 
   return (
+<<<<<<< HEAD
     <div className="div-products">
       {products.map((product) => (
         <div key={product.id} className="product">
@@ -44,6 +43,25 @@ function Products() {
           
         </div>
       ))}
+=======
+    <div className="seccion-products">
+      <div className="div-products">
+        {filteredProducts.map((product) => (
+          <div key={product.id}>
+            <div>
+              <img src={product.image} alt={product.name} />
+            </div>
+            <div>
+              <p>{product.name}</p>
+            </div>
+            <div>
+              <p>{product.price}</p>
+            </div>
+            <button onClick={() => handlerAddProduct(product)}>Add</button>
+          </div>
+        ))}
+      </div>
+>>>>>>> 395cf4e62653c47f7983c5742915cb76f84f91f8
     </div>
   );
 }
