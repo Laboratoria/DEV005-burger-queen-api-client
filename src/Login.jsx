@@ -36,7 +36,11 @@ function UserForm() {
       console.log(contactInfo, 'JAJAJAJAJA DATA INPUT');
 
       if (!contactInfo.email || !contactInfo.password) {
-        new Swal('Please fill in the required information');
+        Swal.fire({
+          title: 'Please fill in the required information',
+          icon: 'error',
+          confirmButtonColor: '#D62828',
+        });
         return;
       }
 

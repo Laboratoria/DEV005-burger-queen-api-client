@@ -12,7 +12,7 @@ function Products() {
     <article>
       <section>
         <div>
-          <h2>Breakfast</h2>
+          <h3>Breakfast</h3>
           <hr />
         </div>
         <div>
@@ -25,7 +25,7 @@ function Products() {
       </section>
       <section>
         <div>
-          <h2>Lunch</h2>
+          <h3>Lunch</h3>
           <hr />
         </div>
         <div>

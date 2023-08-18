@@ -1,46 +1,28 @@
-import Dropdown from "./components/DropDownList/DropDownList";
+import React, { useState } from "react";
 import Header from "./components/header/header";
 import Navigation from "./components/navigation/navigation";
-import Products from '../src/components/Products/Products'
+import Menu from "./components/waiter/menu/menu";
+import Orders from "./components/waiter/orders/orders"
 
-const Waiter = () => (
-  <div> 
-    <Header role="Waiter" />
-    <Navigation tabs={['Menu', 'Orders']} /> 
-     <article className="Waiter">
-   
-    <section className="container-info">
-      <input
-        type="text"
-        placeholder="Client Name"
-        className="inputs-login client-name"
+const Waiter = () => {
+  const [selectedTab, setSelectedTab] = useState("Menu");
+
+  const handleTabChange = (tab) => {
+    setSelectedTab(tab);
+  };
+
+  return (
+    <>
+      <Header role="Waiter" />
+      <Navigation
+        tabs={["Menu", "Orders"]}
+        activeTab={selectedTab} // Pasamos la pestaña activa al componente Navigation
+        onSelectTab={handleTabChange} // Pasamos la función de cambio de pestaña
       />
-      <Dropdown title="Table" items={items} multiSelect />
-    </section>
-    <section className="container-products">
-      <Products />
-
-    </section>
-    <section className="container-count">
-
-    </section>
-  </article>
-  </div>
-);
+      {selectedTab === "Menu" && <Menu />} {/* Renderizamos el componente Menu si selectedTab es "Menu" */}
+      {selectedTab === "Orders" && <Orders />} {/* Renderizamos el componente Orders si selectedTab es "Orders" */}
+    </>
+  );
+};
 
 export default Waiter;
-
-const items = [
-  {
-    id: 1,
-    value: "Table 1",
-  },
-  {
-    id: 2,
-    value: "Table 2",
-  },
-  {
-    id: 3,
-    value: "Table 3",
-  },
-];
