@@ -5,6 +5,7 @@ const Admin = () => (
   <section className="Admin">
     <Header className="admin-header" role="Admin" />
     <Navigation tabs={['Products', 'Employees']}/>
+    
   </section>
 );
 

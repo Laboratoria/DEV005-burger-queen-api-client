@@ -18,29 +18,22 @@ function Products() {
   }, []);
 
   return (
-      <div className="seccion-products">
-        <div className="div-title">
-          <h2 className="title">Breakfast and Lunch</h2>
+    <div className="div-product">
+      {products.map((product) => (
+        <div key={product.id}>
+          <div>
+            <img src={product.image} alt={product.name} />
+          </div>
+          <div>
+            <p>{product.name}</p>
+          </div>
+          <div>
+            <p>{product.price}</p>
+          </div>
+          <button>Add</button>
         </div>
-      
-        <div className="div-products">
-          {products.map((product) => (
-            
-            <div key={product.id}>
-              <div>
-                <img src={product.image} alt={product.name} />
-              </div>
-              <div>
-                <p>{product.name}</p>
-              </div>
-              <div>
-                <p>{product.price}</p>
-              </div>
-              <button>Add</button>
-            </div>
-          ))}
-        </div>
-      </div>
+      ))}
+    </div>
   );
 }
 
