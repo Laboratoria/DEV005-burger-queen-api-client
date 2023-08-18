@@ -4,8 +4,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./Components/login/login.jsx";
 import Pedido from "./Components/pedido/pedido.jsx";
-//import administracion from "./Components/administracion/administracion.jsx";
-//import cocina from "./Components/cocina/cocina.jsx";
+import Administracion from "./Components/administacion/administracion.jsx";
+import Cocina from "./Components/cocina/cocina.jsx";
 
 //import "bootstrap/dist/css/bootstrap.css";
 
@@ -18,14 +18,14 @@ const router = createBrowserRouter([
     path: "/pedido",
     element: <Pedido />,
   },
-  // {
-  //   path: "/administracion",
-  //   element: <administracion />,
-  // },
-  // {
-  //   path: "/cocina",
-  //   element: <cocina />,
-  // },
+  {
+    path: "/administracion",
+    element: <Administracion />,
+  },
+  {
+    path: "/cocina",
+    element: <Cocina />,
+  },
   // {
   //   path: "/delete",
   //   element: <DeleteModal />,

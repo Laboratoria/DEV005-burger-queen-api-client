@@ -1,42 +1,68 @@
-import { useState } from "react";
-import { Container } from "postcss";
+import { useState, useEffect } from "react";
 import "./estilo-login.css";
-
+import { useNavigate } from 'react-router-dom';
+import { login } from "../../Services/UserService";
+import LOGO from "../../img/LOGO.png";
 
 export default function Login() {
   const [formData, setformData] = useState({email:"", password:""});
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
-const handleLogin = (e) => {
-  e.preventDefault();
-  fetch("http://localhost:8080/login",{
-    method:"post",
-    body: JSON.stringify(formData),
-    headers: {"Content-Type": "application/json"}
-  })
- .then( () => {
-
+  const handleLogin = (e) => {
+    e.preventDefault();
+    login(formData)
+      .then((data) => {
+        localStorage.setItem('token', data.accessToken);
+        localStorage.setItem('userId', data.user.id); 
+        localStorage.setItem('role', data.user.role);
+        setUser(data.user);
+      })
+      .catch((error) => {
+        setErrorMessage("❌ Credenciales Incorrectas");
+      });
   }
- )  
-console.log(formData);
-} 
-const handleChangeEmail = (e) => {
+
+  const [user, setUser] = useState(null);
+
+useEffect(() => {
+  if (user) {
+    const userRole = localStorage.getItem("role"); 
+    console.log(userRole);
+    if (userRole === "waiter") {
+      navigate("/pedido"); 
+    } else if (userRole === "chef") {
+      navigate("/cocina"); 
+    } else if (userRole === "admin") {
+      navigate("/administracion"); 
+    }
+  } else {
+    navigate("/");
+  }
+}, [user, navigate]);
+
+
+
+  const handleChangeEmail = (e) => {
   setformData({
     ...formData,
     email: e.target.value 
-  })
+  });
+  setErrorMessage("");
 } 
 const handleChangePassword = (e) => {
   setformData({
     ...formData,
     password: e.target.value 
-  })
+  });
+  setErrorMessage("");
 } 
-
 
   return (
     <>
     <div>
     <h1  className="logo">BURGUER QUEEN </h1>
+    <img src = {LOGO} className="logo1"></img>
     </div>
     <div className="container">
     <form onSubmit={handleLogin}>
@@ -49,7 +75,11 @@ const handleChangePassword = (e) => {
         Contraseña:
         <input  onChange={handleChangePassword} value={formData.password} type="password" name="contraseña" className="inputLogin" placeholder="********" />
       </label>
-      <button className="botonIngresar" type="ingresar" value="ingresar"> Ingresar </button>
+      <button className="botonIngresar" type="submit" value="ingresar"> Ingresar </button>
+
+      {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Mostrar mensaje de error si existe */}
+
+
     </form>
     </div>
     </>
