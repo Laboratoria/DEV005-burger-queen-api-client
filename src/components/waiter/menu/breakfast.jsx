@@ -6,7 +6,7 @@ const Breakfast = () => {
   return (
     <div className="listadoproductos-resumenpedido">
       <div className="listado-productos">
-        <Products productType="Desayuno"/>
+        <Products productType="Desayuno" />
       </div>
     </div>
   );

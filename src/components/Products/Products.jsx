@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getproduct } from "../../services/UseAxios";
 
-function Products() {
+function Products({productType}) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -17,14 +17,14 @@ function Products() {
     fetchProducts();
   }, []);
 
+  const filteredProducts = products.filter(product => product.type === productType);
+
+
   return (
       <div className="seccion-products">
-        <div className="div-title">
-          <h2 className="title">Breakfast and Lunch</h2>
-        </div>
-      
+        
         <div className="div-products">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             
             <div key={product.id}>
               <div>

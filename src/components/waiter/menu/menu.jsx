@@ -22,7 +22,6 @@ const Menu = () => {
     setClientName(event.target.value);
 }
 
-
   return (
     <>
     <article className="menu-waiter">
@@ -52,6 +51,7 @@ const Menu = () => {
             <label>Table:</label>
           </div>
 
+        
         <div>
           <p>Total: <span id="total">$10.00</span></p>
           <button  className="enviarPedido" id="enviarPedido">Send Order</button>
