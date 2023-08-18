@@ -33,6 +33,7 @@
     margin-left: 50px;
     margin-top: 30px;
     background-color: transparent;
+    border-color: transparent;
 }
 
 .button:hover {

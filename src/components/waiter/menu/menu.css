@@ -15,6 +15,7 @@
     align-items: center;
 }
 
+/*comanda---------------------------------------------------------------------------*/
 .resumenpedido{
     width: 90%;
     height: 90%;
@@ -48,16 +49,29 @@ label{
     background-color: rgb(177, 44, 44);
 }
 
-
-/*----------------BREAKFAST.JSX -------------------------------*/
-.listado-productos{
-    width: 50%;
-    border: 5px solid;
-    border-color: blueviolet;
-    position: absolute;
+.product-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
 }
 
-.listadoproductos-resumenpedido{
-    border: 5px solid salmon;
-    position: relative;
+.decrement{
+    width: 18px;
+    height: 18px;
 }
+
+.increment{
+    width: 18px;
+    height: 18px;
+}
+
+.delete{
+    width: 18px;
+    height: 18px;
+}
+
+
