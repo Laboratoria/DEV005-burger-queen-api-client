@@ -21,7 +21,6 @@ function UserForm() {
   const [contactInfo, setContactInfo] = useState({
       email: "",
       password: "",
-      hasError: false,
     
   });
 
@@ -42,8 +41,8 @@ function UserForm() {
 
       try {
         const response = await updateAuth(contactInfo.email, contactInfo.password);
-  
-        if (response.role === 'admin') {
+        if(response){
+           if (response.role === 'admin') {
           new Swal('Successful Log In');
           navigate('/Admin');
         }
@@ -55,10 +54,10 @@ function UserForm() {
           new Swal('Successful Log In');
           navigate('/Cheff');
         } 
+        }
+       
       } catch (error) {
         new Swal('Wrong email or password. Please enter the correct information');
-        console.error("Error en el inicio de sesión:", error);
-        // Puedes mostrar un mensaje de error o realizar otras acciones aquí
       }
        
        /*  usersData.forEach(user => {
