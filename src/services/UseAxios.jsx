@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
 let authToken =`Bearer ${localStorage.getItem("code")}`; 
 
@@ -16,7 +17,14 @@ export async function updateAuth(email, password) {
     console.log('Datos Usuarios,', response.data.user)
     return response.data.user;
   } catch (error) {
-    alert('Error has occurred, please try again later.');
+    console.log(error.response.data)
+   if(error.reponse.data ==='Entre al update'){
+    new Swal('Error has occurred. try again later');
+   }
+   if(error.reponse.data ==='Incorrect password'){
+    new Swal('Wrong email or password. Please enter the correct information');
+   }
+    
   }
 }
 
@@ -32,11 +40,9 @@ export async function getproduct() {
     });
 
     console.log("RES", res.data);
-
-    console.log(res.data, "MAMAMAMAMAMAMA");
     return res.data;
   } catch (error) {
-        console.error("Error fetching products:", error);
+    new Swal('Error has occurred. try again later');
     return null;
   }
 } 
