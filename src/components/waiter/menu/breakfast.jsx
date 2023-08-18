@@ -1,16 +1,14 @@
 import "./menu.css";
 
-import Products from '../../Products/Products'
+import Products from "../../Products/Products";
 
 const Breakfast = () => {
   return (
     <div className="listadoproductos-resumenpedido">
       <div className="listado-productos">
-        <Products/>
-
+        <Products productType="Desayuno" />
       </div>
     </div>
-   
   );
 };
 

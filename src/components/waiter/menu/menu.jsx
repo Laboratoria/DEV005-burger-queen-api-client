@@ -20,7 +20,23 @@ const Menu = () => {
 
   const handleClientNameChange = (event) => {
     setClientName(event.target.value);
-}
+};
+
+// dropdown-------------------------------
+const items = [
+  {
+    id: 1,
+    value: "Table 1",
+  },
+  {
+    id: 2,
+    value: "Table 2",
+  },
+  {
+    id: 3,
+    value: "Table 3",
+  },
+];
 
 
   return (
@@ -34,7 +50,10 @@ const Menu = () => {
           value={clientName}
           onChange={handleClientNameChange}
         />
-        <Dropdown title="Table" items={items} multiSelect />
+        <Dropdown 
+        title="Table" 
+        items={items}
+        />
       </section>
       
         <Navigation tabs={["Breakfast", "Lunch"]} 
@@ -50,7 +69,8 @@ const Menu = () => {
           <div className="datos-cliente-resumepedido">
             <label>Client:{clientName}</label>
             <label>Table:</label>
-          </div>
+        </div>
+
 
         <div>
           <p>Total: <span id="total">$10.00</span></p>
@@ -66,17 +86,3 @@ const Menu = () => {
 };
 
 export default Menu;
-const items = [
-  {
-    id: 1,
-    value: "Table 1",
-  },
-  {
-    id: 2,
-    value: "Table 2",
-  },
-  {
-    id: 3,
-    value: "Table 3",
-  },
-];
