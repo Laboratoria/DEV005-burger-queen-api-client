@@ -6,11 +6,9 @@ const Breakfast = () => {
   return (
     <div className="listadoproductos-resumenpedido">
       <div className="listado-productos">
-        <Products/>
-
+        <Products productType="Desayuno"/>
       </div>
     </div>
-   
   );
 };
 
