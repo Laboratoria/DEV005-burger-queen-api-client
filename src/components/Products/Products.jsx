@@ -1,43 +1,47 @@
-// import { getproduct } from "../../services/UseAxios";
+import React, { useState, useEffect } from "react";
+import { getproduct } from "../../services/UseAxios";
 
 function Products() {
-  
-  /* const response= await getproduct((r)=>{
-    console.log(r);
-  }) */
-  
-  
-  
-    return (
-    <article>
-      <section>
-        <div>
-          <h2>Breakfast</h2>
-          <hr />
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await getproduct();
+        setProducts(response);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  return (
+      <div className="seccion-products">
+        <div className="div-title">
+          <h2 className="title">Breakfast and Lunch</h2>
         </div>
-        <div>
-          <button>pollo</button>
-          <button>pollo</button>
-          <button>pollo</button>
-          <button>pollo</button>
-          <button>pollo</button>
+      
+        <div className="div-products">
+          {products.map((product) => (
+            
+            <div key={product.id}>
+              <div>
+                <img src={product.image} alt={product.name} />
+              </div>
+              <div>
+                <p>{product.name}</p>
+              </div>
+              <div>
+                <p>{product.price}</p>
+              </div>
+              <button>Add</button>
+            </div>
+          ))}
         </div>
-      </section>
-      <section>
-        <div>
-          <h2>Lunch</h2>
-          <hr />
-        </div>
-        <div>
-          <button>pollo</button>
-          <button>pollo</button>
-          <button>pollo</button>
-          <button>pollo</button>
-          <button>pollo</button>
-        </div>
-      </section>
-    </article>
+      </div>
   );
 }
 
-export default Products
+export default Products;
