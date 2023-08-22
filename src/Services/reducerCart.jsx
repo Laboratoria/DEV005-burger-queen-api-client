@@ -43,17 +43,39 @@ export const productsInitialState = {
 export const reducerCart = (state, action) => {
   switch (action.type) {
     case TYPES.ADD_TO_CART: {
-      let newProduct = state.products.find((product) => product.id === action.payload)
+      /*let newProduct = state.products.find((product) => product.id === action.payload)
       return {
         ...state,
         cart: [...state.cart, newProduct]
       };
+    }*/
+    const existingProduct = state.cart.find(item => item.id === action.payload);
+
+      if (existingProduct) {
+        // Si el producto ya está en el carrito, incrementa su cantidad
+        return {
+          ...state,
+          cart: state.cart.map(item =>
+            item.id === action.payload
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          )
+        };
+      } else {
+        // Si el producto no está en el carrito, agrégalo con cantidad 1
+        const productToAdd = state.products.find(item => item.id === action.payload);
+        return {
+          ...state,
+          cart: [...state.cart, { ...productToAdd, quantity: 1 }]
+        };
+      }
     }
+
     case TYPES.DELETE_PRODUCT_FROM_CART: {
       return {
         ...state,
-        cart: state.cart.filter((product) => product.id !== action.payload)
-      }
+        cart: state.cart.filter((items) => items.id !== action.payload)
+      };
     }
 
     case TYPES.DELETE_ALL_FROM_CART: {

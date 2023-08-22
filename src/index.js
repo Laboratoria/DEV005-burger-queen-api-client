@@ -7,6 +7,7 @@ import Pedido from "./Components/pedido/pedido.jsx";
 import Administracion from "./Components/administacion/administracion.jsx";
 import Cocina from "./Components/cocina/cocina.jsx";
 
+
 //import "bootstrap/dist/css/bootstrap.css";
 
 const router = createBrowserRouter([

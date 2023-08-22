@@ -1,4 +1,4 @@
-/* @import url("https://fonts.google.com/specimen/Luckiest+Guy?query=luckies");
+@import url("https://fonts.google.com/specimen/Luckiest+Guy?query=luckies");
 
 body {
   background-color: #FDD209;
@@ -9,8 +9,12 @@ body {
 
   .container-total {
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
     height: 95vh;
-    position: relative; 
+    position: relative;
+    margin-top: 20px;
   }
   
   .logo-container-pedido {
@@ -39,7 +43,7 @@ body {
   }
   
   .menu {
-    position: absolute;
+    position: left;
     top: 30px;
     left: 30px;
     width: 63%;
@@ -47,6 +51,9 @@ body {
     background-color: #F5F5F5;
     padding: 20px;
     border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 30px;
+
   }
   
   .pedido {
@@ -105,8 +112,11 @@ body {
     
   }
 
-  
-   */
+  .container_products {
+    display: flex;
+    flex-direction: column;
+    
+  }  
 
 
    .product-image {
