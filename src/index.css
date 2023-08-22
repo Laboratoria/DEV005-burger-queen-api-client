@@ -111,3 +111,9 @@ h2{
 .waiter-color-header{
   background-color: #626262;
 }
+
+/*CSS ADMIN */
+.Admin{
+  display: flex;
+  flex-direction: column;
+}

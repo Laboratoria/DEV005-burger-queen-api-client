@@ -64,21 +64,7 @@ function UserForm() {
         new Swal('Wrong email or password. Please enter the correct information');
       }
        
-       /*  usersData.forEach(user => {
-          console.log(user,'RESPUESTA ')
-          if (user.email.includes(contactInfo.email) && user.password.includes(contactInfo.password)) {
-            if(user.role === 'admin'){
-              alert('Inicio de sesion exitoso');
-              return navigate('/Admin');
-            }
-            if(user.role === 'waiter'){
-              return navigate('/Waiter');
-            }
-            if(user.role === 'cheff'){
-              return navigate('/Cheff');
-            }              
-          }
-        }); */
+      
     } 
 
   return (

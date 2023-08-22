@@ -1,39 +1,51 @@
-import React, { useState, useEffect } from "react";
-import { getproduct } from "../../services/UseAxios";
+import "./products.css";
 
-function Products() {
-  const [products, setProducts] = useState([]);
+function Products({ productType, products, handlerAddProduct, handleCountPlus, count }) {
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await getproduct();
-        setProducts(response);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
+  console.log(products,'ggg')
+  const filteredProducts = products.filter(
+    (product) => product.type === productType
+  );
 
-    fetchProducts();
-  }, []);
+
+  const filteredProducts = products.filter(product => product.type === productType);
+
 
   return (
-    <div className="div-product">
-      {products.map((product) => (
-        <div key={product.id}>
-          <div>
-            <img src={product.image} alt={product.name} />
+ 
+      <div className="div-products">
+        {filteredProducts.map((product) => (
+          <div key={product.id} className="product">
+            <div className="product-description">
+            <div className="center">
+              <img
+                src={product.image}
+                width="100px"
+                height="100px"
+                alt={product.name}
+              />
+            </div>
+             
+             
+                <div className="title center" >
+                  <p>{product.name}</p>
+                </div>
+                
+                <div className="price center">
+                  <p>${product.price}</p>
+                </div>
+            </div>
+            <div className="div-button">
+            <button className="button-count" onClick={() =>{
+              handlerAddProduct(product) ;
+              handleCountPlus(count);
+            } }
+            >Add</button>
+            </div>
           </div>
-          <div>
-            <p>{product.name}</p>
-          </div>
-          <div>
-            <p>{product.price}</p>
-          </div>
-          <button>Add</button>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+  
   );
 }
 

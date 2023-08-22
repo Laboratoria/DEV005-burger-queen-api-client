@@ -1,0 +1,14 @@
+.delete{
+    background-color: white;
+    border: none;
+}
+.delete:hover{
+    transform: scale(1.2);
+   cursor: pointer;
+
+}
+.submit:hover{
+    transform: scale(1.05);
+    cursor: pointer; 
+    
+}

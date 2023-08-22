@@ -1,31 +1,81 @@
-import React, { useState } from "react";
 import Dropdown from "../../DropDownList/DropDownList";
 import Navigation from "../../navigation/navigation";
-import Breakfast from "../menu/breakfast";
-import Lunch from "../menu/lunch";
-import Products from "../../Products/Products";
+//import Breakfast from "../menu/breakfast";
+//import Lunch from "../menu/lunch";
+import React, { useState, useEffect } from "react";
+import { getproduct } from "../../../services/UseAxios";
 
+import Products from "../../Products/Products";
 import "./menu.css";
+import Order from "../../Count/Count";
 
 const Menu = () => {
   //funcion para la navBar---------------------------
-  const [selectedTab, setSelectedTab] = useState("Breakfast");
+  const [selectedTab, setSelectedTab] = useState("Desayuno");
 
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
   };
 
+  //----------estado para conteo---------
+  const [count, setCount] = useState(0);
+  function handleCountPlus() {
+    setCount(count + 1);
+  }
+  function handleRemoveProduct() {
+    setCount(count - 1);
+  }
+
+
+  
   //funcion para input--------------------------------
   const [clientName, setClientName] = useState("");
 
+  const [orderProducts, setOrderProducts] = useState([]);
+  function handlerAddProduct(prod) {
+    prod.qty = 1
+    setOrderProducts([...orderProducts, prod]);
+  }
+
   const handleClientNameChange = (event) => {
+    console.log(event.target.value);
     setClientName(event.target.value);
   };
 
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await getproduct();
+        setProducts(response);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+  
+
+  //const [total, setTotal] = useState(0);
+
+  const [table, setTable] = useState('');
+  function handleOnClick(e){
+    console.log(e.target.value, 'lililili')
+    setTable(e.target.value)
+  }
+
+
+  // manejo de evento de envio de pedido
+
+  
+  
+
   return (
-    <>
-      <article className="menu-waiter">
-        <section className="container-info">
+    <article>
+      <section className="menu-waiter">
+        <div className="container-info">
           <input
             type="text"
             placeholder="Client Name"
@@ -33,47 +83,40 @@ const Menu = () => {
             value={clientName}
             onChange={handleClientNameChange}
           />
-          <Dropdown title="Table" items={items} multiSelect />
-
-          <Navigation
-            tabs={["Breakfast", "Lunch"]}
-            activeTab={selectedTab}
-            onSelectTab={handleTabChange}
-          />
-          {selectedTab === "Breakfast" && <Breakfast />}
-          {selectedTab === "Lunch" && <Lunch />}
-        </section>
-        <section>
-          <Products />
-        </section>
-
-        <div className="listadoproductos-resumenpedido">
-          <section className="container-count">
-            <div className="resumenpedido">
-              <div className="datos-cliente-resumepedido">
-                <label>Client:{clientName}</label>
-                <label>Table:</label>
-              </div>
-
-              <div>
-                <p>
-                  Total: <span id="total">$10.00</span>
-                </p>
-                <button className="enviarPedido" id="enviarPedido">
-                  Send Order
-                </button>
-              </div>
-            </div>
-          </section>
+          <Dropdown items={items} table={table} handleOnClick={handleOnClick}/>
         </div>
-      </article>
-    </>
+
+        <Navigation
+          tabs={["Desayuno", "Almuerzo"]}
+          activeTab={selectedTab}
+          onSelectTab={handleTabChange}
+        />
+      </section>
+
+      <div className="products-order">
+        <Products
+          products={products}
+          productType={selectedTab}
+          handlerAddProduct={handlerAddProduct}
+          handleCountPlus={handleCountPlus}
+        />
+        <Order
+          handleRemoveProduct={handleRemoveProduct}
+          products={orderProducts}
+          handlerAddProduct={handlerAddProduct}
+          count={count}
+          clientName={clientName}
+          table={table}
+        />
+      </div>
+    </article>
   );
 };
 
 export default Menu;
+
 const items = [
-  {
+ {
     id: 1,
     value: "Table 1",
   },
@@ -86,3 +129,4 @@ const items = [
     value: "Table 3",
   },
 ];
+
