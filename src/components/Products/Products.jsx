@@ -1,5 +1,3 @@
-import Buttons from "../Buttons/Buttons";
-
 import "./products.css";
 
 function Products({ productType, products, handlerAddProduct }) {

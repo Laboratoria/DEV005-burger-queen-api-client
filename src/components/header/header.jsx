@@ -1,13 +1,24 @@
 import logo from "../../assets/logo.png";
 import "./header.css";
+import { useNavigate } from 'react-router-dom';
 
 function Header(prop) {
+  const navigate = useNavigate();
+  // funcion para salir de la app-----------------------------------------
+  const handleLogout = () => {
+    //localStorage.removeItem('authToken');
+    // eliminar tokens de autenticación 
+    localStorage.clear();
+    // limpiar almacenamiento local
+    navigate('/Login'); 
+  };
+
   return (
     <div className="header">
       <div className="div-role-img">
         <img className="img-headers" src={logo} />
         <p className="role">{prop.role}</p>
-        <button className="button-close">
+        <button className="button-close" onClick={handleLogout}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="icon icon-tabler icon-tabler-logout-2"
