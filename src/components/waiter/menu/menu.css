@@ -2,76 +2,76 @@
 .menu-waiter{
     display: flex;
     flex-direction: column;
+    
+   
 }
-
-.container-count{
-    width: 50%;
-    height: 500px;
-    border: 5px solid;
-    border-color: rgb(101, 226, 43);
-    margin-left: 50%;
+.products-order{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    margin-top: 40px;
+    padding: 20px;
+    margin: 10px;
 }
-
-/*comanda---------------------------------------------------------------------------*/
-.resumenpedido{
-    width: 90%;
-    height: 90%;
-    background-color: rgb(252, 252, 252);
-    border-radius: 5px;
+.container-count{
+    font-size: xx-large;
+    width: 450px;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin-left: 30px;
+    
 }
-
-.datos-cliente-resumepedido{
+.info-client{
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: start;
-    margin: 15px;
-
+  
 }
-
-label{
-    font-size: x-large;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
-}
-
-.enviarPedido{
+.submit{
+    width: 200px;
     height: 50px;
-    width: 160px;
-    border-radius: 5px;
-    border-color: transparent;
-    font-size: larger;
-    color: whitesmoke;
-    background-color: rgb(177, 44, 44);
+    background-color:#D62828 ;
+    border-radius: 10px;
+    border: none;
+    font-size: x-large;
 }
-
 .product-info{
+    
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    font-size: larger;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
-}
+    font-size: x-large;
+    justify-content: space-around;
+    align-items: start;
 
-.decrement{
-    width: 18px;
-    height: 18px;
 }
+.a{
 
-.increment{
-    width: 18px;
-    height: 18px;
+    width: 30px;
+    height: 100px;
 }
+.b{
 
+    width: 200px;
+    height: 100px;
+}
+.c{
+
+   width: 100px;
+   height: 100px;
+}
+.d{
+
+    width: 50px;
+    height: 100px;
+
+}
 .delete{
-    width: 18px;
-    height: 18px;
+    margin: 30px 0 0 20px;
 }
-
-

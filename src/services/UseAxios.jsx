@@ -47,7 +47,145 @@ export async function getproduct() {
   }
 } 
 
-/* // Fetch users data
+export async function getOrder() {
+  try {
+    const res = await axios.get('http://localhost:8080/orders', {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${authToken}`,
+      },
+    });
+
+    return res.data;
+  } catch (error) {
+    new Swal('Error has occurred. try again later');
+    return null;
+  }
+} 
+
+
+
+
+
+
+
+
+
+
+export async function updateOrder(clientName, table, count, products, id, name,price, dataEntry,status, image ) {
+  console.log("Entre al update", name);
+  try {
+    const response = await axios.post("http://localhost:8080/orders", {
+    "client": clientName,
+    "table" : table,
+    "products": [
+        {
+            "qty":count,
+            "product": {
+            "id": id,
+            "name": name,
+            "price": price,
+            "image": image,
+            "type": "Desayuno",
+            "dateEntry": dataEntry
+            }
+        }
+        
+    ],
+    "status": status,
+    "dataEntry": dataEntry
+},  
+{headers: {
+  "Content-Type": "application/json",
+  Authorization: `${authToken}`,
+},})
+    return response.data;
+  } catch (error) {
+    console.log(error.response.data)
+   
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+export async function updateOrder(order) {
+  console.log("Entre al update");
+  try {
+    const response = await axios.post("http://localhost:8080/orders", 
+{
+    "client": client,
+    "products": [
+        {
+            "qty":count,
+            "product": {
+            "id": id,
+            "name": name,
+            "price": price,
+            "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/sandwich.jpg",
+            "type": "Desayuno",
+            "dateEntry": dataEntry
+            }
+        }
+        
+    ],
+    "status": status,
+    "dataEntry": dataEntry
+});
+    authToken = `Bearer ${response.data.accessToken}`;
+    
+    return response.data.orders;
+  } catch (error) {
+    console.log(error.response.data)
+   
+  }
+}
+
+
+export const addOrder = async (order, client) => {
+  console.log(order);
+  console.log(client);
+  const arrayProducts = order.products.map(function (product) {
+    return {
+      productId: product.id,
+      qty: product.qty,
+      name: product.name,
+      img: product.image,
+      price: product.price,
+    };
+  });
+  const testOrder = { userId: "user", client: client, products: arrayProducts };
+
+  console.log(testOrder);
+  const res = await axios.post("http://localhost:8080/orders", testOrder);
+
+  return res.data;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Fetch users data
 export async function getproduct() {
   console.log("Entre al user");
   try {

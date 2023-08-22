@@ -11,6 +11,8 @@ const Waiter = () => {
     setSelectedTab(tab);
   };
 
+  
+
   return (
     <>
       <Header role="Waiter" />
@@ -18,6 +20,7 @@ const Waiter = () => {
         tabs={["Menu", "Orders"]}
         activeTab={selectedTab} // Pasamos la pestaña activa al componente Navigation
         onSelectTab={handleTabChange} // Pasamos la función de cambio de pestaña
+       
       />
       {selectedTab === "Menu" && <Menu />} {/* Renderizamos el componente Menu si selectedTab es "Menu" */}
       {selectedTab === "Orders" && <Orders />} {/* Renderizamos el componente Orders si selectedTab es "Orders" */}
