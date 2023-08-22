@@ -60,9 +60,9 @@ const handleChangePassword = (e) => {
 
   return (
     <>
-    <div>
-    <h1  className="logo">BURGUER QUEEN </h1>
-    <img src = {LOGO} className="logo1"></img>
+    <div className="logo-container">
+      <h1 className="logo">BURGUER QUEEN</h1>
+      <img src={LOGO} className="logo1" alt="Burger Queen Logo" />
     </div>
     <div className="container">
     <form onSubmit={handleLogin}>

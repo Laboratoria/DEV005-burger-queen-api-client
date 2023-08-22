@@ -1,3 +1,4 @@
+
 export const login = (formData) => {
     return fetch("http://localhost:8080/login", {
       method: "post",
@@ -11,3 +12,31 @@ export const login = (formData) => {
       return res;
     });
 };
+
+//-------
+
+export function getRequestOptions(method) {
+  const bearerToken = localStorage.getItem("token");
+  let requestOptions = {
+    method: method,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  if (bearerToken) {
+    requestOptions.headers["Authorization"] = `Bearer ${bearerToken}`;
+  }
+  return requestOptions;
+}
+
+
+// ---------
+export const getProducts = (requestOptions) => {
+  return fetch("http://localhost:8080/products", requestOptions)
+    .then((response) => response.json())
+    .catch((error) => {
+      console.error(error);
+      throw error;
+    });
+};
+
