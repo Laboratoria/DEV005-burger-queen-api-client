@@ -8,8 +8,8 @@ function Products({ productType, products, handlerAddProduct, handleCountPlus, c
   );
 
 
-  // const [count, setCount] = useState(0);
-  
+  const filteredProducts = products.filter(product => product.type === productType);
+
 
   return (
  

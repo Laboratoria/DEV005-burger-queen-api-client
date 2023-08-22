@@ -114,8 +114,8 @@ const Menu = () => {
 };
 
 export default Menu;
+
 const items = [
-  /* "table 1","table 1","table 1" */
  {
     id: 1,
     value: "Table 1",
@@ -129,3 +129,4 @@ const items = [
     value: "Table 3",
   },
 ];
+
