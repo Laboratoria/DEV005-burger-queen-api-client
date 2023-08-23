@@ -1,13 +1,12 @@
-import Dropdown from "../../DropDownList/DropDownList";
-import Navigation from "../../navigation/navigation";
-//import Breakfast from "../menu/breakfast";
-//import Lunch from "../menu/lunch";
 import React, { useState, useEffect } from "react";
-import { getproduct } from "../../../services/UseAxios";
-
+import Navigation from "../../navigation/navigation";
+import Dropdown from "../../DropDownList/DropDownList";
 import Products from "../../Products/Products";
-import "./menu.css";
 import Order from "../../Order/Order";
+
+import { getproduct } from "../../../services/UseAxios";
+import "./menu.css";
+
 
 const Menu = () => {
   //funcion para la navBar---------------------------
@@ -17,35 +16,38 @@ const Menu = () => {
     setSelectedTab(tab);
   };
 
-  //----------estado para conteo---------
-  const [count, setCount] = useState(0);
-  function handleCountPlus() {
-    setCount(count + 1);
-  }
-  function handleRemoveProduct() {
-    setCount(count - 1);
-  }
-
-
-  
   //funcion para input--------------------------------
   const [clientName, setClientName] = useState("");
-
-  const [orderProducts, setOrderProducts] = useState([]);
-  function handlerAddProduct(prod) {
-    const newOrderProduct = {
-      product: prod,
-      qty: 1
-    }
-    
-    setOrderProducts([...orderProducts, newOrderProduct]);
-  }
 
   const handleClientNameChange = (event) => {
     console.log(event.target.value);
     setClientName(event.target.value);
   };
 
+    //dropDown--------------------------------------------------
+    const [table, setTable] = useState("");
+
+    function handleOnClick(e) {
+      console.log(e.target.value, "lililili");
+      setTable(e.target.value);
+    }
+  
+    const items = [
+      {
+        id: 1,
+        value: "Table 1",
+      },
+      {
+        id: 2,
+        value: "Table 2",
+      },
+      {
+        id: 3,
+        value: "Table 3",
+      },
+    ];
+
+  // traer productos para desayuno o almuerzo-------------------
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -60,24 +62,37 @@ const Menu = () => {
 
     fetchProducts();
   }, []);
-  
 
-  //const [total, setTotal] = useState(0);
+  // Resumen de la orden----------------------------------------------------
+  const [orderProducts, setOrderProducts] = useState([]);
+  const handlerAddProduct = (prod) => {
+    const existingProductIndex = orderProducts.findIndex(
+      (item) => item.product.id === prod.id
+    );
 
-  const [table, setTable] = useState('');
+    if (existingProductIndex !== -1) {
+      // El producto ya existe, incrementa la cantidad
+      const updatedOrderProducts = [...orderProducts];
+      updatedOrderProducts[existingProductIndex].qty += 1;
+      setOrderProducts(updatedOrderProducts);
+    } else {
+      // El producto no existe, agrégalo a la lista
+      const newOrderProduct = {
+        qty: 1,
+        product: prod,
+      };
+      setOrderProducts([...orderProducts, newOrderProduct]);
+    }
+  };
 
-  function handleOnClick(e){
-
-    console.log(e.target.value, 'lililili')
-    setTable(e.target.value)
-  }
-
-
-
-  // manejo de evento de envio de pedido
-  
-  
-  
+   //----------estado para conteo---------
+   // const [count, setCount] = useState(0);
+   //function handleCountPlus() {
+   //  setCount(count + 1);
+  // }
+  // function handleRemoveProduct() {
+    // setCount(count - 1);
+  // }
 
   return (
     <article>
@@ -91,7 +106,6 @@ const Menu = () => {
             onChange={handleClientNameChange}
           />
           <Dropdown items={items} table={table} handleOnClick={handleOnClick} />
-
         </div>
 
         <Navigation
@@ -106,13 +120,13 @@ const Menu = () => {
           products={products}
           productType={selectedTab}
           handlerAddProduct={handlerAddProduct}
-          handleCountPlus={handleCountPlus}
+          //handleCountPlus={handleCountPlus}
         />
         <Order
-          handleRemoveProduct={handleRemoveProduct}
+          //handleRemoveProduct={handleRemoveProduct}
           products={orderProducts}
           handlerAddProduct={handlerAddProduct}
-          count={count}
+          //count={count}
           clientName={clientName}
           table={table}
         />
@@ -123,17 +137,4 @@ const Menu = () => {
 
 export default Menu;
 
-const items = [
- {
-    id: 1,
-    value: "Table 1",
-  },
-  {
-    id: 2,
-    value: "Table 2",
-  },
-  {
-    id: 3,
-    value: "Table 3",
-  },
-];
+

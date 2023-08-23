@@ -72,7 +72,7 @@ export async function getOrder() {
 
 
 
-export async function updateOrder(clientName, table, products) {
+export async function createOrder(clientName, table, products) {
  
   try {
     const response = await axios.post("http://localhost:8080/orders", {

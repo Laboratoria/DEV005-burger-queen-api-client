@@ -6,8 +6,6 @@ import "./dropdownlist.css";
 
 function Dropdown({ items, handleOnClick }) {
 
- console.log(items, "hola hola")
-
   return (
     <select name="Table" id="" className="dropdown-list">
       {items.map((item) => (
