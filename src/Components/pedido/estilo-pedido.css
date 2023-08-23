@@ -4,17 +4,12 @@ body {
   background-color: #FDD209;
   margin: 0px;
   padding: 0px;
-
+  display: flex;
 }
 
   .container-total {
+    width: 100%;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 20px;
-    height: 95vh;
-    position: relative;
-    margin-top: 20px;
   }
   
   .logo-container-pedido {
@@ -28,39 +23,45 @@ body {
   
   .logo-pedido {
     margin: 0;
-    font-size: 24px;
     font-weight: 800;
-    font-size: 200%;
-    letter-spacing: 0.06em;
+    font-size: 150%;
     color: #F32822;
     text-shadow: -2px -2px 0 #F5F5F5, 2px -2px 0 #F5F5F5, -2px 2px 0 #F5F5F5, 2px 2px 0 #F5F5F5;
   }
   
   .logo1-pedido {
-    margin: 0 10px;
     width: 60px;
     height: 60px;
   }
   
+  .product-section {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .product-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+  }
+  
   .menu {
-    position: left;
-    top: 30px;
-    left: 30px;
-    width: 63%;
-    height: 100%;
     background-color: #F5F5F5;
     padding: 20px;
     border-radius: 30px;
-    margin-top: 20px;
-    margin-left: 30px;
-
+    margin: 20px;
   }
   
   .pedido {
     position: absolute;
     top: 90px;
     right: 30px;
-    width: 30%;
+    width: 33%;
     height: 60%;
     background-color: #F5F5F5;
     padding: 20px;
@@ -70,9 +71,9 @@ body {
     border-radius: 30px;
   }
   
-
   .menu-header {
     display: flex;
+    gap: 40px;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
@@ -91,12 +92,11 @@ body {
   }
   
   .cliente-input {
-    padding: 0;
     border: none;
     border-bottom: 1px solid black;
-    padding: 8px;
-    font-size: 16px;
-     background-color: #f2f2f2;
+    font-size: 25px;
+    font-style: italic;
+    background-color: #f2f2f2;
     width: 200px;
   }
 
@@ -109,17 +109,55 @@ body {
   .nombreCliente {
     font-family: 'Times New Roman', Times, serif;
     font-size: 25px;
-    
   }
 
   .container_products {
     display: flex;
     flex-direction: column;
-    
+    width: 100%;
+    padding: 20px;
+    background-color: #f5f5f5;
+    margin-top: 20px;  
   }  
-
 
    .product-image {
     height: 40px;
     width: 40px;
+    margin-bottom: 10px;
    }
+
+   .btnProduct { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #5E71CD;
+    border-color: gray;
+    color: white;
+    border-style: none;
+   }
+
+   .btnPapelera { 
+    border: none;
+    background-color: #f2f2f2;
+    margin-right: 10px;
+   }
+
+   .shopping-cart-product {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+  }
+
+  .BtnMas,
+  .BtnMenos { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+  }

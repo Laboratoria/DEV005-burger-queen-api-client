@@ -41,11 +41,30 @@ export default function Pedido() {
     });
   };
 
-  const deleteFromCart = (id) => {
+  /*const deleteFromCart = (id) => {
     dispatch({
       type: TYPES.DELETE_PRODUCT_FROM_CART,
       payload: id,
     });
+  };*/
+  const deleteFromCart = (id) => {
+    const existingProduct = state.cart.find(item => item.id === id);
+  
+    if (existingProduct) {
+      if (existingProduct.quantity > 1) {
+        // Disminuye la cantidad en 1 si es mayor que 1
+        dispatch({
+          type: TYPES.DELETE_PRODUCT_FROM_CART,
+          payload: id,
+        });
+      } else {
+        // Elimina el producto del carrito si la cantidad es 1 o menos
+        dispatch({
+          type: TYPES.DELETE_PRODUCT_FROM_CART,
+          payload: id,
+        });
+      }
+    }
   };
 
   const clearCart = () => {
@@ -72,6 +91,12 @@ export default function Pedido() {
       });
   }, []);
 
+  const decreaseQuantityFromCart = (id) => {
+    dispatch({
+      type: TYPES.DECREASE_QUANTITY_FROM_CART,
+      payload: id,
+    });
+  };
   // ...
 
   return (
@@ -167,29 +192,29 @@ export default function Pedido() {
                 No hay productos en la orden
               </p>
             )}
-            <div className="container_grid_shopping_cart">
+            <div className="container_shopping_cart">
               {state.cart.map((productCart) => (
                 <div className="shopping-cart-product" key={productCart.id}>
                   <h3>{productCart.name}</h3>
                   <p>Precio: {productCart.price}</p>
                   <button
-                    className="btnProduct"
+                    className="btnPapelera"
                     onClick={() => deleteFromCart(productCart.id)}
                   >
-                    Eliminar
+                    🗑️
                   </button>
                   <div className="botonesCantidad">
                     <button
-                      className="mas"
-                      onClick={() => addToCart(productCart)}
+                      className="BtnMas"
+                      onClick={() => addToCart(productCart.id)}
                     >
                       +
                     </button>
                     <p className="suma-cantidad">{productCart.quantity}</p>
                     <button
-                      className="menos"
+                      className="BtnMenos"
                       onClick={() => deleteFromCart(productCart.id)}
-                      aria-label="Restar un XXX"
+                      //onClick={() => decreaseQuantityFromCart(productCart.id)}
                     >
                       -
                     </button>

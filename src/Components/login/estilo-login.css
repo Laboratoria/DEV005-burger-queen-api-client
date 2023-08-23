@@ -83,12 +83,10 @@ body {
     border-color: gray;
     color: white;
     border-style: none;
-    
 }
 
 .botonIngresar:hover {
-    background-color: rgba(109, 182, 31, 0.8);
-    
+    background-color: #008000;
 }
 
 .error-message {
