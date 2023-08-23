@@ -4,7 +4,8 @@ export const TYPES = {
     ADD_TO_CART: "ADD_TO_CART",
     DELETE_ALL_FROM_CART: "DELETE_ALL_FROM_CART",
     DELETE_PRODUCT_FROM_CART: "DELETE_PRODUCT_FROM_CART",
-    CALCULATE_TOTAL_PRICE_OF_THE_CART: "CALCULATE_TOTAL_PRICE_OF_THE_CART"
+    CALCULATE_TOTAL_PRICE_OF_THE_CART: "CALCULATE_TOTAL_PRICE_OF_THE_CART",
+    DECREASE_QUANTITY_FROM_CART: "DECREASE_QUANTITY_FROM_CART",
   }
 
  
@@ -72,11 +73,24 @@ export const reducerCart = (state, action) => {
     }
 
     case TYPES.DELETE_PRODUCT_FROM_CART: {
+      const existingProduct = state.cart.find(item => item.id === action.payload);
+      if (existingProduct && existingProduct.quantity > 1) {
       return {
         ...state,
-        cart: state.cart.filter((items) => items.id !== action.payload)
+        cart: state.cart.map(item =>
+          item.id === action.payload
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
       };
-    }
+    } else { 
+      // Elimina el producto del carrito si la cantidad es 1 o menos
+      return {
+        ...state,
+        cart: state.cart.filter(item => item.id !== action.payload)
+      }  
+    };
+    }  
 
     case TYPES.DELETE_ALL_FROM_CART: {
       return productsInitialState;
