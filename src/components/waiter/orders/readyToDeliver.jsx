@@ -10,6 +10,8 @@ function ReadyToDeliver() {
     try {
       const response = await getOrder();
       console.log(response, "clinica");
+   
+      
       setOrders(response);
     } catch (err) {
       console.error("Error fetching orders:", err);

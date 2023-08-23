@@ -72,28 +72,15 @@ export async function getOrder() {
 
 
 
-export async function updateOrder(clientName, table, count, products, id, name,price, dataEntry,status, image ) {
-  console.log("Entre al update", name);
+export async function updateOrder(clientName, table, products) {
+ 
   try {
     const response = await axios.post("http://localhost:8080/orders", {
     "client": clientName,
     "table" : table,
-    "products": [
-        {
-            "qty":count,
-            "product": {
-            "id": id,
-            "name": name,
-            "price": price,
-            "image": image,
-            "type": "Desayuno",
-            "dateEntry": dataEntry
-            }
-        }
-        
-    ],
-    "status": status,
-    "dataEntry": dataEntry
+    "products": products,
+    "status": 'pending',
+    "dateEntry": "2022-03-05 15:14:10"
 },  
 {headers: {
   "Content-Type": "application/json",
