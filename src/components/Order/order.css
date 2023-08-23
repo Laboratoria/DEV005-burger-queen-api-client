@@ -1,0 +1,68 @@
+.container-order{
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    padding: 20px;
+    background-color: white;  
+    margin-left: 15px;
+}
+.form-order{
+    width: 100%;
+    font-size: xx-large;
+}
+
+
+.delete{
+    background-color: white;
+    border: none;
+}
+.delete:hover{
+    transform: scale(1.2);
+   cursor: pointer;
+
+}
+.submit:hover{
+    transform: scale(1.05);
+    cursor: pointer; 
+    
+}
+.product-order{
+    width: 100%;
+    min-height: 100px;
+    height: auto ;
+    font-size: x-large;
+  
+    
+}
+.info{
+    display: flex;  
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+}
+.qty{
+    width: 30px;
+    height: 100px;
+}
+.name{
+    width: 200px;
+    height: 100px;
+}
+.price{
+    width: 100px;
+    height: 100px;
+}
+.btn-delete{
+    width: 50px;
+    height: 100px;
+}
+hr{
+    color: rgb(222, 218, 218);
+
+}

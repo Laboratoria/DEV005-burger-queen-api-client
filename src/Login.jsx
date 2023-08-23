@@ -54,9 +54,9 @@ function UserForm() {
           new Swal('Successful Log In');
           navigate('/Waiter');
         }
-        if (response.role === 'cheff') {
+        if (response.role === 'chef') {
           new Swal('Successful Log In');
-          navigate('/Cheff');
+          navigate('/Chef');
         } 
         }
        

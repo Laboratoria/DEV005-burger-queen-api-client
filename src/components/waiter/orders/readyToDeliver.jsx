@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { getOrder } from "../../../services/UseAxios";
+
+import "./orders.css";
 
 function ReadyToDeliver() {
   const [orders, setOrders] = useState([]);
@@ -7,9 +9,10 @@ function ReadyToDeliver() {
   const fetchOrders = async () => {
     try {
       const response = await getOrder();
+      console.log(response, "clinica");
       setOrders(response);
     } catch (err) {
-      console.log(err);
+      console.error("Error fetching orders:", err);
     }
   };
 
@@ -18,39 +21,29 @@ function ReadyToDeliver() {
   }, []);
 
   return (
-    <div>
-     
+    <div className="ready-to-deliver">
       <ul>
-        {orders.map(order => (
+        {orders.map((order) => (
           <li key={order.id}>
-            <table>
-              <thead>
-                <tr>
-                  <th>Order ID</th>
-                  <th>Client</th>
-                  <th>Table</th>
-                  <th>Data Entry</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>#{order.id}</td>
-                  <td>{order.client}</td>
-                  <td>{order.table}</td>
-                  <td>{order.dataEntry}</td>
-                  <td>
-                    <button>Delivered</button>
-                  </td>
-                </tr>
-                {order.products.map(product => (
-                  <tr key={product.id}>
-                    <td>{product.qty}</td>
-                    <td>{product.product.name}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div className="info-row top">
+              <p>#00{order.id}</p>
+              <p>{order.client}</p>
+              <p>{order.table}</p>
+              <button className="btn-delivered">Delivered</button>
+            </div>
+
+            <div className="info-order">
+              {order.products.map((product) => (
+                <div className="info-row" key={product.id}>
+                  <p>{product.qty}</p>
+                  <p>{product.product.name}</p>
+                  <p>${product.product.price}</p>
+                </div>
+              ))}
+              <div>
+                Total: ${order?.totalPrice}
+              </div>
+            </div>
           </li>
         ))}
       </ul>

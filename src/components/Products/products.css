@@ -12,7 +12,7 @@
 }
 
 .product{
-    width: 100%;
+    width: 95%;
     height: auto;
    display: flex;
    flex-direction: column;
@@ -20,6 +20,7 @@
     align-items: start;
     background-color: white;
     padding: 20px;
+    margin-left: 40px;
 }
 .product-description{
     
@@ -31,10 +32,11 @@
     
 }
 .div-button{
-    width: 500px;
+    width: 480px;
     flex-direction: row;
     display: flex;
     justify-content: end;
+  
 }
 .button-count{
     width: 150px;
@@ -55,6 +57,7 @@
    
 }
 .price{
+   
     font-size: x-large;
     width: 20%;
 }

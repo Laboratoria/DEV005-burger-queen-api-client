@@ -8,7 +8,7 @@ import {
 import Home  from './Home';
 import Login from './Login';
 import Waiter from './Waiter';
-import Cheff from './Cheff';
+import Chef from './Chef';
 import Admin from './Admin';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
           <Route exact path='/' element={<Home/>} />
           <Route exact path="/Login" element={<Login/>} />
           <Route exact path="/Waiter" element={<Waiter/>} />
-          <Route exact path="/Cheff" element={<Cheff/>} />
+          <Route exact path="/Chef" element={<Chef/>} />
           <Route exact path="/Admin" element={<Admin/>} />
       </Routes>   
     </Router>

@@ -1,11 +1,11 @@
 import Header from "./components/header/header";
 import Navigation from "./components/navigation/navigation";
 
-const Cheff = () => (
+const Chef = () => (
   <section className="Cheff">
-    <Header className="cheff-header" role="Cheff" />
+    <Header className="cheff-header" role="Chef" />
     <Navigation tabs={['Orders in process', 'Orders Ready']} /> 
   </section>
 );
 
-export default Cheff;
+export default Chef;

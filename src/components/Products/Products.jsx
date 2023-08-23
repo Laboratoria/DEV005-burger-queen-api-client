@@ -7,10 +7,6 @@ function Products({ productType, products, handlerAddProduct, handleCountPlus, c
     (product) => product.type === productType
   );
 
-
-  const filteredProducts = products.filter(product => product.type === productType);
-
-
   return (
  
       <div className="div-products">

@@ -7,7 +7,7 @@ import { getproduct } from "../../../services/UseAxios";
 
 import Products from "../../Products/Products";
 import "./menu.css";
-import Order from "../../Count/Count";
+import Order from "../../Order/Order";
 
 const Menu = () => {
   //funcion para la navBar---------------------------
