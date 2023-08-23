@@ -3,11 +3,11 @@
 import { useState } from "react";
 import { updateOrder } from "../../services/UseAxios";
 import Buttons from "../Buttons/Buttons";
-import "./count.css"
+import "./order.css"
 import Swal from "sweetalert2";
 
 
-function Order({products, table, clientName, handleRemoveProduct, handlerAddProduct}) {
+function Order({clientName, table, products, handleRemoveProduct}) {
 
     
 
@@ -15,8 +15,8 @@ function Order({products, table, clientName, handleRemoveProduct, handlerAddProd
       e.preventDefault();
       console.log(e, 'pa la ropa')
       try {
-        const response = await updateOrder(clientName, table,status, dataEntry);
-       
+        const response = await updateOrder(clientName, table,products);
+      
        return response
       } catch (error) {
         new Swal('Wrong with submit order');
@@ -35,23 +35,24 @@ function Order({products, table, clientName, handleRemoveProduct, handlerAddProd
  
   
   return (
-    <section className="container-count">
-      <form action="" onSubmit={handleSubmitOrder} >
+    <section className="container-order">
+      <form className="form-order" onSubmit={handleSubmitOrder} >
     <div className="info-client">
       <label>Client:  {clientName} </label>
       <label>Table:  {table}</label>
     </div>
     
-    <div className="product">
+    
+    <div className="product-order">
       {products.map((item, index) => (        
           <div className="info" key={index}>
-            <div className="a"><p>{item.qty}</p></div>
-            <div className="b"> <p>{item.name}</p></div>
-            <div className="c"><p>${item.price}</p></div>
+            <div className="qty"><p>{item.qty}</p></div>
+            <div className="name"> <p>{item.name}</p></div>
+            <div className="price"><p>${(item.price)*(item.qty)}</p></div>
             
            
            
-            <div className="d"> <button onClick={handleRemoveProduct} className="delete">
+            <div className="btn-delete"> <button onClick={handleRemoveProduct} className="delete">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -68,10 +69,11 @@ function Order({products, table, clientName, handleRemoveProduct, handlerAddProd
         
       ))}
     </div>
+    
 
     <div className="total">
   <p>
-    Total: <span id="total">${total}</span>
+    Total: <span onChange={handleTotal} id="total">${total}</span>
   </p>
    <Buttons type="submit" 
         tag="Submit"

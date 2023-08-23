@@ -3,9 +3,9 @@ import "./products.css";
 function Products({ productType, products, handlerAddProduct, handleCountPlus, count }) {
 
   console.log(products,'ggg')
-
-  const filteredProducts = products.filter(product => product.type === productType);
-
+  const filteredProducts = products.filter(
+    (product) => product.type === productType
+  );
 
   return (
  
