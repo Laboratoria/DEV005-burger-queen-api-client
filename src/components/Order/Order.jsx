@@ -8,7 +8,6 @@ import Swal from "sweetalert2";
 
 
 function Order({clientName, table, products, handleRemoveProduct}) {
-
     
 
     const handleSubmitOrder = async (e) => {

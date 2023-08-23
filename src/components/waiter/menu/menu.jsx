@@ -61,14 +61,17 @@ const Menu = () => {
   //const [total, setTotal] = useState(0);
 
   const [table, setTable] = useState('');
+
   function handleOnClick(e){
+
     console.log(e.target.value, 'lililili')
     setTable(e.target.value)
   }
 
 
-  // manejo de evento de envio de pedido
 
+  // manejo de evento de envio de pedido
+  
   
   
 
@@ -83,7 +86,8 @@ const Menu = () => {
             value={clientName}
             onChange={handleClientNameChange}
           />
-          <Dropdown items={items} table={table} handleOnClick={handleOnClick}/>
+          <Dropdown items={items} table={table} handleOnClick={handleOnClick} />
+
         </div>
 
         <Navigation
