@@ -1,0 +1,14 @@
+
+/* .logoBurgerQueen {
+  display: flex;
+} */
+
+.logo-small {
+  width: 150px;
+  height: 150px;
+}
+
+.logo-large {
+  width: 100%;
+  height: 100%;
+}

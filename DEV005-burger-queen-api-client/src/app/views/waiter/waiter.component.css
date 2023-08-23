@@ -1,0 +1,52 @@
+.inputClient {
+  border-radius: 20px;
+  border: 1px solid #000;
+  background: #FFFCFB;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 504px;
+  height: 58px;
+  flex-shrink: 0;
+  font-size: 30px;
+}
+
+.labelWaiter{
+  color: black;
+  font-size: 40px;
+  font-style: normal;
+  line-height: normal;
+  width: 459px;
+  height: 51px;
+  flex-shrink: 0;
+}
+.inputTable{
+  width: 170px;
+  height: 58px;
+}
+
+.container {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 1000px;
+
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  width: 834px;
+  margin-bottom: 10px;
+}
+
+/* input{
+margin: 5px;
+} */
+
+label{
+margin-left: 80px;
+}
+
+
