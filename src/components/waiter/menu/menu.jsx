@@ -31,18 +31,16 @@ const Menu = () => {
   //funcion para input--------------------------------
   const [clientName, setClientName] = useState("");
 
-  const handleClientNameChange = (event) => {
-    console.log(event.target.value);
-    setClientName(event.target.value);
-  };
-
-
   const [orderProducts, setOrderProducts] = useState([]);
   function handlerAddProduct(prod) {
     prod.qty = 1
     setOrderProducts([...orderProducts, prod]);
   }
 
+  const handleClientNameChange = (event) => {
+    console.log(event.target.value);
+    setClientName(event.target.value);
+  };
 
   const [products, setProducts] = useState([]);
 
@@ -131,4 +129,3 @@ const items = [
     value: "Table 3",
   },
 ];
-

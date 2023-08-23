@@ -85,4 +85,3 @@ function Order({clientName, table, products, handleRemoveProduct}) {
   );
 }
 export default Order;
-
