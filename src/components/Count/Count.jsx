@@ -42,7 +42,7 @@ function Order({products, table, clientName, handleRemoveProduct, handlerAddProd
       <label>Table:  {table}</label>
     </div>
     
-    <div className="products">
+    <div className="product">
       {products.map((item, index) => (        
           <div className="info" key={index}>
             <div className="a"><p>{item.qty}</p></div>
