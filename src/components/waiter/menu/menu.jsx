@@ -33,8 +33,12 @@ const Menu = () => {
 
   const [orderProducts, setOrderProducts] = useState([]);
   function handlerAddProduct(prod) {
-    prod.qty = 1
-    setOrderProducts([...orderProducts, prod]);
+    const newOrderProduct = {
+      product: prod,
+      qty: 1
+    }
+    
+    setOrderProducts([...orderProducts, newOrderProduct]);
   }
 
   const handleClientNameChange = (event) => {

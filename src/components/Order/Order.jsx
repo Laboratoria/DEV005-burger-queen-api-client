@@ -9,13 +9,14 @@ import Swal from "sweetalert2";
 
 function Order({clientName, table, products, handleRemoveProduct}) {
 
-    
+
 
     const handleSubmitOrder = async (e) => {
       e.preventDefault();
       console.log(e, 'pa la ropa')
       try {
-        const response = await updateOrder(clientName, table,products);
+        debugger
+        const response = await updateOrder(clientName, table, products);
       
        return response
       } catch (error) {
