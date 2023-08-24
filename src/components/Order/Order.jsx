@@ -9,6 +9,22 @@ import Swal from "sweetalert2";
 
 function Order({clientName, table, products, handleRemoveProduct, setClientName, setTable, setOrderProducts }) {
 
+// Función para aumentar la cantidad de un producto en 1
+const handleIncreaseQuantity = (index) => {
+  const updatedProducts = [...products];
+  updatedProducts[index].qty += 1;
+  setOrderProducts(updatedProducts);
+};
+
+// Función para disminuir la cantidad de un producto en 1
+const handleDecreaseQuantity = (index) => {
+  const updatedProducts = [...products];
+  if (updatedProducts[index].qty > 1) {
+    updatedProducts[index].qty -= 1;
+    setOrderProducts(updatedProducts);
+  }
+};
+
 // total cuenta----------------------------------------------------
     const [total, setTotal] = useState(0);
     useEffect(() => {
@@ -52,6 +68,11 @@ const handleSubmitOrder = async (e) => {
               <div className="qty"><p>{item.qty}</p></div>
               <div className="name"> <p>{item.product.name}</p></div>
               <div className="price"><p>${(item.product.price)*(item.qty)}</p></div>
+
+              <div className="btn-quantity">
+                <button type="button" onClick={() => handleIncreaseQuantity(index)}>➕</button>
+                <button type="button" onClick={() => handleDecreaseQuantity(index)}>➖</button>
+              </div>
 
               <div className="btn-delete"> 
                 <button 
