@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-const-assign */
-import { useState } from "react";
-import { updateOrder } from "../../services/UseAxios";
+import { useState, useEffect } from "react";
+import { createOrder } from "../../services/UseAxios";
 import Buttons from "../Buttons/Buttons";
 import "./order.css"
 import Swal from "sweetalert2";
@@ -9,32 +9,29 @@ import Swal from "sweetalert2";
 
 function Order({clientName, table, products, handleRemoveProduct}) {
 
-
-
     const handleSubmitOrder = async (e) => {
       e.preventDefault();
       console.log(e, 'pa la ropa')
       try {
-        debugger
-        const response = await updateOrder(clientName, table, products);
-      
-       return response
+       // debugger
+        const response = await createOrder(clientName, table, products);
+        return response
       } catch (error) {
         new Swal('Wrong with submit order');
       }
-       
-      
     } 
 
-
     const [total, setTotal] = useState(0);
-    function handleTotal(price) {
-      setTotal(prevTotal => prevTotal + price); 
-    }
     
-
- 
-  
+    useEffect(() => {
+      // Calcula el total sumando los precios de los productos
+      const newTotal = products.reduce(
+        (acc, item) => acc + item.product.price * item.qty,
+        0
+      );
+      setTotal(newTotal);
+    }, [products]);
+    
   return (
     <section className="container-order">
       <form className="form-order" onSubmit={handleSubmitOrder} >
@@ -48,8 +45,8 @@ function Order({clientName, table, products, handleRemoveProduct}) {
       {products.map((item, index) => (        
           <div className="info" key={index}>
             <div className="qty"><p>{item.qty}</p></div>
-            <div className="name"> <p>{item.name}</p></div>
-            <div className="price"><p>${(item.price)*(item.qty)}</p></div>
+            <div className="name"> <p>{item.product.name}</p></div>
+            <div className="price"><p>${(item.product.price)*(item.qty)}</p></div>
             
            
            
@@ -74,7 +71,7 @@ function Order({clientName, table, products, handleRemoveProduct}) {
 
     <div className="total">
   <p>
-    Total: <span onChange={handleTotal} id="total">${total}</span>
+    Total  <span id="total">${total}</span>
   </p>
    <Buttons type="submit" 
         tag="Submit"
@@ -86,4 +83,3 @@ function Order({clientName, table, products, handleRemoveProduct}) {
   );
 }
 export default Order;
-
