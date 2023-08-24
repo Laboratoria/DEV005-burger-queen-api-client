@@ -59,7 +59,6 @@ const Menu = () => {
         console.error("Error fetching products:", error);
       }
     };
-
     fetchProducts();
   }, []);
 
@@ -85,14 +84,11 @@ const Menu = () => {
     }
   };
 
-   //----------estado para conteo---------
-   // const [count, setCount] = useState(0);
-   //function handleCountPlus() {
-   //  setCount(count + 1);
-  // }
-  // function handleRemoveProduct() {
-    // setCount(count - 1);
-  // }
+// eliminar item en el resumen de la orden---------------------------------------------------
+  const handleRemoveProduct = (productToRemove) => {
+    const updatedProducts = orderProducts.filter(item => item.product !== productToRemove);
+    setOrderProducts(updatedProducts);
+  };
 
   return (
     <article>
@@ -117,18 +113,15 @@ const Menu = () => {
 
       <div className="products-order">
         <Products
-          products={products}
           productType={selectedTab}
+          products={products}
           handlerAddProduct={handlerAddProduct}
-          //handleCountPlus={handleCountPlus}
         />
         <Order
-          //handleRemoveProduct={handleRemoveProduct}
-          products={orderProducts}
-          handlerAddProduct={handlerAddProduct}
-          //count={count}
           clientName={clientName}
           table={table}
+          products={orderProducts}
+          handleRemoveProduct={handleRemoveProduct}
         />
       </div>
     </article>
