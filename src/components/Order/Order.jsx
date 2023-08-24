@@ -7,7 +7,7 @@ import "./order.css"
 import Swal from "sweetalert2";
 
 
-function Order({clientName, table, products, handleRemoveProduct}) {
+function Order({clientName, table, products, handleRemoveProduct, setClientName, setTable, setOrderProducts }) {
 
 // total cuenta----------------------------------------------------
     const [total, setTotal] = useState(0);
@@ -27,6 +27,10 @@ const handleSubmitOrder = async (e) => {
   try {
    // debugger
     const response = await createOrder(clientName, table, products);
+    setClientName("");
+    setTable("");
+    setOrderProducts([]);
+    new Swal('Order created succesfully');
     return response
   } catch (error) {
     new Swal('Wrong with submit order');

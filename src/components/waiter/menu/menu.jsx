@@ -122,6 +122,9 @@ const Menu = () => {
           table={table}
           products={orderProducts}
           handleRemoveProduct={handleRemoveProduct}
+          setClientName={setClientName} //limpiar los estados dspues de hacer el pedido
+          setTable={setTable}
+          setOrderProducts={setOrderProducts}
         />
       </div>
     </article>

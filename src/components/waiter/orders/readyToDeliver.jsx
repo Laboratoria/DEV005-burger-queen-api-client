@@ -42,9 +42,9 @@ function ReadyToDeliver() {
                   <p>${product.product.price}</p>
                 </div>
               ))}
-              <div>
+              {/* <div>
                 Total: ${order?.totalPrice}
-              </div>
+              </div> */}
             </div>
           </li>
         ))}
