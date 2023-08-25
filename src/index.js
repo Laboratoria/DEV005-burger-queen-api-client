@@ -8,8 +8,6 @@ import Administracion from "./Components/administacion/administracion.jsx";
 import Cocina from "./Components/cocina/cocina.jsx";
 
 
-//import "bootstrap/dist/css/bootstrap.css";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,10 +25,7 @@ const router = createBrowserRouter([
     path: "/cocina",
     element: <Cocina />,
   },
-  // {
-  //   path: "/delete",
-  //   element: <DeleteModal />,
-  // },
+ 
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

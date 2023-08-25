@@ -4,13 +4,13 @@ body {
   background-color: #FDD209;
   margin: 0px;
   padding: 0px;
-  display: flex;
+ 
 }
 
-  .container-total {
+  /* .container-total {
     width: 100%;
     display: flex;
-  }
+  } */
   
   .logo-container-pedido {
     position: absolute;
@@ -37,31 +37,22 @@ body {
   .product-section {
     width: 100%;
     margin-bottom: 20px;
+    overflow-y: scroll;
   }
-  
-  .product-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-  }
-  
+    
   .menu {
     background-color: #F5F5F5;
     padding: 20px;
     border-radius: 30px;
     margin: 20px;
+    width: 58%;
   }
   
   .pedido {
     position: absolute;
     top: 90px;
     right: 30px;
-    width: 33%;
+    width: 35%;
     height: 60%;
     background-color: #F5F5F5;
     padding: 20px;
@@ -84,8 +75,8 @@ body {
   .mesa-select {
     padding: 8px;
     font-size: 16px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    border-radius: 10px;
+    border: 0.5px solid #ccc;
     background-color:  #f2f2f2;
     width: 150px;
     margin-left: 10px;
@@ -120,39 +111,221 @@ body {
     margin-top: 20px;  
   }  
 
-   .product-image {
-    height: 40px;
-    width: 40px;
+  .product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
-   }
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+    position: relative;
+    margin-left: 30px;
+  }
+  
+  .product-image {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #ccc;
+    position: absolute;
+    left: -20px; /* Ajustamos el valor para mover más a la izquierda */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    margin-left: 40px;
+    margin-right: 10px; /* Espacio a la derecha para separar del contenido siguiente */
+  }
+  
+.precio-btn{
+  display: flex;
+  flex-direction: column;
+}
 
-   .btnProduct { 
+  .precio {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+   text-align: center;
+   
+  }
+  
+  .btnProduct {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90px;
-    height: 30px;
-    font-size: 18px;
+    width: 70px;
+    height: 28px;
+    font-size: 15px;
     border-radius: 20px;
     font-family: 'Times New Roman', Times, serif;
     background-color: #5E71CD;
     border-color: gray;
     color: white;
     border-style: none;
+  }
+
+   
+  /* ------- PEDIDO --------- */
+  .subtitle_shopping_cart {
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+  }
+
+  .membrete{
+    display: flex;
+    flex-direction: row;
+  }
+  .container_buttons{
+    width: 50%;
+  }
+  .btn_ClearCart{
+    width: 150px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color:  #5E71CD;
+    border: none;
+    background-color: #F5F5F5 ;
+    text-decoration: underline;
+    text-align: left;
+    }
+    
+  .datosPedido{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mesaPedido{
+    display: flex;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    justify-content: flex-end;
+    margin: 0px;
+  }
+
+  .clientePedido{
+    display: flex;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    justify-content: flex-end;
+    margin: 0px;
+  }
+
+  .text_NoProductsInCart{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    text-align: center;
+    color: orange;
+    font-size: 20px;
+  }
+
+   .tituloTabla {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+    flex-direction: row;
+   }
+   
+   .tituloTabla1 {
+    width: 45%;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
    }
 
-   .btnPapelera { 
-    border: none;
-    background-color: #f2f2f2;
-    margin-right: 10px;
+   .tituloTabla2 {
+    width: 28%;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
    }
+
+   .tituloTabla3 {
+    display: flex;
+    width: 20%;
+    justify-content: center;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+   }
+
+  
+
 
    .shopping-cart-product {
     display: flex;
     align-items: center; /* Centra verticalmente los elementos */
+    flex-direction: row;
   }
 
-  .BtnMas,
+  .scroll-pedido{
+      overflow-y: scroll;
+      /* overflow-x: hidden; */
+      /* Agrega la altura máxima que deseas para el div si es necesario */
+     height: 200px; /* Por ejemplo */
+  }
+
+   .shopping-cart1{
+     width: 50%;
+   }
+
+   .shopping-cart2{
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .shopping-cart3{
+    display: flex;
+    width: 20%;
+    justify-content: center;
+  }
+
+  .shopping-cart4{
+    width: 10%;
+    margin-bottom: 12px;
+  }
+
+
+  .nameProduct{
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+
+  .BtnMas { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    background-color: #5E71CD;
+    border-color: gray;
+    color: white;
+    border-style: none;
+    font-weight: bold;
+  }
+
   .BtnMenos { 
     display: flex;
     align-items: center;
@@ -160,4 +333,47 @@ body {
     width: 25px;
     height: 25px;
     border-radius: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    background-color: #5E71CD;
+    border-color: gray;
+    color: white;
+    border-style: none;
+    font-weight: bold;
+    padding-bottom: 10px;
   }
+
+  .btnPapelera { 
+    border: none;
+    background-color: #f2f2f2;
+    margin-right: 10px;
+   }
+
+   .totalPrice_shoppingCart {
+    text-align: right;
+    margin-right: 20px;
+    margin-bottom: 0px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+
+   }
+
+   .botonEnviar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 60px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 130px;
+    background-color: #5E71CD;
+    border-color: gray;
+    color: white;
+    border-style: none;
+} 
+
+   

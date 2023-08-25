@@ -1,0 +1,30 @@
+body {
+    background-color: #FDD209;
+    margin: 0px;
+    padding: 0px;
+  
+  }
+  
+  .logo-container {
+      padding: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px;
+    }
+    
+  .logo {
+      margin: 30px 0 0 20px;
+      font-weight: 800;
+      font-size: 350%;
+      letter-spacing: 0.06em;
+      color: #F32822;
+      text-shadow: -4px -4px 0 #F5F5F5, 4px -4px 0 #F5F5F5, -4px 4px 0 #F5F5F5, 4px 4px 0 #F5F5F5;
+    }
+    
+  .logo1 {
+      margin: 0 30px 0 0;
+      height: 15%;
+      width: 15%;
+    }
+  

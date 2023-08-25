@@ -1,4 +1,4 @@
-
+// --- funcion para logearse
 export const login = (formData) => {
     return fetch("http://localhost:8080/login", {
       method: "post",
@@ -13,7 +13,7 @@ export const login = (formData) => {
     });
 };
 
-//-------
+//------- Funcion Token ------
 
 export function getRequestOptions(method) {
   const bearerToken = localStorage.getItem("token");
@@ -30,9 +30,55 @@ export function getRequestOptions(method) {
 }
 
 
-// ---------
+// --------- Obtener productos del menú ------
 export const getProducts = (requestOptions) => {
   return fetch("http://localhost:8080/products", requestOptions)
+    .then((response) => response.json())
+    .catch((error) => {
+      console.error(error);
+      throw error;
+    });
+};
+
+//----------- funcion agregar Orden al API----
+
+export function postOrders(client, orderProducts) {
+  const bearerToken = localStorage.getItem("token");
+
+  
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + bearerToken,
+    },
+    body: JSON.stringify({
+      client: client,
+      products: orderProducts,
+      status: "pending",
+      dataEntry: new Date().toLocaleString(),
+    }),
+  };
+
+  return fetch("http://localhost:8080/orders", requestOptions)
+  .then(response => response.json())
+  .then(data => {
+    console.log("Response from server:", data); 
+    if (data.error) {
+      throw new Error(data.error);
+    }
+    return data;
+  })
+  .catch(error => {
+    console.error(error);
+    throw error;
+  })
+}
+
+
+//----------- funcion traer Orden de la API----
+export const getOrders = (requestOptions) => {
+  return fetch("http://localhost:8080/orders", requestOptions)
     .then((response) => response.json())
     .catch((error) => {
       console.error(error);
