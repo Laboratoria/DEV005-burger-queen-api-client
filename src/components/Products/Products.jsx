@@ -3,11 +3,9 @@ import "./products.css";
 function Products({
   productType,
   products,
-  handlerAddProduct,
-  //handleCountPlus,
-  //count,
+  handlerAddProduct
 }) {
-  console.log(products, "ggg");
+  //console.log(products, "ggg");
   const filteredProducts = products.filter(
     (product) => product.type === productType
   );
@@ -39,7 +37,6 @@ function Products({
               className="button-count"
               onClick={() => {
                 handlerAddProduct(product);
-                //handleCountPlus(count);
               }}
             >
               Add

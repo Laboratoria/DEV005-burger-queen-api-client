@@ -9,10 +9,11 @@
   padding: 10px 20px;
   cursor: pointer;
   transition: border-bottom 0.3s;
-  font-size: xxx-large;
+  font-size: 250%;
 
 }
 
 .nav-item.active {
-  border-bottom: 4px solid #fa4a0c;
+  border-bottom: 6px solid #7c0b1e;
+  border-radius: 2%;
 }

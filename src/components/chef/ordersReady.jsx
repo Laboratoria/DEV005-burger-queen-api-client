@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { getOrder } from "../../../services/UseAxios";
+import { useState, useEffect } from "react";
+import { getOrder } from "../../services/UseAxios";
+import './ordersInProcess.css'
 
-import "./orders.css";
+function  OrdersReady() {
 
-function ReadyToDeliver() {
   const [orders, setOrders] = useState([]);
 
   const fetchOrders = async () => {
     try {
       const response = await getOrder();
-      console.log(response, "clinica");
+      //console.log(response, "TRAER ORDEN READY!!!!!!");
    
       
       setOrders(response);
@@ -22,16 +22,20 @@ function ReadyToDeliver() {
     fetchOrders();
   }, []);
 
+
+//filtrar ordenes pendientes 
+const readyOrders = orders.filter(order => order.status === 'ready');
+
   return (
-    <div className="ready-to-deliver">
+    <div className="orders-in-process">
       <ul>
-        {orders.map((order) => (
+        {readyOrders.map((order) => (
           <li key={order.id}>
             <div className="info-row top">
               <p>#00{order.id}</p>
               <p>{order.client}</p>
               <p>{order.table}</p>
-              <button className="btn-delivered">Delivered</button>
+              <p>Time:</p>
             </div>
 
             <div className="info-order">
@@ -41,10 +45,7 @@ function ReadyToDeliver() {
                   <p>{product.product.name}</p>
                   <p>${product.product.price}</p>
                 </div>
-              ))}
-              {/* <div>
-                Total: ${order?.totalPrice}
-              </div> */}
+              ))}  
             </div>
           </li>
         ))}
@@ -53,4 +54,5 @@ function ReadyToDeliver() {
   );
 }
 
-export default ReadyToDeliver;
+
+export default OrdersReady;

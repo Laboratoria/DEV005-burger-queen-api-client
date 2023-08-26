@@ -47,7 +47,12 @@ function UserForm() {
         const response = await updateAuth(contactInfo.email, contactInfo.password);
         if(response){
            if (response.role === 'admin') {
-          new Swal('Successful Log In');
+          Swal.fire({
+            icon: 'success',
+            title: 'Successful Log In',
+            showConfirmButton: false,
+            timer: 1500
+          })
           navigate('/Admin');
         }
         if (response.role === 'waiter') {
@@ -61,7 +66,11 @@ function UserForm() {
         }
        
       } catch (error) {
-        new Swal('Wrong email or password. Please enter the correct information');
+        Swal.fire({
+          title: 'Wrong email or password. Please enter the correct information',
+          icon: 'error',
+          confirmButtonColor: '#D62828',
+        });
       }
        
       
