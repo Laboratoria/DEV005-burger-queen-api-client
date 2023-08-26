@@ -4,10 +4,10 @@
   border-radius: 5px;
   border: 2px solid transparent;
   font-size: xx-large;
-  background-color: #FCBF49;
+  background-color: #002f49e0;
   cursor: pointer;
   transition: border-color 0.25s;
-  color:  #626262;
+  color: whitesmoke;
   }
 .button:hover {
   border-color: #646cff;

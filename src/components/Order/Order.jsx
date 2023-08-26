@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-const-assign */
 import { useState, useEffect } from "react";
 import { createOrder } from "../../services/UseAxios";
 import Buttons from "../Buttons/Buttons";
@@ -7,20 +5,20 @@ import "./order.css"
 import Swal from "sweetalert2";
 
 
-function Order({clientName, table, products, handleRemoveProduct, setClientName, setTable, setOrderProducts }) {
+function Order({clientName, table, orderProducts, handleRemoveProduct, setClientName, setTable, setOrderProducts }) {
 
 // Función para aumentar la cantidad de un producto en 1
-const handleIncreaseQuantity = (index) => {
-  const updatedProducts = [...products];
-  updatedProducts[index].qty += 1;
+const handleIncreaseQuantity = (productIndex) => {
+  const updatedProducts = [...orderProducts];
+  updatedProducts[productIndex].qty += 1;
   setOrderProducts(updatedProducts);
 };
 
 // Función para disminuir la cantidad de un producto en 1
-const handleDecreaseQuantity = (index) => {
-  const updatedProducts = [...products];
-  if (updatedProducts[index].qty > 1) {
-    updatedProducts[index].qty -= 1;
+const handleDecreaseQuantity = (productIndex) => {
+  const updatedProducts = [...orderProducts];
+  if (updatedProducts[productIndex].qty > 1) {
+    updatedProducts[productIndex].qty -= 1;
     setOrderProducts(updatedProducts);
   }
 };
@@ -29,12 +27,12 @@ const handleDecreaseQuantity = (index) => {
     const [total, setTotal] = useState(0);
     useEffect(() => {
       // Calcula el total sumando los precios de los productos
-      const newTotal = products.reduce(
-        (acc, item) => acc + item.product.price * item.qty,
+      const newTotal = orderProducts.reduce(
+        (total, item) => total + item.product.price * item.qty,
         0
       );
       setTotal(newTotal);
-    }, [products]);
+    }, [orderProducts]);
 
 //enviar Orden------------------------------------------
 const handleSubmitOrder = async (e) => {
@@ -42,7 +40,7 @@ const handleSubmitOrder = async (e) => {
   console.log(e, 'pa la ropa')
   try {
    // debugger
-    const response = await createOrder(clientName, table, products);
+    const response = await createOrder(clientName, table, orderProducts);
     setClientName("");
     setTable("");
     setOrderProducts([]);
@@ -63,15 +61,15 @@ const handleSubmitOrder = async (e) => {
       </div>
 
       <div className="product-order">
-        {products.map((item, index) => (        
+        {orderProducts.map((item, index) => (        
             <div className="info" key={index}>
               <div className="qty"><p>{item.qty}</p></div>
               <div className="name"> <p>{item.product.name}</p></div>
               <div className="price"><p>${(item.product.price)*(item.qty)}</p></div>
 
               <div className="btn-quantity">
-                <button type="button" onClick={() => handleIncreaseQuantity(index)}>➕</button>
-                <button type="button" onClick={() => handleDecreaseQuantity(index)}>➖</button>
+                <button className="btns-plus-less" type="button" onClick={() => handleIncreaseQuantity(index)}>➕</button>
+                <button className="btns-plus-less" type="button" onClick={() => handleDecreaseQuantity(index)}>➖</button>
               </div>
 
               <div className="btn-delete"> 

@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 
 let authToken =`Bearer ${localStorage.getItem("code")}`; 
 
-// Function to update authentication token
+// ACTUALIZAR TOKEN DE AUTENTICACION---------------------------------------------------------
 export async function updateAuth(email, password) {
   console.log("Entre al update");
   try {
@@ -28,8 +28,7 @@ export async function updateAuth(email, password) {
   }
 }
 
-
-
+// TRAER LOS PRODUCTOS------------------------------------------------------------------------
 export async function getproduct() {
   try {
     const res = await axios.get('http://localhost:8080/products', {
@@ -47,6 +46,7 @@ export async function getproduct() {
   }
 } 
 
+//TRAER LAS ORDENES----------------------------------------------------------------------------------------
 export async function getOrder() {
   try {
     const res = await axios.get('http://localhost:8080/orders', {
@@ -63,24 +63,17 @@ export async function getOrder() {
   }
 } 
 
-
-
-
-
-
-
-
-
-
+//CREAR ORDENES--------------------------------------------------------------------------------------
 export async function createOrder(clientName, table, products) {
  
   try {
+    const dateEntry = new Date().toLocaleString()
     const response = await axios.post("http://localhost:8080/orders", {
     "client": clientName,
     "table" : table,
     "products": products,
     "status": 'pending',
-    "dateEntry": "2022-03-05 15:14:10"
+    "dateEntry": dateEntry,
 },  
 {headers: {
   "Content-Type": "application/json",
@@ -93,6 +86,27 @@ export async function createOrder(clientName, table, products) {
   }
 }
 
+//ACTUALIZAR ORDENES--------------------------------------------------------------------------------------------
+export async function updateOrder(orderId, newStatus) {
+  try {
+    await axios.patch(
+      `http://localhost:8080/orders/${orderId}`,
+      {
+        status: newStatus,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `${authToken}`,
+        },
+      }, 
+    );
+    new Swal('Order succesfully completed');
+    console.log('Orden actualizada con éxito');
+  } catch (error) {
+    console.error('Error al actualizar la orden', error);
+  }
+}
 
 
 

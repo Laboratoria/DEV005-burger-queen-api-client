@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
-import { getOrder, updateOrder } from "../../services/UseAxios";
+import { getOrder } from "../../services/UseAxios";
 import './ordersInProcess.css'
 
-function  OrdersInProcess() {
+function  OrdersReady() {
 
   const [orders, setOrders] = useState([]);
 
   const fetchOrders = async () => {
     try {
       const response = await getOrder();
-      //console.log(response, "TRAER ORDEN!!!!!!");
+      //console.log(response, "TRAER ORDEN READY!!!!!!");
    
-      setOrders(response);
       
+      setOrders(response);
     } catch (err) {
       console.error("Error fetching orders:", err);
     }
@@ -22,40 +22,20 @@ function  OrdersInProcess() {
     fetchOrders();
   }, []);
 
- 
 
-const handleOrderReady = async (orderId) => {
-  try {
-    await updateOrder(orderId, 'ready');
-    // Actualiza localmente el estado de la orden para reflejar el cambio
-    
-    setOrders(prevOrders => 
-      prevOrders.map(order =>
-        order.id === orderId ? { ...order, status: 'ready'} : order
-      )
-    );
-  } catch (error) {
-    console.error("Error updating order status:", error);
-    console.error("Response data:", error.response.data);
-  }
-};
-
-//filtrar ordenes pendientes-------------------------------------------------------
-const pendingOrders = orders.filter(order => order.status === 'pending');
+//filtrar ordenes pendientes 
+const readyOrders = orders.filter(order => order.status === 'ready');
 
   return (
     <div className="orders-in-process">
       <ul>
-        {pendingOrders.map((order) => (
+        {readyOrders.map((order) => (
           <li key={order.id}>
             <div className="info-row top">
               <p>#00{order.id}</p>
               <p>{order.client}</p>
               <p>{order.table}</p>
-
-              <button className="btn-delivered"
-              onClick={() => handleOrderReady(order.id)}
-              >Ready</button>
+              <p>Time:</p>
             </div>
 
             <div className="info-order">
@@ -75,4 +55,4 @@ const pendingOrders = orders.filter(order => order.status === 'pending');
 }
 
 
-export default OrdersInProcess;
+export default OrdersReady;

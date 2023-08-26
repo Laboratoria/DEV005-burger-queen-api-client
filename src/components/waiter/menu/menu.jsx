@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "../../navigation/navigation";
 import Dropdown from "../../DropDownList/DropDownList";
 import Products from "../../Products/Products";
@@ -120,9 +120,9 @@ const Menu = () => {
         <Order
           clientName={clientName}
           table={table}
-          products={orderProducts}
+          orderProducts={orderProducts}
           handleRemoveProduct={handleRemoveProduct}
-          setClientName={setClientName} //limpiar los estados dspues de hacer el pedido
+          setClientName={setClientName}
           setTable={setTable}
           setOrderProducts={setOrderProducts}
         />
