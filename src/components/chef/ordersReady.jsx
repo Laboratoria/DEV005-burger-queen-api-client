@@ -22,6 +22,18 @@ function  OrdersReady() {
     fetchOrders();
   }, []);
 
+   // FUNCION PARA EL TIEMPO DE LA ORDEN-------------------------
+   function calculateOrderTime(startTime, readyTime) {
+    const startDateTime = new Date(startTime);
+    const readyDateTime = new Date(readyTime);
+
+    const orderTimeDifference = readyDateTime - startDateTime;
+    const seconds = Math.floor(orderTimeDifference / 1000);
+    const minutes = Math.trunc(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return ` Time ${minutes}:${remainingSeconds}`;
+  }
+  
 
 //filtrar ordenes pendientes 
 const readyOrders = orders.filter(order => order.status === 'ready');
@@ -35,7 +47,9 @@ const readyOrders = orders.filter(order => order.status === 'ready');
               <p>#00{order.id}</p>
               <p>{order.client}</p>
               <p>{order.table}</p>
-              <p>Time:</p>
+              <p>{calculateOrderTime(order.startTime, order.readyTime)}</p>
+              {/* {console.log((order.startTime))}
+              {console.log((order.readyTime))} */}
             </div>
 
             <div className="info-order">
