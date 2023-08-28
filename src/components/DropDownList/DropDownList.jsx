@@ -5,9 +5,9 @@ import "./dropdownlist.css";
 function Dropdown({ items, handleOnClick }) {
 
   return (
-    <select name="Table" id="" className="dropdown-list">
+    <select name="Table" id="" onChange={handleOnClick} className="dropdown-list">
       {items.map((item) => (
-        <option className="list" onClick={handleOnClick} value={item.value}>{item.value}</option>
+        <option key={item.id} className="list"  value={item.value}>{item.value}</option>
       ))}
     </select>
   );
