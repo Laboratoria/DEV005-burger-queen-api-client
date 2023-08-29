@@ -1,23 +1,5 @@
-body{
-    margin: 0 auto;
-    background-color: #292525;
-}
-header{
-    background-image: url('./img/banner.png');
-    height: 16vh;
-    background-size: cover;
-    background-repeat: no-repeat;
+.Admin{
     display: flex;
-    justify-content: right;
-    align-items: rigth;
-    align-content: rigth;
+    justify-content: center;
+    align-items: center;
 }
-    
-.logo{
-    background-image: url('./img/logo2.png');
-    height: 8vh;
-    width: 40%;
-    background-repeat: no-repeat;
-    margin-top: 30px;
-}
-    
