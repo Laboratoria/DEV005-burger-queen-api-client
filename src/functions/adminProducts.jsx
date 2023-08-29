@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import apiRequest from '../services/apiRequest';
 
-export function ProductsLogic() {
+export function LogicProducts() {
   const navigate = useNavigate();
 
   const token = localStorage.getItem('accessToken');
@@ -23,35 +24,12 @@ export function ProductsLogic() {
   });
 
   useEffect(() => {
-    if (!token) {
-      navigate('/login');
-      return;
-    }
-
-    if (role !== 'admin') {
-      navigate('/login');
-      return;
-    }
+    
 
     // OBTENER DATOS DE PRODUCTOS
-    fetch('http://localhost:8080/products', {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
-    })
-      .then(response => response.json())
-      .then(data => {
+    apiRequest('/products', 'GET').then(data => {
         setProductsData(data);
       })
-      .catch(error => {
-        console.error(error);
-        if (error.message === 'jwt expired') {
-          navigate('/login');
-        } else {
-          navigate('/error-page');
-        }
-      });
   }, [navigate, token, role]);
 
   // FILTRO DE PRODUCTOS POR TIPO
@@ -103,28 +81,12 @@ export function ProductsLogic() {
     }
   
     // Realizar la solicitud POST usando fetch
-    fetch('http://localhost:8080/products', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`, // Asegúrate de definir 'token' si es necesario
-      },
-      body: JSON.stringify(newProduct),
-    })
-      .then(response => response.json())
-      .then(dataNewProduct => {
+    apiRequest('/products', 'POST').then(dataNewProduct => {
         // Actualizar la tabla con el nuevo producto
         setProductsData(prevProducts => [...prevProducts, dataNewProduct]);
         setAddModalOpen(false);
       })
-      .catch(error => {
-        console.error(error);
-        if (error.response && error.response.data === 'jwt expired' && error.response.status === 401) {
-          navigate('/login');
-        } else {
-          error && navigate('/error-page');
-        }
-      });
+      
   };
   // ABRRIR MODAL EDITAR CON LOS DATOS DEL PRODUCTO AL CLICKEAR BOTON DE LA TABLA
   const handleOpenEditModalProducts = (productsId) => {
@@ -154,15 +116,7 @@ export function ProductsLogic() {
     }
   
     // Realizar la solicitud PATCH usando fetch
-    fetch(`http://localhost:8080/products${editingProductData.id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`, // Asegúrate de definir 'token' si es necesario
-      },
-      body: JSON.stringify(updateProducts),
-    })
-      .then(() => {
+    apiRequest(`/products${editingProductData.id}`, 'PATCH').then(() => {
         // Actualizar la data con la información obtenida de la edición
         const updatedProductsData = productsData.map(product => {
           if (product.id === editingProductData.id) {
@@ -181,16 +135,7 @@ export function ProductsLogic() {
         setProductsData(updatedProductsData);
         handleCloseModalProducts();
       })
-      .catch(error => {
-        console.error(error);
-        if (error.response && error.response.data === 'jwt expired' && error.response.status === 401) {
-          console.error(error);
-          navigate('/login');
-        } else {
-          console.error(error);
-          error && navigate('/error-page');
-        }
-      });
+      
   };
   
 
@@ -205,28 +150,13 @@ export function ProductsLogic() {
     const productDelete = productsData.find(product => product.id === productId);
   
     // Realizar la solicitud DELETE usando fetch
-    fetch(`http://localhost:8080/products/${productId}`, {
-      method: 'DELETE',
-      headers: {
-        'Authorization': `Bearer ${token}`, // Asegúrate de definir 'token' si es necesario
-      },
-      body: JSON.stringify(productDelete),
-    })
+    apiRequest(`/products/${productId}`, 'DELETE', productDelete) 
       .then(() => {
         // Actualiza la información de la tabla para borrar el producto en ella
         setProductsData(prevProducts => prevProducts.filter(product => product.id !== productId));
         setModalOpenDeleteProducts(false);
       })
-      .catch(error => {
-        console.error(error);
-        if (error.response && error.response.data === 'jwt expired' && error.response.status === 401) {
-          console.error(error);
-          navigate('/login');
-        } else {
-          console.error(error);
-          error && navigate('/error-page');
-        }
-      });
+      
   };
   
 

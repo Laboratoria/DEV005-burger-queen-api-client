@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../../styles/auth/form.css";
+import "../../../styles/auth/form.css";
 
 const LoginForm = ({
   email,

@@ -1,9 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import Banner from "../../banner/banner";
-import ButtonGreen from "../../buttons/buttonGreen";
-import DivAdmin from "../../divAdmin/divAdmin.jsx";
-import ListAdmin from "../../listAdmin/listAdmin.jsx";
-import {LogicProdutcs} from "../../../functions/adminProducts.jsx"
+import Button from "../../Button/button";
+import {LogicProducts} from "../../../functions/adminProducts.jsx"
+import Modal from "../../Modal/Modal";
+import Input from "../../Input/Inpunt";
+
+
+import Add from "../../../../img/add.png"
+import Edit from "../../../../img/editar.png"
+import Delete from "../../../../img/delete.png"
+import LoginOut from "../../Loginout/Loginout";
+import ButtonChef from "../../buttonChef/buttonChef";
 
 
 
@@ -29,11 +36,12 @@ export default function Products() {
     newProduct,
     selectedTypes,
     errorLabel,
-  } = LogicProdutcs();
+  } = LogicProducts();
 
   return (
     <>
       <div className='containerProducts'>
+        <Banner/>
         <div className='products-container'>
           <div className='headerContainerProducts'>
             <h2 className='titleProducts'>Productos</h2>
@@ -259,10 +267,9 @@ export default function Products() {
           </div>
         </div>
         <div className='footer-buttons'>
-          <LogoutButton />
+          <LoginOut/>
           <div>
-            <ChefButton />
-            <WaiterButton />
+            <ButtonChef/>
           </div>
         </div>
       </div>

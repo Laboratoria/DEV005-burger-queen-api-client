@@ -1,6 +1,6 @@
 import  { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import authLogin from "../../services/authService.js";
+import authLogin from "../../../services/authService";
 
 export const useLoginInside = () => {
   const [email, setEmail] = useState("");

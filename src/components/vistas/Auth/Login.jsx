@@ -1,7 +1,7 @@
-import { useLoginInside } from "./Login";
+import { useLoginInside } from "./LoginInside";
 import LoginForm from "./LoginForm.jsx";
-import Logo from "../logo/Logo.jsx";
-import "../../styles/auth/login.css";
+import Logo from "../../logo/Logo.jsx";
+import "../../../styles/auth/login.css";
 
 const Login = () => {
   const {

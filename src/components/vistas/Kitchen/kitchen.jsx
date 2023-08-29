@@ -1,6 +1,6 @@
 import React from "react";
-import Banner from "../banner/banner.jsx";
-import OrdersList from "../OrdersList/OrdersList.jsx";
+import Banner from "../../banner/banner.jsx";
+import OrdersList from "../../OrdersList/OrdersList.jsx";
 import "./kitchen.css";
 
 const Kitchen = () => {

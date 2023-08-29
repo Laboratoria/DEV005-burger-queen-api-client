@@ -1,17 +1,16 @@
 import React from "react";
-import Banner from "../banner/banner.jsx";
-import ButtonSmall from "../buttonSmall/ButtonSmall.jsx";
-import ButtonGreen from "../buttons/buttonGreen.jsx";
-import SendButton from "../sendButton/sendButton.jsx";
-import AddProductToOrder from "../addProducts/addProducts.jsx";
-import InputClient from "../inputClient/inputClient.jsx";
+import Banner from "../../banner/banner.jsx";
+import ButtonSmall from "../../buttonSmall/ButtonSmall.jsx";
+import ButtonGreen from "../../buttons/buttonGreen.jsx";
+import SendButton from "../../sendButton/sendButton.jsx";
+import AddProductToOrder from "../../addProducts/addProducts.jsx";
+import InputClient from "../../inputClient/inputClient.jsx";
 import Menu from "./Menu.jsx";
 import { useState, useEffect } from "react";
-import apiRequest from "../../services/apiRequest.js";
-import Modal from "../modal/modal.jsx";
+import apiRequest from "../../../services/apiRequest.js";
 import Swal from "sweetalert2";
 
-import "../../styles/kitchen/orders.css";
+import "../../../styles/kitchen/Orders.css";
 
 export const Orders = () => {
   const [products, setProducts] = useState([]); // products = valor inicial y setProducts actualiza el valor
