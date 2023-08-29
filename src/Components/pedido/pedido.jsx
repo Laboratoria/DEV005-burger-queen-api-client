@@ -34,7 +34,7 @@ export default function Pedido() {
   // hook selectName
   const handleChangeName = (e) => {
     setSelectName({
-      ...selectName,
+      // ...selectName,
       name: e.target.value,
     });
   };
@@ -97,18 +97,22 @@ export default function Pedido() {
 
   // ... Hook Posteo de Orden
   useEffect(() => {
+    if (apiOrders.length > 0) {
+        return;
+    }
+
     if (selectName.name && state.cart.length > 0) {
       const requestOptions = getRequestOptions("POST");
       postOrders(selectName.name, state.cart, requestOptions)
         .then((data) => {
-          setApiOrders(data);
+          setApiOrders([data]); // Actualiza el estado de apiOrders con la respuesta del backend
         })
         .catch((error) => {
           console.error("Error fetching products:", error);
         });
     }
-  }, [selectName.name, state.cart]);
-  //console.log(apiOrders);
+  }, [selectName.name, state.cart, apiOrders]);
+
 
   return (
     <>
@@ -116,7 +120,7 @@ export default function Pedido() {
         <div className="menu">
           <div className="menu-header">
             <Select
-            className="mesa-select"
+              className="mesa-select"
               options={mesa}
               onChange={handleSelectChange}
               value={selectMesa}
@@ -139,21 +143,21 @@ export default function Pedido() {
                 .filter((product) => product.type === "Desayuno")
                 .map((product) => (
                   <div className="product-item" key={product.id}>
-                     <img
+                    <img
                       src={product.image}
                       alt={product.name}
                       className="product-image"
                     />
                     <h3>{product.name}</h3>
                     <div className="precio-btn">
-                    <p className="precio">${product.price}</p>
-                   
-                    <button
-                      className="btnProduct"
-                      onClick={() => addToCart(product.id)}
-                    >
-                      Agregar
-                    </button>
+                      <p className="precio">${product.price}</p>
+
+                      <button
+                        className="btnProduct"
+                        onClick={() => addToCart(product.id)}
+                      >
+                        Agregar
+                      </button>
                     </div>
                   </div>
                 ))}
@@ -171,14 +175,14 @@ export default function Pedido() {
                     />
                     <h3>{product.name}</h3>
                     <div className="precio-btn">
-                    <p className="precio">${product.price}</p>
+                      <p className="precio">${product.price}</p>
 
-                    <button
-                      className="btnProduct"
-                      onClick={() => addToCart(product.id)}
-                    >
-                      Agregar
-                    </button>
+                      <button
+                        className="btnProduct"
+                        onClick={() => addToCart(product.id)}
+                      >
+                        Agregar
+                      </button>
                     </div>
                   </div>
                 ))}
@@ -193,17 +197,17 @@ export default function Pedido() {
         <div className="pedido">
           <h2 className="subtitle_shopping_cart">Pedido</h2>
           <div className="membrete">
-          <div className="container_buttons">
-            <button className="btn_ClearCart" onClick={() => clearCart()}>
-              Eliminar Orden
-            </button>
-          </div>
-          <div className="datosPedido">
-            {selectMesa && <p className="mesaPedido">{selectMesa.label}</p>}
-            {selectName.name && (
-              <p className="clientePedido">Cliente: {selectName.name}</p>
-            )}
-          </div>
+            <div className="container_buttons">
+              <button className="btn_ClearCart" onClick={() => clearCart()}>
+                Eliminar Orden
+              </button>
+            </div>
+            <div className="datosPedido">
+              {selectMesa && <p className="mesaPedido">{selectMesa.label}</p>}
+              {selectName.name && (
+                <p className="clientePedido">Cliente: {selectName.name}</p>
+              )}
+            </div>
           </div>
           {state.cart.length === 0 && (
             <p className="text_NoProductsInCart">
@@ -211,7 +215,6 @@ export default function Pedido() {
             </p>
           )}
           <div className="container_shopping_cart">
-            
             <div className="tituloTabla">
               <div className="tituloTabla1">
                 <p>Producto</p>
@@ -224,47 +227,47 @@ export default function Pedido() {
               </div>
             </div>
             <div className="scroll-pedido">
-            {state.cart.map((productCart) => (
-              <div
-                className="shopping-cart-product"
-                key={productCart.product.id}
-              >
-                <div className="shopping-cart1">
-                  {" "}
-                  <h3 className="nameProduct">{productCart.product.name}</h3>
+              {state.cart.map((productCart) => (
+                <div
+                  className="shopping-cart-product"
+                  key={productCart.product.id}
+                >
+                  <div className="shopping-cart1">
+                    {" "}
+                    <h3 className="nameProduct">{productCart.product.name}</h3>
+                  </div>
+                  <div className="shopping-cart2">
+                    <button
+                      className="BtnMenos"
+                      onClick={() =>
+                        decreaseQuantityFromCart(productCart.product.id)
+                      }
+                    >
+                      -
+                    </button>
+                    <p className="suma-cantidad">{productCart.qty}</p>
+                    <button
+                      className="BtnMas"
+                      onClick={() => addToCart(productCart.product.id)}
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div className="shopping-cart3">
+                    <p>${productCart.qty * productCart.product.price}</p>
+                  </div>
+                  <div className="shopping-cart4">
+                    <button
+                      className="btnPapelera"
+                      onClick={() =>
+                        deleteOneProductFromCart(productCart.product.id)
+                      }
+                    >
+                      🗑️
+                    </button>
+                  </div>
                 </div>
-                <div className="shopping-cart2">
-                  <button
-                    className="BtnMenos"
-                    onClick={() =>
-                      decreaseQuantityFromCart(productCart.product.id)
-                    }
-                  >
-                    -
-                  </button>
-                  <p className="suma-cantidad">{productCart.qty}</p>
-                  <button
-                    className="BtnMas"
-                    onClick={() => addToCart(productCart.product.id)}
-                  >
-                    +
-                  </button>
-                </div>
-                <div className="shopping-cart3">
-                  <p>${productCart.qty * productCart.product.price}</p>
-                </div>
-                <div className="shopping-cart4">
-                  <button
-                    className="btnPapelera"
-                    onClick={() =>
-                      deleteOneProductFromCart(productCart.product.id)
-                    }
-                  >
-                    🗑️
-                  </button>
-                </div>
-              </div>
-            ))}
+              ))}
             </div>
           </div>
           <p className="totalPrice_shoppingCart">Total: ${state.totalCuenta}</p>
@@ -275,6 +278,11 @@ export default function Pedido() {
             value="enviar"
             onClick={async () => {
               try {
+                if (!selectName.name || state.cart.length === 0 || !selectMesa ) {
+                  console.log("Rellene todos los campos necesarios");
+                  return; // Don't proceed if required fields are missing
+                }
+
                 console.log("Enviando a cocina...");
                 console.log("Nombre del cliente:", selectName.name);
                 console.log("Productos en el carrito:", state.cart);
@@ -283,12 +291,10 @@ export default function Pedido() {
 
                 const response = await postOrders(clientName, state.cart);
 
-                if (response.status === "success") {
+                if (response.status === "pending") {
                   console.log("Orden enviada con éxito:", response.status);
-                  <p>"¡Orden enviada con éxito!"</p>;
                 } else {
                   console.log("La orden no se ha enviado correctamente.");
-                  <p>"¡Orden enviada con éxito1!"</p>;
                 }
               } catch (error) {
                 console.error("Error al enviar la orden:", error);
@@ -297,7 +303,6 @@ export default function Pedido() {
           >
             Enviar a Cocina
           </button>
-          
         </div>
       </div>
     </>

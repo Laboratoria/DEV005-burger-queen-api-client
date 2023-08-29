@@ -1,21 +1,81 @@
 import React, { useEffect, useState } from "react";
-import { getRequestOptions, getOrders } from "../../Services/UserService";
+import { getRequestOptions, getOrders, patchOrders } from "../../Services/UserService";
 import "./estilo-cocina.css";
 import LOGO from "../../img/LOGO.png";
 
+function Timer({ orderId, startTime }) {
+  const [actualTime, setActualTime] = useState(
+    parseFloat(localStorage.getItem(`timerActualTime_${orderId}`)) || 0
+  );
+
+  useEffect(() => {
+    if (startTime) {
+      const intervalId = setInterval(() => {
+        const currentTime = (Date.now() - startTime) / 1000;
+        setActualTime(currentTime);
+        localStorage.setItem(`timerActualTime_${orderId}`, currentTime.toString());
+      }, 100);
+
+      return () => {
+        clearInterval(intervalId);
+      };
+    }
+  }, [startTime, orderId]);
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+  };
+
+  return (
+    <div className="top-Time">
+      <p className="timer">{formatTime(actualTime)}</p>
+    </div>
+  );
+}
+
 export default function Cocina() {
   const [apiOrders, setApiOrders] = useState([]);
+  const [deliveredOrders, setDeliveredOrders] = useState([]);
 
   useEffect(() => {
     const requestOptions = getRequestOptions("GET");
     getOrders(requestOptions)
       .then((data) => {
-        setApiOrders(data);
+        const result = data.filter((i) => i.status === "pending");
+        setApiOrders(result);
       })
       .catch((error) => {
         console.error("Error fetching orders:", error);
       });
   }, []);
+
+  const markOrderAsReady = (orderId) => {
+    const requestOptions = getRequestOptions("PATCH");
+    const patchData = {
+      status: "delivered",
+      dataEntry: new Date().toLocaleString(),
+    };
+    patchOrders(orderId, patchData, requestOptions)
+      .then(() => {
+        setApiOrders((prevOrders) => prevOrders.filter((order) => order.id !== orderId));
+        setDeliveredOrders((prevDeliveredOrders) => [
+          ...prevDeliveredOrders,
+          apiOrders.find((order) => order.id === orderId),
+        ]);
+      })
+      .catch((error) => {
+        console.error("Error updating order status:", error);
+      });
+  };
+
+  const confirmOrderReady = (orderId) => {
+    const isConfirmed = window.confirm("¿Esta lista la orden?");
+    if (isConfirmed) {
+      markOrderAsReady(orderId);
+    }
+  };
 
   return (
     <>
@@ -24,21 +84,163 @@ export default function Cocina() {
         <img src={LOGO} className="logo1" alt="Burger Queen Logo" />
       </div>
       <h1>Pedidos</h1>
-      {/* {apiOrders.map((order) => (
-        <div key={order.id}>
-          <p>Número de Orden: {order.id}</p>
-          <p>Cliente: {order.client}</p>
-          {order.products.map((productInfo, index) => (
-            <div key={index}>
-              <p>Nombre: {productInfo.product.name}</p>
-              <p>Cantidad: {productInfo.qty}</p>
+      <div className="Container-Order">
+        {apiOrders.map((order) => (
+          <div className="container-comida" key={order.id}>
+            <div className="top-Order">
+              <div className="top-NumOrder">
+                <p className="numOrder">Orden #{order.id}</p>
+              </div>
+              <Timer
+                orderId={order.id}
+                startTime={order.ready ? null : parseFloat(localStorage.getItem(`timerStartTime_${order.id}`)) || Date.now()}
+              />
             </div>
-          ))}
-        </div>
-      ))} */}
+            {order.products.map((product, productIndex) => (
+              <div className="pedido-Order" key={productIndex}>
+                <p className="cantidad-Orden">{product.qty}</p>
+                <p className="prod-Orden">{product.product.name}</p>
+              </div>
+            ))}
+            {!order.ready ? (
+              <button className="btnCocina" onClick={() => confirmOrderReady(order.id)}>
+                Listo
+              </button>
+            ) : (
+              <p>Orden lista</p>
+            )}
+          </div>
+        ))}
+      </div>
+      <div className="Delivered-Orders">
+        <h1>Órdenes Entregadas</h1>
+        {deliveredOrders.map((order) => (
+          <div className="delivered-container" key={order.id}>
+            {order.id}
+          </div>
+        ))}
+      </div>
     </>
   );
 }
+
+
+
+
+
+
+
+
+
+// import React, { useEffect, useState, useRef  } from "react";
+// import { getRequestOptions, getOrders } from "../../Services/UserService";
+// import "./estilo-cocina.css";
+// import LOGO from "../../img/LOGO.png";
+
+// function Timer() {
+//   const [actualTime, setActualTime] = useState(0);
+//   const [btnPlayPause, setBtnPlayPause] = useState("Play");
+//   const counterRef = useRef(null);
+
+//   const initTimer = () => {
+//     if (counterRef.current) {
+//       pauseTimer();
+//       setBtnPlayPause("Play");
+//     } else {
+//       counterRef.current = setInterval(() => {
+//         setActualTime((prevTime) => prevTime + 0.1);
+//       }, 100);
+//       setBtnPlayPause("Pause");
+//     }
+//   };
+
+//   const pauseTimer = () => {
+//     clearInterval(counterRef.current);
+//     counterRef.current = null;
+//   };
+
+//   const clearTimer = () => {
+//     setActualTime(0);
+//     clearInterval(counterRef.current);
+//     counterRef.current = null;
+//     setBtnPlayPause("Play");
+//   };
+
+//   return (
+//     <div className="timer">
+//       <div className="time">
+//         <h2>{actualTime.toFixed(2)}</h2>
+//       </div>
+//       <div className="btns">
+//         <input
+//           type="button"
+//           value={btnPlayPause}
+//           onClick={initTimer}
+//         />
+//         <input type="button" value="Clean" onClick={clearTimer} />
+//       </div>
+//     </div>
+//   );
+// }
+
+
+// export default function Cocina() {
+//   const [apiOrders, setApiOrders] = useState([]);
+
+//   useEffect(() => {
+//     const requestOptions = getRequestOptions("GET");
+//     getOrders(requestOptions)
+//       .then((data) => {
+//        // console.log(data);
+//         const result = data.filter(i => i.status === 'pending')
+//         setApiOrders(result);
+//       })
+//       .catch((error) => {
+//         console.error("Error fetching orders:", error);
+//       });
+//   }, []);
+// //console.log("Imprimir:", apiOrders);
+
+
+
+
+
+
+//   return (
+//     <>
+//       <div className="logo-container">
+//         <h1 className="logo">BURGUER QUEEN</h1>
+//         <img src={LOGO} className="logo1" alt="Burger Queen Logo" />
+//       </div>
+//       <h1>Pedidos</h1>
+//       {apiOrders && apiOrders?.map((order) => (
+
+//         <div className="Container-Order" key={order.id}>
+//           <p className="numOrder">Orden #{order.id}</p>
+//           <Timer />
+//           {/* <p>Cliente: {order.client}</p> */}
+//           {order?.products?.map((productInfo, index) =>{
+//           //console.log( productInfo)
+//           return   (
+//             <div className = "productos-Orden" key={index}>
+//               <div className= "cantidad-Orden"><p>{productInfo.qty}</p> </div>
+//               <div className= "prod-Orden"><p>{productInfo?.product?.name}</p> </div>
+//             </div>
+//           )})}
+          
+//           <button
+//                       className="btnCocina"
+//                       onClick={() => ("listo")}
+//                     >
+//                       LISTO
+//                     </button>
+//         </div>
+
+//       ))}
+
+//     </>
+//   );
+// }
 
 
 

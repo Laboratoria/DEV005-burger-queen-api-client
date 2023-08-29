@@ -8,6 +8,7 @@ import Administracion from "./Components/administacion/administracion.jsx";
 import Cocina from "./Components/cocina/cocina.jsx";
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",

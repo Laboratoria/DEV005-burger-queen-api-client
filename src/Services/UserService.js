@@ -86,3 +86,35 @@ export const getOrders = (requestOptions) => {
     });
 };
 
+
+//---- funcion patch -- cambiar estado de la orden a delivered
+
+// export const patchOrders = (requestOptions)  => {
+//   return fetch("http://localhost:8080/orders", requestOptions)
+//     .then((response) => response.json())
+//     .catch((error) => {
+//       console.error(error);
+//       throw error;
+//     });
+// };
+
+export function patchOrders(orderId, patchData, requestOptions) {
+  const url = `http://localhost:8080/orders/${orderId}`;
+
+  return fetch(url, {
+    ...requestOptions,
+    body: JSON.stringify(patchData),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Response from server:", data);
+      if (data.error) {
+        throw new Error(data.error);
+      }
+      return data;
+    })
+    .catch((error) => {
+      console.error(error);
+      throw error;
+    });
+}
