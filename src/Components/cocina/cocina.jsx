@@ -4,6 +4,7 @@ import "./estilo-cocina.css";
 import LOGO from "../../img/LOGO.png";
 
 function Timer({ orderId, startTime }) {
+
   const [actualTime, setActualTime] = useState(
     parseFloat(localStorage.getItem(`timerActualTime_${orderId}`)) || 0
   );
@@ -11,7 +12,7 @@ function Timer({ orderId, startTime }) {
   useEffect(() => {
     if (startTime) {
       const intervalId = setInterval(() => {
-        const currentTime = (Date.now() - startTime) / 1000;
+        const currentTime = (Date.now() - Date.parse(startTime)) / 1000;
         setActualTime(currentTime);
         localStorage.setItem(`timerActualTime_${orderId}`, currentTime.toString());
       }, 100);
@@ -35,6 +36,7 @@ function Timer({ orderId, startTime }) {
   );
 }
 
+
 export default function Cocina() {
   const [apiOrders, setApiOrders] = useState([]);
   const [deliveredOrders, setDeliveredOrders] = useState([]);
@@ -44,6 +46,7 @@ export default function Cocina() {
     getOrders(requestOptions)
       .then((data) => {
         const result = data.filter((i) => i.status === "pending");
+
         setApiOrders(result);
       })
       .catch((error) => {
@@ -55,7 +58,8 @@ export default function Cocina() {
     const requestOptions = getRequestOptions("PATCH");
     const patchData = {
       status: "delivered",
-      dataEntry: new Date().toLocaleString(),
+      //dataEntry: new Date().toLocaleString(),
+      dataEntry: new Date().toISOString(),
     };
     patchOrders(orderId, patchData, requestOptions)
       .then(() => {
@@ -84,8 +88,10 @@ export default function Cocina() {
         <img src={LOGO} className="logo1" alt="Burger Queen Logo" />
       </div>
       <h1>Pedidos</h1>
-      <div className="Container-Order">
+      <div className="Todo-Order">
         {apiOrders.map((order) => (
+                <div className="Container-Order">
+
           <div className="container-comida" key={order.id}>
             <div className="top-Order">
               <div className="top-NumOrder">
@@ -93,8 +99,12 @@ export default function Cocina() {
               </div>
               <Timer
                 orderId={order.id}
-                startTime={order.ready ? null : parseFloat(localStorage.getItem(`timerStartTime_${order.id}`)) || Date.now()}
+                startTime={order.dataEntry}
               />
+              {/* <Timer
+                orderId={order.id}
+                startTime={order.ready ? null : parseFloat(localStorage.getItem(`timerStartTime_${order.id}`)) || Date.now()}
+              /> */}
             </div>
             {order.products.map((product, productIndex) => (
               <div className="pedido-Order" key={productIndex}>
@@ -109,6 +119,7 @@ export default function Cocina() {
             ) : (
               <p>Orden lista</p>
             )}
+          </div>
           </div>
         ))}
       </div>

@@ -2,8 +2,7 @@ import React, { useState, useEffect, useReducer } from "react";
 import LOGO from "../../img/LOGO.png";
 import "./estilo-pedido.css";
 import Select from "react-select";
-import { reducerCart, productsInitialState } from "../../Services/reducerCart";
-import { TYPES } from "../../Services/reducerCart";
+import { reducerCart, productsInitialState, TYPES } from "../../Services/reducerCart";
 import {
   getProducts,
   getRequestOptions,
@@ -21,14 +20,15 @@ export default function Pedido() {
   const [selectMesa, setSelectMesa] = useState(null);
   const [selectName, setSelectName] = useState({ name: "" });
   const [state, dispatch] = useReducer(reducerCart, productsInitialState);
-  // const [apiProducts, setApiProducts] = useState([]); // Agrega esta línea
   const [apiProducts, setApiProducts] = useState([]);
   const [apiOrders, setApiOrders] = useState([]);
+  const [showError, setShowError] = useState(false); 
 
   // hook selectMesa
   const handleSelectChange = (selectedOption) => {
     // console.log(selectedOption);
     setSelectMesa(selectedOption);
+    
   };
 
   // hook selectName
@@ -58,12 +58,14 @@ export default function Pedido() {
     calculateTotalPriceOfCart();
   };
 
-  // Borra el pedido
+  // Borra el pedido (eliminar Orden)
   const clearCart = () => {
     dispatch({
       type: TYPES.DELETE_ALL_FROM_CART,
     });
     calculateTotalPriceOfCart();
+    setSelectMesa(null);
+    setSelectName({ name: "" });
   };
 
   // Calcula el total
@@ -72,7 +74,7 @@ export default function Pedido() {
   };
   // console.log(calculateTotalPriceOfCart);
 
-  // reduce de a 1 producto
+  // reduce de a 1 producto (-)
   const decreaseQuantityFromCart = (id) => {
     dispatch({
       type: TYPES.DELETE_PRODUCT_FROM_CART,
@@ -101,11 +103,12 @@ export default function Pedido() {
         return;
     }
 
-    if (selectName.name && state.cart.length > 0) {
+    if (selectName.name && state.cart.length && selectMesa > 0) {
       const requestOptions = getRequestOptions("POST");
       postOrders(selectName.name, state.cart, requestOptions)
         .then((data) => {
-          setApiOrders([data]); // Actualiza el estado de apiOrders con la respuesta del backend
+          console.log(data);
+          setApiOrders([data]);
         })
         .catch((error) => {
           console.error("Error fetching products:", error);
@@ -160,7 +163,7 @@ export default function Pedido() {
                       </button>
                     </div>
                   </div>
-                ))}
+                ))} 
             </div>
             <div className="product-section">
               <h2>Almuerzo</h2>
@@ -209,7 +212,7 @@ export default function Pedido() {
               )}
             </div>
           </div>
-          {state.cart.length === 0 && (
+          * {state.cart.length === 0 && (
             <p className="text_NoProductsInCart">
               No hay productos en la orden
             </p>
@@ -271,38 +274,44 @@ export default function Pedido() {
             </div>
           </div>
           <p className="totalPrice_shoppingCart">Total: ${state.totalCuenta}</p>
-
           <button
-            className="botonEnviar"
-            type="submit"
-            value="enviar"
-            onClick={async () => {
-              try {
-                if (!selectName.name || state.cart.length === 0 || !selectMesa ) {
-                  console.log("Rellene todos los campos necesarios");
-                  return; // Don't proceed if required fields are missing
-                }
-
-                console.log("Enviando a cocina...");
-                console.log("Nombre del cliente:", selectName.name);
-                console.log("Productos en el carrito:", state.cart);
-
-                const clientName = selectName.name;
-
-                const response = await postOrders(clientName, state.cart);
-
-                if (response.status === "pending") {
-                  console.log("Orden enviada con éxito:", response.status);
-                } else {
-                  console.log("La orden no se ha enviado correctamente.");
-                }
-              } catch (error) {
-                console.error("Error al enviar la orden:", error);
+          className="botonEnviar"
+          type="submit"
+          value="enviar"
+          onClick={async () => {
+            try {
+              if (!selectName.name || state.cart.length === 0 || !selectMesa ) {
+                console.log("Rellene todos los campos necesarios");
+                setShowError(true); // Mostrar mensaje de error
+                return;
               }
-            }}
-          >
-            Enviar a Cocina
-          </button>
+
+              console.log("Enviando a cocina...");
+              console.log("Nombre del cliente:", selectName.name);
+              console.log("Productos en el carrito:", state.cart);
+
+              const clientName = selectName.name;
+
+              const response = await postOrders(clientName, state.cart);
+
+              if (response.status === "pending") {
+                console.log("Orden enviada con éxito:", response.status);
+              } else {
+                console.log("La orden no se ha enviado correctamente.");
+              }
+            } catch (error) {
+              console.error("Error al enviar la orden:", error);
+              setShowError(true); // Mostrar mensaje de error
+            }
+          }}
+        >
+          Enviar a Cocina
+        </button>
+        {showError && (
+          <p className="error-message">❌ Rellene todos los campos necesarios</p>
+        )}
+
+       
         </div>
       </div>
     </>

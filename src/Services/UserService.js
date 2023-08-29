@@ -56,7 +56,8 @@ export function postOrders(client, orderProducts) {
       client: client,
       products: orderProducts,
       status: "pending",
-      dataEntry: new Date().toLocaleString(),
+      //dataEntry: new Date().toLocaleString(),
+      dataEntry: new Date().toISOString(),
     }),
   };
 

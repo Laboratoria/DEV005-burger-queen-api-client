@@ -277,7 +277,7 @@ body {
 
   .scroll-pedido{
       overflow-y: scroll;
-      /* overflow-x: hidden; */
+      overflow-x: hidden;
       /* Agrega la altura máxima que deseas para el div si es necesario */
      height: 200px; /* Por ejemplo */
   }
@@ -369,11 +369,17 @@ body {
     font-size: 20px;
     border-radius: 60px;
     font-family: 'Times New Roman', Times, serif;
-    margin-left: 130px;
+    margin-left: 110px;
     background-color: #5E71CD;
     border-color: gray;
     color: white;
     border-style: none;
 } 
 
+.error-message{
+  font-size: 15px;
+  font-style: italic;
+  color: #F32822;
+  text-align: center;
+}
    
