@@ -2,22 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./inputClient.css";
 
-const InputClient = ({ type, name, id, placeholder }) => {
+const InputClient = ({ type, handleInputChange, placeholder, name }) => {
   return (
     <input
       type={type}
-      name={name}
+      onChange={handleInputChange}
       className='inputClient'
-      id={id}
       placeholder={placeholder}
+      value={name}
     />
   );
 };
 
 InputClient.propTypes = {
   type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  id: PropTypes.string,
+  handleInputChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
 };
 

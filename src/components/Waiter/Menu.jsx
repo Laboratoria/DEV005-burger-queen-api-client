@@ -1,11 +1,8 @@
 import React from "react";
-import "./menu.css";
-import "../buttonAdd/buttonAdd";
-import ButtonAdd from "../buttonAdd/buttonAdd";
+import "../../styles/kitchen/menu.css";
 
-const Menu = ({ product }) => {
+const Menu = ({ product, children }) => {
   const { name, price, image } = product;
-
   return (
     <div className='products'>
       <div className='img'>
@@ -15,7 +12,7 @@ const Menu = ({ product }) => {
         {name}
         <br /> ${price}
       </div>
-      <ButtonAdd buttonText='Agregar' />
+      {children}
     </div>
   );
 };

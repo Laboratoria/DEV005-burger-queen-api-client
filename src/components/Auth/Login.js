@@ -1,6 +1,6 @@
 import  { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import authLogin from "./authLogin";
+import authLogin from "../../services/authService.js";
 
 export const useLoginInside = () => {
   const [email, setEmail] = useState("");
@@ -44,7 +44,7 @@ export const useLoginInside = () => {
       } else if (waiterRole) {
         route = "/Orders";
       } else if (chefRole) {
-        route = "/Chef";
+        route = "/Kitchen";
       }
       navigate(route);
     } catch (error) {

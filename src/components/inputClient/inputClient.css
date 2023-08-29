@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Suez+One&display=swap');
 .inputClient{
     width: 180px;
     height: 35px;
@@ -5,4 +6,5 @@
     background-color: #ECFEB3;
     padding-left: 10px;
     font-size: 18px;
+    font-family: Suez One, sans-serif;
 }

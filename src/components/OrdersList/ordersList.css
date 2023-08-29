@@ -1,0 +1,52 @@
+.order-list {
+    display: flex;
+    flex-direction: column; /* Establece la dirección principal como columna */
+  }
+.orderList{
+    background-color: #000000;
+    border-radius: 20px;
+    width: 450px; 
+    height: auto;
+    font-size: 18px;
+    color: #ffff;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+
+}
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -20px;
+  }
+  .order-content{
+    display: flex;
+    justify-content: space-between;
+  }
+.client-table{
+    font-size: 25px;
+}
+.date{
+    font-size: 25px;
+    color: #D48B07;
+}
+
+h4{
+    color: #D48B07;
+}
+.products-list{
+    display: flex;
+    flex-direction: column;
+}
+.btn-check{
+    width: 160px;
+    height: 40px;
+    background-color: #68902B;
+    border-radius: 15px;
+    color: #ECFEB3;
+    font-size: 20px;
+    font-family: 'Suez One', serif;
+    align-self: flex-end;
+}

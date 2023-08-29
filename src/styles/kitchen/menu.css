@@ -2,24 +2,32 @@
 .products{
     background-color: #000000;
     border-radius: 20px;
-    width: 389px;
-    height: 101px;
+    width: 410px;
+    height: 130px;
     font-size: 18px;
     font-family: 'Suez One', serif;
     color: #ffff;
     display: flex;
     justify-content: row;
     gap: 10px;
+    margin-right:10px;
+    padding: 15px;
+
 }
 .img{
     width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
-.products img{
-    width: 100%;
+.img img{
+    width: 125%;
+    margin-left: 10px;
 }
 .productName{
     margin-top: 15px;
-    width: 250px;
+    margin-left: 10px;
+    width: 295px;
     height: 20px;
 }

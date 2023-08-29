@@ -1,12 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Suez+One&display=swap');
-.buttonGreen{
-    width: 180px;
-    height: 40px;
+
+.buttonGreen.active {
+    width: 190px;
+    height: 50px;
     background-color: #68902B;
-    border-radius: 20px;
+    border-radius: 17px;
     color: #ECFEB3;
     font-weight: 450;
     font-size: 18px;
     font-family: 'Suez One', serif;
 }
+.buttonGreen.inactive {
+    width: 190px;
+    height: 50px;
+    border: solid 5px #68902B;
+    background-color: transparent;
+    border-radius: 17px;
+    color: #ECFEB3;
+    font-weight: 450;
+    font-size: 18px;
+    font-family: 'Suez One', serif;
 
+}
