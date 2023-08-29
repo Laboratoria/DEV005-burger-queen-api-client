@@ -38,6 +38,15 @@ const handleDecreaseQuantity = (productIndex) => {
 const handleSubmitOrder = async (e) => {
   e.preventDefault();
   console.log(e, 'pa la ropa')
+
+  if (!clientName || !table || orderProducts.length === 0) {
+    Swal.fire({
+      title: 'Please fill in the required information',
+      icon: 'error',
+      confirmButtonColor: '#D62828',
+    });
+    return;
+  }
   try {
    // debugger
     const response = await createOrder(clientName, table, orderProducts);
