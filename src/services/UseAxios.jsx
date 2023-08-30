@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 let authToken =`Bearer ${localStorage.getItem("code")}`; 
 
 // ACTUALIZAR TOKEN DE AUTENTICACION---------------------------------------------------------
+
 export async function updateAuth(email, password) {
   console.log("Entre al update");
   try {
@@ -74,6 +75,7 @@ export async function createOrder(clientName, table, products) {
     "products": products,
     "status": 'pending',
     "dateEntry": dateEntry,
+    "startTime": new Date(),
 },  
 {headers: {
   "Content-Type": "application/json",
@@ -87,12 +89,13 @@ export async function createOrder(clientName, table, products) {
 }
 
 //ACTUALIZAR ORDENES--------------------------------------------------------------------------------------------
-export async function updateOrder(orderId, newStatus) {
+export async function updateOrder(orderId, newStatus , readyTime) {
   try {
     await axios.patch(
       `http://localhost:8080/orders/${orderId}`,
       {
         status: newStatus,
+        readyTime: readyTime, //agregar el tiempo de preparacion al cuerpo de la solicitud
       },
       {
         headers: {
@@ -101,7 +104,7 @@ export async function updateOrder(orderId, newStatus) {
         },
       }, 
     );
-    new Swal('Order succesfully completed');
+    new Swal('Succesfully completed');
     console.log('Orden actualizada con éxito');
   } catch (error) {
     console.error('Error al actualizar la orden', error);

@@ -9,13 +9,15 @@ function Dropdown({ items, handleOnClick, handleOnChangeRole, role }) {
 
 
   return (
-    <select  id=""  className="dropdown-list">
+    <select name="Table" id="" onChange={handleOnClick} className="dropdown-list">
       {items.map((item) => (
-        <option className="list" 
-
-        /* onClick={handleOnClick} */
-        onChange={handleOnChangeRole}
-        value={item.value}>{item.value}</option>
+        <option 
+          key={item.id} 
+          className="list" 
+          onClick={handleOnChangeRole} 
+          value={item.value}
+          >{item.value}
+        </option>
       ))}
     </select>
   );

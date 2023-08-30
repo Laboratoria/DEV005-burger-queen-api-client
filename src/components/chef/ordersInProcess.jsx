@@ -6,13 +6,14 @@ function  OrdersInProcess() {
 
   const [orders, setOrders] = useState([]);
 
+
+  //obtener los pedidos de la API---------------------
   const fetchOrders = async () => {
     try {
       const response = await getOrder();
       //console.log(response, "TRAER ORDEN!!!!!!");
-   
-      setOrders(response);
-      
+
+      setOrders(response);  
     } catch (err) {
       console.error("Error fetching orders:", err);
     }
@@ -23,15 +24,17 @@ function  OrdersInProcess() {
   }, []);
 
  
-
+// MARCAR PEDIDOS READY---------------------------------
 const handleOrderReady = async (orderId) => {
   try {
-    await updateOrder(orderId, 'ready');
+    const readyTime = new Date(); // tiempo en que se marca ready a la orden
+
+    await updateOrder(orderId, 'ready', readyTime);
+
     // Actualiza localmente el estado de la orden para reflejar el cambio
-    
     setOrders(prevOrders => 
       prevOrders.map(order =>
-        order.id === orderId ? { ...order, status: 'ready'} : order
+        order.id === orderId ? { ...order, status: 'ready',  readyTime: readyTime } : order
       )
     );
   } catch (error) {
@@ -52,6 +55,7 @@ const pendingOrders = orders.filter(order => order.status === 'pending');
               <p>#00{order.id}</p>
               <p>{order.client}</p>
               <p>{order.table}</p>
+
 
               <button className="btn-delivered"
               onClick={() => handleOrderReady(order.id)}
