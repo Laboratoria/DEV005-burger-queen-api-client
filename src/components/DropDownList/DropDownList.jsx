@@ -4,17 +4,17 @@
 
 import "./dropdownlist.css";
 
-function Dropdown({ items, handleOnClick, handleOnChangeRole, role }) {
+function Dropdown({ items, handleOnChange}) {
 
 
 
   return (
-    <select name="Table" id="" onChange={handleOnClick} className="dropdown-list">
+    <select name="Table" id="" onChange={handleOnChange} className="dropdown-list">
       {items.map((item) => (
         <option 
           key={item.id} 
           className="list" 
-          onClick={handleOnChangeRole} 
+         
           value={item.value}
           >{item.value}
         </option>

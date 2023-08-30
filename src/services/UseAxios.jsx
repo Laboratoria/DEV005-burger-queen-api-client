@@ -155,6 +155,32 @@ console.log(response.data, 'popoppopopopoppp')
    
   }
 }
+// CREAR PRODUCTO
+export async function createProduct(nameProduct, price, image, type ) {
+ 
+  try {
+    const dateEntry = new Date().toLocaleString()
+    const response = await axios.post("http://localhost:8080/products", 
+    {
+      
+      "name": nameProduct,
+      "price": price,
+      "image": image,
+      "type": type,
+      "dateEntry": dateEntry
+    },
+{headers: {
+  "Content-Type": "application/json",
+  Authorization: `${authToken}`,
+},})
+
+console.log(response.data, 'OMG')
+    return response.data;
+  } catch (error) {
+    console.log(error.response.data, 'clicli')
+   
+  }
+}
 
 
 
