@@ -1,10 +1,6 @@
 import "./products.css";
 
-function Products({
-  productType,
-  products,
-  handlerAddProduct
-}) {
+function Products({ productType, products, handlerAddProduct }) {
   //console.log(products, "ggg");
   const filteredProducts = products.filter(
     (product) => product.type === productType
@@ -33,14 +29,7 @@ function Products({
             </div>
           </div>
           <div className="div-button">
-            <button
-              className="button-count"
-              onClick={() => {
-                handlerAddProduct(product);
-              }}
-            >
-              Add
-            </button>
+            <button className="button-count">Add</button>
           </div>
         </div>
       ))}

@@ -1,15 +1,21 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
-//import React, { useState } from "react";
-// import onClickOutside from 'react-onclickoutside';
 
 import "./dropdownlist.css";
 
-function Dropdown({ items, handleOnClick }) {
+function Dropdown({ items, handleOnClick, handleOnChangeRole, role }) {
+
+
 
   return (
-    <select name="Table" id="" className="dropdown-list">
+    <select  id=""  className="dropdown-list">
       {items.map((item) => (
-        <option className="list" onClick={handleOnClick} value={item.value}>{item.value}</option>
+        <option className="list" 
+
+        /* onClick={handleOnClick} */
+        onChange={handleOnChangeRole}
+        value={item.value}>{item.value}</option>
       ))}
     </select>
   );
