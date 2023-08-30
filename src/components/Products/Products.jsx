@@ -29,7 +29,14 @@ function Products({ productType, products, handlerAddProduct }) {
             </div>
           </div>
           <div className="div-button">
-            <button className="button-count">Add</button>
+          <button
+              className="button-count"
+              onClick={() => {
+                handlerAddProduct(product);
+              }}
+            >
+           Add
+           </button>
           </div>
         </div>
       ))}
