@@ -111,6 +111,50 @@ export async function updateOrder(orderId, newStatus , readyTime) {
   }
 }
 
+// OBTENER USUARIOS
+
+export async function getUsers() {
+  try {
+    const res = await axios.get('http://localhost:8080/users', 
+      
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${authToken}`,
+      },
+    });
+
+    return res.data;
+  } catch (error) {
+    new Swal('Error has occurred. try again later');
+    return null;
+  }
+} 
+
+
+
+// CREAR USUARIOS
+export async function createUsers(email, password, role ) {
+ 
+  try {
+    const response = await axios.post("http://localhost:8080/users", 
+    {
+      "email": email,
+      "password": password,
+      "role": role,
+  },
+{headers: {
+  "Content-Type": "application/json",
+  Authorization: `${authToken}`,
+},})
+
+console.log(response.data, 'popoppopopopoppp')
+    return response.data;
+  } catch (error) {
+    console.log(error.response.data, 'clicli')
+   
+  }
+}
 
 
 
