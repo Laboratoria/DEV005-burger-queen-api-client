@@ -67,7 +67,7 @@ function EmployeesManagement() {
          
         } catch (error) {
           Swal.fire({
-            title: 'XXXXX',
+            title: 'Error registering user, please try again later',
             icon: 'error',
             confirmButtonColor: '#D62828',
           });
@@ -113,7 +113,7 @@ function EmployeesManagement() {
           role={role}        
           />
           <Buttons
-          tag="Register" 
+          tag="Upload" 
           type="submit"/>
         </form>
 

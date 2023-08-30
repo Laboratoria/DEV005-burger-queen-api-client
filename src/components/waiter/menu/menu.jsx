@@ -27,7 +27,7 @@ const Menu = () => {
     //dropDown--------------------------------------------------
     const [table, setTable] = useState("");
 
-    function handleOnClick(e) {
+    function handleOnChange(e) {
       console.log(e.target.value, "lililili");
       setTable(e.target.value);
     }
@@ -102,7 +102,7 @@ const Menu = () => {
             value={clientName}
             onChange={handleClientNameChange}
           />
-          <Dropdown items={items} table={table} handleOnClick={handleOnClick} />
+          <Dropdown items={items} handleOnChange={handleOnChange} />
         </div>
 
         <Navigation
