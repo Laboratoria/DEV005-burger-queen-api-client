@@ -38,7 +38,7 @@ h1 {
 .login-header{
   width: 100%;
   height: 441px;
-  background-color: #EAE2B7;
+  background-color: #F8774A;
   border-bottom-left-radius: 20px ;
   border-bottom-right-radius: 20px ;
 
@@ -71,7 +71,7 @@ h1 {
 /* CSS HOME*/
 
 .Home{
-  background-color: #EAE2B7;
+  background-color: #FB6D3B;
   width: 100%;
   min-height: 1336px;
   font-size: xx-large;
@@ -79,12 +79,23 @@ h1 {
   flex-direction: column;
   align-items: center;
 }
+.div-background{
+  width: 80%;
+  height: 1250px;
+  border-radius: 0 0 50px 50px ;
+  background-color: #F2F2F2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 h2{
+  width: 819px;
+  text-align: center;
   margin-top: 100px;
   width: 350px;
   font-size: 50px;
-    color: #626262;
+  color: #626262;
 }
 
 .img-home{
