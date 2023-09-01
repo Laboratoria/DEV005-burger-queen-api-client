@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { getRequestOptions, getOrders, patchOrders } from "../../Services/UserService";
+import {
+  getRequestOptions,
+  getOrders,
+  patchOrders,
+} from "../../Services/UserService";
 import "./estilo-cocina.css";
 import LOGO from "../../img/LOGO.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
 
 function Timer({ orderId, startTime }) {
-
   const [actualTime, setActualTime] = useState(
     parseFloat(localStorage.getItem(`timerActualTime_${orderId}`)) || 0
   );
@@ -14,7 +19,10 @@ function Timer({ orderId, startTime }) {
       const intervalId = setInterval(() => {
         const currentTime = (Date.now() - Date.parse(startTime)) / 1000;
         setActualTime(currentTime);
-        localStorage.setItem(`timerActualTime_${orderId}`, currentTime.toString());
+        localStorage.setItem(
+          `timerActualTime_${orderId}`,
+          currentTime.toString()
+        );
       }, 100);
 
       return () => {
@@ -26,7 +34,9 @@ function Timer({ orderId, startTime }) {
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
-    return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    return `${minutes.toString().padStart(2, "0")}:${seconds
+      .toString()
+      .padStart(2, "0")}`;
   };
 
   return (
@@ -35,7 +45,6 @@ function Timer({ orderId, startTime }) {
     </div>
   );
 }
-
 
 export default function Cocina() {
   const [apiOrders, setApiOrders] = useState([]);
@@ -57,13 +66,15 @@ export default function Cocina() {
   const markOrderAsReady = (orderId) => {
     const requestOptions = getRequestOptions("PATCH");
     const patchData = {
-      status: "delivered",
+      status: "delivering",
       //dataEntry: new Date().toLocaleString(),
       dataEntry: new Date().toISOString(),
     };
     patchOrders(orderId, patchData, requestOptions)
       .then(() => {
-        setApiOrders((prevOrders) => prevOrders.filter((order) => order.id !== orderId));
+        setApiOrders((prevOrders) =>
+          prevOrders.filter((order) => order.id !== orderId)
+        );
         setDeliveredOrders((prevDeliveredOrders) => [
           ...prevDeliveredOrders,
           apiOrders.find((order) => order.id === orderId),
@@ -90,58 +101,55 @@ export default function Cocina() {
       <h1>Pedidos</h1>
       <div className="Todo-Order">
         {apiOrders.map((order) => (
-                <div className="Container-Order">
+          <div className="Container-Order">
+            <div className="container-comida" key={order.id}>
+              <div className="top-Order">
+                <div className="top-NumOrder">
+                  <p className="numOrder">Orden #{order.id}</p>
+                </div>
+                <div className="top-Clock">
+                  <FontAwesomeIcon icon={faClock} className="clock" />
+                </div>
+                <div className="top-Time">
+                  <Timer orderId={order.id} startTime={order.dataEntry} />
+                </div>
+              </div>
 
-          <div className="container-comida" key={order.id}>
-            <div className="top-Order">
-              <div className="top-NumOrder">
-                <p className="numOrder">Orden #{order.id}</p>
-              </div>
-              <Timer
-                orderId={order.id}
-                startTime={order.dataEntry}
-              />
-              {/* <Timer
-                orderId={order.id}
-                startTime={order.ready ? null : parseFloat(localStorage.getItem(`timerStartTime_${order.id}`)) || Date.now()}
-              /> */}
+              {order.products.map((product, productIndex) => (
+                <div className="pedido-Order" key={productIndex}>
+                  <p className="cantidad-Orden">{product.qty}</p>
+                  <p className="prod-Orden">{product.product.name}</p>
+                </div>
+              ))}
             </div>
-            {order.products.map((product, productIndex) => (
-              <div className="pedido-Order" key={productIndex}>
-                <p className="cantidad-Orden">{product.qty}</p>
-                <p className="prod-Orden">{product.product.name}</p>
-              </div>
-            ))}
-            {!order.ready ? (
-              <button className="btnCocina" onClick={() => confirmOrderReady(order.id)}>
-                Listo
-              </button>
-            ) : (
-              <p>Orden lista</p>
-            )}
-          </div>
+            <div className="container-btnCocina">
+              {!order.ready ? (
+                <button
+                  className="btnCocina"
+                  onClick={() => confirmOrderReady(order.id)}
+                >
+                  Listo
+                </button>
+              ) : (
+                <p>Orden lista</p>
+              )}
+            </div>
           </div>
         ))}
       </div>
       <div className="Delivered-Orders">
         <h1>Órdenes Entregadas</h1>
-        {deliveredOrders.map((order) => (
-          <div className="delivered-container" key={order.id}>
-            {order.id}
-          </div>
-        ))}
+        <div className="Total-delivering-container">
+          {deliveredOrders.map((order) => (
+            <div className="delivering-container" key={order.id}>
+              {order.id}
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
 }
-
-
-
-
-
-
-
-
 
 // import React, { useEffect, useState, useRef  } from "react";
 // import { getRequestOptions, getOrders } from "../../Services/UserService";
@@ -194,7 +202,6 @@ export default function Cocina() {
 //   );
 // }
 
-
 // export default function Cocina() {
 //   const [apiOrders, setApiOrders] = useState([]);
 
@@ -211,11 +218,6 @@ export default function Cocina() {
 //       });
 //   }, []);
 // //console.log("Imprimir:", apiOrders);
-
-
-
-
-
 
 //   return (
 //     <>
@@ -238,7 +240,7 @@ export default function Cocina() {
 //               <div className= "prod-Orden"><p>{productInfo?.product?.name}</p> </div>
 //             </div>
 //           )})}
-          
+
 //           <button
 //                       className="btnCocina"
 //                       onClick={() => ("listo")}
@@ -252,10 +254,6 @@ export default function Cocina() {
 //     </>
 //   );
 // }
-
-
-
-
 
 // import React, { useEffect, useState } from "react";
 // import { getRequestOptions, getOrders } from "../../Services/UserService";
@@ -273,7 +271,7 @@ export default function Cocina() {
 //     getOrders(selectOrders.products, requestOptions)
 //       .then((data) => {
 //         setApiOrders(data);
-        
+
 //       })
 //       .catch((error) => {
 //         console.error("Error fetching products:", error);
@@ -300,9 +298,9 @@ export default function Cocina() {
 //         ))}
 //     </>
 //   );
-  
-// }  
-            
+
+// }
+
 // import React, { useEffect, useState } from "react";
 // import { getRequestOptions, getOrders } from "../../Services/UserService";
 // import "./estilo-cocina.css";
@@ -329,7 +327,7 @@ export default function Cocina() {
 
 //   //   try {
 //   //     const response = await fetch(`http://localhost:8080/orders/${orderId}`, requestOptions);
-      
+
 //   //     if (response.status === 200) {
 //   //       const updatedOrders = [...apiOrders];
 //   //       const orderIndex = updatedOrders.findIndex(order => order.id === orderId);
@@ -386,7 +384,3 @@ export default function Cocina() {
 //     </>
 //   );
 // }
-
-
-
-

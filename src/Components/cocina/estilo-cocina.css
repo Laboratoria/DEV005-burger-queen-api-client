@@ -39,7 +39,7 @@ body {
   margin-bottom: 10px;
   width: 350px;
   height: 200px;
-  padding: 10px 20px 20px 20px;
+  padding: 10px 20px 15px 20px;
   position: relative;
   margin-left: 30px;
 }
@@ -58,22 +58,34 @@ body {
   overflow-y: scroll;
   height: 500px;
   margin: 15px;
+  align-items: baseline;
+ 
 }
 
 .top-NumOrder{
- width: 50%;
+ width: 80%;
+ font-weight: bold;
  
 }
 
 .top-Time{
+ margin-right: 5px;
+  width: 12%;
   
-  width: 50%;
 }
+
+.top-Clock{
+  width: 8%;
+}
+
+
+
 
 .container-comida {
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: 90%;
 }
 
 .pedido-Order {
@@ -90,9 +102,6 @@ body {
   width: 92%;
 }
 
-/* p{
-    margin-bottom: 10px;
-  } */
 
 .btnCocina {
   display: flex;
@@ -107,15 +116,21 @@ body {
   border-color: gray;
   color: white;
   border-style: none;
-  margin-left: 200px;
+  margin-left: 230px;
 }
 
+.Total-delivering-container{
+  display: flex;
+  flex-direction: row;
+}
 
-
-.delivered-container{
+.delivering-container{
+  
   background-color: #f32822;
   border-radius: 10px;
   color: #f5f5f5;
   padding: 10px;
   margin: 5px;
+  width: 50px;
+  text-align: center;
 }

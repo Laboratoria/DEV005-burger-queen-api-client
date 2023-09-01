@@ -174,6 +174,10 @@ body {
     border-style: none;
   }
 
+  .btnProduct:hover {
+    background-color: #008000;
+}
+
    
   /* ------- PEDIDO --------- */
   .subtitle_shopping_cart {
@@ -376,6 +380,10 @@ body {
     border-style: none;
 } 
 
+.botonEnviar:hover {
+  background-color: #008000;
+}
+
 .error-message{
   font-size: 15px;
   font-style: italic;
@@ -383,3 +391,89 @@ body {
   text-align: center;
 }
    
+
+/* Media query para iPad Air en orientación vertical */
+/* @media (min-width: 820px) and (max-height: 1180px) and (orientation: portrait) { */
+  /* .logo-container-pedido {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .menu {
+    width: 100%;
+    padding: 20px;
+    margin: 20px 0;
+  }
+
+  .pedido {
+    width: 100%;
+    padding: 20px;
+    margin: 20px 0;
+  }
+} */
+
+
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  .container-total {
+    flex-direction: column;
+  }
+
+  .logo-container-pedido {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    order: -1; 
+  }
+
+  .menu {
+    width: 100%;
+    padding: 20px;
+    order: 2;
+  }
+
+  .pedido {
+    position: static;
+    top: auto;
+    right: auto;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    margin-top: 20px;
+    order: 3;
+  }
+
+  .menu-header {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .mesa-select {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .cliente-input {
+    width: 100%;
+  }
+
+  .container_products {
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .product-item {
+    width: 100%;
+    margin: 0 auto 10px;
+  }
+
+  
+}

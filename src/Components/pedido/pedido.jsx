@@ -2,12 +2,16 @@ import React, { useState, useEffect, useReducer } from "react";
 import LOGO from "../../img/LOGO.png";
 import "./estilo-pedido.css";
 import Select from "react-select";
-import { reducerCart, productsInitialState, TYPES } from "../../Services/reducerCart";
+import ProductSection from "./ProductSection";
+import {
+  reducerCart,
+  productsInitialState,
+  TYPES,
+} from "../../Services/reducerCart";
 import {
   getProducts,
   getRequestOptions,
   postOrders,
-  getOrders,
 } from "../../Services/UserService";
 
 const mesa = [
@@ -22,13 +26,14 @@ export default function Pedido() {
   const [state, dispatch] = useReducer(reducerCart, productsInitialState);
   const [apiProducts, setApiProducts] = useState([]);
   const [apiOrders, setApiOrders] = useState([]);
-  const [showError, setShowError] = useState(false); 
+  const [showError, setShowError] = useState(false);
+  const [confirmSend, setConfirmSend] = useState(false); 
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   // hook selectMesa
   const handleSelectChange = (selectedOption) => {
     // console.log(selectedOption);
     setSelectMesa(selectedOption);
-    
   };
 
   // hook selectName
@@ -100,7 +105,7 @@ export default function Pedido() {
   // ... Hook Posteo de Orden
   useEffect(() => {
     if (apiOrders.length > 0) {
-        return;
+      return;
     }
 
     if (selectName.name && state.cart.length && selectMesa > 0) {
@@ -116,6 +121,35 @@ export default function Pedido() {
     }
   }, [selectName.name, state.cart, apiOrders]);
 
+  // limpiar campos
+  const clearAllFields = () => {
+    setSelectMesa(null);
+    setSelectName({ name: "" });
+    dispatch({ type: TYPES.DELETE_ALL_FROM_CART });
+  };
+
+  //Quitar mensaje de error
+  const handleInputChange = () => {
+    if (showError) {
+      setShowError(false);
+    }
+  };
+
+  const hideErrorMessage = () => {
+    setShowError(false);
+  };
+  
+
+  useEffect(() => {
+    if (confirmSend) {
+      const timer = setTimeout(() => {
+        setConfirmSend(false);
+      }, 3000); // 3000 milisegundos = 3 segundos
+
+      return () => clearTimeout(timer);
+    }
+  }, [confirmSend]);
+  
 
   return (
     <>
@@ -126,12 +160,14 @@ export default function Pedido() {
               className="mesa-select"
               options={mesa}
               onChange={handleSelectChange}
+              onFocus={handleInputChange}
               value={selectMesa}
             />
             <label className="nombreCliente">
               Cliente:
               <input
                 onChange={handleChangeName}
+                onFocus={handleInputChange}
                 value={selectName.name}
                 type="text"
                 className="cliente-input"
@@ -139,57 +175,24 @@ export default function Pedido() {
               />
             </label>
           </div>
+
           <div className="container_products">
-            <div className="product-section">
-              <h2>Desayuno</h2>
-              {apiProducts
-                .filter((product) => product.type === "Desayuno")
-                .map((product) => (
-                  <div className="product-item" key={product.id}>
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="product-image"
-                    />
-                    <h3>{product.name}</h3>
-                    <div className="precio-btn">
-                      <p className="precio">${product.price}</p>
-
-                      <button
-                        className="btnProduct"
-                        onClick={() => addToCart(product.id)}
-                      >
-                        Agregar
-                      </button>
-                    </div>
-                  </div>
-                ))} 
-            </div>
-            <div className="product-section">
-              <h2>Almuerzo</h2>
-              {apiProducts
-                .filter((product) => product.type === "Almuerzo")
-                .map((product) => (
-                  <div className="product-item" key={product.id}>
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="product-image"
-                    />
-                    <h3>{product.name}</h3>
-                    <div className="precio-btn">
-                      <p className="precio">${product.price}</p>
-
-                      <button
-                        className="btnProduct"
-                        onClick={() => addToCart(product.id)}
-                      >
-                        Agregar
-                      </button>
-                    </div>
-                  </div>
-                ))}
-            </div>
+            <ProductSection
+              title="Desayuno"
+              products={apiProducts.filter(
+                (product) => product.type === "Desayuno"
+              )}
+              addToCart={addToCart}
+              hideErrorMessage={hideErrorMessage}
+            />
+            <ProductSection
+              title="Almuerzo"
+              products={apiProducts.filter(
+                (product) => product.type === "Almuerzo"
+              )}
+              addToCart={addToCart}
+              hideErrorMessage={hideErrorMessage}
+            />
           </div>
         </div>
 
@@ -212,7 +215,8 @@ export default function Pedido() {
               )}
             </div>
           </div>
-          * {state.cart.length === 0 && (
+
+          {state.cart.length === 0 && (
             <p className="text_NoProductsInCart">
               No hay productos en la orden
             </p>
@@ -275,43 +279,47 @@ export default function Pedido() {
           </div>
           <p className="totalPrice_shoppingCart">Total: ${state.totalCuenta}</p>
           <button
-          className="botonEnviar"
-          type="submit"
-          value="enviar"
-          onClick={async () => {
-            try {
-              if (!selectName.name || state.cart.length === 0 || !selectMesa ) {
-                console.log("Rellene todos los campos necesarios");
-                setShowError(true); // Mostrar mensaje de error
-                return;
-              }
-
-              console.log("Enviando a cocina...");
-              console.log("Nombre del cliente:", selectName.name);
-              console.log("Productos en el carrito:", state.cart);
-
-              const clientName = selectName.name;
-
-              const response = await postOrders(clientName, state.cart);
-
-              if (response.status === "pending") {
-                console.log("Orden enviada con éxito:", response.status);
-              } else {
-                console.log("La orden no se ha enviado correctamente.");
-              }
-            } catch (error) {
-              console.error("Error al enviar la orden:", error);
-              setShowError(true); // Mostrar mensaje de error
+        className="botonEnviar"
+        type="submit"
+        value="enviar"
+        onClick={async () => {
+          try {
+            if (!selectName.name || state.cart.length === 0 || !selectMesa) {
+              setShowError(true);
+              return;
             }
-          }}
-        >
-          Enviar a Cocina
-        </button>
-        {showError && (
-          <p className="error-message">❌ Rellene todos los campos necesarios</p>
-        )}
 
-       
+            // Mostrar mensaje de confirmación
+            const shouldSend = window.confirm(
+              "¿Está seguro de que su pedido está completo?"
+            );
+
+            if (shouldSend) {
+              const clientName = selectName.name;
+              const response = await postOrders(clientName, state.cart);
+              if (response.status === "pending") {
+                setConfirmSend(true);
+                clearAllFields();
+              }
+            }
+          } catch (error) {
+            setShowError(true);
+          }
+        }}
+      >
+        Enviar a Cocina
+      </button>
+
+      {confirmSend && (
+        <p className="success-message">✅ Pedido enviado a cocina</p>
+      )}
+
+
+          {showError && (
+            <p className="error-message">
+              ❌ Rellene todos los campos necesarios
+            </p>
+          )}
         </div>
       </div>
     </>
