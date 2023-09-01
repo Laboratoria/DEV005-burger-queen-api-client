@@ -2,8 +2,10 @@ import Dropdown from "../DropDownList/DropDownList";
 
 import Buttons from "../Buttons/Buttons";
 import { useEffect, useState } from "react";
-import { createUsers, getUsers } from "../../services/UseAxios";
+import { createUsers, editUser, getUsers } from "../../services/UseAxios";
 import Swal from 'sweetalert2';
+
+
 
 function EmployeesManagement() {
    
@@ -19,15 +21,15 @@ function EmployeesManagement() {
       const items = [
         {
           id: 1,
-          value: "waiter",
+          value: "Waiter",
         },
         {
           id: 2,
-          value: "chef",
+          value: "Chef",
         },
         {
           id: 3,
-          value: "admin",
+          value: "Admin",
         },
       ];
 
@@ -83,6 +85,8 @@ function EmployeesManagement() {
     const fetchUsers = async () => {
       try {
         const response = await getUsers();
+
+        console.log(response, "MIRIA ANTONIA")
         setUsers(response);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -90,6 +94,38 @@ function EmployeesManagement() {
     };
     fetchUsers();
   }, []);
+
+
+// EDITAR USUARIOS
+const [editingUserId, setEditingUserId] = useState(null);
+const [newEmail, setNewEmail] = useState("");
+const [newPassword, setNewPassword] = useState("");
+const [newRole, setNewRole] = useState("");
+
+const handleEditSubmit = async () => {
+  try {
+   
+    const response = await editUser(editingUserId,  newEmail, newPassword, newRole);
+
+    console.log(response, 'COMANDO')
+     response.newEmail = setNewEmail(users.email)
+
+    // Limpia los campos y el estado de edición
+    setEditingUserId(null);
+    setNewEmail("");
+    setNewPassword("");
+    setNewRole("");
+  } catch (error) {
+    // Manejo de errores
+  }
+};
+
+
+
+
+
+
+
 
   return (
     <main>
@@ -108,13 +144,20 @@ function EmployeesManagement() {
         placeholder=" 🔒︎ Password" 
         value={password} />
           <Dropdown
-            handleOnChangeRole={handleOnChangeRole}
+            handleOnChange={handleOnChangeRole}
           items={items}   
           role={role}        
           />
-          <Buttons
-          tag="Upload" 
-          type="submit"/>
+          
+
+{editingUserId ? (
+  <Buttons tag="Confirm Edit" onClick={handleEditSubmit} type="submit" />
+  
+) : (
+  <Buttons tag="Upload" type="submit" />
+)}
+
+
         </form>
 
         <section>
@@ -134,7 +177,12 @@ function EmployeesManagement() {
                   <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
                 </svg>
               </button>
-              <button className="edit" type="button">
+              <button className="edit" type="button"  onClick={() => {
+    setEditingUserId(user.id);
+    setNewEmail(user.email);
+    setNewPassword(""); 
+    setNewRole(user.role);
+  }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="icon icon-tabler icon-tabler-edit"

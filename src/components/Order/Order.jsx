@@ -49,7 +49,8 @@ const handleSubmitOrder = async (e) => {
   }
   try {
    // debugger
-    const response = await createOrder(clientName, table, orderProducts);
+    const response = await createOrder(clientName, table, orderProducts, total);
+    console.log(response, 'ESTO ES UNA PRUEBA')
     setClientName("");
     setTable("");
     setOrderProducts([]);

@@ -110,11 +110,11 @@ const [priceProduct, setPriceProduct] = useState("");
       const items = [
         {
           id: 1,
-          value: "Desayuno",
+          value: "Breakfast",
         },
         {
           id: 2,
-          value: "Almuerzo",
+          value: "Lunch",
         },
        
       ];
@@ -134,8 +134,8 @@ const [priceProduct, setPriceProduct] = useState("");
         onChange={handleNameProductChange}/>
         <input 
         
-        type="file" 
-        name="image" 
+        type="url" 
+        name="url" 
         id="" 
         onChange={handleImageChange}
         
@@ -157,7 +157,7 @@ const [priceProduct, setPriceProduct] = useState("");
       <section>
 
       <Navigation
-          tabs={["All", "Desayuno", "Almuerzo" ]}
+          tabs={["All", "Breakfast", "Lunch" ]}
           activeTab={selectedTab}
           onSelectTab={handleTabChange}
         />

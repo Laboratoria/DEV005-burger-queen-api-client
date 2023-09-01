@@ -59,14 +59,26 @@ const handleDelivered = async (orderId) => {
 
             <div className="info-order">
               {order.products.map((product) => (
+               
                 <div className="info-row" key={product.id}>
                   <p>{product.qty}</p>
                   <p>{product.product.name}</p>
-                  <p>${product.product.price}</p>
+                  <p>${(product.product.price) * (product.qty)}</p>
+                  
                 </div>
+
+                
+               
+
               ))}
 
+              <div className="info-total">
+                <p>Total: ${order.total}</p>
+              </div>
+              
+
             </div>
+
           </li>
         ))}
       </ul>
