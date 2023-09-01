@@ -65,7 +65,7 @@ export async function getOrder() {
 } 
 
 //CREAR ORDENES--------------------------------------------------------------------------------------
-export async function createOrder(clientName, table, products) {
+export async function createOrder(clientName, table, products, total) {
  
   try {
     const dateEntry = new Date().toLocaleString()
@@ -73,6 +73,7 @@ export async function createOrder(clientName, table, products) {
     "client": clientName,
     "table" : table,
     "products": products,
+    "total": total ,
     "status": 'pending',
     "dateEntry": dateEntry,
     "startTime": new Date(),
@@ -175,6 +176,31 @@ export async function createProduct(nameProduct, price, image, type ) {
 },})
 
 console.log(response.data, 'OMG')
+    return response.data;
+  } catch (error) {
+    console.log(error.response.data, 'clicli')
+   
+  }
+}
+
+
+// EDITAR USUARIOS
+export async function editUser( newEmail, newPassword, newRole ) {
+ 
+  try {
+   
+    const response = await axios.patch("http://localhost:8080/users", 
+    {
+      "email": newEmail,
+      "password": newPassword,
+      "role": newRole,
+  },
+{headers: {
+  "Content-Type": "application/json",
+  Authorization: `${authToken}`,
+},})
+
+console.log(response.data, 'COMANDO111')
     return response.data;
   } catch (error) {
     console.log(error.response.data, 'clicli')
