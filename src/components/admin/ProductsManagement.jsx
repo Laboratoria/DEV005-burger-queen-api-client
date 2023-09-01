@@ -57,7 +57,7 @@ function ProductsManagement() {
 
 
 
-    const [selectedTab, setSelectedTab] = useState('Desayuno');
+    const [selectedTab, setSelectedTab] = useState('All');
 
     const handleTabChange = (tab) => {
       setSelectedTab(tab);
@@ -161,7 +161,8 @@ const [priceProduct, setPriceProduct] = useState("");
           activeTab={selectedTab}
           onSelectTab={handleTabChange}
         />
-        <Products productType={selectedTab}
+        <Products 
+          productType={selectedTab === 'All' ? '' : selectedTab}
           products={products}
         />
       </section>
