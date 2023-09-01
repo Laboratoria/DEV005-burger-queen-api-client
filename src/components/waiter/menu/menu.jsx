@@ -10,7 +10,7 @@ import "./menu.css";
 
 const Menu = () => {
   //funcion para la navBar---------------------------
-  const [selectedTab, setSelectedTab] = useState("Desayuno");
+  const [selectedTab, setSelectedTab] = useState("Breakfast");
 
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
@@ -91,6 +91,10 @@ const Menu = () => {
     setOrderProducts(updatedProducts);
   };
 
+
+
+  
+
   return (
     <article>
       <section className="menu-waiter">
@@ -106,7 +110,7 @@ const Menu = () => {
         </div>
 
         <Navigation
-          tabs={["Desayuno", "Almuerzo"]}
+          tabs={["Breakfast", "Lunch"]}
           activeTab={selectedTab}
           onSelectTab={handleTabChange}
         />

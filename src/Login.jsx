@@ -46,7 +46,7 @@ function UserForm() {
       try {
         const response = await updateAuth(contactInfo.email, contactInfo.password);
         if(response){
-           if (response.role === 'admin') {
+           if (response.role === 'Admin') {
           Swal.fire({
             icon: 'success',
             title: 'Successful Log In',
@@ -55,11 +55,11 @@ function UserForm() {
           })
           navigate('/Admin');
         }
-        if (response.role === 'waiter') {
+        if (response.role === 'Waiter') {
           new Swal('Successful Log In');
           navigate('/Waiter');
         }
-        if (response.role === 'chef') {
+        if (response.role === 'Chef') {
           new Swal('Successful Log In');
           navigate('/Chef');
         } 
