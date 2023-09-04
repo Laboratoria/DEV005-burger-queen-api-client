@@ -34,7 +34,7 @@ useEffect(() => {
     } else if (userRole === "chef") {
       navigate("/cocina"); 
     } else if (userRole === "admin") {
-      navigate("/administracion"); 
+      navigate("/admusuarios"); 
     }
   } else {
     navigate("/");

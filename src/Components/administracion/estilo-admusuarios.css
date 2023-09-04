@@ -1,0 +1,34 @@
+@import url("https://fonts.google.com/specimen/Luckiest+Guy?query=luckies");
+
+body {
+  background-color: #FDD209;
+  margin: 0px;
+  padding: 0px;
+ 
+}
+
+.logo-usuarios {
+  margin: 0;
+  font-weight: 800;
+  font-size: 150%;
+  color: #F32822;
+  text-shadow: -2px -2px 0 #F5F5F5, 2px -2px 0 #F5F5F5, -2px 2px 0 #F5F5F5, 2px 2px 0 #F5F5F5;
+}
+
+.logo1-usuarios {
+  width: 60px;
+  height: 60p;
+}
+
+.p-usuarios {
+  text-align: left;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+.Nuevo-usuario {
+  text-align: right;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
