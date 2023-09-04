@@ -4,10 +4,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./Components/login/login.jsx";
 import Pedido from "./Components/pedido/pedido.jsx";
-import Administracion from "./Components/administacion/administracion.jsx";
-import Cocina from "./Components/cocina/cocina.jsx";
+import Cocina from "./Components/cocina/cocina.jsx"
+import Admusuarios from "./Components/administracion/admusuarios.jsx";
 import AdministracionMenu from "./Components/administracion-menu/administracion-menu.jsx";
-
 
 
 const router = createBrowserRouter([
@@ -20,8 +19,8 @@ const router = createBrowserRouter([
     element: <Pedido />,
   },
   {
-    path: "/administracion",
-    element: <Administracion />,
+    path: "/admusuarios",
+    element: <Admusuarios />,
   },
   {
     path: "/administracion-menu",
