@@ -2,9 +2,12 @@ import "./products.css";
 
 function Products({ productType, products, handlerAddProduct }) {
   //console.log(products, "ggg");
-  const filteredProducts = products.filter(
-    (product) => product.type === productType
-  );
+  
+  let filteredProducts = products;
+
+  if (productType !== "") {
+    filteredProducts = products.filter((product) => product.type === productType);
+  }
 
   return (
     <div className="div-products">
