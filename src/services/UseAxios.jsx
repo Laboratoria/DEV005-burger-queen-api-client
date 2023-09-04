@@ -340,3 +340,49 @@ export async function Users(url) {
 }
 */
 }
+
+
+
+
+
+export async function deleteProduct(productId) {
+  try {
+    const response = await axios.delete(`http://localhost:8080/products/${productId}`, {
+      headers: {
+        Authorization: `${authToken}`,
+      },
+    });
+
+    console.log(response.data, 'Producto eliminado correctamente :D');
+    return response.data;
+  } catch (error) {
+    console.log(error.response.data, 'No se pudo eliminar el producto :(');
+    throw error; 
+  }
+}
+
+export async function editProduct(productId, newName, newPrice, newImage, newType) {
+  try {
+    const response = await axios.patch(
+      `http://localhost:8080/products/${productId}`,
+      {
+        name: newName,
+        price: newPrice,
+        image: newImage,
+        type: newType,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `${authToken}`,
+        },
+      }
+    );
+
+    console.log(response.data, 'Producto editado correctamente :D');
+    return response.data;
+  } catch (error) {
+    console.log(error.response.data, 'No se pudo editar el producto :(');
+    throw error;
+  }
+}

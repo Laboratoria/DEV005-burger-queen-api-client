@@ -92,7 +92,8 @@ const handleSubmitOrder = async (e) => {
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
                     height="20"
-                    fill="#626262"
+                    fill="none"
+                    stroke="#FB6D3B"
                     className="bi bi-trash3"
                     viewBox="0 0 16 16"
                   >
