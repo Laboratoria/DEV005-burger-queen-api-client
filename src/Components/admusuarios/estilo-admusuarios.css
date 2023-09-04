@@ -1,0 +1,84 @@
+@import url("https://fonts.google.com/specimen/Luckiest+Guy?query=luckies");
+
+body {
+  background-color: #FDD209;
+  margin: 0px;
+  padding: 0px;
+ 
+}
+
+.logo-usuarios {
+  margin: 0;
+  font-weight: 800;
+  font-size: 150%;
+  color: #F32822;
+  text-shadow: -2px -2px 0 #F5F5F5, 2px -2px 0 #F5F5F5, -2px 2px 0 #F5F5F5, 2px 2px 0 #F5F5F5;
+}
+
+.logo1-usuarios {
+  width: 60px;
+  height: 60p;
+}
+
+.p-usuarios {
+  text-align: left;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+.Nuevo-usuario {
+  text-align: right;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%; 
+}
+.usuarios-table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  background-color: white;
+  max-width: 100%; 
+}
+
+.container-usuarios {
+    align-items: center;
+    padding: 20px;
+    margin-right: 20px; 
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f5f5f5;
+  }
+
+@media (max-width: 768px) {
+
+  .logo-title-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+  
+  .content-container {
+    flex-direction: column;
+    margin: 5px 0px;
+  }
+
+  .left-container,
+  .right-container {
+    width: 100%;
+    margin-bottom: 20px; 
+  }
+
+  .product-table {
+    font-size: 80%; 
+  }
+}

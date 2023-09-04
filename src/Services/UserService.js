@@ -173,3 +173,57 @@ export const deleteProduct = (productId) => {
       throw error;
     });
 };
+
+//-------------Traer los usuarios---------
+export const getUsers = () => {
+  const requestOptions = getRequestOptions("GET"); 
+  
+  return fetch("http://localhost:8080/users", requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error fetching users");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error fetching users:", error);
+      throw error;
+    });
+};
+
+// --------- Agregar usuarios ------
+ export const addUsers = (newUser) => {
+  console.log(newUser);
+  const requestOptions = getRequestOptions("POST"); 
+  return fetch("http://localhost:8080/users", {
+    ...requestOptions,
+    body: JSON.stringify(newUser),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error adding user");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error adding user:", error);
+      throw error;
+    });
+};
+
+// --------- Eliminar usuarios------
+export const deleteUsers = (usersId) => {
+  const requestOptions = getRequestOptions("DELETE");
+
+  return fetch(`http://localhost:8080/users/${usersId}`, requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error deleting users");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error deleting users:", error);
+      throw error;
+    });
+};

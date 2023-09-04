@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./Components/login/login.jsx";
 import Pedido from "./Components/pedido/pedido.jsx";
 import Cocina from "./Components/cocina/cocina.jsx"
-import Admusuarios from "./Components/administracion/admusuarios.jsx";
+import Admusuarios from "./Components/admusuarios/admusuarios.jsx";
 import AdministracionMenu from "./Components/administracion-menu/administracion-menu.jsx";
 
 
