@@ -46,22 +46,10 @@ body {
     border-radius: 30px;
     margin: 20px;
     width: 58%;
+    height: 780px;
   }
   
-  .pedido {
-    position: absolute;
-    top: 90px;
-    right: 30px;
-    width: 35%;
-    height: 60%;
-    background-color: #F5F5F5;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: 30px;
-  }
-  
+
   .menu-header {
     display: flex;
     gap: 40px;
@@ -179,7 +167,22 @@ body {
 }
 
    
-  /* ------- PEDIDO --------- */
+  /* ----------------------------- PEDIDO ------------------------------------------------ */
+
+  .pedido {
+    position: absolute;
+    top: 90px;
+    right: 30px;
+    width: 35%;
+    height: 60%;
+    background-color: #F5F5F5;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 30px;
+  }
+  
   .subtitle_shopping_cart {
     text-align: center;
     font-size: 35px;
@@ -390,7 +393,23 @@ body {
   color: #F32822;
   text-align: center;
 }
-   
+
+  /* ----------------------------- Odenes Listas ------------------------------------------------ */
+
+.ordenes-listas{
+  position: absolute;
+  top: 600px;
+  right: 30px;
+  width: 35%;
+  height: 24%;
+  background-color: #F5F5F5;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 30px;
+}
+
 
 /* Media query para iPad Air en orientación vertical */
 /* @media (min-width: 820px) and (max-height: 1180px) and (orientation: portrait) { */

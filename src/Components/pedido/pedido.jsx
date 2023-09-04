@@ -13,6 +13,8 @@ import {
   getRequestOptions,
   postOrders,
 } from "../../Services/UserService";
+import DeliveredOrders from "../cocina/DeliveredOrder";
+
 
 const mesa = [
   { label: "Mesa #1", value: "Mesa 1" },
@@ -27,8 +29,9 @@ export default function Pedido() {
   const [apiProducts, setApiProducts] = useState([]);
   const [apiOrders, setApiOrders] = useState([]);
   const [showError, setShowError] = useState(false);
-  const [confirmSend, setConfirmSend] = useState(false); 
+  const [confirmSend, setConfirmSend] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+const [deliveredOrders, setDeliveredOrders] = useState([]);
 
   // hook selectMesa
   const handleSelectChange = (selectedOption) => {
@@ -138,7 +141,6 @@ export default function Pedido() {
   const hideErrorMessage = () => {
     setShowError(false);
   };
-  
 
   useEffect(() => {
     if (confirmSend) {
@@ -149,7 +151,6 @@ export default function Pedido() {
       return () => clearTimeout(timer);
     }
   }, [confirmSend]);
-  
 
   return (
     <>
@@ -279,47 +280,58 @@ export default function Pedido() {
           </div>
           <p className="totalPrice_shoppingCart">Total: ${state.totalCuenta}</p>
           <button
-        className="botonEnviar"
-        type="submit"
-        value="enviar"
-        onClick={async () => {
-          try {
-            if (!selectName.name || state.cart.length === 0 || !selectMesa) {
-              setShowError(true);
-              return;
-            }
+            className="botonEnviar"
+            type="submit"
+            value="enviar"
+            onClick={async () => {
+              try {
+                if (
+                  !selectName.name ||
+                  state.cart.length === 0 ||
+                  !selectMesa
+                ) {
+                  setShowError(true);
+                  return;
+                }
 
-            // Mostrar mensaje de confirmación
-            const shouldSend = window.confirm(
-              "¿Está seguro de que su pedido está completo?"
-            );
+                // Mostrar mensaje de confirmación
+                const shouldSend = window.confirm(
+                  "¿Está seguro de que su pedido está completo?"
+                );
 
-            if (shouldSend) {
-              const clientName = selectName.name;
-              const response = await postOrders(clientName, state.cart);
-              if (response.status === "pending") {
-                setConfirmSend(true);
-                clearAllFields();
+                if (shouldSend) {
+                  const clientName = selectName.name;
+                  const response = await postOrders(clientName, state.cart);
+                  if (response.status === "pending") {
+                    setConfirmSend(true);
+                    clearAllFields();
+                  }
+                }
+              } catch (error) {
+                setShowError(true);
               }
-            }
-          } catch (error) {
-            setShowError(true);
-          }
-        }}
-      >
-        Enviar a Cocina
-      </button>
+            }}
+          >
+            Enviar a Cocina
+          </button>
 
-      {confirmSend && (
-        <p className="success-message">✅ Pedido enviado a cocina</p>
-      )}
-
+          {confirmSend && (
+            <p className="success-message">✅ Pedido enviado a cocina</p>
+          )}
 
           {showError && (
             <p className="error-message">
               ❌ Rellene todos los campos necesarios
             </p>
           )}
+        </div>
+        <div className="ordenes-listas">
+         <h2>Ordenes Listas</h2>
+         <div className="Total-delivering-container">
+         {deliveredOrders.map((order) => (
+   <DeliveredOrders deliveredOrders={deliveredOrders} />
+))}
+      </div>
         </div>
       </div>
     </>
