@@ -156,7 +156,7 @@ console.log(response.data, 'popoppopopopoppp')
    
   }
 }
-// CREAR PRODUCTO
+// CREAR PRODUCTO----------------------------------------------------------
 export async function createProduct(nameProduct, price, image, type ) {
  
   try {
@@ -175,10 +175,10 @@ export async function createProduct(nameProduct, price, image, type ) {
   Authorization: `${authToken}`,
 },})
 
-console.log(response.data, 'OMG')
+console.log(response.data, 'OMG CREADO CORRECTAMENTE  :D ')
     return response.data;
   } catch (error) {
-    console.log(error.response.data, 'clicli')
+    console.log(error.response.data, 'NO FUNCIONO :(')
    
   }
 }
