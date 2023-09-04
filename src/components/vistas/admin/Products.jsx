@@ -1,9 +1,12 @@
+import React from "react";
+import './Products.css';
 import { useNavigate } from "react-router-dom";
 import Banner from "../../banner/banner";
 import Button from "../../Button/button";
 import {LogicProducts} from "../../../functions/adminProducts.jsx"
-import Modal from "../../Modal/Modal";
-import Input from "../../Input/Inpunt";
+import Modal from "../../Modal/modal.jsx";
+import Input from "../../Input/Input.jsx";
+import './Products.css';
 
 
 import Add from "../../../../img/add.png"
@@ -39,9 +42,8 @@ export default function Products() {
   } = LogicProducts();
 
   return (
-    <>
+    <><Banner/>
       <div className='containerProducts'>
-        <Banner/>
         <div className='products-container'>
           <div className='headerContainerProducts'>
             <h2 className='titleProducts'>Productos</h2>

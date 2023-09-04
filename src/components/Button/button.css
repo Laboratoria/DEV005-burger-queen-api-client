@@ -1,9 +1,10 @@
 .buttonDefault {
-    background-color: rgba(209, 166, 80, 1);
-    color: #000000;
+    background-color: #68902B;
+    color: #ffff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-family: 'Suez One', serif;
+    font-family: 'Suez One', serif; 
+    gap: 10px;   
 }
