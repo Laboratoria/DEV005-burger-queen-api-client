@@ -2,45 +2,51 @@ import Dropdown from "../DropDownList/DropDownList";
 
 import Buttons from "../Buttons/Buttons";
 import { useEffect, useState } from "react";
-import { createUsers, editUser, getUsers } from "../../services/UseAxios";
+import { createUsers, deleteUser, editUser, getUsers } from "../../services/UseAxios";
 import Swal from 'sweetalert2';
 
 
 
 function EmployeesManagement() {
    
+  // ESTADO DE ROLE
+  const [role, setRole] = useState("");
+  // CREAR USUARIOS
+  const [email, setEmail] = useState("");
+  // OBTENER LOS USUARIOS YA CREADOS
+  const [users, setUsers] = useState([]);
+  // ID USUARIOS
+  const [userId, setUserId] = useState(null);
+  // ESTADO PASSWORD
+  const [password, setPassword] = useState("");
+
    
-    // ESTADO DE ROLE
-    const [role, setRole] = useState("");
-    
-    function handleOnChangeRole(e) {
-        console.log(e.target.value, "lililili");
-        setRole(e.target.value);
-      }
+  const items = [
+    {
+      id: 1,
+      value: "Waiter",
+    },
+    {
+      id: 2,
+      value: "Chef",
+    },
+    {
+      id: 3,
+      value: "Admin",
+    },
+  ];
 
-      const items = [
-        {
-          id: 1,
-          value: "Waiter",
-        },
-        {
-          id: 2,
-          value: "Chef",
-        },
-        {
-          id: 3,
-          value: "Admin",
-        },
-      ];
+  function handleOnChangeRole(e) {
+    console.log(e.target.value, "lililili");
+    setRole(e.target.value);
+  }
 
-    // CREAR USUARIOS
-    const [email, setEmail] = useState("");
 
     const handleEmailChange = (event) => {
-      console.log(event.target.value);
+      console.log('EMAIL',event.target.value);
       setEmail(event.target.value);
     };
-    const [password, setPassword] = useState("");
+
 
     const handlePasswordChange = (event) => {
       console.log(event.target.value);
@@ -74,63 +80,54 @@ function EmployeesManagement() {
             confirmButtonColor: '#D62828',
           });
         }
-         
-        
       } 
 
-  // OBTENER LOS USUARIOS YA CREADOS
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await getUsers();
-
-        console.log(response, "MIRIA ANTONIA")
-        setUsers(response);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-    fetchUsers();
-  }, []);
-
-
-// EDITAR USUARIOS
-const [editingUserId, setEditingUserId] = useState(null);
-const [newEmail, setNewEmail] = useState("");
-const [newPassword, setNewPassword] = useState("");
-const [newRole, setNewRole] = useState("");
-
+  const fetchUsers = async () => {
+    try {
+      const response = await getUsers();
+  
+      console.log(response, "MIRIA ANTONIA");
+      setUsers(response);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
+  
 const handleEditSubmit = async () => {
+
   try {
-   
-    const response = await editUser(editingUserId,  newEmail, newPassword, newRole);
+
+    const response = await editUser(userId,  email, password, role);
 
     console.log(response, 'COMANDO')
-     response.newEmail = setNewEmail(users.email)
-
-    // Limpia los campos y el estado de edición
-    setEditingUserId(null);
-    setNewEmail("");
-    setNewPassword("");
-    setNewRole("");
+     response.newEmail = setEmail(users.email)
+  
   } catch (error) {
     // Manejo de errores
   }
 };
 
+// ELIMINAR USUARIOS 
+const handleDeleteUser = async (userId) => {
+  try {
+    const response = await deleteUser(userId);
+    console.log(response, "Usuario eliminado");
 
+    // Actualiza la lista de usuarios después de la eliminación
+    setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
+  } catch (error) {
+    console.error("Error al eliminar el usuario:", error);
+  }
+};
 
-
-
-
-
+useEffect(() => {
+  fetchUsers();
+}, []); 
 
   return (
     <main>
       <section>
-        <form onSubmit={handleSubmit} action="">
+        <form  action="" >
         <input 
         onChange={handleEmailChange}
         className="inputs-login"
@@ -150,11 +147,11 @@ const handleEditSubmit = async () => {
           />
           
 
-{editingUserId ? (
-  <Buttons tag="Confirm Edit" onClick={handleEditSubmit} type="submit" />
+{userId ? (
+  <Buttons tag="Confirm Edit" onClick={handleEditSubmit}  />
   
 ) : (
-  <Buttons tag="Upload" type="submit" />
+  <Buttons tag="Upload" onClick={handleSubmit} />
 )}
 
 
@@ -165,7 +162,7 @@ const handleEditSubmit = async () => {
             <div key={user.id}>
               <p>{user.email}</p>
               <p>{user.role}</p>
-              <button className="delete" type="button">
+              <button className="delete" onClick={() => handleDeleteUser(user.id)} type="button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -178,10 +175,13 @@ const handleEditSubmit = async () => {
                 </svg>
               </button>
               <button className="edit" type="button"  onClick={() => {
-    setEditingUserId(user.id);
-    setNewEmail(user.email);
-    setNewPassword(""); 
-    setNewRole(user.role);
+                 console.log(user.role, 'A VER')
+                 console.log(user.id, 'A VER')
+                 setUserId(user.id);
+      setEmail(user.email);
+      setPassword('');
+      setRole(user.role);
+    
   }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
