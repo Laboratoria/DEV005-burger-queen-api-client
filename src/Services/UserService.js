@@ -118,4 +118,58 @@ export function patchOrders(orderId, patchData, requestOptions) {
       console.error(error);
       throw error;
     });
-}
+};
+
+// --------- Obtener productos2 del menú ------
+export const getProducts2 = () => {
+  const requestOptions = getRequestOptions("GET"); // Utiliza la función getRequestOptions para obtener el encabezado de autorización
+  
+  return fetch("http://localhost:8080/products", requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error fetching products");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error fetching products:", error);
+      throw error;
+    });
+};
+
+// --------- Agregar productos al menú ------
+export const addProduct = (newProduct) => {
+  const requestOptions = getRequestOptions("POST"); // Utiliza la función getRequestOptions para obtener el encabezado de autorización
+
+  return fetch("http://localhost:8080/products", {
+    ...requestOptions,
+    body: JSON.stringify(newProduct),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error adding product");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error adding product:", error);
+      throw error;
+    });
+};
+
+// --------- Eliminar productos del menú ------
+export const deleteProduct = (productId) => {
+  const requestOptions = getRequestOptions("DELETE"); // Utiliza la función getRequestOptions para obtener el encabezado de autorización
+
+  return fetch(`http://localhost:8080/products/${productId}`, requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error deleting product");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error deleting product:", error);
+      throw error;
+    });
+};
