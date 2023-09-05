@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Dropdown from "../DropDownList/DropDownList";
 
 import Products from "../Products/Products";
@@ -190,15 +190,25 @@ const handleEditProduct = (productId) => {
   setPriceProduct(productToEdit.price);
   setImage(productToEdit.image);
   setTypeProduct(productToEdit.type);
+
+  // Desplazar la página a la sección de los inputs
+  if (inputsSectionRef.current) {
+    inputsSectionRef.current.scrollIntoView({ behavior: "smooth" });
+  }
 };
 
+// Crear una referencia para la sección de los inputs
+const inputsSectionRef = useRef(null);
 
 
   return (
     <>
       <section >
-        <form action="" onSubmit={handleSubmit} className="form-admin-prodcts">
-
+        <form action="" onSubmit={handleSubmit} >
+        <div 
+        ref={inputsSectionRef}
+        className="div-admin-prodcts"
+        >
           <input
             className="inputs-admin-products"
             type="text"
@@ -232,9 +242,10 @@ const handleEditProduct = (productId) => {
           value={typeProduct}
            />
           <div className="centered-button">
-          <Buttons tag={isEditing ? "Confirm" : "Upload"} type="submit" />
+          <Buttons tag={isEditing ? "Confirm changes" : "Create product"} type="submit" />
           </div>
         
+        </div>
 
         </form>
       </section>
