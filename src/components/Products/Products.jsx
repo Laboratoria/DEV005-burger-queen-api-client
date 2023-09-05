@@ -1,6 +1,6 @@
 import "./products.css";
 
-function Products({ productType, products, handlerAddProduct, handleDeleteProduct, showButtons }) {
+function Products({ productType, products, handlerAddProduct, handleEditProduct, handleDeleteProduct, showButtons }) {
   //console.log(products, "ggg");
   
   let filteredProducts = products;
@@ -46,6 +46,10 @@ function Products({ productType, products, handlerAddProduct, handleDeleteProduc
              {showButtons.edit && 
               <button
                 className="button-admin"
+                onClick={() => {
+                  handleEditProduct(product.id);
+                }}
+                
               >
                  <svg
                   xmlns="http://www.w3.org/2000/svg"
