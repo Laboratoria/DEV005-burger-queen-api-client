@@ -185,11 +185,12 @@ console.log(response.data, 'OMG CREADO CORRECTAMENTE  :D ')
 
 
 // EDITAR USUARIOS
-export async function editUser( newEmail, newPassword, newRole ) {
- 
+export async function editUser(userId, newEmail, newPassword, newRole ) {
+ console.log("lalalalalala", userId, newEmail, newPassword, newRole )
+
   try {
    
-    const response = await axios.patch("http://localhost:8080/users", 
+    const response = await axios.put(`http://localhost:8080/users/${userId}`, 
     {
       "email": newEmail,
       "password": newPassword,
@@ -200,10 +201,29 @@ export async function editUser( newEmail, newPassword, newRole ) {
   Authorization: `${authToken}`,
 },})
 
-console.log(response.data, 'COMANDO111')
+console.log(response.data, 'ELEMENTOS PARA EDITAR')
     return response.data;
   } catch (error) {
     console.log(error.response.data, 'clicli')
+   
+  }
+}
+// ELIMINAR USUARIOS
+export async function deleteUser(userId) {
+ console.log('hola')
+  try {
+   
+    const response = await axios.delete(`http://localhost:8080/users/${userId}`, 
+    
+{headers: {
+  "Content-Type": "application/json",
+  Authorization: `${authToken}`,
+},})
+
+console.log(response.data, 'DELETE 1')
+    return response.data;
+  } catch (error) {
+    console.log(error.response)
    
   }
 }
