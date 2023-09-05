@@ -50,9 +50,10 @@ export default function NuevoUsuario() {
   };
 
   return (
+    <>
     <div className="right-container">
       <h2 className="container-title-right">AGREGAR USUARIO</h2>
-      <div className="divsInput-admon-menu">
+      <div className="divsInput-adm-usuario">
         <div className="add-adm-usuario">
           <input
             className="input-adm-usuario"
@@ -87,5 +88,6 @@ export default function NuevoUsuario() {
         Agregar{" "}
       </button>
     </div>
+    </>
   );
 }

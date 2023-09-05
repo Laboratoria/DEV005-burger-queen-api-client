@@ -3,8 +3,20 @@
 body {
   background-color: #FDD209;
   margin: 0px;
-  padding: 0px;
- 
+  padding: 0px;   
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 .logo-usuarios {
@@ -17,20 +29,8 @@ body {
 
 .logo1-usuarios {
   width: 60px;
-  height: 60p;
-}
-
-.p-usuarios {
-  text-align: left;
-  font-size: 20px;
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: bold;
-}
-.Nuevo-usuario {
-  text-align: right;
-  font-size: 20px;
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: bold;
+  height: 60px;
+  margin-left: 10px;
 }
 
 .content-container {
@@ -38,24 +38,118 @@ body {
   justify-content: space-between;
   width: 90%; 
 }
-.usuarios-table {
+
+.left-container,
+.right-container {
+  align-items: center;
+  padding: 20px;
+  margin-right: 20px; 
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  margin-bottom: 20px;
-  border-collapse: collapse;
-  background-color: white;
-  max-width: 100%; 
+  background-color: #f5f5f5;
 }
 
-.container-usuarios {
-    align-items: center;
-    padding: 20px;
-    margin-right: 20px; 
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
+
+.container-title {
+  font-size: 160%;
+  color: #333333;
+  font-weight: 800;
+}
+
+.container-title-right { 
+  font-size: 160%;
+  color: #333333;
+  font-weight: 800;
+  margin-top: 30px;
+}
+
+
+.usuarios-table {
     width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    background-color: white;
+    max-width: 100%; 
+  }
+
+  .usuarios-table th, .usuarios-table td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle; 
+  }
+
+  .usuarios-table th {
+    background-color: #6610f2;
+    border-color: gray;
+    border-style: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .usuarios-table tbody tr:nth-child(even) {
     background-color: #f5f5f5;
   }
+  
+  .usuarios-table tbody tr:hover {
+    background-color: #ccc;
+  }
+
+  .divsInput-adm-usuario {
+    margin: 20px 0px;
+  }
+
+  .btnPapelera-adm-usuarios {
+  border: none;
+  background-color: #f2f2f2;
+  border-radius: 50px;
+  margin-right: 10px;
+  }
+
+.add-adm-usuario {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.input-adm-usuario {
+  font-size: 20px;
+  border: none;
+  border-bottom: 1px solid black; 
+  margin: 20px 0; 
+  text-align: center;
+  background-color: #f2f2f2;
+}
+
+.input-adm-usuario::placeholder {
+  color: gray; 
+  font-style: italic;
+  font-size: 20px;
+  text-align: center;
+}
+
+.btn-agregar-usuario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 40px;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #5E71CD;
+  border-color: gray;
+  color: white;
+  border-style: none;
+}
+
+.btn-agregar-usuario:hover {
+  background-color: #4caf50;
+}
+
+.admusuarios {
+  display: flex;
+}
 
 @media (max-width: 768px) {
 
@@ -78,7 +172,7 @@ body {
     margin-bottom: 20px; 
   }
 
-  .product-table {
+  .usuarios-table {
     font-size: 80%; 
   }
-}
+} 

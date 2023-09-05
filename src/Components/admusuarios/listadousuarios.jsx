@@ -25,9 +25,9 @@ export default function ListadoUsuarios() {
 
   return (
     <>
-      <div className="container-general">
-        <div className="container-usuarios">
-          <h2 className="p-usuarios">Usuarios</h2>
+    <div className="content-container">
+      <div className="left-container">
+          <h2 className="container-title">Usuarios</h2>
           <table className="usuarios-table">
             <tr>
               <th>Email</th>
@@ -40,7 +40,7 @@ export default function ListadoUsuarios() {
                 <td>{usuario.role}</td>
                 <td>
                   <button
-                    className="btnPapelera-admon-usuarios"
+                    className="btnPapelera-adm-usuarios"
                     onClick={() => handleDeleteUsers(usuario.id)}
                   >
                     🗑️
