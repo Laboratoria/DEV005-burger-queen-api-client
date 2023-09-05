@@ -119,6 +119,10 @@ body {
   margin-left: 230px;
 }
 
+.btnCocina:hover {
+  background-color: #4caf50;
+}
+
 .Total-delivering-container{
   display: flex;
   flex-direction: row;

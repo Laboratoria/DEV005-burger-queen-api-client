@@ -9,12 +9,12 @@ import {
   TYPES,
 } from "../../Services/reducerCart";
 import {
-  getProducts,
+  getProducts2,
   getRequestOptions,
   postOrders,
+  patchOrders,
 } from "../../Services/UserService";
 import DeliveredOrders from "../cocina/DeliveredOrder";
-
 
 const mesa = [
   { label: "Mesa #1", value: "Mesa 1" },
@@ -30,8 +30,10 @@ export default function Pedido() {
   const [apiOrders, setApiOrders] = useState([]);
   const [showError, setShowError] = useState(false);
   const [confirmSend, setConfirmSend] = useState(false);
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-const [deliveredOrders, setDeliveredOrders] = useState([]);
+  
+  
+  const storedOrders =
+    JSON.parse(localStorage.getItem("deliveredOrders")) || [];
 
   // hook selectMesa
   const handleSelectChange = (selectedOption) => {
@@ -95,7 +97,7 @@ const [deliveredOrders, setDeliveredOrders] = useState([]);
 
   useEffect(() => {
     const requestOptions = getRequestOptions("GET");
-    getProducts(requestOptions)
+    getProducts2(requestOptions)
       .then((data) => {
         setApiProducts(data);
         //console.log(data);
@@ -151,6 +153,46 @@ const [deliveredOrders, setDeliveredOrders] = useState([]);
       return () => clearTimeout(timer);
     }
   }, [confirmSend]);
+
+// función para manejar el clic en una orden
+const handleOrderClick = (order) => {
+  const confirmation = window.confirm(
+    `¿La orden #${order.id} ha sido entregada?`
+  );
+  if (confirmation) {
+   
+    markOrderAsReady(order.id);
+  }
+};
+
+
+const markOrderAsReady = async (orderId) => {
+  try {
+    const requestOptions = getRequestOptions("PATCH");
+    const patchData = {
+      status: "delivered", 
+      deliveryTime: new Date().toISOString(),
+    };
+    
+    
+    const url = `http://localhost:8080/orders/${orderId}`;
+
+  
+    const response = await fetch(url, {
+      ...requestOptions,
+      method: "PATCH",
+      body: JSON.stringify(patchData),
+    });
+
+  } catch (error) {
+    console.error("Error al marcar la orden como entregada:", error);
+  }
+};
+
+
+
+
+
 
   return (
     <>
@@ -326,12 +368,11 @@ const [deliveredOrders, setDeliveredOrders] = useState([]);
           )}
         </div>
         <div className="ordenes-listas">
-         <h2>Ordenes Listas</h2>
-         <div className="Total-delivering-container">
-         {deliveredOrders.map((order) => (
-   <DeliveredOrders deliveredOrders={deliveredOrders} />
-))}
-      </div>
+          <h2>Ordenes Listas Para entregar</h2>
+          <p className="indicaciones">Haz click en el número de orden para confrimar la entrega</p>
+          <div className="Total-delivering-container">
+            <DeliveredOrders deliveredOrders={storedOrders} handleOrderClick={handleOrderClick} />
+          </div>
         </div>
       </div>
     </>

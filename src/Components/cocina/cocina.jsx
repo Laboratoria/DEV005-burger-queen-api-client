@@ -84,7 +84,7 @@ export default function Cocina() {
     };
     patchOrders(orderId, patchData, requestOptions)
       .then(() => {
-        // Mueve la orden de apiOrders a deliveredOrders
+       
         const updatedApiOrders = apiOrders.filter(
           (order) => order.id !== orderId
         );
@@ -93,7 +93,6 @@ export default function Cocina() {
         setApiOrders(updatedApiOrders);
         setDeliveredOrders([...deliveredOrders, deliveredOrder]);
   
-        // Almacena deliveredOrders en el almacenamiento local
         localStorage.setItem("deliveredOrders", JSON.stringify([...deliveredOrders, deliveredOrder]));
       })
       .catch((error) => {
