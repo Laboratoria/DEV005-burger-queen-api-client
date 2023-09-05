@@ -1,0 +1,30 @@
+.product-div {
+  display: flex;
+  align-items: center;
+}
+p{
+  font-size: 20px;
+}
+
+
+.product-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.product-name {
+  flex: 1;
+  white-space: nowrap; /* Evita que el nombre del producto se parta en varias líneas */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Agrega puntos suspensivos si el nombre es demasiado largo */
+  margin-left: 5%;
+}
+
+
+.divButton {
+  width: 80px;
+  margin-left: 10px;
+}
+

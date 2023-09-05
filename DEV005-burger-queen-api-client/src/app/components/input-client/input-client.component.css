@@ -1,0 +1,61 @@
+/* Estilos para los campos de entrada */
+.inputClient {
+  border-radius: 20px;
+  border: 1px solid #000;
+  background: #FFFCFB;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 504px;
+  height: 58px;
+  flex-shrink: 0;
+  font-size: 30px;
+  margin-bottom: 20px; /* Añadir margen inferior para separar del siguiente elemento */
+}
+
+/* Estilos para las etiquetas */
+.labelName {
+  color: black;
+  font-size: 30px;
+  width: 459px;
+  height: 51px;
+  flex-shrink: 0;
+  margin-bottom: -2%; /* Añadir margen inferior para separar del siguiente elemento */
+}
+.labelTable{
+  color: black;
+  font-size: 30px;
+  margin-right: 18%;
+  margin-bottom: -2%;
+}
+
+/* Estilos para la casilla de número de mesa */
+.inputTable {
+  width: 170px;
+  height: 58px;
+  margin-bottom: 20px;
+  margin-right: 5%;
+}
+
+/* Estilos para el contenedor principal */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Estilos para el contenedor de etiquetas e inputs */
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-left: 5%;
+}
+
+/* Estilos para las etiquetas */
+/* label {
+  margin-left: 8%;
+
+} */

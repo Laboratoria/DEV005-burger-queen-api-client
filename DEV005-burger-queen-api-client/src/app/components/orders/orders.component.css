@@ -1,0 +1,31 @@
+.tab-content {
+  width: 23rem;
+  /* background-color: red; */
+  display: flex;
+  justify-content: space-around;
+  font-size: 30px;
+  color: #005A96;
+}
+
+.itemAndPrice {
+  /* background-color: pink; */
+  color: #005A96;
+  display: flex;
+  justify-content: space-around;
+  font-size: 23px;
+}
+
+.resumenPedido {
+  background-color: white;
+  border-radius: 10px;
+  border: 5px solid #005A96;
+}
+
+.clientAndTable {
+  display: flex;
+  flex-direction: row;
+  text-align: right;
+  justify-content: space-around;
+  color: #005A96;
+}
+

@@ -1,0 +1,11 @@
+.btn-add {
+  width: 56px;
+  height: 56px;
+  background-size: auto;
+  background: none;
+  border: none;
+  background-image: url('../../../assets/images/add.png');
+  background-size: 56px 56px;
+  background-repeat: no-repeat;
+  background-position: center;
+}

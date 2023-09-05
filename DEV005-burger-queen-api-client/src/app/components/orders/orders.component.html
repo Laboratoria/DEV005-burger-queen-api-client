@@ -1,0 +1,16 @@
+<div class="resumenPedido">
+  <div class="tab-content">
+    <p>Resumen de pedido </p>
+  </div>
+  <div class="itemAndPrice">
+    <p>Item</p>
+    <p>Precio</p>
+  </div>
+  <div class="productsOrder">
+    <app-products-order [products]="productOrderList" (productAdded)="onProductClicked($event)"> </app-products-order>
+  </div>
+  <div class="clientAndTable">
+    <p>Cliente: {{ clientName }}</p>
+    <p>Mesa: {{ tableNumber }} </p>
+  </div>
+</div>

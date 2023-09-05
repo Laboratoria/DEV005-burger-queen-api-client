@@ -1,0 +1,7 @@
+
+.divMenuAndOrder{
+  background-color: none;
+  display: flex;
+  justify-content: space-around;
+  width: auto;
+}
