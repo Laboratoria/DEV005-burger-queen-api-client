@@ -19,8 +19,9 @@
 
 
 .delete{
-    background-color: white;
-    border: none;
+    height: 45%;
+    border:2px solid #FB6D3B;
+    border-radius: 3px;
 }
 .delete:hover{
     transform: scale(1.2);
@@ -69,6 +70,7 @@ hr{
 }
 
 .btns-plus-less{
-    background-color: white;
-    border: none;
+    width: 70%;
+    border:2px solid #FB6D3B;
+    border-radius: 3px;
 }

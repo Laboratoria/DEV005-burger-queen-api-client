@@ -9,6 +9,13 @@ import "./menu.css";
 
 
 const Menu = () => {
+// Define showButtons para controlar la visibilidad de los botones
+const showButtons = {
+  add: true,
+  edit: false,
+  delete: false, 
+}
+
   //funcion para la navBar---------------------------
   const [selectedTab, setSelectedTab] = useState("Breakfast");
 
@@ -121,6 +128,7 @@ const Menu = () => {
           productType={selectedTab}
           products={products}
           handlerAddProduct={handlerAddProduct}
+          showButtons={showButtons}
         />
         <Order
           clientName={clientName}
