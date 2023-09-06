@@ -227,3 +227,19 @@ export const deleteUsers = (usersId) => {
       throw error;
     });
 };
+
+// --------- Editar usuarios ------
+export const editUsers = (usersId) => {
+  const requestOptions = getRequestOptions("PATCH"); 
+  return fetch(`http://localhost:8080/users/${usersId}`, requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error editing user");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error editing user:", error);
+      throw error;
+    });
+};

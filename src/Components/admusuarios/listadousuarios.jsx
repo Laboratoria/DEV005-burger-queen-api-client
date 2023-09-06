@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getUsers, deleteUsers } from "../../Services/UserService";
+import { getUsers, deleteUsers, editUsers } from "../../Services/UserService";
 import "./estilo-admusuarios.css";
 
 export default function ListadoUsuarios() {
   const [usuarios, setUsuarios] = useState([]);
+  
+
 
   useEffect(() => {
     getUsers().then((data) => setUsuarios(data));
@@ -23,21 +25,45 @@ export default function ListadoUsuarios() {
       });
   };
 
+  // funcion para editar usuarios
+  const handleEditUsers = (usuariosId) => {
+    editUsers(usuariosId)
+      .then(() => {
+        const updatedUsers = usuarios.filter(
+          (usuario) => usuarios.id !== usuariosId
+        );
+        setUsuarios(updatedUsers);
+      })
+      .catch((error) => {
+        console.error("Error editing user:", error);
+      });
+  };
+
+
   return (
     <>
-    <div className="content-container">
+    <div className="admusuarios">
       <div className="left-container">
           <h2 className="container-title">Usuarios</h2>
           <table className="usuarios-table">
             <tr>
               <th>Email</th>
               <th>Rol</th>
+              <th>Editar</th>
               <th>Eliminar</th>
             </tr>
             {usuarios.map((usuario) => (
               <tr key={usuario.id}>
                 <td>{usuario.email}</td>
                 <td>{usuario.role}</td>
+                <td>
+                  <button
+                    className="btnEditar-adm-usuarios"
+                    onClick={() => handleEditUsers(usuario.id)}
+                  >
+                    📝
+                  </button>
+                </td>
                 <td>
                   <button
                     className="btnPapelera-adm-usuarios"

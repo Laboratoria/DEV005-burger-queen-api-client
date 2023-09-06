@@ -6,7 +6,7 @@ import ListadoUsuarios from "./listadousuarios";
 export default function Admusuarios() {
   return (
     <>
-      <div className="main-container">
+      <div className="main-container-usuarios">
       <div className="logo-title-container">
         <h1 className="logo-usuarios">BURGUER QUEEN</h1>
         <img src={LOGO} className="logo1-usuarios" alt="Burger Queen Logo" />

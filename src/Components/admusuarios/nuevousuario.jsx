@@ -51,6 +51,7 @@ export default function NuevoUsuario() {
 
   return (
     <>
+    <div className="admusuarios">
     <div className="right-container">
       <h2 className="container-title-right">AGREGAR USUARIO</h2>
       <div className="divsInput-adm-usuario">
@@ -87,6 +88,7 @@ export default function NuevoUsuario() {
         {" "}
         Agregar{" "}
       </button>
+    </div>
     </div>
     </>
   );

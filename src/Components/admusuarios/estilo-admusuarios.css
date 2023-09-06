@@ -6,11 +6,12 @@ body {
   padding: 0px;   
 }
 
-.main-container {
+.main-container-usuarios {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+  height: 100%;
+} 
 
 .logo-title-container {
   display: flex;
@@ -36,10 +37,21 @@ body {
 .content-container {
   display: flex;
   justify-content: space-between;
-  width: 90%; 
+  width: 100%; 
 }
 
-.left-container,
+.left-container {
+  align-items: center;
+  padding: 20px;
+  margin-right: 20px; 
+  margin-left: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  background-color: #f5f5f5;
+}
+
 .right-container {
   align-items: center;
   padding: 20px;
@@ -47,7 +59,7 @@ body {
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 40%;
   background-color: #f5f5f5;
 }
 
@@ -89,7 +101,8 @@ body {
   }
   
   .usuarios-table tbody tr:nth-child(even) {
-    background-color: #f5f5f5;
+    background-color: #ccc;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   }
   
   .usuarios-table tbody tr:hover {
@@ -98,6 +111,13 @@ body {
 
   .divsInput-adm-usuario {
     margin: 20px 0px;
+  }
+
+  .btnEditar-adm-usuarios {
+    border: none;
+    background-color: #f2f2f2;
+    border-radius: 50px;
+    margin-right: 10px;
   }
 
   .btnPapelera-adm-usuarios {
@@ -149,6 +169,9 @@ body {
 
 .admusuarios {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
 }
 
 @media (max-width: 768px) {
