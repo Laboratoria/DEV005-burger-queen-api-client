@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     path: "/cocina",
     element: <Cocina />,
   },
- 
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
