@@ -21,6 +21,7 @@
     height: 45%;
     border:2px solid #FB6D3B;
     border-radius: 3px;
+    background-color: white;
 }
 .delete:hover{
     transform: scale(1.2);
@@ -63,6 +64,7 @@
 .btn-delete{
     width: 50px;
     height: 100px;
+   
 }
 
 hr{
@@ -73,6 +75,7 @@ hr{
     width: 70%;
     border:2px solid #FB6D3B;
     border-radius: 3px;
+    background-color: transparent;
 }
 
 .div-total{

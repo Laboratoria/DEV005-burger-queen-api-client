@@ -2,8 +2,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-left: 12%;
-    margin-right: 10%;
+   align-items: center;
+   justify-content: center;
+    padding: 30px;
 }
 
 .inputs-admin-products{
@@ -21,8 +22,7 @@
 }
 
 .centered-button{
-    margin-top: 5%;
-    margin-left: 30%;
+    width: 70%;
 }
 
 .admin-products{
@@ -34,4 +34,12 @@
 
 .admin-products > * {
     width: 70%;
+}
+.div-dd{
+    width: 42%;
+    align-items: center;
+    margin: 2% 2% 4% 2%;
+    padding-bottom: 3px;
+   
+
 }

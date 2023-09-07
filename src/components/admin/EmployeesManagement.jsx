@@ -187,14 +187,14 @@ function EmployeesManagement() {
             </div>
           </div>
         </form>
-        <section className="users">
+        <section className="users_">
           {users.map((user) => (
             <div key={user.id} className="user" >
               <div className="div-user">
               <div className="lbl-email">
                  <label>{user.email}</label>
               </div>
-             <div >
+             <div className="lbl-role" >
                 <label>{user.role}</label>
              </div>
               <div className="btns">
@@ -207,7 +207,7 @@ function EmployeesManagement() {
                     xmlns="http://www.w3.org/2000/svg"
                     width="30"
                     height="30"
-                    fill="#626262"
+                    fill="#FB6D3B"
                     className="bi bi-trash3"
                     viewBox="0 0 16 16"
                   >
@@ -232,7 +232,7 @@ function EmployeesManagement() {
                     height="30"
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
-                    stroke="#626262"
+                    stroke="#FB6D3B"
                     fill="none"
                     strokeLinecap="round"
                     strokeLinejoin="round"

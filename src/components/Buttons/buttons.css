@@ -1,5 +1,5 @@
 .button {
-  width: 100%;
+  width: 60%;
   height: 70px;
   border-radius: 5px;
   border: 2px solid transparent;
@@ -8,6 +8,7 @@
   cursor: pointer;
   transition: border-color 0.25s;
   color: whitesmoke;
+  padding: 0 20px 0 20px;
   }
 .button:hover {
   border-color: #646cff;

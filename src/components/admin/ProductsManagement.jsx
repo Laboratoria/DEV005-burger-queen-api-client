@@ -231,16 +231,18 @@ const inputsSectionRef = useRef(null);
           type="url" 
           name="url"   
           className="inputs-admin-products"  
-          placeholder="Image"
+          placeholder="Url image"
           value={image}
           onChange={handleImageChange}
           />
-
-          <Dropdown 
+            <div className="div-dd"> 
+              <Dropdown 
           items={items}
           handleOnChange={handleTypeProductChange}
           value={typeProduct}
            />
+           </div>
+         
           <div className="centered-button">
           <Buttons tag={isEditing ? "Confirm changes" : "Create product"} type="submit" />
           </div>

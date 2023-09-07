@@ -53,8 +53,8 @@ function Products({ productType, products, handlerAddProduct, handleEditProduct,
               >
                  <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
+                  width="30"
+                  height="30"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="#FB6D3B"
@@ -76,8 +76,8 @@ function Products({ productType, products, handlerAddProduct, handleEditProduct,
               >
                <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
+                  width="30"
+                  height="30"
                   viewBox="0 0 16 16"
                   strokeWidth="1"
                   stroke="#FB6D3B"
