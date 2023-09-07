@@ -20,7 +20,9 @@ const Home = () => {
         <div>
           <img className="img-home" src={logo} alt="Logo" />
         </div>
+        <div className="div-boton-getStarted">
         <Buttons tag="Get started" onClick={handleButtonClick} />
+        </div>
       </div>
     </section>
   );

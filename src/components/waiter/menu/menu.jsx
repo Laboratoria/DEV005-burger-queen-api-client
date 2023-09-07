@@ -109,7 +109,7 @@ const showButtons = {
           <input
             type="text"
             placeholder="Client Name"
-            className="inputs-login client-name"
+            className="client-name"
             value={clientName}
             onChange={handleClientNameChange}
           />
@@ -121,6 +121,7 @@ const showButtons = {
           activeTab={selectedTab}
           onSelectTab={handleTabChange}
         />
+
       </section>
 
       <div className="products-order">
