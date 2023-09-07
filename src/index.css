@@ -47,7 +47,7 @@ body {
   align-self:flex-start;
 }
 
-span {
+.span-login {
   font-size: 5.4em;
 }
 

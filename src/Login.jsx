@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Buttons from './components/Buttons/Buttons';
 import logo from './assets/logo.png'
 import { useNavigate } from 'react-router-dom';
@@ -46,15 +46,15 @@ function UserForm() {
       try {
         const response = await updateAuth(contactInfo.email, contactInfo.password);
         if(response){
-           if (response.role === 'Admin') {
-          Swal.fire({
-            icon: 'success',
-            title: 'Successful Log In',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          navigate('/Admin');
-        }
+          if (response.role === 'Admin') {
+         Swal.fire({
+           icon: 'success',
+           title: 'Successful Log In',
+           showConfirmButton: false,
+           timer: 1500,
+         })
+         navigate('/Admin');
+       }
         if (response.role === 'Waiter') {
           new Swal('Successful Log In');
           navigate('/Waiter');
@@ -90,7 +90,7 @@ function UserForm() {
       <form onSubmit={handleSubmit}>
       <div className="content-login">  
         <div className='div-contenedor-spanLogin'>
-          <span>Login</span>
+          <span className='span-login'>Login</span>
           </div>
         <div className="div-inputs">
           <input

@@ -220,7 +220,7 @@ const inputsSectionRef = useRef(null);
          
           <input
             className="inputs-admin-products"
-            type="number"
+            type="text"
             name="priceProduct"
             placeholder="Price"
             value={priceProduct}

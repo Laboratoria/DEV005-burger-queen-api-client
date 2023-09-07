@@ -75,6 +75,10 @@ hr{
     border-radius: 3px;
 }
 
-.span-total{
+.div-total{
+    align-self: center;
+}
+
+.texto-total{
     font-size: larger;
 }
