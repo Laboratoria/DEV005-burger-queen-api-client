@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 50px;
+    width: 100%;
 }
 .div-drop-btn{
    padding-left: 100px ;
@@ -15,16 +15,16 @@
 } 
 .btn-upload{
     margin-top: 15px;
+    width: 60%;
 }
-.users{
-    padding: 20px;
+.users_{
+   
     margin-top: 40px;
-    
-    min-width: 800px;
+    margin-left: 10%;
+    width: 80%;
     height: auto;
     display: flex;
     flex-direction: column;
-  
     background-color: white;    
    
 }
@@ -33,15 +33,13 @@
     padding-right: 20px;
     display: flex;
     flex-direction: column;
-
 }
 .div-user{
-    min-width: 800px;
     height: 50px;
     margin: 15px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
    
 }
 
@@ -52,10 +50,14 @@ label{
     padding-left: 15px;
     width: 50%;
     text-align: left;
+    overflow: hidden;
 
 }
+.lbl-role{
+    width: 15%;
+}
 .hr{
-    min-width: 800px;
+    min-width: 90%;
     height: 1px;
 }
 .btns{

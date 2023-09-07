@@ -109,7 +109,7 @@ const handleSubmitOrder = async (e) => {
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
                     height="20"
-                    fill="none"
+                    fill="white"
                     stroke="#FB6D3B"
                     className="bi bi-trash3"
                     viewBox="0 0 16 16"
@@ -126,10 +126,13 @@ const handleSubmitOrder = async (e) => {
         <p>
           Total  <span id="total" className="span-total">${total}</span>
         </p>
-        <Buttons 
+        <div className="btn-submit"> 
+          <Buttons 
         type="submit" 
         tag="Submit"
         />
+        </div>
+       
       </div>
 
     </form>
