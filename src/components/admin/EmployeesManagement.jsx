@@ -1,5 +1,4 @@
 import Dropdown from "../DropDownList/DropDownList";
-
 import Buttons from "../Buttons/Buttons";
 import { useEffect, useState } from "react";
 import {
@@ -10,7 +9,6 @@ import {
 } from "../../services/UseAxios";
 import Swal from "sweetalert2";
 import "./employeesManagement.css";
-
 function EmployeesManagement() {
   // ESTADO DE ROLE
   const [role, setRole] = useState("");
@@ -22,7 +20,6 @@ function EmployeesManagement() {
   const [userId, setUserId] = useState(null);
   // ESTADO PASSWORD
   const [password, setPassword] = useState("");
-
   const items = [
     {
       id: 1,
@@ -37,36 +34,29 @@ function EmployeesManagement() {
       value: "Admin",
     },
   ];
-
   function handleOnChangeRole(e) {
-    console.log(e.target.value, "lililili");
-    setRole(e.target.value);
+      console.log(e.target.value, "lililili");
+      setRole(e.target.value);
   }
-
   const handleEmailChange = (event) => {
     console.log("EMAIL", event.target.value);
     setEmail(event.target.value);
   };
-
   const handlePasswordChange = (event) => {
     console.log(event.target.value);
     setPassword(event.target.value);
   };
-
   const fetchUsers = async () => {
     try {
       const response = await getUsers();
-
       console.log(response, "MIRIA ANTONIA");
       setUsers(response);
     } catch (error) {
       console.error("Error fetching products:", error);
     }
   };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     if (!email || !password) {
       Swal.fire({
         title: "Please fill in the required information",
@@ -75,15 +65,27 @@ function EmployeesManagement() {
       });
       return;
     }
-
     if (userId) {
       try {
         const response = await editUser(userId, email, password, role);
-
-        console.log(response, "COMANDO");
-        response.newEmail = setEmail(users.email);
+        fetchUsers();
+        setEmail("");
+        setPassword("");
+        setRole("");
+        setUserId(null)
+        Swal.fire({
+          icon: "success",
+          title: "Employee updated successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+       return response
       } catch (error) {
-        // Manejo de errores
+        Swal.fire({
+          title: "Error update user, please try again later",
+          icon: "error",
+          confirmButtonColor: "#D62828",
+        });
       }
     } else {
       try {
@@ -92,6 +94,13 @@ function EmployeesManagement() {
         setEmail("");
         setPassword("");
         setRole("");
+        Swal.fire({
+          icon: "success",
+          title: "Employee uploaded successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        fetchUsers();
         return response;
       } catch (error) {
         Swal.fire({
@@ -102,27 +111,45 @@ function EmployeesManagement() {
       }
     }
   };
-
   // ELIMINAR USUARIOS
   const handleDeleteUser = async (userId) => {
-    try {
-      const response = await deleteUser(userId);
-      console.log(response, "Usuario eliminado");
-
-      // Actualiza la lista de usuarios después de la eliminación
-      setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
-    } catch (error) {
-      console.error("Error al eliminar el usuario:", error);
-    }
+    Swal.fire({
+      title: 'Are you sure to delete this employee?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085D6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const response = await deleteUser(userId);
+          console.log(response, "Usuario eliminado");
+          //ACTUALIZAR LA LISTA DE EMPLEADOS
+          setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          );
+        } catch (error) {
+          console.error("Error al eliminar el usuario:", error);
+          Swal.fire(
+            'Error!',
+            'There was an error deleting the user.',
+            'error'
+          );
+        }
+      }
+    });
   };
-
   useEffect(() => {
     fetchUsers();
   }, []);
-
   return (
     <main className="employees">
-      <section>
+      <section className="addUser">
         <form action="" onSubmit={handleSubmit}>
           <div>
             <input
@@ -131,7 +158,7 @@ function EmployeesManagement() {
               type="text"
               name="email"
               id=""
-              placeholder=" 👤︎ Employee email"
+              placeholder="👤︎  Employee email"
               value={email}
             />
             <input
@@ -160,7 +187,6 @@ function EmployeesManagement() {
             </div>
           </div>
         </form>
-
         <section className="users">
           {users.map((user) => (
             <div key={user.id} className="user" >
@@ -171,7 +197,6 @@ function EmployeesManagement() {
              <div >
                 <label>{user.role}</label>
              </div>
-              
               <div className="btns">
                 <button
                   className="btn-delete-edit"
@@ -194,7 +219,6 @@ function EmployeesManagement() {
                   type="button"
                   onClick={() => {
                     console.log(user.role, "A VER");
-                    console.log(user.id, "A VER");
                     setUserId(user.id);
                     setEmail(user.email);
                     setPassword("");
@@ -220,14 +244,10 @@ function EmployeesManagement() {
                   </svg>
                 </button>
               </div>
-
               </div>
-              
              <hr className="hr" />
             </div>
-            
           ))}
-          
         </section>
       </section>
     </main>

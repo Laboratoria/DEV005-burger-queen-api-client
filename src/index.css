@@ -22,41 +22,42 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 6.4em;
-  line-height: 1.1;
-  text-align: start;
-}
-
-
-.login{
-  width: auto;
-  height: auto;
-  
-}
-
+/* LOGIN-------------------------------------------------*/
 .login-header{
   width: 100%;
-  height: 441px;
+  height: 230px;
   background-color: #F8774A;
   border-bottom-left-radius: 20px ;
   border-bottom-right-radius: 20px ;
-
 }
+
+.img-header{
+  width: 210px;
+}
+
 .content-login{
-  margin-left: 130px;
-  margin-right: 130px; 
+  padding: 0 70px 0 70px;
   display: flex;
   flex-direction: column;
+  min-height: 70vh;
+  justify-content: space-around;
+}
+
+.div-contenedor-spanLogin{
+  align-self:flex-start;
+}
+
+span {
+  font-size: 5.4em;
 }
 
 .inputs-login{
   background-color: white;
   color: #626262;
   border: none;
-  width: 697px;
-  height: 79px;
-  margin: 20px;
+  width: 70%;
+  height: 70px;
+  margin: 10px;
   padding-left: 40px;
   font-size:xx-large;
   border-radius: 5px;
@@ -64,16 +65,19 @@ h1 {
 .forgot-password{
   color: #F8774A;
   font-size: x-large;
-  margin-bottom: 100px;
 }
 
+.div-boton-singIn{
+  align-self: center;
+  width: 60%;
+}
 
-/* CSS HOME*/
+/* CSS HOME--------------------------------------------------------*/
 
 .Home{
   background-color: #FB6D3B;
   width: 100%;
-  min-height: 1336px;
+  min-height: 100vh;
   font-size: xx-large;
   display: flex;
   flex-direction: column;
@@ -81,49 +85,34 @@ h1 {
 }
 .div-background{
   width: 80%;
-  height: 1250px;
+  height: 95vh;
   border-radius: 0 0 50px 50px ;
   background-color: #F2F2F2;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 h2{
-  width: 819px;
-  text-align: center;
-  margin-top: 100px;
-  width: 350px;
-  font-size: 50px;
+  margin-top: 17%;
+  width: 50%;
+  font-size: 40px;
   color: #626262;
+  padding-left: 25%;
 }
 
 .img-home{
-  height: 590px;
-  width: 590px;
-  margin-bottom: 100px;
+  height: 70%;
+}
+.div-boton-getStarted{
+  margin-bottom: 15%;
+  align-self: center;
+  width: 60%;
 }
 
 
-
-/*Waiter*/
-
-
-.container-info{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-.client-name{
-  width: 500px;
-  
-}
-
-.waiter-color-header{
-  background-color: #626262;
-}
-
-/*CSS ADMIN */
+/*CSS ADMIN----------------------------------------------------------------- */
 .Admin{
   display: flex;
   flex-direction: column;

@@ -81,13 +81,17 @@ function UserForm() {
     
     <div className="form-container">
       <header className="login-header">
-        <img src={logo}/>
+        <img 
+          
+          src={logo}
+          className='img-header'
+          />
       </header>
       <form onSubmit={handleSubmit}>
       <div className="content-login">  
-        <div>
-          <h1>Login</h1>
-        </div>
+        <div className='div-contenedor-spanLogin'>
+          <span>Login</span>
+          </div>
         <div className="div-inputs">
           <input
             className="inputs-login"
@@ -110,9 +114,11 @@ function UserForm() {
         <div>
           <p className='forgot-password'>If you forgot your password contact the administrator</p>
         </div>
+        <div className='div-boton-singIn'>
         <Buttons type="submit" 
         tag="Sing in"
         />
+        </div>
         </div>
       </form>
     </div>

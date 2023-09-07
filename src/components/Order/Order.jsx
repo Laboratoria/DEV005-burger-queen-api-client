@@ -124,7 +124,7 @@ const handleSubmitOrder = async (e) => {
 
       <div className="total">
         <p>
-          Total  <span id="total">${total}</span>
+          Total  <span id="total" className="span-total">${total}</span>
         </p>
         <Buttons 
         type="submit" 

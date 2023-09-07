@@ -14,7 +14,7 @@
     padding-left: 40px;
     font-size:xx-large;
     border-radius: 5px;
-    width: 40%;
+    width: 38%;
     height: 70px;
     margin: 2%;
     
@@ -30,4 +30,8 @@
     flex-direction: column;
     align-items: center;
     margin-top: 4%;
+}
+
+.admin-products > * {
+    width: 70%;
 }
