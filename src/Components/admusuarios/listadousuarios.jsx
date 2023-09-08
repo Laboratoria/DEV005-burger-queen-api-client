@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { getUsers, deleteUsers, editUsers } from "../../Services/UserService";
+import { deleteUsers, editUsers } from "../../Services/UserService";
 import "./estilo-admusuarios.css";
 
-export default function ListadoUsuarios() {
+export default function ListadoUsuarios({ users, editUser }) {
   const [usuarios, setUsuarios] = useState([]);
-  
-
 
   useEffect(() => {
-    getUsers().then((data) => setUsuarios(data));
-  }, []);
+    setUsuarios(users);
+  }, [users]);
 
   // funcion para borrar usuarios
   const handleDeleteUsers = (usuariosId) => {
@@ -26,32 +24,24 @@ export default function ListadoUsuarios() {
   };
 
   // funcion para editar usuarios
-  const handleEditUsers = (usuariosId) => {
-    editUsers(usuariosId)
-      .then(() => {
-        const updatedUsers = usuarios.filter(
-          (usuario) => usuarios.id !== usuariosId
-        );
-        setUsuarios(updatedUsers);
-      })
-      .catch((error) => {
-        console.error("Error editing user:", error);
-      });
+  const handleEditUsers = (usuario) => {
+    editUser(usuario);
   };
-
 
   return (
     <>
-    <div className="admusuarios">
-      <div className="left-container">
-          <h2 className="container-title">Usuarios</h2>
+      <div className="content-container">
+        <div className="left-container">
+          <h2 className="container-title">USUARIOS</h2>
           <table className="usuarios-table">
+          <tbody>
             <tr>
               <th>Email</th>
               <th>Rol</th>
               <th>Editar</th>
               <th>Eliminar</th>
             </tr>
+            </tbody>
             {usuarios.map((usuario) => (
               <tr key={usuario.id}>
                 <td>{usuario.email}</td>
@@ -59,7 +49,7 @@ export default function ListadoUsuarios() {
                 <td>
                   <button
                     className="btnEditar-adm-usuarios"
-                    onClick={() => handleEditUsers(usuario.id)}
+                    onClick={() => handleEditUsers(usuario)}
                   >
                     📝
                   </button>

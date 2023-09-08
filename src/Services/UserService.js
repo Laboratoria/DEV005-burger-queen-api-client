@@ -243,3 +243,27 @@ export const editUsers = (usersId) => {
       throw error;
     });
 };
+
+export const updateUser = (updatedUser) => {
+  const bearerToken = localStorage.getItem("token");
+  const requestOptions = {
+    method: "PUT", // Utiliza el método PUT para actualizar el usuario
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${bearerToken}`,
+    },
+    body: JSON.stringify(updatedUser),
+  };
+
+  return fetch(`http://localhost:8080/users/${updatedUser.id}`, requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error updating user");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error updating user:", error);
+      throw error;
+    });
+};

@@ -1,29 +1,40 @@
-import React from "react";
-import { addUsers } from "../../Services/UserService";
+import React, { useEffect } from "react";
+import { addUsers, updateUser } from "../../Services/UserService"; 
 import { useState } from "react";
+import "./estilo-admusuarios.css";
 
-export default function NuevoUsuario() {
+export default function NuevoUsuario({ user, isEditing, cancelEdit }) {
   const [newUser, setNewUser] = useState({
     email: "",
+    password: "",
     role: "",
   });
 
-  const handleAddUsers = () => {
-    console.log(newUser);
-    addUsers(newUser)
-      .then((response) => {
-        if (response) {
-          //setUser([...user, response]);
-          setNewUser({
-            email: "",
-            role: "",
-            password: "",
-          });
-        }
-      })
-      .catch((error) => {
-        console.error("Error adding user:", error);
-      });
+  useEffect(() => {
+    setNewUser(user);
+    console.log(user);
+  }, [user]);
+
+  const handleSave = () => {
+    if (isEditing) {
+      updateUser(newUser)
+        .then((response) => {
+          if (response) {
+          }
+        })
+        .catch((error) => {
+          console.error("Error updating user:", error);
+        });
+    } else {
+      addUsers(newUser)
+        .then((response) => {
+          if (response) {
+          }
+        })
+        .catch((error) => {
+          console.error("Error adding user:", error);
+        });
+    }
   };
 
   const handleEmailChange = (e) => {
@@ -41,6 +52,7 @@ export default function NuevoUsuario() {
       role: value,
     });
   };
+
   const handlePasswordChange = (e) => {
     const { value } = e.target;
     setNewUser({
@@ -51,45 +63,53 @@ export default function NuevoUsuario() {
 
   return (
     <>
-    <div className="admusuarios">
-    <div className="right-container">
-      <h2 className="container-title-right">AGREGAR USUARIO</h2>
-      <div className="divsInput-adm-usuario">
-        <div className="add-adm-usuario">
-          <input
-            className="input-adm-usuario"
-            type="text"
-            email="email"
-            value={newUser.email}
-            onChange={handleEmailChange}
-            placeholder="Email del usuario"
-          />
-        </div>
-        <div className="add-adm-usuario">
-          <input
-            className="input-adm-usuario"
-            type="password"
-            value={newUser.password}
-            onChange={handlePasswordChange}
-            placeholder="Password"
-          />
-        </div>
-        <div className="add-adm-usuario">
-          <input
-            className="input-adm-usuario"
-            type="text"
-            value={newUser.role}
-            onChange={handleRoleChange}
-            placeholder="Rol del usuario"
-          />
+      <div className="content-container">
+        <div className="right-container">
+          <h2 className="container-title-right">{isEditing ? "EDITAR USUARIO" : "AGREGAR USUARIO"}</h2>
+          <div>
+          <div className="divsInput-adm-usuario">
+            <div className="add-adm-usuario">
+              <input
+                className="input-adm-usuario"
+                type="text"
+                email="email"
+                value={newUser.email}
+                onChange={handleEmailChange}
+                placeholder="Email del usuario"
+              />
+            </div>
+              <div className="add-adm-usuario">
+              <input
+                className="input-adm-usuario"
+                type="password" // Cambia "text" a "password" aquí
+                value={newUser.password}
+                onChange={handlePasswordChange}
+                placeholder="Password"
+              />
+            </div>
+            <div className="add-adm-usuario">
+              <input
+                className="input-adm-usuario"
+                type="text"
+                value={newUser.role}
+                onChange={handleRoleChange}
+                placeholder="Rol del usuario"
+              />
+            </div>
+          </div>
+          </div>
+          <div className="botones-guardar-cancelar">
+          <button className="btn-agregar-usuario" onClick={handleSave}>
+            {isEditing ? "Guardar" : "Agregar"}
+          </button>
+          {isEditing && (
+            <button className="btn-cancelar-edicion" onClick={cancelEdit}>
+              Cancelar
+            </button>
+          )}
+          </div>
         </div>
       </div>
-      <button className="btn-agregar-usuario" onClick={handleAddUsers}>
-        {" "}
-        Agregar{" "}
-      </button>
-    </div>
-    </div>
     </>
   );
 }
