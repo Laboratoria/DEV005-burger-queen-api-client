@@ -3,11 +3,12 @@ import { addUsers, updateUser } from "../../Services/UserService";
 import { useState } from "react";
 import "./estilo-admusuarios.css";
 
-export default function NuevoUsuario({ user, isEditing, cancelEdit }) {
+export default function NuevoUsuario({ user, isEditing, cancelEdit, onSaveUser }) {
   const [newUser, setNewUser] = useState({
     email: "",
     password: "",
     role: "",
+    id: "",
   });
 
   useEffect(() => {
@@ -19,8 +20,8 @@ export default function NuevoUsuario({ user, isEditing, cancelEdit }) {
     if (isEditing) {
       updateUser(newUser)
         .then((response) => {
-          if (response) {
-          }
+          onSaveUser();
+          cancelEdit();
         })
         .catch((error) => {
           console.error("Error updating user:", error);
@@ -28,8 +29,8 @@ export default function NuevoUsuario({ user, isEditing, cancelEdit }) {
     } else {
       addUsers(newUser)
         .then((response) => {
-          if (response) {
-          }
+          onSaveUser();
+          cancelEdit();
         })
         .catch((error) => {
           console.error("Error adding user:", error);
