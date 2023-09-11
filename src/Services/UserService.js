@@ -174,6 +174,52 @@ export const deleteProduct = (productId) => {
     });
 };
 
+//-------------Traer los usuarios---------
+export const getUsers = () => {
+  const requestOptions = getRequestOptions("GET"); 
+  
+  return fetch("http://localhost:8080/users", requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error fetching users");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error fetching users:", error);
+      throw error;
+    });
+};
+
+// --------- Agregar usuarios ------
+ export const addUsers = (newUser) => {
+  console.log(newUser);
+  const requestOptions = getRequestOptions("POST"); 
+  return fetch("http://localhost:8080/users", {
+    ...requestOptions,
+    body: JSON.stringify(newUser),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error adding user");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error adding user:", error);
+      throw error;
+    });
+};
+
+// --------- Eliminar usuarios------
+export const deleteUsers = (usersId) => {
+  const requestOptions = getRequestOptions("DELETE");
+
+  return fetch(`http://localhost:8080/users/${usersId}`, requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error deleting users");
+        
 // --------- Editar productos del menú ------
 export const updateProduct = (productId, updatedProductData) => {
   const requestOptions = getRequestOptions("PUT"); 
@@ -185,11 +231,58 @@ export const updateProduct = (productId, updatedProductData) => {
     .then((response) => {
       if (!response.ok) {
         throw new Error("Error updating product");
+
       }
       return response.json();
     })
     .catch((error) => {
+
+      console.error("Error deleting users:", error);
+      throw error;
+    });
+};
+
+// --------- Editar usuarios ------
+export const editUsers = (usersId) => {
+  const requestOptions = getRequestOptions("PATCH"); 
+  return fetch(`http://localhost:8080/users/${usersId}`, requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error editing user");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error editing user:", error);
+      throw error;
+    });
+};
+
+export const updateUser = (updatedUser) => {
+  const bearerToken = localStorage.getItem("token");
+  const requestOptions = {
+    method: "PUT", // Utiliza el método PUT para actualizar el usuario
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${bearerToken}`,
+    },
+    body: JSON.stringify(updatedUser),
+  };
+
+  return fetch(`http://localhost:8080/users/${updatedUser.id}`, requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error updating user");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error updating user:", error);
+      throw error;
+    });
+};
       console.error("Error updating product:", error);
       throw error;
     });
 };
+
