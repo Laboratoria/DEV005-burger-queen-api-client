@@ -111,6 +111,13 @@ body {
   margin: 20px 0px;
 }
 
+.btnEditar-admon-menu { 
+  border: none;
+  background-color: #f2f2f2;
+  border-radius: 50px;
+  margin-right: 10px;
+}
+
 .btnPapelera-admon-menu {
   border: none;
   background-color: #f2f2f2;

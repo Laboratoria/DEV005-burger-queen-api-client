@@ -219,10 +219,24 @@ export const deleteUsers = (usersId) => {
     .then((response) => {
       if (!response.ok) {
         throw new Error("Error deleting users");
+        
+// --------- Editar productos del menú ------
+export const updateProduct = (productId, updatedProductData) => {
+  const requestOptions = getRequestOptions("PUT"); 
+
+  return fetch(`http://localhost:8080/products/${productId}`, {
+    ...requestOptions,
+    body: JSON.stringify(updatedProductData),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error updating product");
+
       }
       return response.json();
     })
     .catch((error) => {
+
       console.error("Error deleting users:", error);
       throw error;
     });
@@ -267,3 +281,8 @@ export const updateUser = (updatedUser) => {
       throw error;
     });
 };
+      console.error("Error updating product:", error);
+      throw error;
+    });
+};
+
