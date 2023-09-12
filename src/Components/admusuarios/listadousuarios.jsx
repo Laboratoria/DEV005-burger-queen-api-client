@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { deleteUsers, editUsers } from "../../Services/UserService";
+import { deleteUsers } from "../../Services/UserService";
 import "./estilo-admusuarios.css";
 
 export default function ListadoUsuarios({ users, editUser }) {

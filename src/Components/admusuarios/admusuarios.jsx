@@ -4,7 +4,7 @@ import LOGO from "../../img/LOGO.png";
 import "./estilo-admusuarios.css";
 import NuevoUsuario from "./nuevousuario";
 import ListadoUsuarios from "./listadousuarios";
-import { getUsers, addUsers, updateUser } from "../../Services/UserService"; // Asegúrate de importar updateUser
+import { getUsers } from "../../Services/UserService"; // Asegúrate de importar updateUser
 
 export default function Admusuarios() {
   const [usuarios, setUsuarios] = useState([]);
@@ -14,10 +14,18 @@ export default function Admusuarios() {
     role: "",
   });
   const [isEditing, setIsEditing] = useState(false);
+  const [updateUserlist, setUpdateUserList] = useState(false);
 
   useEffect(() => {
     loadUsers();
   }, []);
+
+  useEffect(() => {
+    if(updateUserlist) {
+      loadUsers();
+      setUpdateUserList(false);
+    }
+  }, [updateUserlist])
 
   const loadUsers = () => {
     getUsers()
@@ -33,29 +41,12 @@ export default function Admusuarios() {
   };
 
   const cancelEdit = () => {
-    setUserSelected({ email: "", password: "", role: "" });
+    setUserSelected({ email: "", password: "", role: "", id: "" });
     setIsEditing(false);
   };
 
   const handleSaveUser = (newUser) => {
-    if (isEditing) {
-      updateUser(newUser)
-        .then(() => {
-          setIsEditing(false);
-          loadUsers(); // Actualiza la lista de usuarios después de la edición
-        })
-        .catch((error) => {
-          console.error("Error updating user:", error);
-        });
-    } else {
-      addUsers(newUser)
-        .then(() => {
-          loadUsers(); // Actualiza la lista de usuarios después de agregar uno nuevo
-        })
-        .catch((error) => {
-          console.error("Error adding user:", error);
-        });
-    }
+    setUpdateUserList(true);
   };
 
   return (
@@ -70,7 +61,7 @@ export default function Admusuarios() {
             Ir a productos
           </Link>
         </div>
-        <div className="admusuarios">
+        <div className="content-container">
           <ListadoUsuarios users={usuarios} editUser={editUser} />
           <NuevoUsuario
             user={userSelected}
