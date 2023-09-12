@@ -171,8 +171,7 @@ body {
 .botones-guardar-cancelar {
   display: flex;
   flex-direction: row;
-  
-  justify-content: space-between;
+  gap: 10px;
 }
 
 .btn-agregar-usuario {
