@@ -2,11 +2,11 @@
 
 export const TYPES = {
     ADD_TO_CART: "ADD_TO_CART",
-    DELETE_ALL_FROM_CART: "DELETE_ALL_FROM_CART",
     DELETE_PRODUCT_FROM_CART: "DELETE_PRODUCT_FROM_CART",
+    DELETE_ALL_FROM_CART: "DELETE_ALL_FROM_CART",
+    DECREASE_QUANTITY_FROM_CART: "DECREASE_QUANTITY_FROM_CART", // (+)
+    DELETE_ONE_PRODUCT_FROM_CART: "DELETE_ONE_PRODUCT_FROM_CART", // (-)
     CALCULATE_TOTAL_PRICE_OF_THE_CART: "CALCULATE_TOTAL_PRICE_OF_THE_CART",
-    DECREASE_QUANTITY_FROM_CART: "DECREASE_QUANTITY_FROM_CART",
-    DELETE_ONE_PRODUCT_FROM_CART: "DELETE_ONE_PRODUCT_FROM_CART",
   }
 
  
@@ -50,8 +50,8 @@ export const reducerCart = (state, action) => {
     case TYPES.ADD_TO_CART: {
      
     const existingProduct = state.cart.find(item => item.product.id === action.payload);
-
-      if (existingProduct) {
+console.log(existingProduct);
+      if (!!existingProduct) {
         // Si el producto ya está en el carrito, incrementa su cantidad
         return {
           ...state,
@@ -64,6 +64,7 @@ export const reducerCart = (state, action) => {
       } else {
         // Si el producto no está en el carrito, agrégalo con cantidad 1
         const productToAdd = state.products.find(item => item.id === action.payload);
+        console.log("aaaa",productToAdd);
         return {
           ...state,
           cart: [...state.cart, { product: productToAdd, qty: 1 }]
@@ -107,6 +108,7 @@ export const reducerCart = (state, action) => {
     }
 
     case TYPES.CALCULATE_TOTAL_PRICE_OF_THE_CART: {
+      console.log(state.cart);
       const totalCuenta = state.cart.reduce(
         (suma, existingProduct) => suma + existingProduct.qty * existingProduct.product.price,
         0

@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
-import "./estilo-login.css";
 import { useNavigate } from 'react-router-dom';
+import "./estilo-login.css";
 import { login } from "../../Services/UserService";
 import LOGO from "../../img/LOGO.png";
 
 export default function Login() {
   const [formData, setformData] = useState({email:"", password:""});
   const [errorMessage, setErrorMessage] = useState("");
-  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+ 
 
+// función que almacena en localstoreage y actualiza el estado del usuario
   const handleLogin = (e) => {
     e.preventDefault();
     login(formData)
@@ -23,8 +25,8 @@ export default function Login() {
       });
   }
 
-  const [user, setUser] = useState(null);
-
+//Hook de redireccionamiento
+const navigate = useNavigate();
 useEffect(() => {
   if (user) {
     const userRole = localStorage.getItem("role"); 
@@ -41,8 +43,7 @@ useEffect(() => {
   }
 }, [user, navigate]);
 
-
-
+// funciones correo y contraseña - actualizan el estado de form data
   const handleChangeEmail = (e) => {
   setformData({
     ...formData,
@@ -78,8 +79,6 @@ const handleChangePassword = (e) => {
       <button className="botonIngresar" type="submit" value="ingresar"> Ingresar </button>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Mostrar mensaje de error si existe */}
-
-
     </form>
     </div>
     </>

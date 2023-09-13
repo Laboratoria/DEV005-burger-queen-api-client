@@ -1,3 +1,18 @@
+//------- Funcion Token ------
+export function getRequestOptions(method) {
+  const bearerToken = localStorage.getItem("token");
+  let requestOptions = {
+    method: method,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  if (bearerToken) {
+    requestOptions.headers["Authorization"] = `Bearer ${bearerToken}`;
+  }
+  return requestOptions;
+}
+
 // --- funcion para logearse
 export const login = (formData) => {
     return fetch("http://localhost:8080/login", {
@@ -13,69 +28,79 @@ export const login = (formData) => {
     });
 };
 
-//------- Funcion Token ------
-
-export function getRequestOptions(method) {
-  const bearerToken = localStorage.getItem("token");
-  let requestOptions = {
-    method: method,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-  if (bearerToken) {
-    requestOptions.headers["Authorization"] = `Bearer ${bearerToken}`;
-  }
-  return requestOptions;
-}
-
-
 // --------- Obtener productos del menú ------
-export const getProducts = (requestOptions) => {
+export const getProducts2 = () => {
+  const requestOptions = getRequestOptions("GET"); // Utiliza la función getRequestOptions para obtener el encabezado de autorización
+  
   return fetch("http://localhost:8080/products", requestOptions)
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error fetching products");
+      }
+      return response.json();
+    })
     .catch((error) => {
-      console.error(error);
+      console.error("Error fetching products:", error);
       throw error;
     });
 };
 
-//----------- funcion agregar Orden al API----
-
-export function postOrders(client, orderProducts) {
+// //----------- funcion agregar Orden al API----
+export function postOrders(orderData) {
   const bearerToken = localStorage.getItem("token");
-
-  
   const requestOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + bearerToken,
     },
-    body: JSON.stringify({
-      client: client,
-      products: orderProducts,
-      status: "pending",
-      //dataEntry: new Date().toLocaleString(),
-      dataEntry: new Date().toISOString(),
-    }),
+    body: JSON.stringify(orderData), // Envía el objeto orderData
   };
-
   return fetch("http://localhost:8080/orders", requestOptions)
-  .then(response => response.json())
-  .then(data => {
-    console.log("Response from server:", data); 
-    if (data.error) {
-      throw new Error(data.error);
-    }
-    return data;
-  })
-  .catch(error => {
-    console.error(error);
-    throw error;
-  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Response from server:", data);
+      if (data.error) {
+        throw new Error(data.error);
+      }
+      return data;
+    })
+    .catch((error) => {
+      console.error(error);
+      throw error;
+    });
 }
 
+// export function postOrders(client, orderProducts) {
+//   const bearerToken = localStorage.getItem("token");
+//   const requestOptions = {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//       Authorization: "Bearer " + bearerToken,
+//     },
+//     body: JSON.stringify({
+//       client: client,
+//       products: orderProducts,
+//       status: "pending",
+//       //dataEntry: new Date().toLocaleString(),
+//       dataEntry: new Date().toISOString(),
+//     }),
+//   };
+//   return fetch("http://localhost:8080/orders", requestOptions)
+//   .then(response => response.json())
+//   .then(data => {
+//     console.log("Response from server:", data); 
+//     if (data.error) {
+//       throw new Error(data.error);
+//     }
+//     return data;
+//   })
+//   .catch(error => {
+//     console.error(error);
+//     throw error;
+//   })
+// }
 
 //----------- funcion traer Orden de la API----
 export const getOrders = (requestOptions) => {
@@ -87,17 +112,7 @@ export const getOrders = (requestOptions) => {
     });
 };
 
-
-//---- funcion patch -- cambiar estado de la orden a delivered
-
-// export const patchOrders = (requestOptions)  => {
-//   return fetch("http://localhost:8080/orders", requestOptions)
-//     .then((response) => response.json())
-//     .catch((error) => {
-//       console.error(error);
-//       throw error;
-//     });
-// };
+//----------- Funcion para cambiar estado de la orden ---------
 
 export function patchOrders(orderId, patchData, requestOptions) {
   const url = `http://localhost:8080/orders/${orderId}`;
@@ -116,23 +131,6 @@ export function patchOrders(orderId, patchData, requestOptions) {
     })
     .catch((error) => {
       console.error(error);
-      throw error;
-    });
-};
-
-// --------- Obtener productos2 del menú ------
-export const getProducts2 = () => {
-  const requestOptions = getRequestOptions("GET"); // Utiliza la función getRequestOptions para obtener el encabezado de autorización
-  
-  return fetch("http://localhost:8080/products", requestOptions)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Error fetching products");
-      }
-      return response.json();
-    })
-    .catch((error) => {
-      console.error("Error fetching products:", error);
       throw error;
     });
 };
@@ -174,99 +172,4 @@ export const deleteProduct = (productId) => {
     });
 };
 
-//-------------Traer los usuarios---------
-export const getUsers = () => {
-  const requestOptions = getRequestOptions("GET"); 
-  
-  return fetch("http://localhost:8080/users", requestOptions)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Error fetching users");
-      }
-      return response.json();
-    })
-    .catch((error) => {
-      console.error("Error fetching users:", error);
-      throw error;
-    });
-};
-
-// --------- Agregar usuarios ------
- export const addUsers = (newUser) => {
-  console.log(newUser);
-  const requestOptions = getRequestOptions("POST"); 
-  return fetch("http://localhost:8080/users", {
-    ...requestOptions,
-    body: JSON.stringify(newUser),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Error adding user");
-      }
-      return response.json();
-    })
-    .catch((error) => {
-      console.error("Error adding user:", error);
-      throw error;
-    });
-};
-
-// --------- Eliminar usuarios------
-export const deleteUsers = (usersId) => {
-  const requestOptions = getRequestOptions("DELETE");
-
-  return fetch(`http://localhost:8080/users/${usersId}`, requestOptions)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Error deleting users");
-      }
-      }) 
-    }
-  
-
-// --------- Editar productos del menú ------
-export const updateProduct = (productId, updatedProductData) => {
-  const requestOptions = getRequestOptions("PUT"); 
-
-  return fetch(`http://localhost:8080/products/${productId}`, {
-    ...requestOptions,
-    body: JSON.stringify(updatedProductData),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Error updating product");
-
-      }
-      return response.json();
-    })
-    .catch((error) => {
-
-      console.error("Error deleting users:", error);
-      throw error;
-    });
-};
-
-export const updateUser = (updatedUser) => {
-  const bearerToken = localStorage.getItem("token");
-  const requestOptions = {
-    method: "PUT", // Utiliza el método PUT para actualizar el usuario
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${bearerToken}`,
-    },
-    body: JSON.stringify(updatedUser),
-  };
-
-  return fetch(`http://localhost:8080/users/${updatedUser.id}`, requestOptions)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Error updating user");
-      }
-      return response.json();
-    })
-  .catch((error) => {
-      console.error("Error updating user:", error);
-      throw error;
-    });
-};
 
