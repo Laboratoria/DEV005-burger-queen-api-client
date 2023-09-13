@@ -8,7 +8,7 @@ let authToken =`Bearer ${localStorage.getItem("code")}`;
 export async function updateAuth(email, password) {
   console.log("Entre al update");
   try {
-    const response = await axios.post("http://localhost:8080/login", {
+    const response = await axios.post("https://mock-burger-queen.onrender.com/login", {
       email: email,
       password: password,
     });
@@ -32,7 +32,7 @@ export async function updateAuth(email, password) {
 // TRAER LOS PRODUCTOS------------------------------------------------------------------------
 export async function getproduct() {
   try {
-    const res = await axios.get('http://localhost:8080/products', {
+    const res = await axios.get('https://mock-burger-queen.onrender.com/products', {
       headers: {
         "Content-Type": "application/json",
         Authorization: `${authToken}`,
@@ -50,7 +50,7 @@ export async function getproduct() {
 //TRAER LAS ORDENES----------------------------------------------------------------------------------------
 export async function getOrder() {
   try {
-    const res = await axios.get('http://localhost:8080/orders', {
+    const res = await axios.get('https://mock-burger-queen.onrender.com/orders', {
       headers: {
         "Content-Type": "application/json",
         Authorization: `${authToken}`,
@@ -69,7 +69,7 @@ export async function createOrder(clientName, table, products, total) {
  
   try {
     const dateEntry = new Date().toLocaleString()
-    const response = await axios.post("http://localhost:8080/orders", {
+    const response = await axios.post("https://mock-burger-queen.onrender.com/orders", {
     "client": clientName,
     "table" : table,
     "products": products,
@@ -94,7 +94,7 @@ export async function createOrder(clientName, table, products, total) {
 export async function updateOrder(orderId, newStatus , readyTime) {
   try {
     await axios.patch(
-      `http://localhost:8080/orders/${orderId}`,
+      `https://mock-burger-queen.onrender.com/orders/${orderId}`,
       {
         status: newStatus,
         readyTime: readyTime, //agregar el tiempo de preparacion al cuerpo de la solicitud
@@ -118,7 +118,7 @@ export async function updateOrder(orderId, newStatus , readyTime) {
 
 export async function getUsers() {
   try {
-    const res = await axios.get('http://localhost:8080/users', 
+    const res = await axios.get('https://mock-burger-queen.onrender.com/users', 
       
     {
       headers: {
@@ -140,7 +140,7 @@ export async function getUsers() {
 export async function createUsers(email, password, role ) {
  
   try {
-    const response = await axios.post("http://localhost:8080/users", 
+    const response = await axios.post("https://mock-burger-queen.onrender.com/users", 
     {
       "email": email,
       "password": password,
@@ -162,7 +162,7 @@ export async function createProduct(nameProduct, price, image, type ) {
  
   try {
     const dateEntry = new Date().toLocaleString()
-    const response = await axios.post("http://localhost:8080/products", 
+    const response = await axios.post("https://mock-burger-queen.onrender.com/products", 
     {
       
       "name": nameProduct,
@@ -188,7 +188,7 @@ export async function createProduct(nameProduct, price, image, type ) {
 export async function editUser(userId, newEmail, newPassword, newRole ) {
   try {
    
-    const response = await axios.put(`http://localhost:8080/users/${userId}`, 
+    const response = await axios.put(`https://mock-burger-queen.onrender.com/users/${userId}`, 
     {
       "email": newEmail,
       "password": newPassword,
@@ -209,7 +209,7 @@ console.log(response.data, 'ELEMENTOS PARA EDITAR')
 // ELIMINAR USUARIOS
 export async function deleteUser(userId) {
   try {
-    const response = await axios.delete(`http://localhost:8080/users/${userId}`, 
+    const response = await axios.delete(`https://mock-burger-queen.onrender.com/users/${userId}`, 
     
 {headers: {
   "Content-Type": "application/json",
@@ -225,7 +225,7 @@ export async function deleteUser(userId) {
 // ELIMINAR PRODUCTOS
 export async function deleteProduct(productId) {
   try {
-    const response = await axios.delete(`http://localhost:8080/products/${productId}`, {
+    const response = await axios.delete(`https://mock-burger-queen.onrender.com/products/${productId}`, {
       headers: {
         Authorization: `${authToken}`,
       },
@@ -243,7 +243,7 @@ export async function deleteProduct(productId) {
 export async function editProduct(productId, newName, newPrice, newImage, newType) {
   try {
     const response = await axios.patch(
-      `http://localhost:8080/products/${productId}`,
+      `https://mock-burger-queen.onrender.com/products/${productId}`,
       {
         name: newName,
         price: newPrice,
