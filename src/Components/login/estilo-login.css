@@ -8,10 +8,8 @@ body {
 }
 
 .logo-container {
-    padding: 60px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
     padding: 20px;
   }
   
@@ -69,9 +67,6 @@ body {
   }
 
 .botonIngresar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-top: 20px;
     width: 120px;
     height: 50px;

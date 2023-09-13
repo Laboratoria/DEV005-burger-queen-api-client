@@ -1,34 +1,3 @@
-import React from "react";
-
-function DeliveredOrders({ deliveredOrders, handleOrderClick }) {
-  if (!deliveredOrders) {
-    console.log("deliveredOrders es nulo o indefinido");
-    return <p>Cargando...</p>;
-  }
-
-  return (
-    <div className="Total-delivering-container">
-      {deliveredOrders.map((order) => {
-        if (!order || !order.id) {
-          console.log("order es nulo o no tiene propiedad 'id'", order);
-          return null; // O puedes mostrar un mensaje de error en lugar de null
-        }
-
-        return (
-          <button
-            key={order.id}
-            className="delivering-container"
-            onClick={() => handleOrderClick(order)}
-          >
-            {order.id}
-          </button>
-        );
-      })}
-    </div>
-  );
-}
-
-export default DeliveredOrders;
 
 
 
@@ -59,6 +28,43 @@ export default DeliveredOrders;
 // }
 
 // export default DeliveredOrders;
+
+
+
+
+
+import React from "react";
+
+
+function DeliveredOrders({ deliveredOrders, handleOrderClick }) {
+  if (!deliveredOrders) {
+    console.log("deliveredOrders es nulo o indefinido");
+    return <p>Cargando...</p>;
+  }
+
+  return (
+    <div className="Total-delivering-container">
+      {deliveredOrders.map((order) => {
+        if (!order || !order.id) {
+          console.log("order es nulo o no tiene propiedad 'id'", order);
+          return null; 
+        }
+
+        return (
+          <button
+            key={order.id}
+            className="delivering-container"
+            onClick={() => handleOrderClick(order)}
+          >
+            {order.id}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+export default DeliveredOrders;
 
 
 // import React from "react";

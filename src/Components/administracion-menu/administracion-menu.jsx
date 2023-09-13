@@ -16,6 +16,7 @@ export default function AdministracionMenu() {
       getAllProducts();
     }, []);
 
+    // funcion que obtiene la lista de productos
       const getAllProducts = () => {
       getProducts2()
         .then((response) => {
@@ -29,6 +30,7 @@ export default function AdministracionMenu() {
         });
       } 
       
+      // Maneja las entradas en el Formulario y actualiza el estado de newProducts
       const handleInputChange = (e) => {
         const { name, value } = e.target;
         setNewProduct({
@@ -37,6 +39,7 @@ export default function AdministracionMenu() {
         });
       };
     
+      //función que agrega un nuevo producto
       const handleAddProduct = () => {
         // Para agregar el producto a la API y actualizar la lista local
         addProduct(newProduct)
@@ -56,8 +59,8 @@ export default function AdministracionMenu() {
           });
       };
     
+     // Para eliminar el producto de la API y actualizar la lista local
       const handleDeleteProduct = (productId) => {
-        // Para eliminar el producto de la API y actualizar la lista local
         deleteProduct(productId)
           .then(() => {
             const updatedProducts = products.filter((product) => product.id !== productId);
