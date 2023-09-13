@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getOrder, updateOrder } from "../../services/UseAxios";
 import './ordersInProcess.css'
+import Swal from "sweetalert2";
 
 function  OrdersInProcess() {
 
@@ -26,22 +27,44 @@ function  OrdersInProcess() {
  
 // MARCAR PEDIDOS READY---------------------------------
 const handleOrderReady = async (orderId) => {
-  try {
-    const readyTime = new Date(); // tiempo en que se marca ready a la orden
+  const shouldMarkOrderReady = await Swal.fire({
+    title: 'Mark Order as Ready',
+    text: 'Are you sure you want to mark this order as ready?',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#3085D6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes',
+    cancelButtonText: 'No'
+  });
 
-    await updateOrder(orderId, 'ready', readyTime);
+  if (shouldMarkOrderReady.isConfirmed) {
+    try {
+      const readyTime = new Date(); // tiempo en que se marca ready a la orden
 
-    // Actualiza localmente el estado de la orden para reflejar el cambio
-    setOrders(prevOrders => 
-      prevOrders.map(order =>
-        order.id === orderId ? { ...order, status: 'ready',  readyTime: readyTime } : order
-      )
-    );
-  } catch (error) {
-    console.error("Error updating order status:", error);
-    console.error("Response data:", error.response.data);
+      await updateOrder(orderId, 'ready', readyTime);
+
+      // Actualiza localmente el estado de la orden para reflejar el cambio
+      setOrders(prevOrders => 
+        prevOrders.map(order =>
+          order.id === orderId ? { ...order, status: 'ready',  readyTime: readyTime } : order
+        )
+      );
+
+      Swal.fire({
+        title: 'Order marked as ready',
+        icon: 'success',
+        timer: 2000, 
+        showConfirmButton: false 
+      });
+    } catch (error) {
+      console.error("Error updating order status:", error);
+      console.error("Response data:", error.response.data);
+      Swal.fire('Error', 'Something went wrong while marking the order as ready', 'error');
+    }
   }
 };
+
 
 //filtrar ordenes pendientes-------------------------------------------------------
 const pendingOrders = orders.filter(order => order.status === 'pending');

@@ -126,20 +126,23 @@ function EmployeesManagement() {
         try {
           const response = await deleteUser(userId);
           console.log(response, "Usuario eliminado");
+
           //ACTUALIZAR LA LISTA DE EMPLEADOS
           setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
-          Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          );
+
+          Swal.fire({
+            icon: 'success',
+            title: 'User deleted succesfully',
+            showConfirmButton: false,
+            timer: 1500,
+          });
         } catch (error) {
-          console.error("Error al eliminar el usuario:", error);
-          Swal.fire(
-            'Error!',
-            'There was an error deleting the user.',
-            'error'
-          );
+          Swal.fire({
+            title: 'Error deleting user, please try again later',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       }
     });

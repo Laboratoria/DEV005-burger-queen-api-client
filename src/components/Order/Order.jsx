@@ -37,7 +37,6 @@ const handleDecreaseQuantity = (productIndex) => {
 //enviar Orden------------------------------------------
 const handleSubmitOrder = async (e) => {
   e.preventDefault();
-  console.log(e, 'pa la ropa')
 
   if (!clientName || !table || orderProducts.length === 0) {
     Swal.fire({
@@ -47,19 +46,39 @@ const handleSubmitOrder = async (e) => {
     });
     return;
   }
-  try {
-   // debugger
-    const response = await createOrder(clientName, table, orderProducts, total);
-    console.log(response, 'ESTO ES UNA PRUEBA')
-    setClientName("");
-    setTable("");
-    setOrderProducts([]);
-    new Swal('Order created succesfully');
-    return response
-  } catch (error) {
-    new Swal('Wrong with submit order');
+
+  const shouldCreateOrder = await Swal.fire({
+    title: 'Confirm Order',
+    text: 'Are you sure you want to create the order?',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#3085D6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes',
+    cancelButtonText: 'No'
+  });
+
+  if (shouldCreateOrder.isConfirmed) {
+    try {
+      const response = await createOrder(clientName, table, orderProducts, total);
+      console.log(response, 'ESTO ES UNA PRUEBA');
+      setClientName("");
+      setTable("");
+      setOrderProducts([]);
+
+      Swal.fire({
+        title: 'Order created successfully',
+        icon: 'success',
+        timer: 2000, 
+        showConfirmButton: false 
+      });
+      
+    } catch (error) {
+      Swal.fire('Error', 'Something went wrong with submitting the order', 'error');
+    }
   }
-} 
+}
+
 
   return (
   <section className="container-order">

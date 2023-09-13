@@ -56,11 +56,21 @@ function UserForm() {
          navigate('/Admin');
        }
         if (response.role === 'Waiter') {
-          new Swal('Successful Log In');
+          Swal.fire({
+            icon: 'success',
+            title: 'Successful Log In',
+            showConfirmButton: false,
+            timer: 1500,
+          })
           navigate('/Waiter');
         }
         if (response.role === 'Chef') {
-          new Swal('Successful Log In');
+          Swal.fire({
+            icon: 'success',
+            title: 'Successful Log In',
+            showConfirmButton: false,
+            timer: 1500,
+          })
           navigate('/Chef');
         } 
         }

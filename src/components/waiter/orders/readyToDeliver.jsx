@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getOrder, updateOrder } from "../../../services/UseAxios";
+import Swal from "sweetalert2";
 
 import "./orders.css";
 
@@ -23,21 +24,43 @@ function ReadyToDeliver() {
 
 
   // MARCAR PEDIDOS ENTREGADOS---------------------------------
-const handleDelivered = async (orderId) => {
-  try {
-    await updateOrder(orderId, 'delivered');
-
-    // Actualiza localmente el estado de la orden para reflejar el cambio
-    setOrders(prevOrders => 
-      prevOrders.map(order =>
-        order.id === orderId ? { ...order, status: 'delivered' } : order
-      )
-    );
-  } catch (error) {
-    console.error("Error updating order status:", error);
-    console.error("Response data:", error.response.data);
-  }
-};
+  const handleDelivered = async (orderId) => {
+    const shouldMarkOrderDelivered = await Swal.fire({
+      title: 'Mark Order as Delivered',
+      text: 'Are you sure you want to mark this order as delivered?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085D6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+    });
+  
+    if (shouldMarkOrderDelivered.isConfirmed) {
+      try {
+        await updateOrder(orderId, 'delivered');
+  
+        // Actualiza localmente el estado de la orden para reflejar el cambio
+        setOrders(prevOrders => 
+          prevOrders.map(order =>
+            order.id === orderId ? { ...order, status: 'delivered' } : order
+          )
+        );
+  
+        Swal.fire({
+          title: 'Order marked as delivered',
+          icon: 'success',
+          timer: 1500,
+          showConfirmButton: false
+        });
+      } catch (error) {
+        console.error("Error updating order status:", error);
+        console.error("Response data:", error.response.data);
+        Swal.fire('Error', 'Something went wrong while marking the order as delivered', 'error');
+      }
+    }
+  };
+  
 
   //filtar pedidos marcados en READY-------------------------------------------
   const ordersReadyToDeliver = orders.filter(order => order.status === 'ready');

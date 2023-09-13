@@ -153,7 +153,19 @@ function ProductsManagement() {
   };
 
 // eliminar productos ------------------------------------------------------------------
-  const handleDeleteProduct = async (productId) => {
+const handleDeleteProduct = async (productId) => {
+  const shouldDeleteProduct = await Swal.fire({
+    title: 'Delete Product',
+    text: 'Are you sure you want to delete this product?',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#3085D6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes',
+    cancelButtonText: 'No'
+  });
+
+  if (shouldDeleteProduct.isConfirmed) {
     try {
       // Llama a la función para eliminar el producto por su ID
       await deleteProduct(productId);
@@ -162,20 +174,22 @@ function ProductsManagement() {
       setProducts(products.filter((product) => product.id !== productId));
   
       Swal.fire({
-        icon: "success",
-        title: "Product deleted successfully",
+        icon: 'success',
+        title: 'Product deleted successfully',
         showConfirmButton: false,
         timer: 1500,
       });
     } catch (error) {
       Swal.fire({
-        title: "Error deleting product, please try again later",
-        icon: "error",
+        title: 'Error deleting product, please try again later',
+        icon: 'error',
         showConfirmButton: false,
         timer: 1500,
       });
     }
-  };
+  }
+};
+
 
 //editar--------------------------------------------------------------------
 const [isEditing, setIsEditing] = useState(false);
