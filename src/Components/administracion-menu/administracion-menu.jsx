@@ -104,6 +104,39 @@ export default function AdministracionMenu() {
         return;
       }
 
+      updateProduct(editedProduct.id, editedProductChanges)
+        .then((updatedProduct) => {
+          const updatedProducts = products.map((product) =>
+            product.id === updatedProduct.id ? updatedProduct : product
+          );
+          setProducts(updatedProducts);
+          setEditMode(false);
+          setEditedProduct(null);
+          setEditedProductChanges({
+            name: "",
+            image: "",
+            type: "",
+            price: "",
+          });
+          setErrorMessage("");
+        })
+        .catch((error) => {
+          console.error("Error updating product:", error);
+        });
+    }
+  };
+
+  const handleDeleteProduct = (productId) => {
+    // Para eliminar el producto de la API y actualizar la lista local
+    deleteProduct(productId)
+      .then(() => {
+        const updatedProducts = products.filter((product) => product.id !== productId);
+        setProducts(updatedProducts);
+      })
+      .catch((error) => {
+        console.error("Error deleting product:", error);
+      });
+  };
 
   return (
     <div className="main-container">
