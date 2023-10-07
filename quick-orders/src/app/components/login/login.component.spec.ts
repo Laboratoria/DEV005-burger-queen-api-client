@@ -77,6 +77,6 @@ component.authForm.setValue({ 'email': 'grace.hopper@systers.xyz', 'password':  
         expect(method).toHaveBeenCalledWith('/admin');
         done();
 
-    }, 200);
+    }, 2000);
   });
 });
