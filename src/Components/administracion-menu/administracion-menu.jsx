@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import LOGO from "../../img/LOGO.png";
 import "./administracion-menu.css";
 import { getProducts2, addProduct, deleteProduct, updateProduct } from "../../Services/UserService";
@@ -144,7 +145,11 @@ export default function AdministracionMenu() {
         <h1 className="logo-admonMenu">BURGUER QUEEN</h1>
         <img src={LOGO} className="logo1-admonMenu" alt="Burger Queen Logo" />
       </div>
-
+      <div className="ruteo-admonMenu">
+          <Link to="/admusuarios" className="irAUsuarios">
+            Ir a Usuarios
+          </Link>
+      </div>
       <div className="content-container">
         <div className="left-container">
           <h2 className="container-title">PRODUCTOS</h2>
