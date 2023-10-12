@@ -15,7 +15,7 @@ export function getRequestOptions(method) {
 
 // --- funcion para logearse
 export const login = (formData) => {
-    return fetch("http://localhost:8080/login", {
+    return fetch("https://bendigo-quokka-fbxt.1.us-1.fl0.io", {
       method: "post",
       body: JSON.stringify(formData),
       headers: {"Content-Type": "application/json"}
@@ -32,7 +32,7 @@ export const login = (formData) => {
 export const getProducts2 = () => {
   const requestOptions = getRequestOptions("GET"); // Utiliza la función getRequestOptions para obtener el encabezado de autorización
   
-  return fetch("http://localhost:8080/products", requestOptions)
+  return fetch("https://bendigo-quokka-fbxt.1.us-1.fl0.io", requestOptions)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Error fetching products");
@@ -56,7 +56,7 @@ export function postOrders(orderData) {
     },
     body: JSON.stringify(orderData), // Envía el objeto orderData
   };
-  return fetch("http://localhost:8080/orders", requestOptions)
+  return fetch("https://bendigo-quokka-fbxt.1.us-1.fl0.io", requestOptions)
     .then((response) => response.json())
     .then((data) => {
       console.log("Response from server:", data);
@@ -71,40 +71,9 @@ export function postOrders(orderData) {
     });
 }
 
-// export function postOrders(client, orderProducts) {
-//   const bearerToken = localStorage.getItem("token");
-//   const requestOptions = {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       Authorization: "Bearer " + bearerToken,
-//     },
-//     body: JSON.stringify({
-//       client: client,
-//       products: orderProducts,
-//       status: "pending",
-//       //dataEntry: new Date().toLocaleString(),
-//       dataEntry: new Date().toISOString(),
-//     }),
-//   };
-//   return fetch("http://localhost:8080/orders", requestOptions)
-//   .then(response => response.json())
-//   .then(data => {
-//     console.log("Response from server:", data); 
-//     if (data.error) {
-//       throw new Error(data.error);
-//     }
-//     return data;
-//   })
-//   .catch(error => {
-//     console.error(error);
-//     throw error;
-//   })
-// }
-
 //----------- funcion traer Orden de la API----
 export const getOrders = (requestOptions) => {
-  return fetch("http://localhost:8080/orders", requestOptions)
+  return fetch("https://bendigo-quokka-fbxt.1.us-1.fl0.io", requestOptions)
     .then((response) => response.json())
     .catch((error) => {
       console.error(error);
@@ -115,7 +84,7 @@ export const getOrders = (requestOptions) => {
 //----------- Funcion para cambiar estado de la orden ---------
 
 export function patchOrders(orderId, patchData, requestOptions) {
-  const url = `http://localhost:8080/orders/${orderId}`;
+  const url = `https://bendigo-quokka-fbxt.1.us-1.fl0.io/${orderId}`;
 
   return fetch(url, {
     ...requestOptions,
@@ -139,7 +108,7 @@ export function patchOrders(orderId, patchData, requestOptions) {
 export const addProduct = (newProduct) => {
   const requestOptions = getRequestOptions("POST"); // Utiliza la función getRequestOptions para obtener el encabezado de autorización
 
-  return fetch("http://localhost:8080/products", {
+  return fetch("https://bendigo-quokka-fbxt.1.us-1.fl0.io", {
     ...requestOptions,
     body: JSON.stringify(newProduct),
   })
@@ -159,7 +128,7 @@ export const addProduct = (newProduct) => {
 export const deleteProduct = (productId) => {
   const requestOptions = getRequestOptions("DELETE"); // Utiliza la función getRequestOptions para obtener el encabezado de autorización
 
-  return fetch(`http://localhost:8080/products/${productId}`, requestOptions)
+  return fetch(`https://bendigo-quokka-fbxt.1.us-1.fl0.io/${productId}`, requestOptions)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Error deleting product");
@@ -176,7 +145,7 @@ export const deleteProduct = (productId) => {
 export const updateProduct = (productId, updatedProductData) => {
   const requestOptions = getRequestOptions("PUT"); 
 
-  return fetch(`http://localhost:8080/products/${productId}`, {
+  return fetch(`https://bendigo-quokka-fbxt.1.us-1.fl0.io/${productId}`, {
     ...requestOptions,
     body: JSON.stringify(updatedProductData),
   })
@@ -196,7 +165,7 @@ export const updateProduct = (productId, updatedProductData) => {
 export const getUsers = () => {
   const requestOptions = getRequestOptions("GET"); 
   
-  return fetch("http://localhost:8080/users", requestOptions)
+  return fetch("https://bendigo-quokka-fbxt.1.us-1.fl0.io", requestOptions)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Error fetching users");
@@ -213,7 +182,7 @@ export const getUsers = () => {
  export const addUsers = (newUser) => {
   console.log(newUser);
   const requestOptions = getRequestOptions("POST"); 
-  return fetch("http://localhost:8080/users", {
+  return fetch("https://bendigo-quokka-fbxt.1.us-1.fl0.io", {
     ...requestOptions,
     body: JSON.stringify(newUser),
   })
@@ -233,7 +202,7 @@ export const getUsers = () => {
 export const deleteUsers = (usersId) => {
   const requestOptions = getRequestOptions("DELETE");
 
-  return fetch(`http://localhost:8080/users/${usersId}`, requestOptions)
+  return fetch(`https://bendigo-quokka-fbxt.1.us-1.fl0.io/${usersId}`, requestOptions)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Error deleting users");
@@ -255,7 +224,7 @@ export const deleteUsers = (usersId) => {
         body: JSON.stringify(updatedUser),
       };
     
-      return fetch(`http://localhost:8080/users/${updatedUser.id}`, requestOptions)
+      return fetch(`https://bendigo-quokka-fbxt.1.us-1.fl0.io/${updatedUser.id}`, requestOptions)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Error updating user");
