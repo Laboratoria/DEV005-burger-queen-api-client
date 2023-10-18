@@ -69,9 +69,12 @@ tab = #D9D9D9
 
   .close{
     display: flex;
+    margin-top: 10px;
     align-items: center;
     justify-content: center;
-    height: 20%;
+    height: 10%;
+    width: 100%;
+    padding: 0;
   }
   
   .userLogin{
@@ -86,13 +89,6 @@ tab = #D9D9D9
   height: 20px;
 }
 
-.close {
-  display: flex;
-  align-items: center;
-  justify-content:center;
-  width: 100%;
-}
-
 button {
     display: flex;
     align-items: center;
@@ -101,7 +97,7 @@ button {
     border-radius: 15px;
     margin: 10px;
     width: 40%;
-    height: 30%;
+    height: 50%;
     background-color: #F2B366 ;
 }
 
@@ -111,23 +107,29 @@ mat-card {
 }
 
 mat-label {
-  margin: 10px;
-  width: 30%;
-  padding: 5px;
+  margin-bottom: 15px;
+  margin-left: 5px;
+  width: 100%;
+  height: 20%;
+  border: none;
   text-align: left;
+  font-size: 14px;
 }
 
-input {
-  width: 65%;
-  height: 50%;
+.addinput {
+  width: 100%;
+  height: 80%;
   border-radius: 10px;
 }
 
 mat-form-field {
     display: flex;
-    align-items: center;
-    justify-content:center;
+    align-items: left;
+    justify-content:left;
     width: 100%;
+    height: 70%;
+    padding: 5px;
+    flex-direction: column;
 }
 
 .mat-50{
