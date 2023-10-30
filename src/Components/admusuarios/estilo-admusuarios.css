@@ -1,0 +1,263 @@
+@import url("https://fonts.google.com/specimen/Luckiest+Guy?query=luckies");
+
+body {
+  background-color: #FDD209;
+  margin: 0px;
+  padding: 0px;   
+}
+
+.main-container-usuarios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} 
+
+.logo-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.logo-usuarios {
+  margin: 0;
+  font-weight: 800;
+  font-size: 200%;
+  color: #F32822;
+  text-shadow: -2px -2px 0 #F5F5F5, 2px -2px 0 #F5F5F5, -2px 2px 0 #F5F5F5, 2px 2px 0 #F5F5F5;
+}
+
+.logo1-usuarios {
+  width: 70px;
+  height: 70px;
+  margin-left: 10px;
+}
+
+/*.content-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%; 
+}
+
+.left-container {
+  align-items: center;
+  padding: 20px;
+  margin-right: 20px; 
+  margin-left: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  background-color: #f5f5f5;
+  margin: 25px;
+}
+
+.right-container {
+  align-items: center;
+  padding: 15px;
+  margin-right: 20px; 
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  background-color: #f5f5f5;
+}*/
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 25px;
+}
+
+.left-container,
+.right-container {
+  align-items: center;
+  padding: 20px;
+  margin-right: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  background-color: #f5f5f5;
+  flex: 1; /* Ambos ocuparán el mismo espacio */
+}
+
+
+
+.container-title {
+  font-size: 160%;
+  color: #333333;
+  font-weight: 800;
+  margin-top: 30px;
+}
+
+.container-title-right { 
+  font-size: 160%;
+  color: #333333;
+  font-weight: 800;
+  margin-top: 30px;
+}
+
+
+.usuarios-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    max-width: 100%; 
+  }
+
+  .usuarios-table th, .usuarios-table td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle; 
+  }
+
+  .usuarios-table th {
+    background-color: #6610f2;
+    border-color: gray;
+    border-style: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .usuarios-table tbody tr:nth-child(even) {
+    background-color: #ccc;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .usuarios-table tbody tr:hover {
+    background-color: #ccc;
+  }
+
+  .divsInput-adm-usuario {
+    margin: 20px 0px 20px 0px;
+  }
+
+  .btnEditar-adm-usuarios {
+    border: none;
+    background-color: #f2f2f2;
+    border-radius: 50px;
+    margin-right: 10px;
+  }
+
+  .btnPapelera-adm-usuarios {
+  border: none;
+  background-color: #f2f2f2;
+  border-radius: 50px;
+  margin-right: 10px;
+  }
+
+.add-adm-usuario {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.input-adm-usuario {
+  font-size: 20px;
+  border: none;
+  border-bottom: 1px solid black; 
+  margin: 20px 0; 
+  text-align: center;
+  background-color: #f2f2f2;
+}
+
+.input-adm-usuario::placeholder {
+  color: gray; 
+  font-style: italic;
+  font-size: 20px;
+  text-align: center;
+}
+
+.botones-guardar-cancelar {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.btn-agregar-usuario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 40px;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #5E71CD;
+  border-color: gray;
+  color: white;
+  border-style: none;
+}
+
+.btn-cancelar-edicion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 40px;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #5E71CD;
+  border-color: gray;
+  color: white;
+  border-style: none;
+}
+
+.btn-agregar-usuario:hover {
+  background-color: #4caf50;
+}
+
+/*.admusuarios {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}*/
+
+
+.ir-a-productos {
+  position: absolute; 
+  top: 20px; 
+  right: 20px; 
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  border-radius: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #5E71CD;
+  border-color: gray;
+  color: white;
+  border-style: none;
+  text-decoration: none;
+}
+
+
+@media (max-width: 768px) {
+
+  .logo-title-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+  
+  .content-container {
+    flex-direction: column;
+    margin: 5px 0px;
+  }
+
+  .left-container,
+  .right-container {
+    width: 100%;
+    margin-bottom: 20px; 
+  }
+
+  .usuarios-table {
+    font-size: 80%; 
+  }
+} 

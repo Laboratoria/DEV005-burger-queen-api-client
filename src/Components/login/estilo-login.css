@@ -1,0 +1,92 @@
+@import url("https://fonts.google.com/specimen/Luckiest+Guy?query=luckies");
+
+body {
+  background-color: #FDD209;
+  margin: 0px;
+  padding: 0px;
+
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+.logo {
+    margin: 30px 0 0 20px;
+    font-weight: 800;
+    font-size: 350%;
+    letter-spacing: 0.06em;
+    color: #F32822;
+    text-shadow: -4px -4px 0 #F5F5F5, 4px -4px 0 #F5F5F5, -4px 4px 0 #F5F5F5, 4px 4px 0 #F5F5F5;
+  }
+  
+.logo1 {
+    margin: 0 30px 0 0;
+    height: 15%;
+    width: 15%;
+  }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    background-color: #F5F5F5;
+    height: 450px; 
+    width: 450px; 
+    border-radius: 25px;
+    padding: 25px;
+}
+
+.bienvenido {
+    display: flex;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.tituloInput {
+    margin-top: 15px;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.inputLogin {
+    border-radius: 5px;
+    border: none;
+    border-bottom: 1px solid black; 
+    margin: 10px 0; 
+    background-color: aliceblue;
+}
+
+.inputLogin::placeholder {
+    color: gray; 
+    font-style: italic;
+    font-size: 25px;
+  }
+
+.botonIngresar {
+    margin-top: 20px;
+    width: 120px;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 60px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 130px;
+    background-color: #5E71CD;
+    border-color: gray;
+    color: white;
+    border-style: none;
+}
+
+.botonIngresar:hover {
+    background-color: #4caf50;
+}
+
+.error-message {
+    padding-top: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 18px;  
+}
