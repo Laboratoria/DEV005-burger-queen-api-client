@@ -1,0 +1,12 @@
+.btn-sustract{
+  width: 50px;
+  height: 50px;
+  background-size: auto;
+  background: none;
+  border: none;
+  padding: 0px;
+  background-image: url('../../../assets/images/minus.png');
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+}

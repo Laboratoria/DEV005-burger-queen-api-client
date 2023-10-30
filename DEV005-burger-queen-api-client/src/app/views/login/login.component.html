@@ -1,0 +1,26 @@
+<div class="container">
+  <app-logo [size]="'large'"></app-logo>
+</div>
+
+<!-- <button routerLink="/cook-component" routerLinkActive="active">Cocina</button>
+<button routerLink="/waiter-component" routerLinkActive="active">Mesero</button>
+<button routerLink="/admin-component" routerLinkActive="active">Administrador</button> -->
+
+<form class="credentials" [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
+  <div class="inputContainer">
+    <label for="email" class="labelForm">Correo</label>
+    <input type="email" id="email" class="inputForm" formControlName="email" required placeholder="correo@example.com">
+    <div class="requiredCamp" *ngIf="showPasswordMessage()"> El correo es requerido </div>
+
+    <label for="password" class="labelForm">Contraseña</label>
+    <input type="password" id="password" class="inputForm" formControlName="password" required placeholder="Ingrese su contraseña">
+    <div class="requiredCamp" *ngIf="showPasswordMessage()"> La contraseña es requerida </div>
+
+    <div class="requiredCamp" *ngIf="incorrectCredentials"> {{incorrectCredentials}} </div>
+
+  </div>
+  <div class="container">
+    <button class="button" routerLinkActive="active" type="submit">Iniciar Sesión</button>
+  </div>
+
+</form>

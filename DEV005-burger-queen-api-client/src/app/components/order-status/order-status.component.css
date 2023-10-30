@@ -1,0 +1,32 @@
+.status-orders {
+  font-size: 20px;
+  background-color: white;
+  border: 5px solid #005A96;
+  border-radius: 10px;
+  justify-items: center;
+  align-items: center;
+  padding: 10px;
+}
+
+caption {
+  color: #005A96;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.image-checkbox {
+  display: none;
+}
+
+.image-checkbox + label {
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  background: url('../../../assets/images/unchecked.png') no-repeat;
+  background-size: 40px 40px;
+}
+
+.image-checkbox:checked + label {
+  background: url('../../../assets/images/check.png') no-repeat;
+  background-size: 40px 40px;
+}

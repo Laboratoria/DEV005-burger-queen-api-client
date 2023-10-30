@@ -1,0 +1,9 @@
+<tr class="product-div" *ngFor="let product of products; let i = index">
+    <td class="product-qty">{{ product.qty }}</td>
+    <td class="product-name">{{ product.product.name }}</td>
+    <td class="product-price">$ {{ product.product.price*product.qty }}</td>
+    <td class="buttons">
+      <app-button-add (click)="addToOrder(product)"></app-button-add>
+      <app-button-sustract (click)="decrementProduct(i)"></app-button-sustract>
+    </td>
+</tr>

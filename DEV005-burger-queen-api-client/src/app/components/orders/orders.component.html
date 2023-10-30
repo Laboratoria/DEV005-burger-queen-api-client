@@ -1,0 +1,21 @@
+<section class="order-section">
+  <div class="tab-content">
+    <p class="order-p">Resumen del pedido </p>
+  </div>
+  <div class="itemAndPrice">
+    <p>Item</p>
+    <p>Precio</p>
+  </div>
+  <div class="productsOrder">
+    <app-products-order [products]="productOrderList" (productAdded)="onProductClicked($event)"> </app-products-order>
+  </div>
+  <div class="clientAndTable">
+    <p>Cliente: {{ clientName }}</p>
+    <p>Mesa: {{ tableNumber }} </p>
+  </div>
+  <div class="clientAndTable">
+    TOTAL: {{ totalOrderPrice ? totalOrderPrice: 0 }}
+  </div>
+  <div *ngIf="showError" class="error-message">Faltan datos para generar la orden</div>
+  <button class="btn-send-order" (click)="createOrder()">Enviar Orden</button>
+</section>

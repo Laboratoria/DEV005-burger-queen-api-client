@@ -1,0 +1,24 @@
+<section class="status-orders">
+  <table>
+    <caption>Estado de los pedidos</caption>
+    <thead>
+      <tr>
+        <th>En proceso</th>
+        <th>Listos</th>
+        <th>Entregados</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of ordersReady">
+        <td> {{order.client}} </td>
+        <td>
+          <input type="checkbox" id="order{{order.id}}" class="image-checkbox">
+          <label for="order{{order.id}}"></label>
+        </td>
+        <td>Entregados</td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+
