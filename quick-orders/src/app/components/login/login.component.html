@@ -1,35 +1,49 @@
 <!DOCTYPE html>
-<html> 
-    <head>
-        <meta charset="utf-8">
-      </head>
-      <body>
-        <main>
-            <div class="allBody">
-                <div class="login">
-                        <div class="loginInputs"> 
-                            <div class="portada">
-                                <h1>Quick Orders</h1>
-                            </div>
-                        <form [formGroup]= "authForm" class="login-container" (ngSubmit) ="login()">
-                            <img class="userLogin" src="./assets/Ellipse5.png" alt="user logo">
-                            <p [ngClass] ="{'has-error': isSubmitted && formControls['email'].errors }">
-                                <input class="email" type="email" placeholder="Email" formControlName="email"> 
-                            </p>
-                                <div *ngIf = "isSubmitted && formControls['email'].errors" class="help-block"> 
-                                    <div class="emailError" *ngIf= "formControls['email'].errors['required']">El email es requerido</div>
-                                </div>
-                            <p [ngClass] ="{'has-error': isSubmitted && formControls['password'].errors }">
-                                <input class="password" type="password" placeholder="Password" formControlName="password"> 
-                            </p>
-                                <div *ngIf = "isSubmitted && formControls['password'].errors" class="help-block"> 
-                                    <div class="passwordError" *ngIf= "formControls['password'].errors['required']">La contraseña es requerido</div>
-                                </div>
-                            <button name="buttonInicio" class="button-info" (click)= "login()">Iniciar Sesión</button>
-                        </form>
-                        </div>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <main>
+        <div class="allBody">
+            <div class="login">
+                <div class="loginInputs">
+                    <div class="portada">
+                        <h1>Quick Orders</h1>
                     </div>
+                    <form [formGroup]="authForm" class="login-container" (ngSubmit)="login()">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail" class="form-label">Email address</label>
+                            <p [ngClass]="{'has-error': isSubmitted && formControls['email'].errors }">
+                                <input class="form-control" type="email" formControlName="email" aria-describedby="emailHelp">
+                            </p>
+                            <div *ngIf="isSubmitted && formControls['email'].errors" class="help-block">
+                                <div class="emailError" *ngIf="formControls['email'].errors['required']">El email es
+                                    requerido</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Passwork</label>
+                            <p [ngClass]="{'has-error': isSubmitted && formControls['password'].errors }">
+                                <input class="form-control" type="password" formControlName="password">
+                            </p>
+                            <div *ngIf="isSubmitted && formControls['password'].errors" class="help-block">
+                                <div class="passwordError" *ngIf="formControls['password'].errors['required']">La contraseña
+                                    es
+                                    requerido</div>
+                            </div>
+                        
+                        </div>
+                     
+                        <button name="buttonInicio" class="btn btn-primary" (click)="login()">Iniciar Sesión</button>
+                    </form>
                 </div>
-        </main>
-      </body>
+            </div>
+        </div>
+    </main>
+</body>
+
 </html>

@@ -13,7 +13,7 @@ body, html {
     font-family: 'Oxygen', sans-serif;
     display: flex;
     overflow: hidden;
-    background-image: url(../../../assets/burguer_image.jpeg);
+    /*background-image: url(../../../assets/burguer_image.jpeg);*/
     background-size: 100% 100%;
 }
 
