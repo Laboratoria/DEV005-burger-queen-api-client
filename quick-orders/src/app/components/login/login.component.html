@@ -8,11 +8,12 @@
 <body>
     <main>
         <div class="allBody">
-            <div class="login">
-                <div class="loginInputs">
-                    <div class="portada">
-                        <h1>Quick Orders</h1>
-                    </div>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <p class="navbar-brand" href="#">QUICK ORDERS</p>
+                </div>
+                </nav>
+                <div class="formLogin">
                     <form [formGroup]="authForm" class="login-container" (ngSubmit)="login()">
                         <div class="mb-3">
                             <label for="exampleInputEmail" class="form-label">Email address</label>
@@ -35,14 +36,14 @@
                                     es
                                     requerido</div>
                             </div>
-                        
                         </div>
-                     
                         <button name="buttonInicio" class="btn btn-primary" (click)="login()">Iniciar Sesión</button>
                     </form>
+                    <div class="divImage" style="width: 50%;">
+                        <img src="../../../assets/jonathan.jpg" class="card-img-top" alt="...">
+                    </div>
                 </div>
             </div>
-        </div>
     </main>
 </body>
 

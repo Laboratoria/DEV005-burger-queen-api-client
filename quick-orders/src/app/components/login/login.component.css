@@ -18,57 +18,57 @@ body, html {
 }
 
 .allBody{
-    margin: 0px;
-    padding: 0px;
     border: none;
     display: flex;
     width: 100vw;
-    height: 100%;
-    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
 }
 
-h1{
-    margin-top: 120px;
-    margin-bottom: 0;
-    font-size: 50px;
-    height: 30%;
-    text-align: center;
-    color: white;
+nav {
+    background-color: black;
+    padding: 0;
+    height: 100px;
 }
 
-.login{
+.navbar-brand {
+    color: #D9D9D9;
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.container-fluid {
+    background-color: black;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+}
+
+.divImage {
+    display: block;
+}
+
+form {
+    display: flex;
     position: relative;
-    justify-content:left;
     flex-direction: column;
     width: 50%;
     height: 100vh;
-}
-
-.loginInputs{
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-}
-
-.userLogin{
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    width: 150px;
-    margin-top: 30px;
-}
-
-form{
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    width: 500px;
-    height: 70%;
     justify-content: center;
     align-items: center;
     justify-items: center;
+}
+
+.mb-3 {
+    width: 70%;
 }
 
 .emailError, .passwordError {
@@ -92,27 +92,6 @@ form{
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.button-info{
-    position: relative;
-    height: 50px;
-    width: 400px;
-    margin-top: 20px;
-    text-align: center;
-    border-radius: 10px;
-    border-style: none;
-    background-color: #F2B366;
-    color: black;
-    font-family: 'Oxygen', sans-serif;
-    font-size: 20px;
-    cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    transition: background-color .1s;;
-}
-
-.button-info:hover {
-    background-color: #F2884b;
-}
-
 .errorMessage {
     position: relative;
     height: 20%;
@@ -120,4 +99,13 @@ form{
     top: 0;
     bottom: 0;
     color: antiquewhite;
+}
+
+.exampleInputEmail, .form-label {
+    color: white;
+}
+
+.form-control {
+    width: 100%;
+    height: 45px;
 }
