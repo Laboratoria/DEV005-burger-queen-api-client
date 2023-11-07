@@ -22,19 +22,5 @@ export class AuthService {
   
   }
 
-  /*profile() {
-    
-    console.log("profile")
-    return this.http.get<User[]>(`${this.apiURL}/users`);
-  }*/
-
-  /*profile(token:string) {
-    let headers = new HttpHeaders();
-    headers = headers.set('Authorization',`Bearer ${token}`);
-    headers = headers.set('Content-type', 'application/json');
-    return this.http.get<User[]>(`${this.apiURL}/users`, {
-      headers
-    });
-  }*/
 }
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; // para hacer peticiones
 import { User, CreateUserDTO } from '../models/user.model';
 import { Auth } from '../models/auth.model';
+import { Product } from '../models/products.model';
 
 @Injectable({
   providedIn: 'root'
@@ -50,5 +51,7 @@ delete(id:number) {
   return this.http.delete<User>(`${this.apiURL}/users/${id}`);
 }
 
+
 }
+
 

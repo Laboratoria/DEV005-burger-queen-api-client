@@ -314,11 +314,15 @@ app-modal{
 }
 
 .orderSummarize {
-    display: flex;
+    display: grid;
     width: 90%;
     height: 10%;
     border-radius: 10px;
     background-color: #F2B366;
+    align-items: center;
+    justify-content: center;
+    margin: 12px;
+    grid-template-columns: 30% 50% 20%
 }
 
 .totalAll, .numberAll, .deleteAll {
@@ -327,5 +331,19 @@ app-modal{
     justify-content: center;
     margin: 5px;
     height: 80%;
+    background-color: #F2B366;
+}
+
+.deleteAll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   margin-left: 10%;
+   border-radius: 10px;
+   width: 80%;
+   border: none;
+}
+
+.icoon {
     background-color: #F2B366;
 }

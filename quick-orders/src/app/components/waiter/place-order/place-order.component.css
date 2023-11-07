@@ -7,20 +7,96 @@ tab = #D9D9D9
 */
 
 .orderTable {
-    width: 90%;
-    height: 90%;
+    display:inline-table;
+    justify-content: center;
     align-items: center;
+    width: 90%;
+    height: 100%;   
 }
 
-.headTitle {
-    flex-direction:row;
+tr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+}
+
+.plus, .less {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
 }
 
 .number {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content:center;
+    width: 10%;
+    height: 20%;
+}
+
+.description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 20%;
+}
+
+.subtotal, .actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 20%;
+}
+
+.buttonAdd, .buttonLess {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: #D9D9D9;
+    border: none;
+}
+
+.headTitle {
     flex-direction:row;
+    height: 50%;
+    width: 95%;
+    padding: 10px;
+    margin: 5px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}
+
+.lineInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin: 5px;
+}
+
+.icoonPlus, .icoonMinus {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.delete {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    border: none;
 }
 
 p{

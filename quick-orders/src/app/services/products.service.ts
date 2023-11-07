@@ -51,4 +51,9 @@ delete(id:number) {
   return this.http.delete<Product>(`${this.apiURL}/products/${id}`);
 }
 
+// Crear una lista de productos
+orderList(id:number){
+  return this.http.get<Product>(`${this.apiURL}/orders/${id}`);
+}
+
 }
