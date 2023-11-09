@@ -147,8 +147,9 @@ form {
     height: 45px;
 }
  
-button {
-    background-color: #db3210;
-    border-color: #db3210;
+.btn {
+    background-color: $base-color-three;
+    border-color: $base-color-three;
     margin-top: 20px;
+    color: $base-color-one;
 }
