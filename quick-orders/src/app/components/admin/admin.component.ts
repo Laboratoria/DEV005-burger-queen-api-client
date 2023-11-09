@@ -10,7 +10,7 @@ import { MatProductsComponent } from "src/app/ng-material/mat-products/mat-produ
 @Component ({
     selector: 'app-admin',
     templateUrl: './admin.component.html',
-    styleUrls: ['./admin.component.css']
+    styleUrls: ['./admin.component.scss']
 })
 
 export class AdminComponent implements OnInit {
