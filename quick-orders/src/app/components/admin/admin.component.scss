@@ -35,13 +35,7 @@ body, html {
     padding-left: 70px;
 }
 
-.navbar{
-    position: relative;
-    display: flex;
-    height: 90px;
-    margin-right: auto;    
 
-}
 .nombre{
     position: relative;
     display: flex;
@@ -62,15 +56,6 @@ body, html {
     min-height: 100vh;
 }
 
-.vista {
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content:center;
-    width: 90%;
-    height: 60px;
-}
-
 .user, .menu{
     display: flex;
     position: relative;
@@ -89,16 +74,6 @@ body, html {
     background-color: #F4F4F4;
 }
 
-.encabezado{
-    display: flex;
-    position: relative;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 0;
-}
-
 .vistaMenu{
     display: flex;
     position: relative;
@@ -109,24 +84,58 @@ body, html {
     margin-top: 0;
 }
 
-.cards{
+.navbar{
+    position: relative;
+    display: flex;
+    height: 100px;
+    margin-right: auto;    
+}
+
+.vista {
     display: flex;
     position: relative;
-    height: 80%;
+    align-items: center;
+    justify-content:center;
     width: 90%;
-    background-color: $base-color-two;
+    height: 60px;
+}
+
+.encabezado, .vistaMenu {
+    display: flex;
+    position: relative;
+    height: 75%;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 0;
+}
+
+.cards, .products {
+    display: flex;
+    position: relative;
+    height: 90%;
+    width: 90%;
+    background-color: $base-color-one;
     align-items: center;
     justify-content:center;
     border-radius: 0 0 10px 10px;
 }
 
+app-users, app-products {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content:center;
+    background-color: $base-color-one;
+}
 
 .products{
     display: flex;
     position: relative;
     height: 90%;
     width: 90%;
-    background-color: #F4F4F4;
+    background-color: $base-color-one;
     align-items: center;
     justify-content:center;
     border-radius: 0 0 10px 10px;
@@ -188,6 +197,7 @@ app-modal{
     justify-content:center;
     background-color: #F4F4F4;
 }
+
 
 
 

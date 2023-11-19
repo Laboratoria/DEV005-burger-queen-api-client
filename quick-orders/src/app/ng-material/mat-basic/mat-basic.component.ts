@@ -9,7 +9,7 @@ import { User } from 'src/app/models/user.model';
 @Component({
   selector: 'app-mat-basic',
   templateUrl: './mat-basic.component.html',
-  styleUrls: ['./mat-basic.component.css']
+  styleUrls: ['./mat-basic.component.scss']
 })
 export class MatBasicComponent implements OnInit {
 

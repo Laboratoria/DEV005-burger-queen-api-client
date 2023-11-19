@@ -15,8 +15,8 @@
             <td class="price"> {{ info.price }} </td>
             <td class="image"> {{ info.image }} </td>
             <td class="type"> {{ info.type }} </td>
-            <td class="actions"><button class="butonEdit" (click) ="editProduct(info.id)" >Editar</button></td>
-            <td class="actions"><button class="butonDelete" (click) ="deleteThisProduct(info.id)" >Eliminar</button></td>
+            <td class="actions"><button class="btn btn-primary" (click) ="editProduct(info.id)" >Editar</button></td>
+            <td class="actions"><button class="btn btn-danger" (click) ="deleteThisProduct(info.id)" >Eliminar</button></td>
         </tr> 
     </tbody>
     </table>

@@ -1,25 +1,36 @@
-<div class="component">
-    <form [formGroup] ="myform" (ngSubmit)= "Saveuser()" id="formModal">
-        <h1 mat-dialog-title>{{data.title}}</h1>
-        <div mat-dialog-content class="mat-typography">
-            <img class="userLogin" src="./assets/Ellipse5.png" alt="user logo">
-            <mat-form-field class="emailModal" >
-                <mat-label>Correo</mat-label>
-                <input formControlName="correo" matInput placeholder="ejemplo@gmail.com" class="addinput">
-            </mat-form-field>
-            <mat-form-field class="passModal" >
-                <mat-label>Contraseña</mat-label>
-                <input formControlName="contraseña" matInput  placeholder="Escribe la contraseña" class="addinput">
-            </mat-form-field>
-            <mat-form-field class="roleModal" >
-                <mat-label>Rol</mat-label>
-                <input formControlName="rol" matInput placeholder="Especifica el rol" class="addinput">
-            </mat-form-field>
-            <div mat-dialog-actions align="end" class="close">
-                <button (click) ="Closepopup()">Cancelar</button>
-                <button >Guardar</button>
-              </div>
-          </div>
-          </form>
-</div>
+<div class="modal-fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">{{data.title}}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="myform" (ngSubmit)="Saveuser()" id="formModal">
 
+                    <div mat-dialog-content class="mat-typography">
+                        <div class="mb-3">
+                            <label class="col-form-label">Correo</label>
+                            <input type="text" class="form-control" formControlName="correo" matInput
+                                placeholder="ejemplo@gmail.com" class="addinput">
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label">Contraseña</label>
+                            <input type="text" class="form-control" formControlName="contraseña" matInput
+                                placeholder="Escribe la contraseña" class="addinput">
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label">Rol</label>
+                            <input type="text" class="form-control" formControlName="rol" matInput
+                                placeholder="Especifica el rol" class="addinput">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="Closepopup()">Cancelar</button>
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
