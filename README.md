@@ -6,7 +6,7 @@
 * [2. Prototipos](#2-prototipos)
 * [3. Historias de usuario](#3-historias-de-usuario)
 * [4. Despliegue](#5-despliegue)
-* [5. Pistas / tips](#6-pistas--tips)
+* [5. Recursos](#6-recursos)
 
 ***
 
@@ -253,15 +253,10 @@ plataforma de _despliegue_ que nos permite desplegar nuestra aplicación
 web estática (HTML, CSS y JavaScript) y también nos permite desplegar
 aplicaciones web que se ejecutan en el servidor (Node.js).
 
-## 5. Pistas / Tips
-
-Súmate al canal de Slack
-[#project-bq-api-client](https://claseslaboratoria.slack.com/archives/C04A0GS1WJX)
-para conversar y pedir ayuda del proyecto.
+## 5. Recursos
 
 ### Frameworks / libraries
 
-* [React](https://react.dev/)
 * [Angular](https://angular.io/)
 
 ### Herramientas
