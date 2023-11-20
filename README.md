@@ -79,7 +79,7 @@ Para el desarrollo del proyecto realizamos prototipos de alta fidelidad, el cual
 
 🌱 Login
 
-![Burguer.queen.login](src/assets/login.PNG)
+![Burguer.queen.login](assets/login.PNG)
 
 🌱 Mesero
 
