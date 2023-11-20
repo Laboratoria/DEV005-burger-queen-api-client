@@ -16,14 +16,8 @@ Un pequeño restaurante de hamburguesas, que está creciendo, necesita un
 sistema a través del cual puedan tomar pedidos usando una _tablet_, y enviarlos
 a la cocina para que se preparen ordenada y eficientemente.
 
-![burger-queen](https://user-images.githubusercontent.com/110297/42118136-996b4a52-7bc6-11e8-8a03-ada078754715.jpg)
-
 Este proyecto tiene dos áreas: interfaz (cliente) y API (servidor). Nuestra
 clienta nos ha solicitado desarrollar la interfaz que se integre con una API.
-
-Esta vez tenemos un proyecto 100% por encargo. Si bien siempre puedes (y debes)
-hacer sugerencias de mejoras y/o cambios, muchas veces trabajarás en proyectos
-en los que primero hay que asegurarse de cumplir con lo requerido.
 
 Esta es la información que tenemos de la clienta:
 
@@ -66,8 +60,6 @@ con todos sus _productos_. La usuaria debe poder ir eligiendo qué _productos_
 agregar y la interfaz debe ir mostrando el _resumen del pedido_ con el
 costo total.
 
-![out](https://user-images.githubusercontent.com/110297/45984241-b8b51c00-c025-11e8-8fa4-a390016bee9d.gif)
-
 Además la clienta nos ha dado un [link a la documentación](https://app.swaggerhub.com/apis-docs/ssinuco/BurgerQueenAPI/2.0.0)
 que especifica el comportamiento esperado de la API HTTP que deberás consumir.
 Ahí puedes encontrar todos los detalles de los _endpoints_, como por ejemplo
@@ -75,7 +67,7 @@ qué parámetros esperan, qué deben responder, etc.
 
 ## 2. Prototipos
 
-Para el desarrollo del proyecto realizamos prototipos de alta fidelidad, el cual fue realizado en Figma.
+Para el desarrollo del proyecto realizamos prototipos de alta fidelidad utilizando la herramienta Figma, el cual puede revisar de forma detallada en el siguiente [Link]([Figma](https://www.figma.com/file/4KNUPIHBfQ9rbqWJUz3ke6/Hackathon-Laboratoria-%F0%9F%A9%B7%F0%9F%92%9B?type=design&node-id=0-1&mode=design&t=GTegUlktvrbvo5LB-0))
 
 🌱 Login
 
