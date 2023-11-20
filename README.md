@@ -79,23 +79,23 @@ Para el desarrollo del proyecto realizamos prototipos de alta fidelidad, el cual
 
 🌱 Login
 
-![Burguer.queen.login](assets/login.PNG)
+![Burguer.queen.login](quick-orders/src/assets/login.PNG)
 
 🌱 Mesero
 
-![Burguer.queen.mesero](src/assets/mesero.PNG)
+![Burguer.queen.mesero](quick-orders/src/assets/mesero.PNG)
 
 🌱 Ordenes
 
-![Burguer.queen.ordenes](src/assets/ordenes.PNG)
+![Burguer.queen.ordenes](quick-orders/src/assets/ordenes.PNG)
 
 🌱 Administrador
 
-![Burguer.queen.administrador](src/assets/administrador.PNG)
+![Burguer.queen.administrador](quick-orders/src/assets/administrador.PNG)
 
 🌱 Cocinero
 
-![Burguer.queen.cocinero](src/assets/cocinero.PNG)
+![Burguer.queen.cocinero](quick-orders/src/assets/cocinero.PNG)
 
 ## 3. Historias de usuario
 
