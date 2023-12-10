@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { User } from "src/app/models/user.model";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatBasicComponent } from "src/app/ng-material/mat-basic/mat-basic.component";
+import { CommunicationService } from 'src/app/services/update.service';
 
 @Component({
   selector: 'app-users',
@@ -20,13 +21,17 @@ export class UsersComponent  implements OnInit {
     private usersService: UsersService,
     private router: Router,
     public dialog: MatDialog,
+    private communicationService: CommunicationService
 
     ){
         this.data = [];     
     }
 
     ngOnInit(){
-      this.getAllusers()
+      this.getAllusers();
+      this.communicationService.usersChanged.subscribe((data)=>{
+        this.data = data;
+      })
   }
 
   getAllusers() {

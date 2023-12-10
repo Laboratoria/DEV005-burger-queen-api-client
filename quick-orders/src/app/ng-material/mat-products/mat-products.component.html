@@ -1,28 +1,43 @@
-<div class="component">
-    <form [formGroup] ="myform" (ngSubmit)= "Saveproduct()" id="formModal">
-        <h1 mat-dialog-title>{{data.title}}</h1>
-        <div mat-dialog-content class="mat-typography">
-            <mat-form-field class="nameModal" >
-                <mat-label>Nombre</mat-label>
-                <input formControlName="name" matInput placeholder="Un nombre">
-            </mat-form-field>
-            <mat-form-field class="priceModal" >
-                <mat-label>Precio</mat-label>
-                <input formControlName="price" matInput  placeholder="Precio">
-            </mat-form-field>
-            <mat-form-field class="imgModal" >
-                <mat-label>Imagen</mat-label>
-                <input formControlName="image" matInput placeholder="Coloca una imagen">
-            </mat-form-field>
-            <mat-form-field class="typeModal" >
-                <mat-label>Tipo</mat-label>
-                <input formControlName="type" matInput placeholder="Especifica el rol">
-            </mat-form-field>
-            <div mat-dialog-actions align="end" class="close">
-                <button (click) ="Closepopup()">Cancelar</button>
-                <button >Guardar</button>
-              </div>
-          </div>
-          </form>
-</div>
+<div class="modal-fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="myform" (ngSubmit)="Saveproduct()" id="formModal">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" >{{data.title}}</h1>
+                    <div mat-dialog-content class="mat-typography">
 
+                        <div class="mb-3">
+                            <label class="col-form-label">Nombre</label>
+                            <input type="text" class="addinput" formControlName="name" matInput placeholder="Un nombre">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="col-form-label">Precio</label>
+                            <input type="number" class="addinput" formControlName="price" matInput placeholder="Precio">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="col-form-label">Imagen</label>
+                            <input type="text" class="addinput" formControlName="image" matInput
+                                placeholder="Coloca una imagen">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="col-form-label">Tipo</label>
+                            <input type="text" class="addinput" formControlName="type" matInput
+                                placeholder="Desayuno/Almuerzo">
+                        </div>
+
+                        <div align="end" class="modal-footer">
+                            <button type="button" class="btn btn-secondary" (click)="Closepopup()">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

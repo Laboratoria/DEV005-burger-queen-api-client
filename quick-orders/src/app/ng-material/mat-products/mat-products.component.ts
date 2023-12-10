@@ -1,14 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormBuilder, FormsModule, FormGroup, Validators } from "@angular/forms";
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { ProductsService } from 'src/app/services/products.service';
 import { Product } from 'src/app/models/products.model';
+import { CommunicationService } from 'src/app/services/update.service';
 
 @Component({
   selector: 'app-mat-products',
   templateUrl: './mat-products.component.html',
-  styleUrls: ['./mat-products.component.css']
+  styleUrls: ['./mat-products.component.scss']
 })
 export class MatProductsComponent {
 
@@ -21,6 +21,7 @@ export class MatProductsComponent {
     private Ref: MatDialogRef<MatProductsComponent>,
     private builder: FormBuilder,
     private getProduct: ProductsService,
+    private communicationService: CommunicationService
 
   ){  
     this.productToEdit = {} as Product;
@@ -72,14 +73,20 @@ export class MatProductsComponent {
     this.Ref.close();
   }
 
+
   Saveproduct() { 
     console.log(this.productToEdit.id, "usertoedit")
     if(this.productToEdit.id > 1) {
       this.getProduct.edit(this.productToEdit.id, this.myform.value.name, 
         this.myform.value.price, this.myform.value.image, this.myform.value.type).subscribe(res => {
-        console.log(res);
+          console.log(res);
         this.Closepopup();
+        /*this.communicationService.updateProducts(res);*/
       });
+      this.getProduct.getAllProducts().subscribe(profile => {
+        this.communicationService.updateProducts(profile)
+        console.log(profile)
+    });
     } else {
       this.getProduct.create(this.myform.value.name, 
         this.myform.value.price, this.myform.value.image, this.myform.value.type)

@@ -3,12 +3,11 @@ import { AuthService } from "src/app/services/auth.service";
 import { UsersService } from "src/app/services/users.service";
 import { Router } from "@angular/router";
 import { User } from "src/app/models/user.model";
-import { MatTableModule } from '@angular/material/table';
 import { ProductsService } from "src/app/services/products.service";
 import { Product } from "src/app/models/products.model";
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatBasicComponent } from "src/app/ng-material/mat-basic/mat-basic.component";
+import { MatDialog } from '@angular/material/dialog';
 import { MatProductsComponent } from "src/app/ng-material/mat-products/mat-products.component";
+import { CommunicationService } from 'src/app/services/update.service';
 
 @Component({
   selector: 'app-products',
@@ -26,12 +25,17 @@ export class ProductsComponent implements OnInit {
     private router: Router,
     private productsService: ProductsService,
     public dialog: MatDialog,
+    private communicationService: CommunicationService
+    
     ){
       this.products = [];  
   }
 
   ngOnInit(){
-    this.getAllproducts()
+    this.getAllproducts();
+    this.communicationService.productsChanged.subscribe((products) => {
+      this.products = products;
+    });
 }
 
 getAllproducts() {
@@ -39,8 +43,8 @@ this.productsService.getAllProducts().subscribe(profile => {
       this.products = profile
       console.log(this.products)
   })
+  
 }
-
 
 deleteThisProduct(id:number){
   console.log(id);

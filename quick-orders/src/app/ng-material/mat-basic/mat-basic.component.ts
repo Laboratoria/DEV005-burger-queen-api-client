@@ -1,17 +1,16 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormBuilder, FormsModule, FormGroup, Validators } from "@angular/forms";
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { UsersService } from 'src/app/services/users.service';
 import { User } from 'src/app/models/user.model';
-
+import { CommunicationService } from 'src/app/services/update.service';
 
 @Component({
   selector: 'app-mat-basic',
   templateUrl: './mat-basic.component.html',
   styleUrls: ['./mat-basic.component.scss']
 })
-export class MatBasicComponent implements OnInit {
+export class MatBasicComponent {
 
   myform: FormGroup;
   userToEdit: User; 
@@ -22,6 +21,7 @@ export class MatBasicComponent implements OnInit {
     private Ref: MatDialogRef<MatBasicComponent>,
     private builder: FormBuilder,
     private getUser: UsersService,
+    private communicationService: CommunicationService
 
   ){  
     this.userToEdit = {} as User;
@@ -73,10 +73,15 @@ export class MatBasicComponent implements OnInit {
   Saveuser() { 
     console.log(this.userToEdit.id, "usertoedit")
     if(this.userToEdit.id > 1) {
-      this.getUser.edit(this.userToEdit.id, this.userToEdit.email, this.userToEdit.password, this.userToEdit.role).subscribe(res => {
-        console.log(res);
+      this.getUser.edit(this.userToEdit.id, this.myform.value.correo, this.myform.value.contraseña, this.myform.value.rol).subscribe(res => {
+        console.log(res, 'resultado');
         this.Closepopup();
       });
+      this.getUser.allUsers().subscribe(profile => {
+        this.communicationService.updateUsers(profile)
+        console.log(profile);
+      });
+
     } else {
       this.getUser.create(this.myform.value.correo, this.myform.value.contraseña, this.myform.value.rol)
       .subscribe(res=>{
