@@ -79,7 +79,11 @@ export class AdminComponent implements OnInit {
         this.openDialogProduct(1, 'Add Product');
       }
 
+      logout() {
+        this.router.navigate(['/login']);
+      }
 }
+/*this.router.navigateByUrl('/admin');*/
 
 
 

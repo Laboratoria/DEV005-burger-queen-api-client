@@ -88,7 +88,9 @@ body, html {
     position: relative;
     display: flex;
     height: 100px;
-    margin-right: auto;    
+    width: 100%;
+    margin-right: auto;
+    padding-left: 5%;  
 }
 
 .vista {
@@ -198,6 +200,20 @@ app-modal{
     background-color: #F4F4F4;
 }
 
+.nameAdmin {
+
+    width: 85%;
+    display: flex;
+}
+
+.closeButton {
+    width: 15%;
+    display: flex;
+}
+
+button {
+    padding: 7px;
+}
 
 
 

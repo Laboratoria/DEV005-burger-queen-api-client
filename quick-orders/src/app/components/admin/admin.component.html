@@ -8,8 +8,14 @@
     <body>
         <div class="allBody">
             <nav class="navbar">
-                <img class="userLogin" src="./assets/Ellipse5.png" alt="user logo">
-                <p class="nombre">Administrador</p>
+                
+                    <div class="nameAdmin">
+                        <p class="nombre">Administrador</p>
+                    </div>
+                    <div class="closeButton">
+                        <button type="button" class="btn btn-dark" (click)="logout()">Cerrar sesión</button>
+                    </div>
+                    
             </nav>
         <div class="vista">
             <button class="user" (click) ="activateView('view1')"> Usuario </button>
