@@ -42,7 +42,7 @@ $base-color-modal: rgba(244, 244, 244, 0.5);
     width: 80%;
     height: 90%;
     background-color: $base-color-one;
-    align-items: end;
+    align-items: flex-end;
 }
 
 .modal-body {
