@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Barlow:ital,wght@0,300;0,700;1,400;1,500&family=Oxygen:wght@300;400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Barlow:ital,wght@0,300;0,700;1,400;1,500&display=swap');
+
+$font-stack: 'Agbalumo';
+$base-color-one: #ffffff;
+$base-color-two: #000000;
+$base-color-tv2: #19191a;
+$base-color-tv3: #101217;
+$base-color-three: #db3210; 
+
+
+.productTable {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    align-items: center;
+}
+
+
+tr {
+    align-items: center;
+    background-color: $base-color-one;
+}
+
+td {
+    word-wrap: break-word;
+    padding: 10px;
+    
+    align-items: center;
+}

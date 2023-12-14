@@ -1,0 +1,13 @@
+<mat-card  class="card-class" *ngFor ="let breakfast of menuBreakfast">
+    <mat-card-content class="contentCard">
+        <div class="contentSecondCard">
+            <p class="cardText"> {{breakfast.name}} </p>
+            <p class="cardPrice"> {{breakfast.price}} </p>
+            <mat-card-actions class="action">
+                <button class="cardButton" (click) ="agregarCard(breakfast.id)">
+                    <fa-icon class="icoon" [icon] ="faPlus" style="font-size: 30px;"></fa-icon>
+                </button>
+            </mat-card-actions>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,48 @@
+
+<div class="pedido">
+<div class="inputsHead">
+    <div class="input-group mb-3" id="headNombre">
+        <span class="input-group-text" id="basic-addon1">Nombre</span>
+        <input type="text" class="form-control" placeholder="nombre" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3" id="headMesa">
+        <span class="input-group-text" id="basic-addon1">N° de mesa</span>
+        <input type="number" class="form-control" placeholder="mesa" aria-label="Username" aria-describedby="basic-addon1">
+        
+    </div>
+</div>
+<table class="orderTable">
+    <thead>
+        <tr class="headTitle">
+            <th class="plus"></th>
+            <th class="number"> Cantidad </th>
+            <th class="less"></th>
+            <th class="description"> Descripción </th>
+            <th class="subtotal"> Sub total </th>
+            <th class="actions"> </th>
+        </tr> 
+    </thead>
+    <tbody class="tableProducts">
+        <tr class="lineInfo">
+            <td class="plus"> 
+            <button class="buttonAdd">
+                <fa-icon class="icoonPlus" [icon] ="faPlus" style="font-size: 20px;"></fa-icon>
+            </button>
+            </td>
+            <td class="number"> <p>2</p> </td>
+            <td class="less"> 
+                <button class="buttonLess">
+                    <fa-icon class="icoonMinus" [icon] ="faMinus" style="font-size: 20px;"></fa-icon>
+                </button>
+            </td>
+            <td class="description"> Sandwich </td>
+            <td class="subtotal"> 500 </td>
+            <td class="actions"> 
+                <button class="delete">
+                    <fa-icon class="icoonDelete" [icon] ="faTrash" style="font-size: 20px;"></fa-icon>
+                </button>
+            </td>
+        </tr> 
+    </tbody>
+    </table>
+</div>

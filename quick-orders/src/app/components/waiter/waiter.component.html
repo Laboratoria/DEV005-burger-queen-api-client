@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Administrador</title>
+    </head>
+    <body>
+        <div class="allBody">
+            <nav class="navbar">
+                <div class="nameWaiter">
+                    <p class="nombre">Waiter</p>
+                </div>
+                <div class="closeButton">
+                    <button type="button" class="btn btn-dark" (click)="logout()">Cerrar sesión</button>
+                </div>
+                
+            </nav>
+        
+            <div class="encabezado">
+               
+                <div class="cardsWaiter">
+
+                    <div class="twodivs">
+                        <div class="divDesayuno">
+                            <div class="vista">
+                                <button class="user" > Desayuno </button>
+                                <button class="menu" > Almuerzo </button>
+                            </div>
+                            <app-desayuno class="appBreakfast"></app-desayuno>
+                        </div>
+
+                        <div class="descriptionProduct">
+                            <app-place-order class="appOrder"></app-place-order>
+                            <div class="orderSummarize">
+                                <p class="totalAll">Total</p>
+                                <p class="numberAll">Monto Total</p>
+                                <button class="deleteAll">
+                                    <fa-icon class="icoon" [icon] ="faTrash" style="font-size: 20px;"></fa-icon>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <button class="addProduct">Generar orden</button>
+            </div>
+    </div>
+    </body>
+</html>
